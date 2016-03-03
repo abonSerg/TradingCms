@@ -1,4 +1,4 @@
 ﻿ALTER TABLE [dbo].[ProductsImage]
-	ADD CONSTRAINT [FK_ProductsImage_ToProduct]
+	ADD CONSTRAINT [FK_ProductsImageToProduct]
 	FOREIGN KEY (ProductId)
 	REFERENCES [Product] (Id)
