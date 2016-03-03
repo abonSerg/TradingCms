@@ -11,7 +11,7 @@ namespace TradingCms.Tests.Controllers
         [TestMethod]
         public void Index()
         {
-            //./ Arrange
+            // Arrange
             HomeController controller = new HomeController();
 
             // Act
