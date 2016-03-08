@@ -14,5 +14,17 @@ namespace TradingCms.Controllers
 
             return View();
         }
+
+        public ActionResult Categories()
+        {
+            ViewBag.Title = "Categories";
+            return View();
+        }
+
+        public ActionResult Product()
+        {
+            ViewBag.Title = "Product";
+            return View();
+        }
     }
 }
