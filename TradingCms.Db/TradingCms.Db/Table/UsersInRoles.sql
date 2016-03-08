@@ -2,7 +2,7 @@
 (
 	[User_Id] NvarCHAR(128) NOT NUll, 
     [Role_Id] NvarCHAR(128)NOT NUll,
-	[Category_Id] INT NOT NULL, 
+	
 	
     
 )
