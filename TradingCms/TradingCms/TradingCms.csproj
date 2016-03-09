@@ -289,6 +289,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Categories.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
+    <Content Include="Views\Home\Subcategories.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
