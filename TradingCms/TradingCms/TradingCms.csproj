@@ -295,9 +295,9 @@
     <Content Include="Views\Home\Subcategories.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TradingCms.Data.SqlServer\TradingCms.Data.SqlServer.csproj">
+    <ProjectReference Include="..\TradingCms.Data.Access\TradingCms.Data.Access.csproj">
       <Project>{6849b044-753c-45b2-8afb-c580fdef977e}</Project>
-      <Name>TradingCms.Data.SqlServer</Name>
+      <Name>TradingCms.Data.Access</Name>
     </ProjectReference>
     <ProjectReference Include="..\TradingCms.Data\TradingCms.Data.csproj">
       <Project>{2722fee1-ae3a-4f74-b029-d2854a422daf}</Project>

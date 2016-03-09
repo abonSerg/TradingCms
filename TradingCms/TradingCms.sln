@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradingCms.Tests", "Trading
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradingCms.Data", "TradingCms.Data\TradingCms.Data.csproj", "{2722FEE1-AE3A-4F74-B029-D2854A422DAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradingCms.Data.SqlServer", "TradingCms.Data.SqlServer\TradingCms.Data.SqlServer.csproj", "{6849B044-753C-45B2-8AFB-C580FDEF977E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradingCms.Data.Access", "TradingCms.Data.Access\TradingCms.Data.Access.csproj", "{6849B044-753C-45B2-8AFB-C580FDEF977E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
