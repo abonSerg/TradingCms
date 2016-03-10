@@ -170,6 +170,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\FeedBackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -271,7 +272,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\script.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -291,7 +294,16 @@
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Home\Subcategories.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\TradingCms.Data.Access\TradingCms.Data.Access.csproj">
+      <Project>{6849b044-753c-45b2-8afb-c580fdef977e}</Project>
+      <Name>TradingCms.Data.Access</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradingCms.Data\TradingCms.Data.csproj">
+      <Project>{2722fee1-ae3a-4f74-b029-d2854a422daf}</Project>
+      <Name>TradingCms.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
