@@ -1,7 +1,6 @@
 ﻿using FluentNHibernate.Mapping;
-using TradingCms.Data.Entities;
 
-namespace TradingCms.Data.SqlServer.Mapping
+namespace TradingCms.Data.SqlServer
 {
     public class FeedBackMap : ClassMap<FeedBack>
     {

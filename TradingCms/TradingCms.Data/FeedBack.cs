@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TradingCms.Data.Entities
+namespace TradingCms.Data
 {
     public class FeedBack
     {
