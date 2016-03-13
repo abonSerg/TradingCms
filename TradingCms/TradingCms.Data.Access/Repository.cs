@@ -12,11 +12,10 @@ namespace TradingCms.Data
     {
         private readonly ISession session;
 
-        public Repository()
-     {
-          // you may want to use dependency injection instead
-          session = NHibernateHelper.GetCurrentSession();
-      }
+        public Repository(ISession _session)
+        {
+            session = _session;
+        }
 
     public IQueryable<T> GetAll()
         {

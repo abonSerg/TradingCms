@@ -26,22 +26,6 @@ namespace TradingCms.Data.Access
                 
         }
 
-        public static ISession GetCurrentSession()
-        {
-            if (!CurrentSessionContext.HasBind(SessionFactory))
-                CurrentSessionContext.Bind(SessionFactory.OpenSession());
-
-            return SessionFactory.GetCurrentSession();
-        }
-
-        public static void DisposeCurrentSession()
-        {
-            ISession currentSession = CurrentSessionContext.Unbind(SessionFactory);
-
-            currentSession.Close();
-            currentSession.Dispose();
-        }
-
         //constring
         public static ISessionFactory CreateSessionFactory()
         {
@@ -53,7 +37,5 @@ namespace TradingCms.Data.Access
             SessionFactory = factory;
             return factory;
         }
-
-      
     }
 }

@@ -5,40 +5,33 @@ using NHibernate;
 using NHibernate.Linq;
 using TradingCms.Data;
 using TradingCms.Data.Access;
+using System.Web.Mvc;
 
 namespace TradingCms.Controllers
 {
     public class FeedBackController : ApiController
     {
-        private readonly ISession _nhSession; // no need already
+        private IRepository<FeedBack> FeedbackRepository;
 
         public FeedBackController(ISession nhSession) //default ctor
         {
-            _nhSession = nhSession;
-            //FeedbackRepository = new Repository<FeedBack>();
+            FeedbackRepository = new Repository<FeedBack>(nhSession);
         }
 
         // GET api/FeedBack
         public FeedBack Get(int id)
         {
-            var res = _nhSession.Get<FeedBack>(id);
-            return res;
+            //var res = _nhSession.Get<FeedBack>(id);
+            //return res;
+            return null;
         }
 
         public IEnumerable<FeedBack> Get()
         {
-            return _nhSession.Query<FeedBack>().ToList();
+            //return _nhSession.Query<FeedBack>().ToList();
+            return null;
         }
-
-
-
-
-
-        //example. need to be deleted
-        private IRepository<FeedBack> FeedbackRepository;
-       
-
-        [HttpGet]
+  
         public FeedBack GetFeedBackByRate(int rate)
         {
            var feedBack = FeedbackRepository.GetFeedBackByRate(rate); 

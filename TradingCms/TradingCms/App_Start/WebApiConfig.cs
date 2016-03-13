@@ -5,6 +5,7 @@ using Autofac;
 using Autofac.Integration.WebApi;
 using NHibernate;
 using TradingCms.Data.Access;
+using TradingCms.Data;
 
 namespace TradingCms
 {
@@ -36,9 +37,7 @@ namespace TradingCms
             // Register the Web API controllers.
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
-            // Register ISessionFactory as Singleton 
-            NHibernateHelper.CreateSessionFactory(); // needs refactoring...
-            //builder.Register(x => NHibernateHelper.CreateSessionFactory());
+            builder.Register(x => NHibernateHelper.CreateSessionFactory());
             // Register ISession as instance per web request
             builder.Register(x => x.Resolve<ISessionFactory>().OpenSession()).InstancePerRequest();
 

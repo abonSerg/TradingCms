@@ -53,11 +53,10 @@
     <Compile Include="IRepository.cs" />
     <Compile Include="NHibernateHelper.cs" />
     <Compile Include="Repository.cs" />
-    <Compile Include="SessionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <Content Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
