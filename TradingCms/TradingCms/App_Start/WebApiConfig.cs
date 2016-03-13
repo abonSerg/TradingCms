@@ -4,7 +4,7 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
 using NHibernate;
-using TradingCms.Data.SqlServer;
+using TradingCms.Data.Access;
 
 namespace TradingCms
 {
@@ -37,7 +37,8 @@ namespace TradingCms
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             // Register ISessionFactory as Singleton 
-            builder.Register(x => NHibernateConfigurator.InitializeSessionFactory("defaultConnectionString")).SingleInstance();
+            NHibernateHelper.CreateSessionFactory(); // needs refactoring...
+            //builder.Register(x => NHibernateHelper.CreateSessionFactory());
             // Register ISession as instance per web request
             builder.Register(x => x.Resolve<ISessionFactory>().OpenSession()).InstancePerRequest();
 

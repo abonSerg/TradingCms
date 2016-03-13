@@ -4,17 +4,18 @@ using System.Web.Http;
 using NHibernate;
 using NHibernate.Linq;
 using TradingCms.Data;
-using TradingCms.Data.SqlServer;
+using TradingCms.Data.Access;
 
 namespace TradingCms.Controllers
 {
     public class FeedBackController : ApiController
     {
-        private readonly ISession _nhSession;
+        private readonly ISession _nhSession; // no need already
 
-        public FeedBackController(ISession nhSession)
+        public FeedBackController(ISession nhSession) //default ctor
         {
             _nhSession = nhSession;
+            //FeedbackRepository = new Repository<FeedBack>();
         }
 
         // GET api/FeedBack
@@ -24,23 +25,26 @@ namespace TradingCms.Controllers
             return res;
         }
 
-        [HttpGet]
-        public IEnumerable<FeedBack> GetFeedBackByName(string param1) 
-        {
-            int rate;
-
-             if (int.TryParse(param1,out rate))
-             {
-                 var feedBacks = FeedBackProvider.Instance.GetFeedBacksByRate(_nhSession, rate);  // Дергаем методы с провайдера
-
-                 return feedBacks;
-             }
-             return null;
-        }
-
         public IEnumerable<FeedBack> Get()
         {
             return _nhSession.Query<FeedBack>().ToList();
+        }
+
+
+
+
+
+        //example. need to be deleted
+        private IRepository<FeedBack> FeedbackRepository;
+       
+
+        [HttpGet]
+        public FeedBack GetFeedBackByRate(int rate)
+        {
+           var feedBack = FeedbackRepository.GetFeedBackByRate(rate); 
+
+           return feedBack;
+           
         }
     }
 }

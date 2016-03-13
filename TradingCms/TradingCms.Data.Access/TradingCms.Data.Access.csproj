@@ -7,8 +7,8 @@
     <ProjectGuid>{6849B044-753C-45B2-8AFB-C580FDEF977E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TradingCms.Data.SqlServer</RootNamespace>
-    <AssemblyName>TradingCms.Data.SqlServer</AssemblyName>
+    <RootNamespace>TradingCms.Data.Access</RootNamespace>
+    <AssemblyName>TradingCms.Data.Access</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -49,12 +49,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FeedBackMap.cs" />
-    <Compile Include="FeedBackProvider.cs" />
-    <Compile Include="NHibernateConfigurator.cs" />
+    <Compile Include="FeedBackRepositoryExtension.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="NHibernateHelper.cs" />
+    <Compile Include="Repository.cs" />
+    <Compile Include="SessionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepositoryProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
