@@ -49,8 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FeedBackMap.cs" />
+    <Compile Include="FeedBackProvider.cs" />
     <Compile Include="NHibernateConfigurator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

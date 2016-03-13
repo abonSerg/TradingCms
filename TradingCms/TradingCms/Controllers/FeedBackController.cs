@@ -4,6 +4,7 @@ using System.Web.Http;
 using NHibernate;
 using NHibernate.Linq;
 using TradingCms.Data;
+using TradingCms.Data.SqlServer;
 
 namespace TradingCms.Controllers
 {
@@ -21,6 +22,20 @@ namespace TradingCms.Controllers
         {
             var res = _nhSession.Get<FeedBack>(id);
             return res;
+        }
+
+        [HttpGet]
+        public IEnumerable<FeedBack> GetFeedBackByName(string param1) 
+        {
+            int rate;
+
+             if (int.TryParse(param1,out rate))
+             {
+                 var feedBacks = FeedBackProvider.Instance.GetFeedBacksByRate(_nhSession, rate);  // Дергаем методы с провайдера
+
+                 return feedBacks;
+             }
+             return null;
         }
 
         public IEnumerable<FeedBack> Get()
