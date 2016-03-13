@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[FeedBacks]
 (
-	[Id] INT NOT NULL,
+	[Id] INT IDENTITY(1,1) NOT NULL,
 	[ReplyFeedBackId] INT NULL,
 	[CreatorId] NVARCHAR (128) NOT NULL,
 	[CreateDate] DATETIME NOT NULL, 
