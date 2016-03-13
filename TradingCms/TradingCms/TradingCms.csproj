@@ -297,6 +297,7 @@
     <Content Include="Views\Home\Categories.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Home\Subcategories.cshtml" />
+    <Content Include="Views\Home\Registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TradingCms.Data.Access\TradingCms.Data.Access.csproj">
