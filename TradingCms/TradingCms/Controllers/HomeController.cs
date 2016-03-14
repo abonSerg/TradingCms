@@ -32,5 +32,11 @@ namespace TradingCms.Controllers
             ViewBag.Title = "Subcategories";
             return View();
         }
+
+        public ActionResult Registration()
+        {
+            ViewBag.Title = "Registration";
+            return View();
+        }
     }
 }
