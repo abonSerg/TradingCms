@@ -8,40 +8,72 @@ using TradingCms.Data.Access;
 
 namespace TradingCms.Data
 {
-    public class Repository<T> : IRepository<T> where T:IEntity
+    public class Repository<T> : IRepository<T> where T:class 
     {
-        private readonly ISession session;
+        public ISession Session { get; set; }
 
-        public Repository(ISession _session)
+        public bool Add(T entity)
         {
-            session = _session;
+            Session.Save(entity);
+            return true;
         }
 
-    public IQueryable<T> GetAll()
+        public bool Add(IEnumerable<T> entities)
         {
-            return session.Query<T>();
-        }
-
-        public IQueryable<T> Get(Expression<Func<T, bool>> predicate)
-        {
-            return GetAll().Where(predicate);
-        }
-
-        public IEnumerable<T> SaveOrUpdateAll(params T[] entities)
-        {
-            foreach (var entity in entities)
+            foreach (T entity in entities)
             {
-                session.SaveOrUpdate(entity);
+                Session.Save(entity);
             }
-
-            return entities;
+            return true;
         }
 
-        public T SaveOrUpdate(T entity)
+        public bool Update(T entity)
         {
-            session.SaveOrUpdate(entity);
+            Session.Save(entity);
+            return true;
+        }
 
-            return entity;
+        public bool Delete(T entity)
+        {
+            Session.Delete(entity);
+            return true;
+        }
+
+        public bool Delete(IEnumerable<T> entities)
+        {
+            foreach (T entity in entities)
+            {
+                Session.Delete(entity);
+            }
+            return true;
+        }
+
+        public IQueryable<T> Items
+        {
+            get
+            {
+                return Session.Linq<T>();
+            }
+        }
+
+        public T Find(object id)
+        {
+            return Session.Get<T>(id);
+        }
+
+        public T FindBy(Expression<Func<T, bool>> expression)
+        {
+            return FilterBy(expression).FirstOrDefault();
+        }
+
+        public IQueryable<T> FilterBy(Expression<Func<T, bool>> expression)
+        {
+            return Items.Where(expression).AsQueryable();
+        }
+
+        public void Flush()
+        {
+            Session.Flush();
         }
     }
 

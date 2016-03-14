@@ -5,11 +5,17 @@ using System.Linq.Expressions;
 
 namespace TradingCms.Data.Access
 {
-    public interface IRepository<T> where T : IEntity
+    public interface IRepository<IEntity> where IEntity : class
     {
-        IQueryable<T> GetAll();
-        IQueryable<T> Get(Expression<Func<T, bool>> predicate);
-        IEnumerable<T> SaveOrUpdateAll(params T[] entities);
-        T SaveOrUpdate(T entity);
+        bool Add(IEntity entity);
+        bool Add(IEnumerable<IEntity> entities);
+        bool Update(IEntity entity);
+        bool Delete(IEntity entity);
+        bool Delete(IEnumerable<IEntity> entities);
+        IQueryable<IEntity> Items { get; }
+        IEntity Find(object id);
+        IEntity FindBy(Expression<Func<IEntity, bool>> expression);
+        IQueryable<IEntity> FilterBy(Expression<Func<IEntity, bool>> expression);
+        void Flush();
     }
 }

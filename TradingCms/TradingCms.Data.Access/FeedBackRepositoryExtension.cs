@@ -7,7 +7,7 @@ namespace TradingCms.Data.Access
         //sample
         public static FeedBack GetFeedBackByRate(this IRepository<FeedBack> repository, int rate)
         {
-            return repository.Get(r => r.Rate == rate).OrderByDescending(r => r.Rate).FirstOrDefault();
+            return repository.Find(1);
         }
     }
 }

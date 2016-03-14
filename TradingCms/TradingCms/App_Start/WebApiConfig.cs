@@ -1,7 +1,11 @@
-﻿using System.Net.Http.Headers;
+﻿using System.Linq;
+using System.Net.Http.Headers;
 using System.Reflection;
+using System.Web.Compilation;
 using System.Web.Http;
+using System.Web.Mvc;
 using Autofac;
+using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using NHibernate;
 using TradingCms.Data.Access;
@@ -33,22 +37,27 @@ namespace TradingCms
         {
             // Create the container builder.
             var builder = new ContainerBuilder();
+            
+            // Register dependencies in controllers
+            builder.RegisterControllers(Assembly.GetExecutingAssembly());
 
             // Register the Web API controllers.
-            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly()).PropertiesAutowired();
 
-            builder.Register(x => NHibernateHelper.CreateSessionFactory());
+
+            var nHelper = new NHibernateHelper("defaultConnectionString");
+            builder.Register(x => nHelper.CreateSessionFactory()).SingleInstance();
+            
             // Register ISession as instance per web request
+            //builder.Register(x => nHelper).SingleInstance(); //NHibernateHelper
             builder.Register(x => x.Resolve<ISessionFactory>().OpenSession()).InstancePerRequest();
-
+            
+             builder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope().PropertiesAutowired();
             // Build the container.
             var container = builder.Build();
 
-            // Create the depenedency resolver.
-            var resolver = new AutofacWebApiDependencyResolver(container);
-
-            // Configure Web API with the dependency resolver.
-            config.DependencyResolver = resolver;
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
     }
 }
