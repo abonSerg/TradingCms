@@ -2,7 +2,7 @@
 
 namespace TradingCms.Data
 {
-    public class FeedBack
+    public class FeedBack : IEntity
     {
         public virtual int Id { get; set; }
         public virtual bool IsActive { get; set; }
