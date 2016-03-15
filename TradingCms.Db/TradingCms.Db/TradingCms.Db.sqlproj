@@ -76,5 +76,7 @@
     <Build Include="Tables\Keys\FK_FeedBacks_ReplyFeedBackId.fkey.sql" />
     <Build Include="Tables\Keys\PK_FeedBacks_Id.pkey.sql" />
     <Build Include="Tables\Keys\FK_FeedBacks_ProductId.fkey.sql" />
+    <Build Include="Tables\Products_tr.table.sql" />
+    <Build Include="Tables\Keys\FK_Ptoducts_tr_Id.fkey.sql" />
   </ItemGroup>
 </Project>

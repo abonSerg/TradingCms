@@ -2,6 +2,6 @@
 (
 	[Id] INT IDENTITY(1,1) NOT NULL, 
     [TopId] INT NULL, 
-    [Name] VARCHAR(32) NOT NULL, 
-    [Description] VARCHAR(128) NULL
+    [Name] NVARCHAR(32) NOT NULL, 
+    [Description] NVARCHAR(128) NULL
 )
