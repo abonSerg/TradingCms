@@ -21,6 +21,7 @@ namespace TradingCms.Data.Access
         .Database(MsSqlConfiguration.MsSql2008.ConnectionString(c => c.FromConnectionStringWithKey(_connectionString)))
         .CurrentSessionContext("web")
         .Mappings(m => m.FluentMappings.AddFromAssemblyOf<FeedBackMap>())
+        .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ProductMap>())
         .BuildSessionFactory();
             return factory;
         }
