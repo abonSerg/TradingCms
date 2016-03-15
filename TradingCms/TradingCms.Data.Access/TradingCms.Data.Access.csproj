@@ -61,7 +61,6 @@
     <Compile Include="FeedBackRepositoryExtension.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="NHibernateHelper.cs" />
-    <Compile Include="ProductMap.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
