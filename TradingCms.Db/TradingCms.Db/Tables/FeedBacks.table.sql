@@ -7,7 +7,7 @@
     [IsActive] BIT NOT NULL DEFAULT 1, 
     [IsModerated] BIT NOT NULL DEFAULT 0, 
 	[ModerateDate] DATETIME NULL, 
-    [Rate] SMALLINT CHECK ( Rate in (1, 2, 3, 4, 5) ) NULL, 
+    [Rate] SMALLINT NULL, 
     [Advantages] NVARCHAR(1024) NULL, 
     [Disadvantages] NVARCHAR(1024) NULL, 
     [Text] NVARCHAR(MAX) NULL, 
