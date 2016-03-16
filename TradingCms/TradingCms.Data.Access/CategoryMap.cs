@@ -8,7 +8,7 @@ namespace TradingCms.Data.Access
         {
             Id(x => x.Id);
             Map(x => x.TopId).Nullable();
-            HasMany(x => x.CategoriesTranslations).Inverse();
+            HasMany(x => x.CategoryTranslations).Inverse();
 
             Table("Categories");
         }
