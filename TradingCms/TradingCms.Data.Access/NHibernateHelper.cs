@@ -8,7 +8,6 @@ namespace TradingCms.Data.Access
     public class NHibernateHelper
     {
         private readonly string _connectionString;
-        
         public NHibernateHelper(string connectionString)
         {
             _connectionString = connectionString;
@@ -22,6 +21,8 @@ namespace TradingCms.Data.Access
         .CurrentSessionContext("web")
         .Mappings(m => m.FluentMappings.AddFromAssemblyOf<FeedBackMap>())
         .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ProductMap>())
+        .Mappings(m => m.FluentMappings.AddFromAssemblyOf<CategoryMap>())
+        .Mappings(m => m.FluentMappings.AddFromAssemblyOf<CategoryTranslationMap>())
         .BuildSessionFactory();
             return factory;
         }

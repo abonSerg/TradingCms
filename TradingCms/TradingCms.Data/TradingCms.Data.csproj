@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs" />
+    <Compile Include="Category_tr.cs" />
     <Compile Include="FeedBack.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="Product.cs" />
