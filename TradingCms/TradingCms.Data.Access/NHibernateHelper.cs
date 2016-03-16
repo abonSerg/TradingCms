@@ -22,7 +22,7 @@ namespace TradingCms.Data.Access
         .Mappings(m => m.FluentMappings.AddFromAssemblyOf<FeedBackMap>())
         .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ProductMap>())
         .Mappings(m => m.FluentMappings.AddFromAssemblyOf<CategoryMap>())
-        .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Category_trMap>())
+        .Mappings(m => m.FluentMappings.AddFromAssemblyOf<CategoryTranslationMap>())
         .BuildSessionFactory();
             return factory;
         }

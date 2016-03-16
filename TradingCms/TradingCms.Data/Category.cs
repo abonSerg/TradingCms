@@ -8,14 +8,14 @@ namespace TradingCms.Data
     {
         public virtual int Id { get; set; }
         public virtual int TopId { get; set; }
-        private IList<Category_tr> _categories_tr;
-        public virtual IList<Category_tr> Categories_tr
+        private IList<CategoryTranslation> _categoryTranslations;
+        public virtual IList<CategoryTranslation> CategoriesTranslations
         {
             get
             {
-                return _categories_tr ?? (_categories_tr = new List<Category_tr>());
+                return _categoryTranslations ?? (_categoryTranslations = new List<CategoryTranslation>());
             }
-            set { _categories_tr = value; }
+            set { _categoryTranslations = value; }
         }
     }
 }

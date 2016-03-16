@@ -2,15 +2,17 @@
 
 namespace TradingCms.Data.Access
 {
-    public class Category_trMap : ClassMap<Category_tr>
+    public class CategoryTranslationMap : ClassMap<CategoryTranslation>
     {
-        public Category_trMap()
+        public CategoryTranslationMap()
         {
             Id(x => x.Id);
             Map(x => x.Name).Not.Nullable();
             Map(x => x.Description).Nullable();
             Map(x => x.Languagecode).Not.Nullable();
-            References(x => x.Category, "Categories_tr").Cascade.SaveUpdate();
+            References(x => x.Category, "Categories").Cascade.SaveUpdate();
+
+            Table("Categories_tr");
         }
     }
 }

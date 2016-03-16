@@ -2,7 +2,7 @@
 
 namespace TradingCms.Data
 {
-    public class Category_tr : IEntity
+    public class CategoryTranslation : IEntity
     {
         public virtual int Id { get; set; }
         public virtual string Languagecode { get; set; }
