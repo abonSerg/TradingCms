@@ -57,6 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryMap.cs" />
+    <Compile Include="Category_trMap.cs" />
     <Compile Include="FeedBackMap.cs" />
     <Compile Include="FeedBackRepositoryExtension.cs" />
     <Compile Include="IRepository.cs" />
