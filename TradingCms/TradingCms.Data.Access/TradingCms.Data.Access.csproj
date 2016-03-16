@@ -58,12 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryMap.cs" />
-    <Compile Include="Category_trMap.cs" />
+    <Compile Include="CategoryTranslationMap.cs" />
     <Compile Include="FeedBackMap.cs" />
     <Compile Include="FeedBackRepositoryExtension.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="NHibernateHelper.cs" />
     <Compile Include="ProductMap.cs" />
+    <Compile Include="ProductTranslationMap.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
