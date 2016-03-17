@@ -1,5 +1,7 @@
 ﻿using System.Linq;
+using System.Net;
 using System.Web.Mvc;
+using NHibernate.Exceptions;
 using TradingCms.Data;
 using TradingCms.Data.Access;
 
@@ -11,20 +13,124 @@ namespace TradingCms.Controllers
         // GET: Product
         public ActionResult Index()
         {
-            var query = ProductRepository.Items.ToList();
-            return View(query);
+            var model = ProductRepository.Items.ToList();
+            return View(model);
         }
 
-        public ActionResult Get(int id)
+        // GET: Product/Details/5
+        public ActionResult Details(int? id)
         {
-            if (id > 0)
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var product = ProductRepository.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
+        }
+
+        // GET: Product/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Product/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Product product)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    ProductRepository.Add(product);
+                    ProductRepository.Flush();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (DataException)
+            {
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+            }
+            return View(product);
+        }
+
+        // GET: Product/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var product = ProductRepository.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
+        }
+
+        // POST: Product/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Product product)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    ProductRepository.Update(product);
+                    ProductRepository.Flush();
+
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (DataException)
+            {
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+            }
+            return View(product);
+        }
+
+        // GET: Product/Delete/5
+        public ActionResult Delete(int? id, bool? saveChangesError = false)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ViewBag.ErrorMessage = "Delete failed. Try again, and if the problem persists see your system administrator.";
+            }
+            var product = ProductRepository.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product); 
+        }
+
+        // POST: Product/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id) 
+        {
+            try
             {
                 var product = ProductRepository.Find(id);
-                return View(product);
+                ProductRepository.Delete(product);
+                ProductRepository.Flush();
             }
-            return HttpNotFound();
+            catch (DataException)
+            {
+                return RedirectToAction("Delete", new { id = id, saveChangesError = true });
+            }
+            return RedirectToAction("Index");
         }
-
-
     }
 }
