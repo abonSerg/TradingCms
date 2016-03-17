@@ -39,7 +39,7 @@ namespace TradingCms
             var builder = new ContainerBuilder();
             
             // Register dependencies in controllers
-            builder.RegisterControllers(Assembly.GetExecutingAssembly());
+            builder.RegisterControllers(Assembly.GetExecutingAssembly()).PropertiesAutowired();
 
             // Register the Web API controllers.
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly()).PropertiesAutowired();
@@ -52,7 +52,7 @@ namespace TradingCms
             //builder.Register(x => nHelper).SingleInstance(); //NHibernateHelper
             builder.Register(x => x.Resolve<ISessionFactory>().OpenSession()).InstancePerRequest();
             
-             builder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope().PropertiesAutowired();
+            builder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope().PropertiesAutowired();
             // Build the container.
             var container = builder.Build();
 
