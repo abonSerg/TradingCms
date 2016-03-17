@@ -7,48 +7,49 @@ using TradingCms.Data.Access;
 
 namespace TradingCms.Controllers
 {
-    public class ProductController : Controller
+    public class CategoryController : Controller
     {
-        public IRepository<Product> ProductRepository { get; set; }
-        // GET: Product
+        public IRepository<Category> CategoryRepository { get; set; }
+
+        // GET: Category
         public ActionResult Index()
         {
-            var model = ProductRepository.Items.ToList();
+            var model = CategoryRepository.Items.ToList();
             return View(model);
         }
 
-        // GET: Product/Details/5
+        // GET: Category/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var product = ProductRepository.Find(id);
-            if (product == null)
+            var category = CategoryRepository.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(category);
         }
 
-        // GET: Product/Create
+        // GET: Category/Create
         //public ActionResult Create()
         //{
         //    return View();
         //}
 
-        // POST: Product/Create
+        // POST: Category/Create
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        //public ActionResult Create(Product product)
+        //public ActionResult Create(Category category)
         //{
         //    try
         //    {
         //        if (ModelState.IsValid)
         //        {
-        //            ProductRepository.Add(product);
-        //            ProductRepository.Flush();
+        //            CategoryRepository.Add(category);
+        //            CategoryRepository.Flush();
         //            return RedirectToAction("Index");
         //        }
         //    }
@@ -56,35 +57,35 @@ namespace TradingCms.Controllers
         //    {
         //        ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
         //    }
-        //    return View(product);
+        //    return View(category);
         //}
 
-        // GET: Product/Edit/5
+        // GET: Category/Edit/5
         //public ActionResult Edit(int? id)
         //{
         //    if (id == null)
         //    {
         //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         //    }
-        //    var product = ProductRepository.Find(id);
-        //    if (product == null)
+        //    var category = CategoryRepository.Find(id);
+        //    if (category == null)
         //    {
         //        return HttpNotFound();
         //    }
-        //    return View(product);
+        //    return View(category);
         //}
 
-        // POST: Product/Edit/5
+        // POST: Category/Edit/5
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(Product product)
+        //public ActionResult Edit(Category category)
         //{
         //    try
         //    {
         //        if (ModelState.IsValid)
         //        {
-        //            ProductRepository.Update(product);
-        //            ProductRepository.Flush();
+        //            CategoryRepository.Update(category);
+        //            CategoryRepository.Flush();
 
         //            return RedirectToAction("Index");
         //        }
@@ -93,10 +94,10 @@ namespace TradingCms.Controllers
         //    {
         //        ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
         //    }
-        //    return View(product);
+        //    return View(category);
         //}
 
-        // GET: Product/Delete/5
+        // GET: Category/Delete/5
         //public ActionResult Delete(int? id, bool? saveChangesError = false)
         //{
         //    if (id == null)
@@ -107,24 +108,24 @@ namespace TradingCms.Controllers
         //    {
         //        ViewBag.ErrorMessage = "Delete failed. Try again, and if the problem persists see your system administrator.";
         //    }
-        //    var product = ProductRepository.Find(id);
-        //    if (product == null)
+        //    var category = CategoryRepository.Find(id);
+        //    if (category == null)
         //    {
         //        return HttpNotFound();
         //    }
-        //    return View(product); 
+        //    return View(category);
         //}
 
-        // POST: Product/Delete/5
+        // POST: Category/Delete/5
         //[HttpPost, ActionName("Delete")]
         //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id) 
+        //public ActionResult DeleteConfirmed(int id)
         //{
         //    try
         //    {
-        //        var product = ProductRepository.Find(id);
-        //        ProductRepository.Delete(product);
-        //        ProductRepository.Flush();
+        //        var category = CategoryRepository.Find(id);
+        //        CategoryRepository.Delete(category);
+        //        CategoryRepository.Flush();
         //    }
         //    catch (DataException)
         //    {
