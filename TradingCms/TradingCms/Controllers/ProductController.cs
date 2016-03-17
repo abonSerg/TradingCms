@@ -1,23 +1,30 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
+﻿using System.Linq;
+using System.Web.Mvc;
 using TradingCms.Data;
 using TradingCms.Data.Access;
 
 namespace TradingCms.Controllers
 {
-    public class ProductController : ApiController
+    public class ProductController : Controller
     {
         public IRepository<Product> ProductRepository { get; set; }
-
-        // GET api/Product
-        public Product Get(int id)
+        // GET: Product
+        public ActionResult Index()
         {
-            return id > 0 ? ProductRepository.Find(id) : null;
+            var query = ProductRepository.Items.ToList();
+            return View(query);
         }
 
-        public IEnumerable<Product> Get()
+        public ActionResult Get(int id)
         {
-            return ProductRepository.Items;
+            if (id > 0)
+            {
+                var product = ProductRepository.Find(id);
+                return View(product);
+            }
+            return HttpNotFound();
         }
+
+
     }
 }
