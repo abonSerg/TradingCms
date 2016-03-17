@@ -1,101 +1,6 @@
-п»ї
-
----Р—Р°РїСѓСЃС‚РёС‚СЊ СЃРєСЂРёРїС‚ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ С‚РµСЃС‚РѕРІС‹С… РґР°РЅРЅС‹С…---
 
 
-CREATE TABLE [dbo].[Categories]
-(
-	[Id] INT IDENTITY(1,1) NOT NULL, 
-    [TopId] INT NULL
-)
-
-
-ALTER TABLE [dbo].[Categories]
-	ADD CONSTRAINT [PK_Categories_Id]
-	PRIMARY KEY (Id)
-
-ALTER TABLE [dbo].[Categories]
-	ADD CONSTRAINT [FK_Categories_TopId]
-	FOREIGN KEY (TopId)
-	REFERENCES [Categories] (Id)
-
-
-
-
-
-CREATE TABLE [dbo].[Categories_tr]
-(
-	[Id] INT NOT NULL,
-	[Languagecode] VARCHAR(2) NOT NULL,
-    [Name] NVARCHAR(32) NOT NULL, 
-    [Description] NVARCHAR(128) NULL
-)
-
-
-ALTER TABLE [dbo].[Categories_tr]
-	ADD CONSTRAINT [PK_Categories_tr_Id]
-	primary KEY ([Id])
-	
-
-
-ALTER TABLE [dbo].[Categories_tr]
-	ADD CONSTRAINT [Categories_tr_Id]
-	FOREIGN KEY ([Id])
-	REFERENCES [Categories] ([Id])
-
-
-
-
-
-
-
-	CREATE TABLE [dbo].[Products]
-
-(
-	[Id] INT IDENTITY(1,1) NOT NULL,
-	[CategoryId] INT NOT NULL, 
-    [Price] MONEY NOT NULL, 
-	[IsAvailable] BIT NOT NULL DEFAULT 1,
-    [CreateDate] DATETIME NOT NULL
-)
-CREATE TABLE [dbo].[Products_tr]
-(
-	[Id] INT NOT NULL,
-	[Languagecode] VARCHAR(2) NOT NULL,
-    [Name] NVARCHAR(256) NOT NULL,
-	[Description] NVARCHAR(MAX) NULL
-)
-CREATE TABLE [dbo].[ProductImages]
-(
-	[Id] INT IDENTITY(1,1) NOT NULL, 
-    [Path] VARCHAR(512) NOT NULL, 
-    [ProductId] INT NOT NULL
-)
-
-
-
-ALTER TABLE [dbo].[Products]
-	ADD CONSTRAINT [PK_Products_Id]
-	PRIMARY KEY (Id)
-ALTER TABLE [dbo].[ProductImages]
-	ADD CONSTRAINT [PK_ProductImages_Id]
-	PRIMARY KEY (Id)
-
-
-
-
-ALTER TABLE [dbo].[Products_tr]
-	ADD CONSTRAINT [Ptoducts_tr_Id]
-	FOREIGN KEY ([Id])
-	REFERENCES [Products] ([Id])
-ALTER TABLE [dbo].[Products]
-	ADD CONSTRAINT [FK_Products_CategoriesId]
-	FOREIGN KEY (CategoryId)
-	REFERENCES [Categories] (Id)	
-ALTER TABLE [dbo].[ProductImages]
-	ADD CONSTRAINT [FK_ProductImages_ProductId]
-	FOREIGN KEY (ProductId)
-	REFERENCES [Products] (Id)
+---Запустить скрипт для получения тестовых данных---
 
 
 
@@ -139,38 +44,38 @@ INSERT INTO [dbo].[Categories] ([Id], [TopId]) VALUES (1026, 3)
 SET IDENTITY_INSERT [dbo].[Categories] OFF
 
 
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1, N'Ru', N'РљРѕРјРїСЋС‚РµСЂРЅР°СЏ С‚РµС…РЅРёРєР°', N'Black')
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1, N'Ru', N'Компютерная техника', N'Black')
 INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2, N'Ru', N'????????', N'Black')
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (3, N'Ru', N'РџР»Р°РЅС€РµС‚С‹', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (4, N'Ru', N'Р­Р»РµРєС‚СЂРѕРЅРЅС‹Рµ РєРЅРёРіРё', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (5, N'Ru', N'РљРѕРјРїСЊСЋС‚РµСЂС‹', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (6, N'Ru', N'РџСЂРѕС†РµСЃСЃРѕСЂС‹', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (7, N'Ru', N'РђРЅС‚РёРІРёСЂСѓСЃС‹', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (8, N'Ru', N' РђРєСЃРµСЃСЃСѓР°СЂС‹ РґР»СЏ РџРљ ', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (9, N'Ru', N'РўРµР»РµС„РѕРЅС‹, MP3, GPS', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (10, N'Ru', N'РЎРјР°СЂС‚С„РѕРЅС‹', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (11, N'Ru', N' MP3-РїР»РµРµСЂС‹', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (12, N'Ru', N'Р—Р°СЂСЏРґРЅС‹Рµ СѓСЃС‚СЂРѕР№С‚СЃРІР° ', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (13, N'Ru', N'РљР°СЂС‚С‹ РїР°РјСЏС‚Рё', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (14, N'Ru', N'Р—Р°С‰РёС‚РЅС‹Рµ РїР»РµРЅРєРё', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (15, N'Ru', N'РњРѕР±РёР»СЊРЅР°СЏ СЃРІСЏР·СЊ Рё РёРЅС‚РµСЂРЅРµС‚', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (16, N'Ru', N'Р‘РµСЃРїСЂРѕРІРѕРґРЅР°СЏ  РіР°СЂРЅРёС‚СѓСЂР°', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (17, N'Ru', N'Р‘С‹С‚РѕРІР°СЏ С‚РµС…РЅРёРєР°', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (18, N'Ru', N'РҐРѕР»РѕРґРёР»СЊРЅРёРєРё', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (19, N'Ru', N'РџР»РёС‚С‹', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (20, N'Ru', N'РЎС‚РёСЂР°Р»СЊРЅС‹Рµ РјР°С€РёРЅС‹', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (21, N'Ru', N'Р’СЃС‚СЂР°РёРІР°РµРјС‹Рµ РјРёРєСЂРѕРІРѕР»РЅРѕРІС‹Рµ РїРµС‡Рё', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (22, N'Ru', N'РљРѕС„РµРІР°СЂРєРё', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (23, N'Ru', N'РџРѕСЃСѓРґРѕРјРѕРµС‡РЅС‹Рµ РјР°С€РёРЅС‹', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (24, N'Ru', N'РџС‹Р»РµСЃРѕСЃС‹', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (26, N'Ru', N'РЎРїРѕСЂС‚РёРІРЅС‹Рµ С‚РѕРІР°СЂС‹', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (27, N'Ru', N'Р‘РµРіРѕРІС‹Рµ РґРѕСЂРѕР¶РєРё', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (28, N'Ru', N'Р’РµР»РѕС‚СЂРµРЅР°Р¶РµСЂС‹', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (29, N'Ru', N'Р“Р°РЅС‚РµР»Рё, РґРёСЃРєРё', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1023, N'Ru', N'РђРєС‚РёРІРЅС‹Р№ РѕС‚РґС‹С… Рё С‚СѓСЂРёР·Рј', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1024, N'Ru', N'Р›РѕРґРєРё', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1025, N'Ru', N'Р‘РёРЅРѕРєР»Рё', NULL)
-INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1026, N'Ru', N'Р Р°С†РёРё', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (3, N'Ru', N'Планшеты', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (4, N'Ru', N'Электронные книги', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (5, N'Ru', N'Компьютеры', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (6, N'Ru', N'Процессоры', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (7, N'Ru', N'Антивирусы', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (8, N'Ru', N' Аксессуары для ПК ', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (9, N'Ru', N'Телефоны, MP3, GPS', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (10, N'Ru', N'Смартфоны', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (11, N'Ru', N' MP3-плееры', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (12, N'Ru', N'Зарядные устройтсва ', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (13, N'Ru', N'Карты памяти', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (14, N'Ru', N'Защитные пленки', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (15, N'Ru', N'Мобильная связь и интернет', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (16, N'Ru', N'Беспроводная  гарнитура', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (17, N'Ru', N'Бытовая техника', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (18, N'Ru', N'Холодильники', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (19, N'Ru', N'Плиты', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (20, N'Ru', N'Стиральные машины', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (21, N'Ru', N'Встраиваемые микроволновые печи', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (22, N'Ru', N'Кофеварки', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (23, N'Ru', N'Посудомоечные машины', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (24, N'Ru', N'Пылесосы', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (26, N'Ru', N'Спортивные товары', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (27, N'Ru', N'Беговые дорожки', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (28, N'Ru', N'Велотренажеры', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (29, N'Ru', N'Гантели, диски', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1023, N'Ru', N'Активный отдых и туризм', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1024, N'Ru', N'Лодки', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1025, N'Ru', N'Бинокли', NULL)
+INSERT INTO [dbo].[Categories_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1026, N'Ru', N'Рации', NULL)
 
 
 
@@ -472,591 +377,591 @@ SET IDENTITY_INSERT [dbo].[Products] OFF
 
 INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1, N'Ru', N'Lenovo IdeaPad 100-14 (80HH001XUA)', N'????? 14" (1366x768) HD LED, ????????? / Intel Celeron N2840 (2.16 ???) / RAM 2 ?? 
 					HDD 500 ?? / Intel HD Graphics / ??? ?? / LAN / Wi-Fi / ???-?????? / DOS / 1.9 ?? / ??????')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2, N'Ru', N'HP 255G4 (NOY69ES)', N'Р­РєСЂР°РЅ 15.6вЂќ (1366x768) HD LED, РјР°С‚РѕРІС‹Р№ / AMD Dual-Core E1-6015 (1.4 Р“Р“С†) / RAM 2 Р“Р‘ 
-					HDD 500 Р“Р‘ / AMD Radeon R2 / Р±РµР· РћР” / LAN / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / Linux / 2.15 РєРі / С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (4, N'Ru', N'Dell Inspiron 3551 (135C25NIW-22)', N'Р­РєСЂР°РЅ 15.6" (1366x768) HD WLED, РіР»СЏРЅС†РµРІС‹Р№ / Intel Celeron N2830 (2.16 Р“Р“С†) / RAM 2 Р“Р‘ 
-					HDD 500 Р“Р‘ / Intel HD Graphics / Р‘РµР· РћР” / Wi-Fi / Bluetooth 4.0 / РІРµР±-РєР°РјРµСЂР° / Windows 8.1 / 2.14 РєРі / С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (23, N'Ru', N'Samsung Galaxy Tab E 9.6" 3G White (SM-T561NZWASEK)', N'Р­РєСЂР°РЅ 9.6" (1280x800) РµРјРєРѕСЃС‚РЅС‹Р№ MultiTouch / T-Shark2 (1.3 Р“Р“С†) / RAM 1.5 Р“Р‘ 
-					8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / 3G / Wi-Fi 802.11a/b/g/n / Bluetooth 4.0 / РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 5 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ 2 РњРї 
-					GPS / Р“Р›РћРќРђРЎРЎ / Android 4.4 (KitKat) / 490 Рі / Р±РµР»С‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (24, N'Ru', N'Lenovo TAB 2 A7-10 7" 8GB WiFi Black (59434747)', N'Р­РєСЂР°РЅ 7" (1024С…600) IPS, РµРјРєРѕСЃС‚РЅС‹Р№ MultiTouch / MediaTek MT8127 (1.3 Р“Р“С†) / RAM 1 Р“Р‘ 
-					8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / Wi-Fi / Bluetooth 4.0 
-					С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР° 0.3 РњРї / A-GPS / Android 4.4 / 269 Рі / С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (25, N'Ru', N'Asus ZenPad 7.0 16GB White (Z370C-1B042A)', N'Р­РєСЂР°РЅ 7" IPS (1280x800) РµРјРєРѕСЃС‚РЅС‹Р№ MultiTouch / Intel Atom x3-C3200 / RAM 2 Р“Р‘ / 16 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD
-					Wi-Fi 802.11 b/g/n / Bluetooth 4.0 / РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 5 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ - 0.3 РњРї / GPS / Р“Р›РћРќРђРЎРЎ / РћРЎ Android 5.0 (Lollipop) / 272 Рі / Р±РµР»С‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (26, N'Ru', N'Samsung Galaxy Tab S2 9.7" 32GB Black (SM-T810NZKESEK)', N'Р­РєСЂР°РЅ 9.7" Super AMOLED (2048x1536) РµРјРєРѕСЃС‚РЅС‹Р№ MultiTouch / Samsung Exynos 5433 (1.9 Р“Р“С† + 1.3 Р“Р“С†) / RAM 3 Р“Р‘ 
-					32 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / 802.11 a/b/g/n/ac / Bluetooth 4.1 
-					РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 8 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ 2.1 РњРї / GPS / Р“Р›РћРќРђРЎРЎ / Android 5.0 (Lollipop) / 375 Рі / С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (27, N'Ru', N'Lenovo Tab 2 A7-30DC 7" 3G 8GB Black (59444592)', N'Р­РєСЂР°РЅ 7" (1024С…600) IPS, РµРјРєРѕСЃС‚РЅС‹Р№ MultiTouch / MediaTek MT8382M (1.3 Р“Р“С†) / RAM 1 Р“Р‘ 
-					8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / 3G / Wi-Fi / Bluetooth 4.0 
-					РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 2 РњРї + С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ 0.3 РњРї / GPS / Android 4.4 (KitKat) / 269 Рі / С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (28, N'Ru', N'Prestigio MultiPad 10.1 3G Black (PMT3341_3G)', N'Р­РєСЂР°РЅ 10.1" IPS (1280x800) РµРјРєРѕСЃС‚РЅС‹Р№ Multi-Touch / Intel Atom X3 C3230 (1.2 Р“Р“С†) / RAM 1 Р“Р‘ 
-					8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + РїРѕРґРґРµСЂР¶РєР° РєР°СЂС‚ РїР°РјСЏС‚Рё microSD / 3G / Wi-Fi / Bluetooth 
-					РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 2 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ - 0.3 РњРї / Android 5.1 (Lollipop) / 552 Рі / С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (29, N'Ru', N'Jeka JK-103 16GB 3G IPS', N'Р­РєСЂР°РЅ 10.1" IPS (1024С…600), РµРјРєРѕСЃС‚РЅС‹Р№, MultiTouch / ARM Cortex A7 (1.3 Р“Р“С†) / RAM 1 Р“Р‘ 
-					16 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / 3G / Wi-Fi / Bluetooth 4.0 / РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 2 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ - 0.3 РњРї 
-					GPS / A-GPS / РћРЎ Android 5.1 (Lollipop) / РІРµСЃ 568 Рі / С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (30, N'Ru', N'Prestigio MultiPad Color 2 3G Black (PMT3777_3G_C)', N'Р­РєСЂР°РЅ 7" IPS (1280x800) РµРјРєРѕСЃС‚РЅС‹Р№, MultiTouch / Intel Atom x3-C3230RK (1.2 Р“Р“С†) / RAM 1 Р“Р‘ 
-					8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / 3G / Wi-Fi / Bluetooth 4.0 / РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 2 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ - 0.3 РњРї 
-					GPS / Android 5.1 (Lollipop) / 270 Рі / С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (31, N'Ru', N'Fly Flylife Connect 10.1 3G 2 Black', N'Р­РєСЂР°РЅ 10.1" IPS (1280С…800) РµРјРєРѕСЃС‚РЅС‹Р№ MultiTouch / MediaTek MT8382V/W (1.3 Р“Р“С†) / RAM 1 Р“Р‘ 
-					8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / Wi-Fi / Bluetooth / 3G / РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 5 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ 0.3 РњРї 
-					GPS / РћРЎ Android 4.2.2 / 624 Рі / С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (34, N'Ru', N'PocketBook 624 Basic Touch Grey (PB624-Y-WW)', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 6" / Р Р°Р·СЂРµС€РµРЅРёРµ: 800С…600 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
-					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 191 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (36, N'Ru', N'PocketBook InkPad 840 Brown', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 8" / Р Р°Р·СЂРµС€РµРЅРёРµ: 1600x1200 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink Pearl / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
-					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 350 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (6, N'Ru', N'Asus EeeBook E502MA (E502MA-XX0026D) Blue ', N'Р­РєСЂР°РЅ 15.6" (1366x768) HD, РіР»СЏРЅС†РµРІС‹Р№ / Intel Celeron N2840 (2.16 Р“Р“С†) / RAM 4 Р“Р‘ 
-					HDD 500 Р“Р‘ / Intel HD Graphics / Р±РµР· РћР” / LAN / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / DOS / 1.86 РєРі / СЃРёРЅРёР№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (10, N'Ru', N'Acer Aspire ES1-520-392H (NX.G2JEU.002)', N'Р­РєСЂР°РЅ 15.6'''' (1366x768) HD LED, РјР°С‚РѕРІС‹Р№ / AMD E1-2500 (1.4 Р“Р“С†) / RAM 4 Р“Р‘ 
-					HDD 500 Р“Р‘ / Radeon HD 8240 / Р±РµР· РћР” / LAN / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / Linpus / 2.4 РєРі / С‡РµСЂРЅС‹Р№
-					Р¦РµРЅР°: 7 199 РіСЂРЅ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (11, N'Ru', N'Lenovo IdeaPad 100S White ', N'РєСЂР°РЅ 11.6" TN (1366x768) WXGA HD LED, РіР»СЏРЅС†РµРІС‹Р№ / Intel Atom Z3735F (1.33 - 1.83 Р“Р“С†) / RAM 2 Р“Р‘ 
-					64 Р“Р‘ eMMC / Intel HD Graphics / Р±РµР· РћР” / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / Windows 10 Home / 1 РєРі / Р±РµР»С‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (12, N'Ru', N'Acer Aspire E5-573G-312U (NX.MVMEU.025) Black-Iron ', N'Р­РєСЂР°РЅ 15.6'''' (1366x768) HD LED, РјР°С‚РѕРІС‹Р№ / Intel Core i3-5005U (2.0 Р“Р“С†) / RAM 4 Р“Р‘ 
-					HDD 500 Р“Р‘ / nVidia GeForce 920M, 2 Р“Р‘ / Р‘РµР· РћР” / LAN / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / Linux / 2.4 РєРі / СЃРµСЂС‹Р№ СЃ С‡РµСЂРЅС‹Рј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (21, N'Ru', N' Lenovo IdeaPad 100-15 (80QQ004NUA)', N'Р­РєСЂР°РЅ 15.6" (1366x768) HD LED, РіР»СЏРЅС†РµРІС‹Р№ / Intel Pentium 3825U (1.9 Р“Р“С†) / RAM 4 Р“Р‘ 
-					HDD 500 Р“Р‘ / nVidia GeForce 920M, 1 Р“Р‘ / Р±РµР· РћР” / LAN / Bluetooth / Wi-Fi / РІРµР±-РєР°РјРµСЂР° / DOS / 2.3 РєРі / С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (32, N'Ru', N'Assistant AP-115G White', N'Р­РєСЂР°РЅ 10.1" (1024x600) РµРјРєРѕСЃС‚РЅС‹Р№ MultiTouch / MTK6572 Dual Core (1.2 Р“Р“С†) / RAM 1 Р“Р‘ 
-					8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / Wi-Fi b/g/n / 3G / Bluetooth / С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР° 0.3 РњРї, С‚С‹Р»РѕРІР°СЏ РєР°РјРµСЂР° 2 РњРї 
-					GPS / OC Android 4.2 / 530 Рі / Р±РµР»С‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (33, N'Ru', N'Lenovo Tab 2 A10-70L 16GB LTE Blue (ZA010015UA)', N'Р­РєСЂР°РЅ 10.1" (1920x1200) IPS РµРјРєРѕСЃС‚РЅС‹Р№, MultiTouch / MediaTek MT8732 (1.5 Р“Р“С†) / RAM 2 Р“Р‘ 
-					16 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / Wi-Fi b/g/n / Bluetooth 4.0 / 3G / LTE / РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 8 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ - 5 РњРї 
-					GPS / Р“Р›РћРќРђРЎРЎ / Beidou / Android 4.4 (KitKat) / 509 Рі / С‚РµРјРЅРѕ-СЃРёРЅРёР№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (35, N'Ru', N'PocketBook 626 Touch Lux2 Black (PB626-E-CIS)', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 6" / Р Р°Р·СЂРµС€РµРЅРёРµ: 1024С…758 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink Pearl / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
-					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 208 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (37, N'Ru', N'PocketBook 630 Kenzo Grey (PB630-G-CIS-KNZ)', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 6" / Р Р°Р·СЂРµС€РµРЅРёРµ: 1024С…758 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink Pearl / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
-					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 155 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (38, N'Ru', N'PocketBook 614 Basic 2 White (PB614-D-CIS)', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 6" / Р Р°Р·СЂРµС€РµРЅРёРµ: 800С…600	/ РўРёРї РјР°С‚СЂРёС†С‹: E Ink Pearl / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
-					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 188 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (39, N'Ru', N'EvroMedia Р•-РЈС‡РµР±РЅРёРє Classic Pro', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 9.7" / Р Р°Р·СЂРµС€РµРЅРёРµ: 1200x800	/ РўРёРї РјР°С‚СЂРёС†С‹: E Ink Pearl / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
-					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 350 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (40, N'Ru', N'PocketBook 630 Sense Brown (PB630-X-CIS)', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 6" / Р Р°Р·СЂРµС€РµРЅРёРµ: 1024С…758 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink Pearl / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
-					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 155 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (41, N'Ru', N'Evromedia E-СѓС‡РµР±РЅРёРє Classic One', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 6" / Р Р°Р·СЂРµС€РµРЅРёРµ: 800С…600 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
-					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 191 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (42, N'Ru', N' EvroMedia Р•-РЈС‡РµР±РЅРёРє HD Paper', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 6" / Р Р°Р·СЂРµС€РµРЅРёРµ: 1024С…758 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink Pearl / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
-					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 155 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (43, N'Ru', N'PocketBook Ultra 650 Р‘РµР»С‹Р№ ', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 6" / Р Р°Р·СЂРµС€РµРЅРёРµ: 1024С…758 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink Pearl / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
-					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 175 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (44, N'Ru', N'PocketBook 515 Grey (PB515-Y)', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 5" / Р Р°Р·СЂРµС€РµРЅРёРµ: 800С…600 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
-					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 131 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (45, N'Ru', N'ARTLINE Home H43 v02 (H43v02)', N'AMD Athlon II X4 840 (3.1 Р“Р“С†) / RAM 4 Р“Р‘ / HDD 1 TР‘ / nVidia GeForce GT 730, 2 Р“Р‘ / DVDВ±RW / LAN / Р±РµР· РћРЎ
-					Р¦РµРЅР°: 10 175 РіСЂРЅ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (46, N'Ru', N'Lenovo IdeaCentre H535 (57331379)', N'MD Trinity A8-5500 (3.2 - 3.7 Р“Р“С†) / RAM 4 Р“Р‘ / HDD 500 Р“Р‘ / AMD Radeon AHD 7560D / DVDВ±RW / LAN / РєР°СЂРґСЂРёРґРµСЂ / DOS / РєР»Р°РІРёР°С‚СѓСЂР°+ РјС‹С€СЊ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (13, N'Ru', N'Asus EeeBook E502MA (E502MA-XX0020D) Blue ', N'Р­РєСЂР°РЅ 15.6" (1366x768) HD, РіР»СЏРЅС†РµРІС‹Р№ / Intel Pentium N3540 (2.16 - 2.66 Р“Р“С†) / RAM 4 Р“Р‘ 
-					HDD 1 РўР‘ / Intel HD Graphics / Р±РµР· РћР” / LAN / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / DOS / 1.86 РєРі / СЃРёРЅРёР№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (15, N'Ru', N' Lenovo G50-45 (80E301XLUA) ', N'Р­РєСЂР°РЅ 15.6" (1366x768) HD LED, РіР»СЏРЅС†РµРІС‹Р№ / AMD Quad-Core A4-6210 (1.8 Р“Р“С†) / RAM 2 Р“Р‘ 
-					HDD 500 Р“Р‘ / AMD Radeon R3 / Р‘РµР· РћР” / LAN / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / Windows 10 Home / 2.5 РєРі / С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (17, N'Ru', N'HP 250 G4 (P5R75ES)', N'Р­РєСЂР°РЅ 15.6вЂќ (1366x768) HD LED, РјР°С‚РѕРІС‹Р№ / Intel Core i3-4005U (1.7 Р“Р“С†) / RAM 4 Р“Р‘ 
-					HDD 500 Р“Р‘ / Intel HD Graphics / Р±РµР· РћР” / LAN / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / DOS / 2.15 РєРі / С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (21, N'Ru', N'Lenovo IdeaPad 100-15 (80QQ004NUA)', N'Р­РєСЂР°РЅ 15.6" (1366x768) HD LED, РіР»СЏРЅС†РµРІС‹Р№ / Intel Pentium 3825U (1.9 Р“Р“С†) / RAM 4 Р“Р‘ 
-					HDD 500 Р“Р‘ / nVidia GeForce 920M, 1 Р“Р‘ / Р±РµР· РћР” / LAN / Bluetooth / Wi-Fi / РІРµР±-РєР°РјРµСЂР° / DOS / 2.3 РєРі / С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (56, N'Ru', N'Intel Core i5-4460 3.2GHz/5GT/s/6MB (BX80646I54460) s1150 BOX', N'РЎРµРјРµР№СЃС‚РІРѕ РїСЂРѕС†РµСЃСЃРѕСЂР°: Intel Core i5 / РўРёРї СЂР°Р·СЉРµРјР°: Socket 1150 / РџРѕРєРѕР»РµРЅРёРµ РїСЂРѕС†РµСЃСЃРѕСЂР° Intel: Haswell (С‡РµС‚РІРµСЂС‚РѕРµ) / РљРѕР»РёС‡РµСЃС‚РІРѕ СЏРґРµСЂ: 4
-					Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ С‚Р°РєС‚РѕРІР°СЏ С‡Р°СЃС‚РѕС‚Р°: 3200 РњР“С† / РРЅС‚РµРіСЂРёСЂРѕРІР°РЅРЅР°СЏ РіСЂР°С„РёРєР°: Intel HD Graphics 4600 / РћР±СЉРµРј РєСЌС€ РїР°РјСЏС‚Рё 3 СѓСЂРѕРІРЅСЏ: 6 РњР‘')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (57, N'Ru', N'AMD FX-6300 3.5GHz/5200MHz /8MB (FD6300WMHKBOX) sAM3+ BOX', N'РЎРµРјРµР№СЃС‚РІРѕ РїСЂРѕС†РµСЃСЃРѕСЂР°: AMD FX-Series / РўРёРї СЂР°Р·СЉРµРјР°: Socket AM3+ / РљРѕР»РёС‡РµСЃС‚РІРѕ СЏРґРµСЂ: 6 
-					Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ С‚Р°РєС‚РѕРІР°СЏ С‡Р°СЃС‚РѕС‚Р°: 3500 РњР“С† / РРЅС‚РµРіСЂРёСЂРѕРІР°РЅРЅР°СЏ РіСЂР°С„РёРєР°: РќРµС‚ / РћР±СЉРµРј РєСЌС€ РїР°РјСЏС‚Рё 3 СѓСЂРѕРІРЅСЏ: 8 РњР‘')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (58, N'Ru', N'Intel Core i3-4170 3.7GHz/5GT/s/3MB (BX80646I34170) s1150 BOX', N'РЎРµРјРµР№СЃС‚РІРѕ РїСЂРѕС†РµСЃСЃРѕСЂР°: Intel Core i3 / РўРёРї СЂР°Р·СЉРµРјР°: Socket 1150 / РџРѕРєРѕР»РµРЅРёРµ РїСЂРѕС†РµСЃСЃРѕСЂР° Intel: Haswell (С‡РµС‚РІРµСЂС‚РѕРµ) / РљРѕР»РёС‡РµСЃС‚РІРѕ СЏРґРµСЂ: 2
-					Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ С‚Р°РєС‚РѕРІР°СЏ С‡Р°СЃС‚РѕС‚Р°: 3700 РњР“С† / РРЅС‚РµРіСЂРёСЂРѕРІР°РЅРЅР°СЏ РіСЂР°С„РёРєР°: Intel HD Graphics 4400 / РћР±СЉРµРј РєСЌС€ РїР°РјСЏС‚Рё 3 СѓСЂРѕРІРЅСЏ: 3 РњР‘')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (59, N'Ru', N'Intel Pentium G3260 3.3GHz/5GT/s/3MB (BX80646G3260) s1150 BOX ', N'РЎРµРјРµР№СЃС‚РІРѕ РїСЂРѕС†РµСЃСЃРѕСЂР°: Intel Pentium Dual-Core / РўРёРї СЂР°Р·СЉРµРјР°: Socket 1150 / РџРѕРєРѕР»РµРЅРёРµ РїСЂРѕС†РµСЃСЃРѕСЂР° Intel: Haswell (С‡РµС‚РІРµСЂС‚РѕРµ) / РљРѕР»РёС‡РµСЃС‚РІРѕ СЏРґРµСЂ: 2
-					Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ С‚Р°РєС‚РѕРІР°СЏ С‡Р°СЃС‚РѕС‚Р°: 3300 РњР“С† / РРЅС‚РµРіСЂРёСЂРѕРІР°РЅРЅР°СЏ РіСЂР°С„РёРєР°: Intel HD Graphics / РћР±СЉРµРј РєСЌС€ РїР°РјСЏС‚Рё 3 СѓСЂРѕРІРЅСЏ: 3 РњР‘')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (60, N'Ru', N'Intel Core i7-4790K 4.0GHz/5GT/s/8MB (BX80646I74790K) s1150 BOX', N'РЎРµРјРµР№СЃС‚РІРѕ РїСЂРѕС†РµСЃСЃРѕСЂР°: Intel Core i7 / РўРёРї СЂР°Р·СЉРµРјР°: Socket 1150 / РџРѕРєРѕР»РµРЅРёРµ РїСЂРѕС†РµСЃСЃРѕСЂР° Intel: Haswell (С‡РµС‚РІРµСЂС‚РѕРµ) / РљРѕР»РёС‡РµСЃС‚РІРѕ СЏРґРµСЂ: 4
-					Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ С‚Р°РєС‚РѕРІР°СЏ С‡Р°СЃС‚РѕС‚Р°: 4000 РњР“С† / РРЅС‚РµРіСЂРёСЂРѕРІР°РЅРЅР°СЏ РіСЂР°С„РёРєР°: Intel HD Graphics 4600 / РћР±СЉРµРј РєСЌС€ РїР°РјСЏС‚Рё 3 СѓСЂРѕРІРЅСЏ: 8 РњР‘')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (61, N'Ru', N'Intel Pentium G3250 3.2GHz/5GT/s/3MB (BX80646G3250) s1150 BOX', N'РЎРµРјРµР№СЃС‚РІРѕ РїСЂРѕС†РµСЃСЃРѕСЂР°: Intel Pentium Dual-Core / РўРёРї СЂР°Р·СЉРµРјР°: Socket 1150 / РџРѕРєРѕР»РµРЅРёРµ РїСЂРѕС†РµСЃСЃРѕСЂР° Intel: Haswell (С‡РµС‚РІРµСЂС‚РѕРµ) / РљРѕР»РёС‡РµСЃС‚РІРѕ СЏРґРµСЂ: 2
-					Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ С‚Р°РєС‚РѕРІР°СЏ С‡Р°СЃС‚РѕС‚Р°: 3200 РњР“С† / РРЅС‚РµРіСЂРёСЂРѕРІР°РЅРЅР°СЏ РіСЂР°С„РёРєР°: Intel HD Graphics / РћР±СЉРµРј РєСЌС€ РїР°РјСЏС‚Рё 3 СѓСЂРѕРІРЅСЏ: 3 РњР‘')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (62, N'Ru', N'Intel Core i3-4160 3.6GHz/5GT/s/3MB (BX80646I34160) s1150 BOX', N'РЎРµРјРµР№СЃС‚РІРѕ РїСЂРѕС†РµСЃСЃРѕСЂР°: Intel Core i3 \ РўРёРї СЂР°Р·СЉРµРјР°: Socket 1150 / РџРѕРєРѕР»РµРЅРёРµ РїСЂРѕС†РµСЃСЃРѕСЂР° Intel: Haswell (С‡РµС‚РІРµСЂС‚РѕРµ) / РљРѕР»РёС‡РµСЃС‚РІРѕ СЏРґРµСЂ: 2
-					Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ С‚Р°РєС‚РѕРІР°СЏ С‡Р°СЃС‚РѕС‚Р°: 3600 РњР“С† / РРЅС‚РµРіСЂРёСЂРѕРІР°РЅРЅР°СЏ РіСЂР°С„РёРєР°: Intel HD Graphics 4400 / РћР±СЉРµРј РєСЌС€ РїР°РјСЏС‚Рё 3 СѓСЂРѕРІРЅСЏ: 3 РњР‘')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (63, N'Ru', N'Intel Core i5-4590 3.3GHz/5GT/s/6MB (BX80646I54590) s1150 BOX', N'РЎРµРјРµР№СЃС‚РІРѕ РїСЂРѕС†РµСЃСЃРѕСЂР°: Intel Core i5 \ РўРёРї СЂР°Р·СЉРµРјР°: Socket 1150 / РџРѕРєРѕР»РµРЅРёРµ РїСЂРѕС†РµСЃСЃРѕСЂР° Intel: Haswell (С‡РµС‚РІРµСЂС‚РѕРµ) / РљРѕР»РёС‡РµСЃС‚РІРѕ СЏРґРµСЂ: 4
-					Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ С‚Р°РєС‚РѕРІР°СЏ С‡Р°СЃС‚РѕС‚Р°: 3300 РњР“С† / РРЅС‚РµРіСЂРёСЂРѕРІР°РЅРЅР°СЏ РіСЂР°С„РёРєР°: Intel HD Graphics 4600 / РћР±СЉРµРј РєСЌС€ РїР°РјСЏС‚Рё 3 СѓСЂРѕРІРЅСЏ: 6 РњР‘')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1029, N'Ru', N'Jeka Neo 8GB Black/Blue ', N'8 Р“Р‘ / MP3, WMA, WAV, PEG, BMP, AVI, TXT 
-					1.8" TFT (160x128) / FM-РїСЂРёРµРјРЅРёРє / miniUSB / 40 С… 80 С… 9 РјРј, 19 Рі / С‡РµСЂРЅС‹Р№ СЃ СЃРёРЅРёРј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1030, N'Ru', N'Transcend T-Sonic 350 8GB Blue', N'8 Р“Р‘ / MP3, WMA, WAV / OLED / USB 2.0 / FM-РїСЂРёРµРјРЅРёРє / Р”РёРєС‚РѕС„РѕРЅ / 22 Рі / СЃРёРЅРёР№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (47, N'Ru', N'ARTLINE Business B23 v05 (B23v05)', N'Intel Celeron Dual Core G1820 (2.7 Р“Р“С†) / RAM 4 Р“Р‘ / HDD 500 Р“Р‘ / Intel HD Graphics / Р±РµР· РћР” / LAN / Р±РµР· РћРЎ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (48, N'Ru', N'Everest Home & Office 1005 (1005_2511)', N'Intel Celeron Dual Core J1800 (2.41 Р“Р“С†) / RAM 4 Р“Р‘ / HDD 500 Р“Р‘ / Intel HD Graphics / Р±РµР· РћР” / LAN / Р±РµР· РћРЎ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (49, N'Ru', N'Everest Home & Office 4060 (4060_5610)', N'Intel Pentium Dual Core G3220 (3.0 Р“Р“С†) / RAM 4 Р“Р‘ / HDD 500 Р“Р‘ / nVidia GeForce GT730, 2 Р“Р‘ / Р±РµР· РћР” / LAN / Р±РµР· РћРЎ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (50, N'Ru', N'Everest Home&Office 1006 (1006_4103)', N'AMD A4-4000 (3.0 Р“Р“С†) / RAM 4 Р“Р‘ / HDD 1 РўР‘ / AMD Radeon R7 240 2 Р“Р‘ / DVDВ±RW / LAN / Р±РµР· РћРЎ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (51, N'Ru', N'Everest Home A6620 (6620_7910)', N'AMD Athlon II X4 750K (3.4 Р“Р“С†) / RAM 8 Р“Р‘ / HDD 1 РўР‘ / nVidia GeForce GT 730, 2 Р“Р‘ / DVDВ±RW / РєР°СЂРґСЂРёРґРµСЂ / LAN / Р±РµР· РћРЎ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (52, N'Ru', N'Modecom FreePC', N'Intel Atom Z3735F (1.33 Р“Р“С†) / RAM 2 Р“Р‘ / HDD 16 Р“Р‘ / Intel HD Graphics / Р±РµР· РћР” / Wi-Fi / Bluetooth / РєР°СЂРґСЂРёРґРµСЂ / Windows 8.1')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (53, N'Ru', N'Lenovo IdeaCentre C20-00 (F0BB0044UA)', N'Р­РєСЂР°РЅ 19.5" (1920x1080) LED / Intel Celeron N3050 (1.6 Р“Р“С†) / RAM 4 Р“Р‘ / HDD 500 Р“Р‘ / Intel HD Graphics / DVD-RW / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / DOS / 3.88 РєРі / С‡РµСЂРЅС‹Р№ / РєР»Р°РІРёР°С‚СѓСЂР° + РјС‹С€СЊ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (54, N'Ru', N'Everest Game 9085 (9085_9109)', N'Intel Core i7-4790 (3.6 Р“Р“С†) / RAM 16 Р“Р‘ / SSD 120 Р“Р‘ + HDD 2 РўР‘ / nVidia GeForce GTX 970, 4 Р“Р‘ / DVDВ±RW / LAN / РєР°СЂРґСЂРёРґРµСЂ / Р±РµР· РћРЎ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (55, N'Ru', N'Everest Game 9085 (9085_9110)', N'Intel Core i7-6700 (3.4 Р“Р“С†) / RAM 16 Р“Р‘ / SSD 120 Р“Р‘ + HDD 2 РўР‘ / nVidia GeForce GTX 970, 4 Р“Р‘ / DVDВ±RW / LAN / РєР°СЂРґСЂРёРґРµСЂ / Р±РµР· РћРЎ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1002, N'Ru', N' РњС‹С€СЊ Trust Primo Wireless Mouse Black (20322)', N'РўРёРї РґР°С‚С‡РёРєР°: РћРїС‚РёС‡РµСЃРєРёР№ / РРЅС‚РµСЂС„РµР№СЃ: Wireless / РљРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРѕРїРѕРє: 4 / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: Р”Р»СЏ РѕР±РµРёС… СЂСѓРє (СЃРёРјРјРµС‚СЂРёС‡РЅС‹Р№ РґРёР·Р°Р№РЅ), РџРѕРґРґРµСЂР¶РєР° MacOS
-					РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ СЃ РћРЎ: Mac OS, Microsoft Windows')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1014, N'En', N'РњС‹С€СЊ Acme Compact Wireless Mouse MW13 (4770070874592)', N'РўРёРї РґР°С‚С‡РёРєР°: РћРїС‚РёС‡РµСЃРєРёР№ / РРЅС‚РµСЂС„РµР№СЃ: USB / РљРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРѕРїРѕРє: 4 / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: Р”Р»СЏ РѕР±РµРёС… СЂСѓРє (СЃРёРјРјРµС‚СЂРёС‡РЅС‹Р№ РґРёР·Р°Р№РЅ)
-					РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ СЃ РћРЎ: Microsoft Windows')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1006, N'Ru', N'РќР°СѓС€РЅРёРєРё Beats Solo 2 Wireless Headphones Black (MHNG2ZM/A) ', N'РўРёРї РЅР°СѓС€РЅРёРєРѕРІ: Р—Р°РєСЂС‹С‚С‹Рµ / РРЅС‚РµСЂС„РµР№СЃ РїСЂРѕРІРѕРґРЅРѕРіРѕ РїРѕРґРєР»СЋС‡РµРЅРёСЏ: 1 x mini-jack (СЂР°Р·СЉРµРј 3.5 РјРј) / Р”Р»РёРЅР° С€РЅСѓСЂР°: 1.361 Рј / Р’РµСЃ: 205 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1007, N'Ru', N'РќР°СѓС€РЅРёРєРё Trust Primo Headset HS-2100 (11916)	', N'РўРёРї РЅР°СѓС€РЅРёРєРѕРІ: РћС‚РєСЂС‹С‚С‹Рµ / Р”РёР°РїР°Р·РѕРЅ С‡Р°СЃС‚РѕС‚ РЅР°СѓС€РЅРёРєРѕРІ: 20 - 20000 Р“С† / РРЅС‚РµСЂС„РµР№СЃ РїСЂРѕРІРѕРґРЅРѕРіРѕ РїРѕРґРєР»СЋС‡РµРЅРёСЏ: 2 x mini-jack (СЂР°Р·СЉРµРј 3.5 РјРј)
-					Р”Р»РёРЅР° С€РЅСѓСЂР°: 1.2 Рј / Р’РµСЃ: 75 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1008, N'Ru', N'РљР»Р°РІРёР°С‚СѓСЂР° Genius SlimStar i222 USB (31310046108)', N'РРЅС‚РµСЂС„РµР№СЃ: USB / РљРѕР»РёС‡РµСЃС‚РІРѕ РєРЅРѕРїРѕРє: 105 / РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ СЃ РћРЎ: Microsoft Windows / РўРёРї СѓРїР°РєРѕРІРєРё: BOX / РџРѕРґСЃРІРµС‚РєР° РєР»Р°РІРёС€: РќРµС‚')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1009, N'Ru', N'РљР»Р°РІРёР°С‚СѓСЂР° Acme Ultrathin Bluetooth Keyboard BK01 (4770070874271)', N'РРЅС‚РµСЂС„РµР№СЃ: Bluetooth / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: Р‘РµР· С†РёС„СЂРѕРІРѕРіРѕ Р±Р»РѕРєР°, Р’СЃС‚СЂРѕРµРЅРЅС‹Р№ USB-РїРѕСЂС‚ / РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ СЃ РћРЎ: Microsoft Windows / РџРѕРґСЃРІРµС‚РєР° РєР»Р°РІРёС€: РќРµС‚')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1010, N'Ru', N'РњРѕРЅРёС‚РѕСЂ 23.8" Dell P2414H Professional (860-BBBQ)', N'РўРёРї РјР°С‚СЂРёС†С‹: S-IPS \ РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: РџРѕРІРѕСЂРѕС‚РЅС‹Р№ СЌРєСЂР°РЅ (Pivot), USB-РєРѕРЅС†РµРЅС‚СЂР°С‚РѕСЂ, Р РµРіСѓР»РёСЂРѕРІРєР° РїРѕ РІС‹СЃРѕС‚Рµ / РРЅС‚РµСЂС„РµР№СЃС‹: USB, DisplayPort, DVI, VGA
-					Р’СЂРµРјСЏ СЂРµР°РєС†РёРё РјР°С‚СЂРёС†С‹: 8 РјСЃ / РЇСЂРєРѕСЃС‚СЊ РґРёСЃРїР»РµСЏ: 250 РєРґ/Рј2 / РљРѕРЅС‚СЂР°СЃС‚РЅРѕСЃС‚СЊ РґРёСЃРїР»РµСЏ: 1000:1')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1011, N'Ru', N' РњРѕРЅРёС‚РѕСЂ 24" Dell UltraSharp U2412M Black (860-10161)', N'РўРёРї РјР°С‚СЂРёС†С‹: E-IPS / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: РџРѕРІРѕСЂРѕС‚РЅС‹Р№ СЌРєСЂР°РЅ (Pivot), USB-РєРѕРЅС†РµРЅС‚СЂР°С‚РѕСЂ, Р РµРіСѓР»РёСЂРѕРІРєР° РїРѕ РІС‹СЃРѕС‚Рµ / РРЅС‚РµСЂС„РµР№СЃС‹: DisplayPort, DVI, VGA
-					Р’СЂРµРјСЏ СЂРµР°РєС†РёРё РјР°С‚СЂРёС†С‹: 8 РјСЃ / РЇСЂРєРѕСЃС‚СЊ РґРёСЃРїР»РµСЏ: 300 РєРґ/Рј2 / РљРѕРЅС‚СЂР°СЃС‚РЅРѕСЃС‚СЊ РґРёСЃРїР»РµСЏ: 1000:1')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1012, N'Ru', N'Р’РµР±-РєР°РјРµСЂР° Gemix T21 Black (T21B)', N'Р Р°Р·СЂРµС€РµРЅРёРµ РІРёРґРµРѕ: VGA (640x480) / Р’СЃС‚СЂРѕРµРЅРЅС‹Р№ РјРёРєСЂРѕС„РѕРЅ: Р•СЃС‚СЊ / Р“Р°СЂР°РЅС‚РёСЏ: 24 РјРµСЃСЏС†Р°')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1013, N'Ru', N'Р’РµР±-РєР°РјРµСЂР° Logitech Webcam HD Pro C920 (960-001055)', N'Р Р°Р·СЂРµС€РµРЅРёРµ РІРёРґРµРѕ: FullHD (1920x1080) / Р’СЃС‚СЂРѕРµРЅРЅС‹Р№ РјРёРєСЂРѕС„РѕРЅ: Р•СЃС‚СЊ / Р“Р°СЂР°РЅС‚РёСЏ: 24 РјРµСЃСЏС†Р°')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1039, N'Ru', N'Apple iPod shuffle 2GB Pink', N'2 Р“Р‘ / РђAC, Р·Р°С‰РёС‰РµРЅРЅС‹Р№ AAC, MP3, MP3 VBR, Audible, Apple Lossless, AIFF, WAV / 12.5 Рі / СЂРѕР·РѕРІС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1179, N'Ru', N'Discovery F-16', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ /  РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 16 РєРј/С‡
-					РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 120 РєРі / Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: Р­Р»РµРєС‚СЂРёС‡РµСЃРєР°СЏ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (64, N'Ru', N'Intel Core i5-6500 3.2GHz/8GT/s/6MB (BX80662I56500) s1151 BOX	', N'РЎРµРјРµР№СЃС‚РІРѕ РїСЂРѕС†РµСЃСЃРѕСЂР°: Intel Core i5 / РўРёРї СЂР°Р·СЉРµРјР°: Socket 1151 / РџРѕРєРѕР»РµРЅРёРµ РїСЂРѕС†РµСЃСЃРѕСЂР° Intel: Skylake (С€РµСЃС‚РѕРµ) / РљРѕР»РёС‡РµСЃС‚РІРѕ СЏРґРµСЂ: 4
-					Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ С‚Р°РєС‚РѕРІР°СЏ С‡Р°СЃС‚РѕС‚Р°: 3200 РњР“С† / РРЅС‚РµРіСЂРёСЂРѕРІР°РЅРЅР°СЏ РіСЂР°С„РёРєР°: Intel HD Graphics 530 / РћР±СЉРµРј РєСЌС€ РїР°РјСЏС‚Рё 3 СѓСЂРѕРІРЅСЏ: 6 РњР‘')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (65, N'Ru', N'Intel Core i7-6700K 4.0GHz/8GT/s/8MB (BX80662I76700K) s1151 BOX', N'РЎРµРјРµР№СЃС‚РІРѕ РїСЂРѕС†РµСЃСЃРѕСЂР°: Intel Core i7 / РўРёРї СЂР°Р·СЉРµРјР°: Socket 1151 / РџРѕРєРѕР»РµРЅРёРµ РїСЂРѕС†РµСЃСЃРѕСЂР° Intel: Skylake (С€РµСЃС‚РѕРµ) / РљРѕР»РёС‡РµСЃС‚РІРѕ СЏРґРµСЂ: 4
-					Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ С‚Р°РєС‚РѕРІР°СЏ С‡Р°СЃС‚РѕС‚Р°: 4000 РњР“С† / РРЅС‚РµРіСЂРёСЂРѕРІР°РЅРЅР°СЏ РіСЂР°С„РёРєР°: Intel HD Graphics 530 / РћР±СЉРµРј РєСЌС€ РїР°РјСЏС‚Рё 3 СѓСЂРѕРІРЅСЏ: 8 РњР‘')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (66, N'Ru', N'Intel Pentium G3240 3.1GHz/5GT/s/3MB (BX80646G3240) s1150 BOX', N'РЎРµРјРµР№СЃС‚РІРѕ РїСЂРѕС†РµСЃСЃРѕСЂР°: Intel Pentium Dual-Core / РўРёРї СЂР°Р·СЉРµРјР°: Socket 1150/ РџРѕРєРѕР»РµРЅРёРµ РїСЂРѕС†РµСЃСЃРѕСЂР° Intel: Haswell (С‡РµС‚РІРµСЂС‚РѕРµ) / РљРѕР»РёС‡РµСЃС‚РІРѕ СЏРґРµСЂ: 2
-					Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ С‚Р°РєС‚РѕРІР°СЏ С‡Р°СЃС‚РѕС‚Р°: 3100 РњР“С† / РРЅС‚РµРіСЂРёСЂРѕРІР°РЅРЅР°СЏ РіСЂР°С„РёРєР°: Intel HD Graphics / РћР±СЉРµРј РєСЌС€ РїР°РјСЏС‚Рё 3 СѓСЂРѕРІРЅСЏ: 3 РњР‘ ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (67, N'Ru', N'Dr.Web Katana 1 РџРљ/1 РіРѕРґ (СЃРєСЂРµС‚С‡-РєР°СЂС‚Р°)', N'РЎРёСЃС‚РµРјРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: Windows 10/8/8.1/7/Vista SP2/XP SP2+ (32-Р±РёС‚РЅС‹Рµ СЃРёСЃС‚РµРјС‹) / Windows 10/8/8.1/7/Vista SP2 (64-Р±РёС‚РЅС‹Рµ СЃРёСЃС‚РµРјС‹) / РћРїРµСЂР°С‚РёРІРЅР°СЏ РїР°РјСЏС‚СЊ РЅРµ РјРµРЅРµРµ 100 РњР‘
-					РЎРІРѕР±РѕРґРЅРѕРµ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРѕ РЅР° Р¶РµСЃС‚РєРѕРј РґРёСЃРєРµ: ~150 РњР‘. / РўРёРї РїСЂРѕРґСѓРєС‚Р°: РЎРєСЂРµС‚С‡-РєР°СЂС‚РѕС‡РєР° / РЎСЂРѕРє РґРµР№СЃС‚РІРёСЏ Р»РёС†РµРЅР·РёРё: 1 РіРѕРґ (РґР»СЏ 1 РџРљ)')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (68, N'Ru', N'Kaspersky Small Office Security 4(KL4531OCEFW) ', N'РЎРёСЃС‚РµРјРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: Intel Pentium 1 Р“Р“С† x86/x64* РёР»Рё РІС‹С€Рµ (РёР»Рё СЃРѕРІРјРµСЃС‚РёРјС‹Р№ Р°РЅР°Р»РѕРі), 1 Р“Р‘ (x86)/2 Р“Р‘ (x64) СЃРІРѕР±РѕРґРЅРѕР№ РѕРїРµСЂР°С‚РёРІРЅРѕР№ РїР°РјСЏС‚Рё
-					РўРёРї РїСЂРѕРґСѓРєС‚Р°: РљРѕСЂРїРѕСЂР°С‚РёРІРЅР°СЏ Р»РёС†РµРЅР·РёСЏ / РЎСЂРѕРє РґРµР№СЃС‚РІРёСЏ Р»РёС†РµРЅР·РёРё: 1 РіРѕРґ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (69, N'Ru', N'ESET Smart Security 5 РЅР° 12 РјРµСЃСЏС†РµРІ, РґР»СЏ 2 РџРљ РљРѕСЂРѕР±РѕС‡РЅР°СЏ РІРµСЂСЃРёСЏ', N'РЎРёСЃС‚РµРјРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: i386 (Intel В® 80386), amd64 (x86-64) / РћРїРµСЂР°С†РёРѕРЅРЅС‹Рµ СЃРёСЃС‚РµРјС‹: Microsoft Windows 2000, Microsoft Windows XP, Microsoft Windows Vista, Microsoft Windows 7, Microsoft Windows Home Server
-					РћРїРµСЂР°С‚РёРІРЅР°СЏ РїР°РјСЏС‚СЊ: 100 РњР‘ / РЎРІРѕР±РѕРґРЅРѕРіРѕ РјРµСЃС‚Р° РЅР° Р¶РµСЃС‚РєРѕРј РґРёСЃРєРµ: 400 РњР‘ / РЎСЂРѕРє РґРµР№СЃС‚РІРёСЏ Р»РёС†РµРЅР·РёРё: 1 РіРѕРґ / РўРёРї РїСЂРѕРґСѓРєС‚Р°: РљРѕСЂРѕР±РѕС‡РЅР°СЏ РІРµСЂСЃРёСЏ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (70, N'Ru', N'McAfee AntiVirus Plus (РЅР° 1 РіРѕРґ 1РџРљ, СЃРєСЂРµС‚С‡-РєР°СЂС‚РѕС‡РєР°)', N'РЎРёСЃС‚РµРјРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: 1 Р“Р‘ РћР—РЈ РґР»СЏ Vista Рё Windows 7, 2 Р“Р‘ РћР—РЈ РґР»СЏ Windows 8 Рё РІС‹С€Рµ / 500 РњР‘ СЃРІРѕР±РѕРґРЅРѕРіРѕ РјРµСЃС‚Р° РЅР° РґРёСЃРєРµ
-					РњРёРЅРёРјР°Р»СЊРЅРѕРµ СЂР°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР°: 1024 С… 768 РёР»Рё РІС‹С€Рµ / РЎСЂРѕРє РґРµР№СЃС‚РІРёСЏ Р»РёС†РµРЅР·РёРё: 1 РіРѕРґ / РўРёРї РїСЂРѕРґСѓРєС‚Р°: РЎРєСЂРµС‚С‡-РєР°СЂС‚РѕС‡РєР°')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (71, N'Ru', N'Kaspersky Internet Securit', N'y РґР»СЏ РІСЃРµС… СѓСЃС‚СЂРѕР№СЃС‚РІ 2016 1+1 Device 1 year Renewal Card (РїСЂРѕРґР»РµРЅРёРµ Р»РёС†РµРЅР·РёРё РЅР° 1 РіРѕРґ 1+1 РџРљ, СЃРєСЂРµС‚С‡-РєР°СЂС‚РѕС‡РєР°) 
-					РЎРёСЃС‚РµРјРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: РџСЂРѕС†РµСЃСЃРѕСЂ: РЅРµ РјРµРЅРµРµ 800 РњР“С† / РћР—РЈ: 512 MР‘ РёР»Рё Р±РѕР»СЊС€Рµ / РџР—РЈ: РћРєРѕР»Рѕ 480 РњР‘ СЃРІРѕР±РѕРґРЅРѕРіРѕ РґРёСЃРєРѕРІРѕРіРѕ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІР°  
-					РћРЎ: Windows 10 RTM**, 8.1, 8, 7, Vista, XP (32/64-bit***) / РЎСЂРѕРє РґРµР№СЃС‚РІРёСЏ Р»РёС†РµРЅР·РёРё: 1 РіРѕРґ / РўРёРї РїСЂРѕРґСѓРєС‚Р°: РЎРєСЂРµС‚С‡-РєР°СЂС‚РѕС‡РєР°')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (72, N'Ru', N'Dr. Web Security Space 2', N'РџРљ/1 РіРѕРґ (1 РџРљ/2 РіРѕРґР°) Р’РµСЂСЃРёСЏ 10.0 РљРѕСЂРѕР±РѕС‡РЅР°СЏ РІРµСЂСЃРёСЏ
-					РЎРёСЃС‚РµРјРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: Windows 10/8.1/8/7/Vista (32- Рё 64-Р±РёС‚РЅС‹Рµ СЃРёСЃС‚РµРјС‹) Рё XP (32-Р±РёС‚РЅР°СЏ СЃРёСЃС‚РµРјР°) / РћРїРµСЂР°С‚РёРІРЅР°СЏ РїР°РјСЏС‚СЊ: РЅРµ РјРµРЅРµРµ 512 РњР‘.
-					CРІРѕР±РѕРґРЅРѕРµ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРѕ РЅР° Р¶РµСЃС‚РєРѕРј РґРёСЃРєРµ: ~400 РњР‘ / РЎСЂРѕРє РґРµР№СЃС‚РІРёСЏ Р»РёС†РµРЅР·РёРё 1 РіРѕРґ (РґР»СЏ 2 РџРљ), 2 РіРѕРґР° (РґР»СЏ 1 РџРљ) / РўРёРї РїСЂРѕРґСѓРєС‚Р°: РљРѕСЂРѕР±РѕС‡РЅР°СЏ РІРµСЂСЃРёСЏ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (75, N'Ru', N'McAfee Internet Security (РЅР° 1 РіРѕРґ 1РџРљ, СЃРєСЂРµС‚С‡-РєР°СЂС‚РѕС‡РєР°)', N'РЎРёСЃС‚РµРјРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: 1 Р“Р‘ РћР—РЈ РґР»СЏ Vista Рё Windows 7, 2 Р“Р‘ РћР—РЈ РґР»СЏ Windows 8 Рё РІС‹С€Рµ / 500 РњР‘ СЃРІРѕР±РѕРґРЅРѕРіРѕ РјРµСЃС‚Р° РЅР° РґРёСЃРєРµ
-					РЎСЂРѕРє РґРµР№СЃС‚РІРёСЏ Р»РёС†РµРЅР·РёРё: 1 РіРѕРґ / РўРёРї РїСЂРѕРґСѓРєС‚Р°: РЎРєСЂРµС‚С‡-РєР°СЂС‚РѕС‡РєР°')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1033, N'Ru', N'Pixus Six 8GB New White ', N'8 Р“Р‘ / MP3, WMA, WAV / OLED С‡РµСЂРЅРѕ-Р±РµР»С‹Р№ / FM-РїСЂРёРµРјРЅРёРє 
-					Р”РёРєС‚РѕС„РѕРЅ / USB 2.0 / 80 x 20 x 11 РјРј, 18 Рі / Р±РµР»С‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1034, N'Ru', N'NRG Stick Pro ', N'8 Р“Р‘ / MP3, WMA, WAV, FLAC / OLED 4С…-СЃС‚СЂРѕС‡РЅС‹Р№ / FM-РїСЂРёРµРјРЅРёРє / РґРёРєС‚РѕС„РѕРЅ 
-					USB / 84 С… 27 С… 13 РјРј, 26 Рі / С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1036, N'Ru', N'Sony Walkman NWZ-WS613 4GB White ', N'4 Р“Р‘ / MP3, WMA, Linear PCM, AAC / USB / Bluetooth / NFC / РІРѕРґРѕРЅРµРїСЂРѕРЅРёС†Р°РµРјС‹Р№ / 37 Рі / Р±РµР»С‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1038, N'Ru', N'FiiO M3 White ', N'8 Р“Р‘ / APE / FLAC / WAV / MP3 / AAC / WMA / OGG / 2" TFT-СЌРєСЂР°РЅ / 40 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (76, N'Ru', N'Dr. Web Security Space 1', N'РџРљ/1 РіРѕРґ Р’РµСЂСЃРёСЏ 10.0 РљРѕСЂРѕР±РѕС‡РЅР°СЏ РІРµСЂСЃРёСЏ
-					РЎРёСЃС‚РµРјРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: Windows 10/8.1/8/7/Vista (32- Рё 64-Р±РёС‚РЅС‹Рµ СЃРёСЃС‚РµРјС‹) Рё XP (32-Р±РёС‚РЅР°СЏ СЃРёСЃС‚РµРјР°) / РћРїРµСЂР°С‚РёРІРЅР°СЏ РїР°РјСЏС‚СЊ: РЅРµ РјРµРЅРµРµ 512 РњР‘.
-					CРІРѕР±РѕРґРЅРѕРµ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРѕ РЅР° Р¶РµСЃС‚РєРѕРј РґРёСЃРєРµ: ~400 РњР‘ / РЎСЂРѕРє РґРµР№СЃС‚РІРёСЏ Р»РёС†РµРЅР·РёРё: 1 РіРѕРґ (РґР»СЏ 1 РџРљ) / РўРёРї РїСЂРѕРґСѓРєС‚Р°: РљРѕСЂРѕР±РѕС‡РЅР°СЏ РІРµСЂСЃРёСЏ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (77, N'Ru', N'Dr. Web РњР°Р»С‹Р№ Р±РёР·РЅРµСЃ NEW 5 РџРљ/1 РіРѕРґ Р’РµСЂСЃРёСЏ 10.0 РљРѕСЂРѕР±РѕС‡РЅР°СЏ РІРµСЂСЃРёСЏ', N'РЎРёСЃС‚РµРјРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: Windows 10/8.1/8/7/Vista (32- Рё 64-Р±РёС‚РЅС‹Рµ СЃРёСЃС‚РµРјС‹) Рё XP (32-Р±РёС‚РЅР°СЏ СЃРёСЃС‚РµРјР°) / РћРїРµСЂР°С‚РёРІРЅР°СЏ РїР°РјСЏС‚СЊ: РЅРµ РјРµРЅРµРµ 512 РњР‘.
-					CРІРѕР±РѕРґРЅРѕРµ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРѕ РЅР° Р¶РµСЃС‚РєРѕРј РґРёСЃРєРµ: ~400 РњР‘ / РЎСЂРѕРє РґРµР№СЃС‚РІРёСЏ Р»РёС†РµРЅР·РёРё: 1 РіРѕРґ (РґР»СЏ 5 РџРљ) / РўРёРї РїСЂРѕРґСѓРєС‚Р°: РљРѕСЂРѕР±РѕС‡РЅР°СЏ РІРµСЂСЃРёСЏ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (78, N'Ru', N'Dr. Web Security Space 3 РџРљ/1 РіРѕРґ Р’РµСЂСЃРёСЏ 10.0 РљРѕСЂРѕР±РѕС‡РЅР°СЏ РІРµСЂСЃРёСЏ', N'РЎРёСЃС‚РµРјРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: Windows 10/8.1/8/7/Vista (32- Рё 64-Р±РёС‚РЅС‹Рµ СЃРёСЃС‚РµРјС‹) Рё XP (32-Р±РёС‚РЅР°СЏ СЃРёСЃС‚РµРјР°) / РћРїРµСЂР°С‚РёРІРЅР°СЏ РїР°РјСЏС‚СЊ: РЅРµ РјРµРЅРµРµ 512 РњР‘.
-					CРІРѕР±РѕРґРЅРѕРµ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРѕ РЅР° Р¶РµСЃС‚РєРѕРј РґРёСЃРєРµ: ~400 РњР‘ / РЎСЂРѕРє РґРµР№СЃС‚РІРёСЏ Р»РёС†РµРЅР·РёРё: 1 РіРѕРґ (РґР»СЏ 3 РџРљ) / РўРёРї РїСЂРѕРґСѓРєС‚Р°: РљРѕСЂРѕР±РѕС‡РЅР°СЏ РІРµСЂСЃРёСЏ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (79, N'Ru', N'Kaspersky Internet Security РґР»СЏ РІСЃРµС… СѓСЃС‚СЂРѕР№СЃС‚РІ 2016 2+1 Device 1 year Base Box', N'РЎРёСЃС‚РµРјРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: РџСЂРѕС†РµСЃСЃРѕСЂ: РЅРµ РјРµРЅРµРµ 800 РњР“С† / РћР—РЈ: 512 MР‘ РёР»Рё Р±РѕР»СЊС€Рµ / РџР—РЈ: РћРєРѕР»Рѕ 480 РњР‘ СЃРІРѕР±РѕРґРЅРѕРіРѕ РґРёСЃРєРѕРІРѕРіРѕ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІР° 
-					РћРЎ: Windows 10 RTM**, 8.1, 8, 7, Vista, XP (32/64-bit***)/ РЎСЂРѕРє РґРµР№СЃС‚РІРёСЏ Р»РёС†РµРЅР·РёРё: 1 РіРѕРґ / РўРёРї РїСЂРѕРґСѓРєС‚Р°: РљРѕСЂРѕР±РѕС‡РЅР°СЏ РІРµСЂСЃРёСЏ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1016, N'Ru', N'Samsung Galaxy J5 J500H/DS Black', N'Р­РєСЂР°РЅ (5", Super AMOLED, 1280x720)/ Qualcomm Snapdragon 410 (1.2 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 13 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 5 РњРї
-					RAM 1.5 Р“Р‘/ 8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 128 Р“Р‘)/ 3G / GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Micro-SIM)
-					Android 5.1 (Lollipop) / 2600 РјРђ*С‡')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1017, N'Ru', N'Lenovo A7000 Onyx Black ', N'Р­РєСЂР°РЅ (5.5", IPS, 1280x720)/ MediaTek MT6752 (1.5 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 8 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 5 РњРї
-					RAM 2 Р“Р‘/ 8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 32 Р“Р‘)/ 3G/ GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Micro-SIM)
-					Android 5.0 (Lollipop) / 2900 РјРђ*С‡')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1018, N'Ru', N'Samsung Galaxy A3 2016 Duos SM-A310 16Gb Black', N'Р­РєСЂР°РЅ (4.7", Super AMOLED, 1280x720)/ Р§РµС‚С‹СЂРµС…СЉСЏРґРµСЂРЅС‹Р№ Qualcomm Snapdragon 410 (1.5 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 13 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 5 РњРї
-					RAM 1.5 Р“Р‘/ 16 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 128 Р“Р‘)/ 3G/ LTE/ GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Nano-SIM)
-					Android 5.1.1 (Lollipop)/ 2300 РјРђ*С‡')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1019, N'Ru', N'Samsung Galaxy S6 SS 32GB G920 Gold', N'Р­РєСЂР°РЅ (5.1", Super AMOLED, 2560С…1440)/ Samsung Exynos 7420 (Quad 2.1 Р“Р“С† + Quad 1.5 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 16 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 5 РњРї
-					RAM 3 Р“Р‘/ 32 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё/ 3G/ LTE/ GPS/ Nano-SIM
-					Android 5.0 (Lollipop) / 2550 РјРђ*С‡')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1020, N'Ru', N' LG G4 Leather Brown', N'Р­РєСЂР°РЅ (5.5", IPS, 2560С…1440)/ Qualcomm Snapdragon 808 (1.8 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 16 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 8 РњРї
-					RAM 3 Р“Р‘/ 32 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 2 РўР‘)/ 3G/ LTE/ GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Micro-SIM)
-					Android 5.1 (Lollipop) / 3000 РјРђ*С‡')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1021, N'Ru', N'Apple iPhone 5s 16GB Space Gray', N'Р­РєСЂР°РЅ (4", IPS, 1136x640)/ Apple A7 (1.3 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 8 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 1.2 РњРї
-					RAM 1 Р“Р‘/ 16 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё/ 3G/ LTE/ GPS/ Nano-SIM/ iOS 9/ 1560 РјРђ*С‡')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1022, N'Ru', N'izu M2 Note 16GB White СЃ РЅР°СѓС€РЅРёРєР°РјРё EP-21HD (РњРµР¶РґСѓРЅР°СЂРѕРґРЅР°СЏ РІРµСЂСЃРёСЏ)', N'Р­РєСЂР°РЅ (5.5", IGZO, 1920x1080)/ MediaTek MT6753 (1.3 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 13 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 5 РњРї
-					RAM 2 Р“Р‘/ 16 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 128 Р“Р‘)/ 3G/ LTE/ GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Nano-SIM)
-					Android 5.1 (Lollipop) / 3100 РјРђ*С‡')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1189, N'Ru', N'Reebok One Series GB50 (RVON-10401BK)', N'РўРёРї: Р­Р»РµРєС‚СЂРѕРјР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 32 / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 23 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 120 РєРі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1190, N'Ru', N' Reebok One Series GB40 (RVON-10101BK)', N'РўРёРї: Р­Р»РµРєС‚СЂРѕРјР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 8 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 110 РєРі / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 4')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1191, N'Ru', N'Sportop B800P+ ', N'РўРёРї: Р­Р»РµРєС‚СЂРѕРјР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 16 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 130 РєРі / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 16')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1023, N'Ru', N'Samsung Galaxy S3 Neo Duos I9300i Black', N'Р­РєСЂР°РЅ (4.8", Super AMOLED, 1280x720)/ Qualcomm MSM8226 Snapdragon 400 (1.4 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 8 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 1.9 РњРї
-					RAM 1.5 Р“Р‘/ 16 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 64 Р“Р‘)/ 3G/ GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Micro-SIM)
-					Android 4.3 (Jelly Bean) / 2100 РјРђ*С‡')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1025, N'Ru', N'Xiaomi Redmi Note 2 16GB Gray', N'Р­РєСЂР°РЅ (5.5", IPS, 1920x1080)/ MediaTek Helio X10 MT6795 (2.0 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 13 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 5 РњРї
-					RAM 2 Р“Р‘/ 16 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 32 Р“Р‘)/ 3G/ LTE/ GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Micro-SIM)
-					Android 5.0 (Lollipop) / 3060 РјРђ*С‡')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1026, N'Ru', N'Microsoft Lumia 640 XL (Nokia) DS Cyan', N'Р­РєСЂР°РЅ (5.7", IPS, 1280x720)/ Qualcomm Snapdragon 400 (1.2 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 13 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 5 РњРї
-					RAM 1 Р“Р‘/ 8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 128 Р“Р‘)/ 3G/ GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Micro-SIM)
-					Windows Phone 8.1/ 3000 РјРђ*С‡')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1027, N'Ru', N'Lenovo A2010 Black ', N'Р­РєСЂР°РЅ (4.5", TN, 854x480)/ MediaTek MTK6735M (1.0 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 5 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 2 РњРї
-					RAM 1 Р“Р‘/ 8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 32 Р“Р‘)/ 3G/ GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Micro-SIM)
-					Android 5.1 (Lollipop) / 2000 РјРђ*С‡')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1028, N'Ru', N'Sony Walkman NWZ-A15 16GB Blue', N'16 Р“Р‘ / MP3, WMA, FLAC, L-PCM, AAC, HE-AAC, ALAC, AIFF, WAV, AVCHD, MPEG4, WMV9, JPEG 
-					2.2" TFT QVGA (320 x 240) / FM-СЂР°РґРёРѕ / NFC / Bluetooth / USB / 66 Рі / РіРѕР»СѓР±РѕР№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1031, N'Ru', N'Apple iPod touch 64GB Blue', N'64 Р“Р‘ / AAC, Р·Р°С‰РёС‰РµРЅРЅС‹Р№ AAC, HE-AAC, MP3, MP3 VBR, Audible, Apple Lossless, AIFF, WAV, H.264, MPEG-4, M-JPEG 
-					СЃРµРЅСЃРѕСЂРЅС‹Р№ 4" Multi-Touch РґРёСЃРїР»РµР№ / РєР°РјРµСЂР° 8 РњРї + С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР° 1.2 РњРї 
-					Wi-Fi / Bluetooth 4.1 / iOS 8 / 88 Рі / РіРѕР»СѓР±РѕР№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1035, N'Ru', N'Apple iPod nano 7Gen 16GB Space Gray', N'16 Р“Р‘ / РђAC, Р·Р°С‰РёС‰РµРЅРЅС‹Р№ AAC, HE-AAC, MP3, MP3 VBR, Audible, Apple Lossless, AIFF, WAV, H.264, M4V, MP4, MOV, MPEG-4 
-					2.5" Multi-Touch РґРёСЃРїР»РµР№ / FM-СЂР°РґРёРѕ / Bluetooth 4.0 / 31 Рі / СЃРµСЂС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1040, N'Ru', N' РЎРµС‚РµРІРѕР№ Р°РґР°РїС‚РµСЂ E-Power 1 USB + holder 2.1 A', N'РўРёРї: РЎРµС‚РµРІС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ
-					РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ 1 / Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: LED РёРЅРґРёРєР°С†РёСЏ РїСЂРѕС†РµСЃСЃР° Р·Р°СЂСЏРґРєРё / Р¦РІРµС‚ Black / Р“Р°СЂР°РЅС‚РёСЏ: 6 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1041, N'Ru', N'РђРІС‚РѕРјРѕР±РёР»СЊРЅРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ E-Power MicroUSB', N'РўРёРї: РђРІС‚РѕРјРѕР±РёР»СЊРЅС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ
-					РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ: 1 / Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: LED РёРЅРґРёРєР°С†РёСЏ РїСЂРѕС†РµСЃСЃР° Р·Р°СЂСЏРґРєРё / Р¦РІРµС‚: Black / Р“Р°СЂР°РЅС‚РёСЏ: 6 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1042, N'Ru', N'РЎРµС‚РµРІРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ E-Power РєР°Р±РµР»СЊ Smart', N'РўРёРї: РЎРµС‚РµРІС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ
-					РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ: 2 / Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: LED РёРЅРґРёРєР°С†РёСЏ РїСЂРѕС†РµСЃСЃР° Р·Р°СЂСЏРґРєРё / Р¦РІРµС‚: Black / Р“Р°СЂР°РЅС‚РёСЏ: 6 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1043, N'Ru', N'РЎРµС‚РµРІРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ Pixus Charge One Turquoise', N'РўРёРї: РЎРµС‚РµРІС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ / РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ: 1
-					РљР°Р±РµР»СЊ: 1.2 Рј / Р¦РІРµС‚: Turquoise / Р“Р°СЂР°РЅС‚РёСЏ: 12 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1044, N'Ru', N' РЈРЅРёРІРµСЂСЃР°Р»СЊРЅС‹Р№ Р·Р°СЂСЏРґРЅС‹Р№ РєРѕРјРїР»РµРєС‚ E-Power 3 РІ 1', N'РўРёРї: РђРІС‚РѕРјРѕР±РёР»СЊРЅС‹Рµ, РЎРµС‚РµРІС‹Рµ \ РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ
-					РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ: 2 / Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: LED РёРЅРґРёРєР°С†РёСЏ РїСЂРѕС†РµСЃСЃР° Р·Р°СЂСЏРґРєРё / Р¦РІРµС‚: Black / Р“Р°СЂР°РЅС‚РёСЏ: 6 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1192, N'Ru', N'Sportop B600', N'РўРёРї: РњР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 8 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 105 РєРі / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: РќРµС‚')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1193, N'Ru', N'InterFit Bike Drive (K.07)', N'РўРёРї: РњР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 8 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 120 РєРі / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 8')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1194, N'Ru', N'HouseFit Kinetic B1.0 (KINETIC B1.0)', N'РўРёРї: РњР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 8 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 120 Рє, / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: РќРµС‚')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1195, N'Ru', N'EnergyFIT BC1200 ', N'РўРёРї: РњР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 8 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 110 РєРі / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: РќРµС‚')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1045, N'Ru', N'РЎРµС‚РµРІРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ Logan Quad USB Wall Charger 5V 4A CH-4 Orange', N'РёРї: РЎРµС‚РµРІС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ
-					РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: РњРѕР±РёР»СЊРЅС‹Рµ С‚РµР»РµС„РѕРЅС‹, СЃРјР°СЂС‚С„РѕРЅС‹, С„РѕС‚РѕР°РїРїР°СЂР°С‚С‹, mp3-РїР»РµРµСЂС‹, РїР»Р°РЅС€РµС‚С‹ СЃ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊСЋ Р·Р°СЂСЏРґРєРё РѕС‚ USB РїРѕСЂС‚Р°
-					РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ: 4 / Р¦РІРµС‚: Orange / Р“Р°СЂР°РЅС‚РёСЏ: 12 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1046, N'Ru', N' РђРІС‚РѕРјРѕР±РёР»СЊРЅРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ E-Power РєР°Р±РµР»СЊ MicroUSB', N'РўРёРї: РђРІС‚РѕРјРѕР±РёР»СЊРЅС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ
-					РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: Р›СЋР±РѕР№ РєР°Р±РµР»СЊ СЃ USB Рё MicroUSB / РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ: 2 / Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: LED РёРЅРґРёРєР°С†РёСЏ РїСЂРѕС†РµСЃСЃР° Р·Р°СЂСЏРґРєРё
-					Р¦РІРµС‚: Black / Р“Р°СЂР°РЅС‚РёСЏ: 6 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1047, N'Ru', N'РЎРµС‚РµРІРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ Global MSH-TR-071 c РєР°Р±РµР»РµРј РґР»СЏ iPhone 5, 6 White', N'РўРёРї: РЎРµС‚РµРІС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ / РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: iPhone 5, iPhone 6
-					Р¦РІРµС‚: White / Р“Р°СЂР°РЅС‚РёСЏ: 12 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1048, N'Ru', N'РЎРµС‚РµРІРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ Drobak Power Dual 220V-USB White/Black', N'РўРёРї: РЎРµС‚РµРІС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ / РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ: 2
-					Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: РџСЂРѕС‡РЅС‹Р№ РєРѕСЂРїСѓСЃ, СЃС‚РѕР№РєРёР№ Рє С†Р°СЂР°РїРёРЅР°Рј Рё СѓРґР°СЂР°Рј / Р¦РІРµС‚: White-Black / Р“Р°СЂР°РЅС‚РёСЏ: 6 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1049, N'Ru', N' РЎРµС‚РµРІРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ Logan Quad USB Wall Charger 5V 2.6A CHC-4 White', N'РўРёРї: РЎРµС‚РµРІС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ
-					РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: РњРѕР±РёР»СЊРЅС‹Рµ С‚РµР»РµС„РѕРЅС‹, СЃРјР°СЂС‚С„РѕРЅС‹, С„РѕС‚РѕР°РїРїР°СЂР°С‚С‹, mp3-РїР»РµРµСЂС‹, РїР»Р°РЅС€РµС‚С‹ СЃ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊСЋ Р·Р°СЂСЏРґРєРё РѕС‚ USB РїРѕСЂС‚Р°
-					РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ: 4 / Р¦РІРµС‚: White / Р“Р°СЂР°РЅС‚РёСЏ: 12 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1050, N'Ru', N'Kingston MicroSDHC/MicroSDXC 16GB Class 10 UHS-I + SD Р°РґР°РїС‚РµСЂ', N'С‚Р°РЅРґР°СЂС‚ РїР°РјСЏС‚Рё: MicroSD / РћР±СЉС‘Рј РїР°РјСЏС‚Рё: 16 Р“Р‘ / Р Р°Р·РјРµСЂС‹:  15 x 11 РјРј / Р“Р°СЂР°РЅС‚РёСЏ: 60 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1051, N'Ru', N'Kingston MicroSDHC/MicroSDXC 32GB Class 10 UHS-I + SD Р°РґР°РїС‚РµСЂ', N'РЎС‚Р°РЅРґР°СЂС‚ РїР°РјСЏС‚Рё: MicroSD / РћР±СЉС‘Рј РїР°РјСЏС‚Рё: 32 Р“Р‘ / Р Р°Р·РјРµСЂС‹: 15 x 11 РјРј / Р“Р°СЂР°РЅС‚РёСЏ: 60 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1052, N'Ru', N'Transcend SDHC 32GB Class10 UHS-I 400X', N'РЎС‚Р°РЅРґР°СЂС‚ РїР°РјСЏС‚Рё: SD / РћР±СЉС‘Рј РїР°РјСЏС‚Рё: 32 Р“Р‘ / Р Р°Р·РјРµСЂС‹: 32 x 24 РјРј / Р“Р°СЂР°РЅС‚РёСЏ 60 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1053, N'Ru', N'Kingston MicroSDHC 32GB Class 10 UHS-I U3 + SD-adapter', N'С‚Р°РЅРґР°СЂС‚ РїР°РјСЏС‚Рё: MicroSD / РћР±СЉС‘Рј РїР°РјСЏС‚Рё: 32 Р“Р‘ / Р Р°Р·РјРµСЂС‹ 11 x 15 x 1 РјРј / Р“Р°СЂР°РЅС‚РёСЏ 60 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1054, N'Ru', N'Transcend microSDHC 16GB Class 10 UHS-I Premium', N'РЎС‚Р°РЅРґР°СЂС‚ РїР°РјСЏС‚Рё: MicroSD / РћР±СЉС‘Рј РїР°РјСЏС‚Рё: 16 Р“Р‘ / Р Р°Р·РјРµСЂС‹: 11 x 15 x 1 РјРј / Р“Р°СЂР°РЅС‚РёСЏ: 60 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1055, N'Ru', N'Transcend microSDXC 64GB Class 10 UHS-I Premium + SD-adapter ', N'РЎС‚Р°РЅРґР°СЂС‚ РїР°РјСЏС‚Рё: MicroSD / РћР±СЉС‘Рј РїР°РјСЏС‚Рё: 64 Р“ / Р Р°Р·РјРµСЂС‹: 11 x 15 x 1 РјРј / Р“Р°СЂР°РЅС‚РёСЏ: 60 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1056, N'Ru', N'Transcend MicroSDHC 32GB Class 10 + P3 Card Reader', N'РЎС‚Р°РЅРґР°СЂС‚ РїР°РјСЏС‚Рё MicroSD / РћР±СЉС‘Рј РїР°РјСЏС‚Рё: 32 Р“Р‘ / Р Р°Р·РјРµСЂС‹: 11 x 15 x 1 (micro) / 32.7 x 16.0 x 7.8 (reader) РјРј / Р“Р°СЂР°РЅС‚РёСЏ: 24 РјРµСЃСЏС†Р°')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1057, N'Ru', N'Kingston Ultimate SDHC 16GB Class 10 UHS-I', N'РЎС‚Р°РЅРґР°СЂС‚ РїР°РјСЏС‚Рё: SD / РћР±СЉС‘Рј РїР°РјСЏС‚Рё: 16 Р“Р‘ / Р Р°Р·РјРµСЂС‹: 24 x 32 x 2.1 РјРј / Р“Р°СЂР°РЅС‚РёСЏ: 60 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1058, N'Ru', N'Pretec MicroSDXC 64GB Class 10 UHS-I + adapter', N'РЎС‚Р°РЅРґР°СЂС‚ РїР°РјСЏС‚Рё: MicroSD / РћР±СЉС‘Рј РїР°РјСЏС‚Рё: 64 Р“Р‘ / Р Р°Р·РјРµСЂС‹: 15 x 11 x 1 РјРј / Р“Р°СЂР°РЅС‚РёСЏ: 12 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1059, N'Ru', N' Kingston MicroSDHC/MicroSDXC 128GB Class 10 UHS-I + SD Р°РґР°РїС‚РµСЂ', N'РЎС‚Р°РЅРґР°СЂС‚ РїР°РјСЏС‚Рё: MicroSD / РћР±СЉС‘Рј РїР°РјСЏС‚Рё: 128 Р“Р‘ / Р Р°Р·РјРµСЂС‹: 15 x 11 РјРј / Р“Р°СЂР°РЅС‚РёСЏ: 60 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1060, N'Ru', N'Gorilla 2.5D РґР»СЏ Xiaomi Redmi Note 2 (Note2Glass)', N'РўРёРї: Р—Р°С‰РёС‚РЅРѕРµ СЃС‚РµРєР»Рѕ / Р’РёРґ: РџСЂРѕС‚РёРІРѕСѓРґР°СЂРЅС‹Рµ / РќР°Р·РЅР°С‡РµРЅРёРµ: Р”Р»СЏ РјРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ / РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: Xiaomi Redmi Note 2
-					РўРѕР»С‰РёРЅР°: 0.26 РјРј / РћР»РµРѕС„РѕР±РЅРѕРµ РїРѕРєСЂС‹С‚РёРµ / РўРІРµСЂРґРѕСЃС‚СЊ РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: 9 / РљСЂРѕРјРєР°: 2.5D / Р“Р°СЂР°РЅС‚РёСЏ: 12 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1061, N'Ru', N'Spolky РґР»СЏ Lenovo A2010', N'РўРёРї: РџР»РµРЅРєРё / Р’РёРґ: Р“Р»СЏРЅС†РµРІС‹Рµ / РќР°Р·РЅР°С‡РµРЅРёРµ: Р”Р»СЏ РјРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ / РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: Lenovo A2010')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1062, N'Ru', N'Drobak РґР»СЏ Samsung Galaxy J5', N'РўРёРї: РџР»РµРЅРєРё / Р’РёРґ: Р“Р»СЏРЅС†РµРІС‹Рµ / РќР°Р·РЅР°С‡РµРЅРёРµ: Р”Р»СЏ РјРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ / Р Р°Р·РјРµСЂ: 5 " / РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: Samsung Galaxy J5 / Р“Р°СЂР°РЅС‚РёСЏ: 14 РґРЅРµР№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1066, N'Ru', N'Global Shield Multi-Matte РґР»СЏ Apple iPhone 5/5S', N'РўРёРї: РџР»РµРЅРєРё / Р’РёРґ: РњР°С‚РѕРІС‹Рµ / РќР°Р·РЅР°С‡РµРЅРёРµ: Р”Р»СЏ РјРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ / РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: Apple iPhone 5/5S')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1064, N'Ru', N'robak Tempered Glass РґР»СЏ Samsung Galaxy Grand Prime G530H', N'РўРёРї: Р—Р°С‰РёС‚РЅРѕРµ СЃС‚РµРєР»Рѕ / Р’РёРґ: Р“Р»СЏРЅС†РµРІС‹Рµ / РќР°Р·РЅР°С‡РµРЅРёРµ: Р”Р»СЏ РјРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ / Р Р°Р·РјРµСЂ: 5 "
-					РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: Samsung Galaxy Grand Prime G530H / Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: РўРѕР»С‰РёРЅР°: 0.33 РјРј / Р“Р°СЂР°РЅС‚РёСЏ: 14 РґРЅРµР№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1067, N'Ru', N'Auzer РґР»СЏ Lenovo A536 ', N'РўРёРї Р—Р°С‰РёС‚РЅРѕРµ СЃС‚РµРєР»Рѕ / Р’РёРґ: Р“Р»СЏРЅС†РµРІС‹Рµ/ РќР°Р·РЅР°С‡РµРЅРёРµ: Р”Р»СЏ РјРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ  
-					Р Р°Р·РјРµСЂ: 5 / РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: Lenovo A536/ Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: РўРѕР»С‰РёРЅР°: 0.33 РјРј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1068, N'Ru', N' Drobak Tempered Glass РґР»СЏ Samsung Galaxy J7', N'РўРёРї: Р—Р°С‰РёС‚РЅРѕРµ СЃС‚РµРєР»Рѕ / Р’РёРґ: Р“Р»СЏРЅС†РµРІС‹Рµ / РќР°Р·РЅР°С‡РµРЅРёРµ: Р”Р»СЏ РјРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ 
-					Р Р°Р·РјРµСЂ: 5.5 / РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: Samsung Galaxy J7 SM-J700H / Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: РўРѕР»С‰РёРЅР°: 0.33 РјРј / Р“Р°СЂР°РЅС‚РёСЏ: 14 РґРЅРµР№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1069, N'Ru', N' Drobak Diamond СѓРЅРёРІРµСЂСЃР°Р»СЊРЅР°СЏ РґР»СЏ РїР»Р°РЅС€РµС‚РѕРІ 7"', N'РўРёРї: РџР»РµРЅРєРё / РќР°Р·РЅР°С‡РµРЅРёРµ: Р”Р»СЏ РїР»Р°РЅС€РµС‚РѕРІ / Р Р°Р·РјРµСЂ: 7 " / РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: Р”Р»СЏ СѓСЃС‚СЂРѕР№СЃС‚РІР° СЃ РґРёР°РіРѕРЅР°Р»СЊСЋ СЌРєСЂР°РЅР° 7"
-					РЁРёСЂРёРЅР°: 152 РјРј / Р’С‹СЃРѕС‚Р°: 92 РјРј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1071, N'Ru', N'robak Tempered Glass РґР»СЏ Microsoft (Nokia) Lumia 535 DS', N'РўРёРї: Р—Р°С‰РёС‚РЅРѕРµ СЃС‚РµРєР»Рѕ / Р’РёРґ: Р“Р»СЏРЅС†РµРІС‹Рµ / РќР°Р·РЅР°С‡РµРЅРёРµ: Р”Р»СЏ РјРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ / Р Р°Р·РјРµСЂ: 5 " / РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: Microsoft (Nokia) Lumia 535 DS
-					Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: РџСЂРѕС‡РЅРѕСЃС‚СЊ: 9H / РўРѕР»С‰РёРЅР°: 0.33 РјРј / Р“Р°СЂР°РЅС‚РёСЏ: 14 РґРЅРµР№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1063, N'Ru', N'ColorWay РґР»СЏ Apple iPhone 5/5s/5c', N'РўРёРї: Р—Р°С‰РёС‚РЅРѕРµ СЃС‚РµРєР»Рѕ / РќР°Р·РЅР°С‡РµРЅРёРµ: Р”Р»СЏ РјРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ / Р Р°Р·РјРµСЂ: 4 " / РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: Apple iPhone 5/5s/5c / Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: РўРІРµСЂРґРѕСЃС‚СЊ: H9
-					РўРѕР»С‰РёРЅР°: 0.33 РјРј / Р—Р°РєСЂСѓРіР»РµРЅРЅС‹Рµ РєСЂР°СЏ: 2.5D / Р“Р°СЂР°РЅС‚РёСЏ: 14 РґРЅРµР№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1072, N'Ru', N'РЎС‚Р°СЂС‚РѕРІС‹Р№ РїР°РєРµС‚ Vodafone Red ', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р§Р°СЃС‚РЅС‹Рј РєР»РёРµРЅС‚Р°Рј / РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ: Р”Р»СЏ Р·РІРѕРЅРєРѕРІ Рё РРЅС‚РµСЂРЅРµС‚Р°, Р”Р»СЏ РјРµР¶РґСѓРЅР°СЂРѕРґРЅС‹С… Р·РІРѕРЅРєРѕРІ, Р”Р»СЏ СЂРѕСѓРјРёРЅРіР°
-					РўРёРї: РЎС‚Р°СЂС‚РѕРІС‹Р№ РїР°РєРµС‚ / Р“РµРѕРіСЂР°С„РёСЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ: Р’СЃСЏ РЈРєСЂР°РёРЅР°')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1073, N'Ru', N'РЎС‚Р°СЂС‚РѕРІС‹Р№ РїР°РєРµС‚ 3Mob 3G РЎРјР°СЂС‚', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р§Р°СЃС‚РЅС‹Рј РєР»РёРµРЅС‚Р°Рј / РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ: Р”Р»СЏ РРЅС‚РµСЂРЅРµС‚Р° / РўРёРї: РЎС‚Р°СЂС‚РѕРІС‹Р№ РїР°РєРµС‚
-					Р“РµРѕРіСЂР°С„РёСЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ: Р’СЃСЏ РЈРєСЂР°РёРЅР° / Р“Р°СЂР°РЅС‚РёСЏ: 12 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1074, N'Ru', N'РќР°Р±РѕСЂ "РРЅС‚РµСЂС‚РµР»РµРєРѕРј РјРѕР±РёР»СЊРЅС‹Р№ Wi-Fi СЂРѕСѓС‚РµСЂ" Huawei EC 5220u-1', N'РўРёРї: РЎС‚Р°СЂС‚РѕРІС‹Р№ РЅР°Р±РѕСЂ (РјРѕРґРµРј + РїРѕРґРєР»СЋС‡РµРЅРёРµ) / РџРѕРґРґРµСЂР¶РєР° СЃС‚Р°РЅРґР°СЂС‚РѕРІ: 3G / РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ РїСЂРёРµРјР° РґР°РЅРЅС‹С…: 3.1 РњР±РёС‚/СЃ
-					РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ РѕС‚РїСЂР°РІРєРё РґР°РЅРЅС‹С…: 1.8 РњР±РёС‚/СЃ / Р’РµСЃ: 25 Рі / РљРѕРјРїР»РµРєС‚Р°С†РёСЏ: РњРѕРґРµРј Huawei EC 176,РЎРїСЂР°РІРѕС‡РЅРёРє РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ,Р“Р°СЂР°РЅС‚РёР№РЅС‹Р№ С‚Р°Р»РѕРЅ
-					Р Р°Р·РјРµСЂС‹: 78.5 С… 26 С… 10.5 РјРј / Р“Р°СЂР°РЅС‚РёСЏ: 6 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1075, N'Ru', N'3G РњРѕРґРµРј ZTE MF710Рњ ', N'РўРёРї: РњРѕРґРµРј (Р±РµР· РїРѕРґРєР»СЋС‡РµРЅРёСЏ) / РџРѕРґРґРµСЂР¶РєР° СЃС‚Р°РЅРґР°СЂС‚РѕРІ: 3G, GSM / РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ РїСЂРёРµРјР° РґР°РЅРЅС‹С…: РґРѕ 21.6 РњР±РёС‚/СЃ
-					РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ РѕС‚РїСЂР°РІРєРё РґР°РЅРЅС‹С…: РґРѕ 11 РњР±РёС‚/СЃ / GSM: 850/900/1800/1900 РњР“С†
-					РљРѕРјРїР»РµРєС‚Р°С†РёСЏ: 3G РњРѕРґРµРј, РЎРїСЂР°РІРѕС‡РЅРёРє РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, Р“Р°СЂР°РЅС‚РёР№РЅС‹Р№ С‚Р°Р»РѕРЅ
-					Р Р°Р·РјРµСЂС‹: 88.7 С… 27.3 С… 10.5 / Р“Р°СЂР°РЅС‚РёСЏ: 6 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1076, N'Ru', N'3G РњРѕРґРµРј Huawei E3531i-1 ', N'РўРёРї: РњРѕРґРµРј (Р±РµР· РїРѕРґРєР»СЋС‡РµРЅРёСЏ) / РџРѕРґРґРµСЂР¶РєР° СЃС‚Р°РЅРґР°СЂС‚РѕРІ: 3G, GSM / РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ РїСЂРёРµРјР° РґР°РЅРЅС‹С…: РґРѕ 21.6 РњР±РёС‚/СЃ
-					РџРѕРґРґРµСЂР¶РёРІР°РµРјС‹Рµ РћРЎ: Windows XP SP3, Vista SP1/SP2, 7, 8, 8.1 (РёСЃРєР»СЋС‡Р°СЏ RT РІРµСЂСЃРёСЋ), Mac OS X10.7, 10.8, 10.9
-					Р Р°Р·РјРµСЂС‹ :84 x 27 x 10.5 РјРј / Р“Р°СЂР°РЅС‚РёСЏ: 12 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1077, N'Ru', N' 3G Р РѕСѓС‚РµСЂ ZTE MF65M ', N'РўРёРї: Р РѕСѓС‚РµСЂ (Р±РµР· РїРѕРґРєР»СЋС‡РµРЅРёСЏ) / РџРѕРґРґРµСЂР¶РєР° СЃС‚Р°РЅРґР°СЂС‚РѕРІ: 3G, GSM / РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ РїСЂРёРµРјР° РґР°РЅРЅС‹С…: РґРѕ 21.6 РњР±РёС‚/СЃ
-					РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ РѕС‚РїСЂР°РІРєРё РґР°РЅРЅС‹С…: РґРѕ 11 РњР±РёС‚/СЃ / РђРєРєСѓРјСѓР»СЏС‚РѕСЂ: Р•РјРєРѕСЃС‚СЊ: 1500 РјРђ*С‡, Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹: РґРѕ 4.5 С‡Р°СЃРѕРІ, Р’СЂРµРјСЏ РѕР¶РёРґР°РЅРёСЏ: РґРѕ 200 С‡Р°СЃРѕРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1131, N'Ru', N'HANSA AMG 20 BFH', N'РўРёРї: СЃ РіСЂРёР»РµРј. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЃРµРЅСЃРѕСЂРЅРѕРµ. / РћР±СЉРµРј(Р»): 20. / РњРѕС‰РЅРѕСЃС‚СЊ РјРёРєСЂРѕРІРѕР»РЅ: 700 Р’С‚. Рћ
-					С‡РёСЃС‚РєР° РїР°СЂРѕРј: РЅРµС‚. / Р“Р°Р±Р°СЂРёС‚С‹: 30,4С…45,2С…33 СЃРј. / Р¦РІРµС‚: С‡РµСЂРЅС‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1132, N'Ru', N' SAMSUNG FW77SR-B', N'РўРёРї: РѕР±С‹С‡РЅР°СЏ (СЃРѕР»Рѕ). / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РєРЅРѕРїРѕС‡РЅРѕРµ. / РћР±СЉРµРј(Р»): 20. / РњРѕС‰РЅРѕСЃС‚СЊ РјРёРєСЂРѕРІРѕР»РЅ: 800 Р’С‚. 
-					Р“Р°Р±Р°СЂРёС‚С‹: 31,2С…48,9С…35 СЃРј. / Р¦РІРµС‚: С‡РµСЂРЅС‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1134, N'Ru', N'SAMSUNG FW77SR-W', N'РўРёРї: РѕР±С‹С‡РЅР°СЏ (СЃРѕР»Рѕ). / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РєРЅРѕРїРѕС‡РЅРѕРµ. / РћР±СЉРµРј(Р»): 20. / РњРѕС‰РЅРѕСЃС‚СЊ РјРёРєСЂРѕРІРѕР»РЅ: 800 Р’С‚.
-					Р“Р°Р±Р°СЂРёС‚С‹: 27,5С…48,9С…31,2 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1078, N'Ru', N'РќР°Р±РѕСЂ "РРЅС‚РµСЂС‚РµР»РµРєРѕРј РјРѕР±РёР»СЊРЅС‹Р№ Wi-Fi СЂРѕСѓС‚РµСЂ" Huawei EC 5321u-1', N'РўРёРї: РЎС‚Р°СЂС‚РѕРІС‹Р№ РЅР°Р±РѕСЂ (РјРѕРґРµРј + РїРѕРґРєР»СЋС‡РµРЅРёРµ) / РџРѕРґРґРµСЂР¶РєР° СЃС‚Р°РЅРґР°СЂС‚РѕРІ: CDMA / РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ РїСЂРёРµРјР° РґР°РЅРЅС‹С…: 14.7 РњР±РёС‚/СЃ
-					РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ РѕС‚РїСЂР°РІРєРё РґР°РЅРЅС‹С…: 5.4 РњР±РёС‚/СЃ / Р’РµСЃ: 150 Рі / РљРѕРјРїР»РµРєС‚Р°С†РёСЏ: РњРѕРґРµРј Huawei EC 5321u-1,РЎРїСЂР°РІРѕС‡РЅРёРє РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ,Р“Р°СЂР°РЅС‚РёР№РЅС‹Р№ С‚Р°Р»РѕРЅ
-					Р Р°Р·РјРµСЂС‹: 92.8 Г— 60 Г— 13.8 РјРј / Р“Р°СЂР°РЅС‚РёСЏ: 6 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1079, N'Ru', N'3G Р РѕСѓС‚РµСЂ Huawei E5356s-2 ', N'РўРёРї: Р РѕСѓС‚РµСЂ (Р±РµР· РїРѕРґРєР»СЋС‡РµРЅРёСЏ) / РџРѕРґРґРµСЂР¶РєР° СЃС‚Р°РЅРґР°СЂС‚РѕРІ: 3G, GSM /  РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ РїСЂРёРµРјР° РґР°РЅРЅС‹С… РґРѕ 43.2 РњР±РёС‚/СЃ
-					РџРѕРґРґРµСЂР¶РёРІР°РµРјС‹Рµ РћРЎ:Windows XP, Vista, 7, 8Mac OS X10.6, 10.7, 10.8 / Р Р°Р·РјРµСЂС‹ 93.2 x 60 x 14.5 РјРј / Р“Р°СЂР°РЅС‚РёСЏ 12 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1080, N'Ru', N'3G Р РѕСѓС‚РµСЂ Huawei E5330Bs-2 ', N'РўРёРї: Р РѕСѓС‚РµСЂ (Р±РµР· РїРѕРґРєР»СЋС‡РµРЅРёСЏ) / РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ РїСЂРёРµРјР° РґР°РЅРЅС‹С…: РґРѕ 21.6 РњР±РёС‚/СЃ / Р•РјРєРѕСЃС‚СЊ Р°РєРєСѓРјСѓР»СЏС‚РѕСЂР°: 1500 РјРђ*С‡ 
-					РџРѕРґРґРµСЂР¶РёРІР°РµРјС‹Рµ РћРЎ:Windows XP SP3, Vista SP1/SP2, 7, 8 (РёСЃРєР»СЋС‡Р°СЏ RT РІРµСЂСЃРёСЋ), Mac OS X10.6, 10.7, 10.8
-					Р Р°Р·РјРµСЂС‹: 92.8 x 60 x 14 РјРј / Р“Р°СЂР°РЅС‚РёСЏ: 12 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1081, N'Ru', N'РќР°Р±РѕСЂ "РРЅС‚РµСЂС‚РµР»РµРєРѕРј 3G РўСѓСЂР±Рѕ" Huawei EC 306-2', N'РўРёРї: РЎС‚Р°СЂС‚РѕРІС‹Р№ РЅР°Р±РѕСЂ (РјРѕРґРµРј + РїРѕРґРєР»СЋС‡РµРЅРёРµ) / РџРѕРґРґРµСЂР¶РєР° СЃС‚Р°РЅРґР°СЂС‚РѕРІ: 3G / РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ РїСЂРёРµРјР° РґР°РЅРЅС‹С…: 14.7 РњР±РёС‚/СЃ
-					РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ РѕС‚РїСЂР°РІРєРё РґР°РЅРЅС‹С…: 5.4 РњР±РёС‚/СЃ / Р’РµСЃ: 35 Рі / Р Р°Р·РјРµСЂС‹: 89 С… 28 С… 13.5 РјРј / Р“Р°СЂР°РЅС‚РёСЏ: 6 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1082, N'Ru', N'Jabra Mini Black', N'РЎРїРµС†РёС„РёРєР°С†РёСЏ Bluetooth: Bluetooth 4.0 / Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РѕС‚ Р±Р°С‚Р°СЂРµРё: Р’ СЂРµР¶РёРјРµ СЂР°Р·РіРѕРІРѕСЂР°: РґРѕ 9 С‡Р°СЃРѕРІ 
-					Р’ СЂРµР¶РёРјРµ РѕР¶РёРґР°РЅРёСЏ: РґРѕ 9 РґРЅРµР№ ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1083, N'Ru', N'Gemix BH-06 Black', N'РЎРїРµС†РёС„РёРєР°С†РёСЏ Bluetooth: 4.1 / Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РѕС‚ Р±Р°С‚Р°СЂРµРё: Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ СЂР°Р·РіРѕРІРѕСЂР° вЂ” РґРѕ 8 С‡ 
-					Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ РїСЂРѕСЃР»СѓС€РёРІР°РЅРёСЏ РјСѓР·С‹РєРё вЂ” РґРѕ 8 С‡ / Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ РѕР¶РёРґР°РЅРёСЏ вЂ“ РїСЂРёР±Р»РёР·РёС‚РµР»СЊРЅРѕ 120 С‡')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1084, N'Ru', N'Jabra BT2046', N'РЎРїРµС†РёС„РёРєР°С†РёСЏ Bluetooth: Bluetooth 2.1 + EDR / Р Р°Р·СЉРµРј: РџСЂРѕРїСЂРёРµС‚Р°СЂРЅС‹Р№ / Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РѕС‚ Р±Р°С‚Р°СЂРµРё: Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ СЂР°Р·РіРѕРІРѕСЂР°: РґРѕ 8 С‡Р°СЃРѕРІ
-					Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ РѕР¶РёРґР°РЅРёСЏ: 240 С‡Р°СЃРѕРІ / Р’СЂРµРјСЏ Р·Р°СЂСЏРґРєРё: 2 С‡Р°СЃР° / Р’РµСЃ: 10 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1085, N'Ru', N'Gemix BH-03 Black', N'РЎРїРµС†РёС„РёРєР°С†РёСЏ Bluetooth: 3.0 / Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РѕС‚ Р±Р°С‚Р°СЂРµРё: Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ СЂР°Р·РіРѕРІРѕСЂР° вЂ” РґРѕ 7 С‡ 
-					Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ РїСЂРѕСЃР»СѓС€РёРІР°РЅРёСЏ РјСѓР·С‹РєРё вЂ” РґРѕ 4 С‡ / Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ РѕР¶РёРґР°РЅРёСЏ вЂ“ РїСЂРёР±Р»РёР·РёС‚РµР»СЊРЅРѕ РґРѕ 100 С‡')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1086, N'Ru', N'Jabra Classic Black', N'РЎРїРµС†РёС„РёРєР°С†РёСЏ Bluetooth: Bluetooth 4.0 / Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РѕС‚ Р±Р°С‚Р°СЂРµРё: Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ СЂР°Р·РіРѕРІРѕСЂР°: РґРѕ 9 С‡Р°СЃРѕРІ
-					Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ РѕР¶РёРґР°РЅРёСЏ: 9 РґРЅРµР№ / Р’СЂРµРјСЏ Р·Р°СЂСЏРґРєРё: 2 С‡Р°СЃР°')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1087, N'Ru', N'Sennheiser EZX 80 2in1', N'РЎРїРµС†РёС„РёРєР°С†РёСЏ Bluetooth: Bluetooth 3.0 + EDR / Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РѕС‚ Р±Р°С‚Р°СЂРµРё 10 С‡Р°СЃРѕРІ РІ СЂРµР¶РёРјРµ СЂР°Р·РіРѕРІРѕСЂР° / 10 РґРЅРµР№ СЂРµР¶РёРјРµ РѕР¶РёРґР°РЅРёСЏ
-					Р¦РІРµС‚ Black / Р“Р°СЂР°РЅС‚РёСЏ 12 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1088, N'Ru', N'Sennheiser Communications VMX 200 II EU	', N'РЎРїРµС†РёС„РёРєР°С†РёСЏ Bluetooth Bluetooth 3.0 + EDR / РїРѕРґРґРµСЂР¶РєР° РїСЂРѕС„РёР»РµР№: A2DP + AVRCP + HSP + HFP \Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РѕС‚ Р±Р°С‚Р°СЂРµРё: Р”Рѕ 10 С‡Р°СЃРѕРІ РЅРµРїСЂРµСЂС‹РІРЅРѕРіРѕ СЂР°Р·РіРѕРІРѕСЂР°
-					Р”Рѕ 12 РґРЅРµР№ РІ СЂРµР¶РёРјРµ РѕР¶РёРґР°РЅРёСЏ / Р“Р°СЂР°РЅС‚РёСЏ: 12 РјРµСЃСЏС†РµРІ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1089, N'Ru', N'Jabra Style Black', N'РЎРїРµС†РёС„РёРєР°С†РёСЏ Bluetooth: Bluetooth 4.0 / Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РѕС‚ Р±Р°С‚Р°СЂРµРё: Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ СЂР°Р·РіРѕРІРѕСЂР°: РґРѕ 6 С‡Р°СЃРѕРІ
-					Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ РѕР¶РёРґР°РЅРёСЏ: РґРѕ 7 РґРЅРµР№ / Р’СЂРµРјСЏ Р·Р°СЂСЏРґРєРё: 2 С‡Р°СЃР° / Р’РµСЃ: 10 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1090, N'Ru', N'Jabra Stealth', N'РЎРїРµС†РёС„РёРєР°С†РёСЏ Bluetooth: Bluetooth 4.0 / Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РѕС‚ Р±Р°С‚Р°СЂРµРё: Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ СЂР°Р·РіРѕРІРѕСЂР°: РґРѕ 6 С‡Р°СЃРѕРІ
-					Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ РѕР¶РёРґР°РЅРёСЏ: РґРѕ 10 РґРЅРµР№ / Р’СЂРµРјСЏ Р·Р°СЂСЏРґРєРё: 2 С‡Р°СЃР° / Р’РµСЃ: 7.9 РіСЂР°РјРј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1098, N'Ru', N'SAMSUNG RB31FSRNDWW ', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 331 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 212 Р».
-					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 98 Р». / Р”РёСЃРїР»РµР№: РЅРµС‚. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚СЂРѕРЅРЅРѕРµ.
-					No Frost (Frost Free) : С…РѕР»РѕРґРёР»СЊРЅРѕРµ+РјРѕСЂРѕР·РёР»СЊРЅРѕРµ РѕС‚РґРµР»РµРЅРёСЏ / РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 37 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 185x59,5x66,8 СЃРј.
-					Р’РµСЃ: 65 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1130, N'Ru', N'SAMSUNG FW77SSTR', N'РўРёРї: РѕР±С‹С‡РЅР°СЏ (СЃРѕР»Рѕ). / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РєРЅРѕРїРѕС‡РЅРѕРµ. / РћР±СЉРµРј(Р»): 20. / РњРѕС‰РЅРѕСЃС‚СЊ РјРёРєСЂРѕРІРѕР»РЅ: 800 Р’С‚. 
-					Р“Р°Р±Р°СЂРёС‚С‹: 31,2С…48,9С…35 СЃРј. / Р¦РІРµС‚: РЅРµСЂР¶Р°РІРµСЋС‰Р°СЏ СЃС‚Р°Р»СЊ.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1091, N'Ru', N'Jabra Storm Black', N'РЎРїРµС†РёС„РёРєР°С†РёСЏ Bluetooth: Bluetooth 4.0 / Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РѕС‚ Р±Р°С‚Р°СЂРµРё: Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ СЂР°Р·РіРѕРІРѕСЂР°: РґРѕ 10 С‡Р°СЃРѕРІ
-					Р’СЂРµРјСЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ РѕР¶РёРґР°РЅРёСЏ: 10 РґРЅРµР№ / Р’СЂРµРјСЏ Р·Р°СЂСЏРґРєРё: 2 С‡Р°СЃР° / Р’РµСЃ: 7.9 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1092, N'Ru', N'SNAIGE FR-240.1101AA', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№ /  РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 220 Р» /  РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 166 Р»  
-					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 46 Р» /  Р”РёСЃРїР»РµР№: РЅРµС‚/  РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РјРµС…Р°РЅРёС‡РµСЃРєРѕРµ /  No Frost (Frost Free) : РЅРµС‚ 
-					РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 39 РґР‘ /  Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 144С…56С…60 СЃРј. /  Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1093, N'Ru', N'SAMSUNG RB31FSRNDEF', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. /  РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 331 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 212 Р».
-					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 98 Р». /  Р”РёСЃРїР»РµР№: РЅРµС‚. /  РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚СЂРѕРЅРЅРѕРµ. 
-					No Frost (Frost Free) : С…РѕР»РѕРґРёР»СЊРЅРѕРµ+РјРѕСЂРѕР·РёР»СЊРЅРѕРµ РѕС‚РґРµР»РµРЅРёСЏ /  РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 37 РґР‘. /  Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 185x59,5x66,8 СЃРј. 
-					Р’РµСЃ: 65 РєРі. / Р¦РІРµС‚: Р±РµР¶РµРІС‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1099, N'Ru', N'INDESIT NBS 18 AA UA ', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 339 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 233 Р». 
-					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 85 Р». / Р”РёСЃРїР»РµР№: РЅРµС‚. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РјРµС…Р°РЅРёС‡РµСЃРєРѕРµ. / No Frost (Frost Free) : РЅРµС‚.
-					РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 39 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 185С…60С…66 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1100, N'Ru', N'LG GA-B419SQCL ', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 354 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 225 Р». 
-					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 87 Р». / Р”РёСЃРїР»РµР№: РЅРµС‚. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚СЂРѕРЅРЅРѕРµ. 
-					No Frost (Frost Free) : С…РѕР»РѕРґРёР»СЊРЅРѕРµ+РјРѕСЂРѕР·РёР»СЊРЅРѕРµ РѕС‚РґРµР»РµРЅРёСЏ . / РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 41 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 190,7x59,5x64,3 СЃРј. 
-					Р’РµСЃ: 75 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1101, N'Ru', N'SNAIGE FR-275.1101AA ', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 260 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 201 Р». 
-					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 57 Р». / Р”РёСЃРїР»РµР№: РЅРµС‚. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РјРµС…Р°РЅРёС‡РµСЃРєРѕРµ. / No Frost (Frost Free) : РЅРµС‚. 
-					РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 39 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 169С…56С…60 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1102, N'Ru', N'INDESIT NTS 14 AA (UA) ', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 249 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 194 Р». 
-					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 51 Р». / Р”РёСЃРїР»РµР№: РЅРµС‚. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РјРµС…Р°РЅРёС‡РµСЃРєРѕРµ. / No Frost (Frost Free) : РЅРµС‚.
-					РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 39 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 145С…60С…62 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1094, N'Ru', N'BOSCH KGV39VW31 ', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 347 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 250 Р». 
-					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 94 Р». / Р”РёСЃРїР»РµР№: РЅРµС‚. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚СЂРѕРЅРЅРѕРµ. / No Frost (Frost Free) : РЅРµС‚. 
-					РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 39 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 201x60x65 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1095, N'Ru', N'ATLANT XM-6025-100', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 384 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 225 Р».
-					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 129 Р». / Р”РёСЃРїР»РµР№: РЅРµС‚. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РјРµС…Р°РЅРёС‡РµСЃРєРѕРµ. / No Frost (Frost Free) : РЅРµС‚. 
-					РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 39-42 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 205С…60С…63 СЃРј. / Р’РµСЃ: 87 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1096, N'Ru', N'LG GA-B419SEQL', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 354 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 225 Р».
-					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 87 Р». / Р”РёСЃРїР»РµР№: РµСЃС‚СЊ. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚СЂРѕРЅРЅРѕРµ.
-					No Frost (Frost Free) : С…РѕР»РѕРґРёР»СЊРЅРѕРµ+РјРѕСЂРѕР·РёР»СЊРЅРѕРµ РѕС‚РґРµР»РµРЅРёСЏ . / РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 41 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 190,7С…59,5С…64,3 СЃРј. 
-					Р’РµСЃ: 75 РєРі. / Р¦РІРµС‚: Р±РµР¶РµРІС‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1097, N'Ru', N'INDESIT NBS 20 AA (UA)', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 363 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 233 Р».
-					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 108 Р». / Р”РёСЃРїР»РµР№: РЅРµС‚. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РјРµС…Р°РЅРёС‡РµСЃРєРѕРµ. / No Frost (Frost Free) : РЅРµС‚. 
-					РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 39 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 200С…60С…66 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1104, N'Ru', N'NORD 100-2Р’ Р‘РµР»Р°СЏ ', N'РўРёРї: РіР°Р·РѕРІР°СЏ. / Р“Р°Р·-РєРѕРЅС‚СЂРѕР»СЊ: РЅРµС‚. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: РіР°Р·РѕРІС‹Рµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: СЌРјР°Р»РёСЂРѕРІР°РЅРЅС‹Рµ. 
-					РўРёРї РґСѓС…РѕРІРєРё: РіР°Р·РѕРІР°СЏ. / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 62 Р». / Р“СЂРёР»СЊ: РЅРµС‚. / РљРѕРЅРІРµРєС†РёСЏ: РЅРµС‚. / РўР°Р№РјРµСЂ: РЅРµС‚. / РџРѕРґСЃРІРµС‚РєР°: РЅРµС‚. 
-					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…50С…60 СЃРј. / Р’РµСЃ: 32,5 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1106, N'Ru', N'GRETA 1470-0012 (WM)', N'РўРёРї: РіР°Р·РѕРІР°СЏ. / Р“Р°Р·-РєРѕРЅС‚СЂРѕР»СЊ: РЅРµС‚. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: РіР°Р·РѕРІС‹Рµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: СЌРјР°Р»РёСЂРѕРІР°РЅРЅС‹Рµ. 
-					РўРёРї РґСѓС…РѕРІРєРё: РіР°Р·РѕРІР°СЏ. / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 54 Р». / Р“СЂРёР»СЊ: РЅРµС‚. / РљРѕРЅРІРµРєС†РёСЏ: РЅРµС‚. / РўР°Р№РјРµСЂ: РЅРµС‚. / РџРѕРґСЃРІРµС‚РєР°: РЅРµС‚. 
-					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…50С…54 СЃРј. / Р’РµСЃ: 31 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2, N'Ru', N'HP 255G4 (NOY69ES)', N'Экран 15.6” (1366x768) HD LED, матовый / AMD Dual-Core E1-6015 (1.4 ГГц) / RAM 2 ГБ 
+					HDD 500 ГБ / AMD Radeon R2 / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / Linux / 2.15 кг / черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (4, N'Ru', N'Dell Inspiron 3551 (135C25NIW-22)', N'Экран 15.6" (1366x768) HD WLED, глянцевый / Intel Celeron N2830 (2.16 ГГц) / RAM 2 ГБ 
+					HDD 500 ГБ / Intel HD Graphics / Без ОД / Wi-Fi / Bluetooth 4.0 / веб-камера / Windows 8.1 / 2.14 кг / черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (23, N'Ru', N'Samsung Galaxy Tab E 9.6" 3G White (SM-T561NZWASEK)', N'Экран 9.6" (1280x800) емкостный MultiTouch / T-Shark2 (1.3 ГГц) / RAM 1.5 ГБ 
+					8 ГБ встроенной памяти + microSD / 3G / Wi-Fi 802.11a/b/g/n / Bluetooth 4.0 / основная камера 5 Мп, фронтальная 2 Мп 
+					GPS / ГЛОНАСС / Android 4.4 (KitKat) / 490 г / белый')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (24, N'Ru', N'Lenovo TAB 2 A7-10 7" 8GB WiFi Black (59434747)', N'Экран 7" (1024х600) IPS, емкостный MultiTouch / MediaTek MT8127 (1.3 ГГц) / RAM 1 ГБ 
+					8 ГБ встроенной памяти + microSD / Wi-Fi / Bluetooth 4.0 
+					фронтальная камера 0.3 Мп / A-GPS / Android 4.4 / 269 г / черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (25, N'Ru', N'Asus ZenPad 7.0 16GB White (Z370C-1B042A)', N'Экран 7" IPS (1280x800) емкостный MultiTouch / Intel Atom x3-C3200 / RAM 2 ГБ / 16 ГБ встроенной памяти + microSD
+					Wi-Fi 802.11 b/g/n / Bluetooth 4.0 / основная камера 5 Мп, фронтальная - 0.3 Мп / GPS / ГЛОНАСС / ОС Android 5.0 (Lollipop) / 272 г / белый')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (26, N'Ru', N'Samsung Galaxy Tab S2 9.7" 32GB Black (SM-T810NZKESEK)', N'Экран 9.7" Super AMOLED (2048x1536) емкостный MultiTouch / Samsung Exynos 5433 (1.9 ГГц + 1.3 ГГц) / RAM 3 ГБ 
+					32 ГБ встроенной памяти + microSD / 802.11 a/b/g/n/ac / Bluetooth 4.1 
+					основная камера 8 Мп, фронтальная 2.1 Мп / GPS / ГЛОНАСС / Android 5.0 (Lollipop) / 375 г / черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (27, N'Ru', N'Lenovo Tab 2 A7-30DC 7" 3G 8GB Black (59444592)', N'Экран 7" (1024х600) IPS, емкостный MultiTouch / MediaTek MT8382M (1.3 ГГц) / RAM 1 ГБ 
+					8 ГБ встроенной памяти + microSD / 3G / Wi-Fi / Bluetooth 4.0 
+					основная камера 2 Мп + фронтальная 0.3 Мп / GPS / Android 4.4 (KitKat) / 269 г / черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (28, N'Ru', N'Prestigio MultiPad 10.1 3G Black (PMT3341_3G)', N'Экран 10.1" IPS (1280x800) емкостный Multi-Touch / Intel Atom X3 C3230 (1.2 ГГц) / RAM 1 ГБ 
+					8 ГБ встроенной памяти + поддержка карт памяти microSD / 3G / Wi-Fi / Bluetooth 
+					основная камера 2 Мп, фронтальная - 0.3 Мп / Android 5.1 (Lollipop) / 552 г / черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (29, N'Ru', N'Jeka JK-103 16GB 3G IPS', N'Экран 10.1" IPS (1024х600), емкостный, MultiTouch / ARM Cortex A7 (1.3 ГГц) / RAM 1 ГБ 
+					16 ГБ встроенной памяти + microSD / 3G / Wi-Fi / Bluetooth 4.0 / основная камера 2 Мп, фронтальная - 0.3 Мп 
+					GPS / A-GPS / ОС Android 5.1 (Lollipop) / вес 568 г / черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (30, N'Ru', N'Prestigio MultiPad Color 2 3G Black (PMT3777_3G_C)', N'Экран 7" IPS (1280x800) емкостный, MultiTouch / Intel Atom x3-C3230RK (1.2 ГГц) / RAM 1 ГБ 
+					8 ГБ встроенной памяти + microSD / 3G / Wi-Fi / Bluetooth 4.0 / основная камера 2 Мп, фронтальная - 0.3 Мп 
+					GPS / Android 5.1 (Lollipop) / 270 г / черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (31, N'Ru', N'Fly Flylife Connect 10.1 3G 2 Black', N'Экран 10.1" IPS (1280х800) емкостный MultiTouch / MediaTek MT8382V/W (1.3 ГГц) / RAM 1 ГБ 
+					8 ГБ встроенной памяти + microSD / Wi-Fi / Bluetooth / 3G / основная камера 5 Мп, фронтальная 0.3 Мп 
+					GPS / ОС Android 4.2.2 / 624 г / черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (34, N'Ru', N'PocketBook 624 Basic Touch Grey (PB624-Y-WW)', N'Диагональ дисплея: 6" / Разрешение: 800х600 / Тип матрицы: E Ink / Количество градаций серого: 16
+					Встроенная память: 4 ГБ / Вес: 191 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (36, N'Ru', N'PocketBook InkPad 840 Brown', N'Диагональ дисплея: 8" / Разрешение: 1600x1200 / Тип матрицы: E Ink Pearl / Количество градаций серого: 16
+					Встроенная память: 4 ГБ / Вес: 350 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (6, N'Ru', N'Asus EeeBook E502MA (E502MA-XX0026D) Blue ', N'Экран 15.6" (1366x768) HD, глянцевый / Intel Celeron N2840 (2.16 ГГц) / RAM 4 ГБ 
+					HDD 500 ГБ / Intel HD Graphics / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / DOS / 1.86 кг / синий')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (10, N'Ru', N'Acer Aspire ES1-520-392H (NX.G2JEU.002)', N'Экран 15.6'''' (1366x768) HD LED, матовый / AMD E1-2500 (1.4 ГГц) / RAM 4 ГБ 
+					HDD 500 ГБ / Radeon HD 8240 / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / Linpus / 2.4 кг / черный
+					Цена: 7 199 грн')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (11, N'Ru', N'Lenovo IdeaPad 100S White ', N'кран 11.6" TN (1366x768) WXGA HD LED, глянцевый / Intel Atom Z3735F (1.33 - 1.83 ГГц) / RAM 2 ГБ 
+					64 ГБ eMMC / Intel HD Graphics / без ОД / Wi-Fi / Bluetooth / веб-камера / Windows 10 Home / 1 кг / белый')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (12, N'Ru', N'Acer Aspire E5-573G-312U (NX.MVMEU.025) Black-Iron ', N'Экран 15.6'''' (1366x768) HD LED, матовый / Intel Core i3-5005U (2.0 ГГц) / RAM 4 ГБ 
+					HDD 500 ГБ / nVidia GeForce 920M, 2 ГБ / Без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / Linux / 2.4 кг / серый с черным')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (21, N'Ru', N' Lenovo IdeaPad 100-15 (80QQ004NUA)', N'Экран 15.6" (1366x768) HD LED, глянцевый / Intel Pentium 3825U (1.9 ГГц) / RAM 4 ГБ 
+					HDD 500 ГБ / nVidia GeForce 920M, 1 ГБ / без ОД / LAN / Bluetooth / Wi-Fi / веб-камера / DOS / 2.3 кг / черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (32, N'Ru', N'Assistant AP-115G White', N'Экран 10.1" (1024x600) емкостный MultiTouch / MTK6572 Dual Core (1.2 ГГц) / RAM 1 ГБ 
+					8 ГБ встроенной памяти + microSD / Wi-Fi b/g/n / 3G / Bluetooth / фронтальная камера 0.3 Мп, тыловая камера 2 Мп 
+					GPS / OC Android 4.2 / 530 г / белый')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (33, N'Ru', N'Lenovo Tab 2 A10-70L 16GB LTE Blue (ZA010015UA)', N'Экран 10.1" (1920x1200) IPS емкостный, MultiTouch / MediaTek MT8732 (1.5 ГГц) / RAM 2 ГБ 
+					16 ГБ встроенной памяти + microSD / Wi-Fi b/g/n / Bluetooth 4.0 / 3G / LTE / основная камера 8 Мп, фронтальная - 5 Мп 
+					GPS / ГЛОНАСС / Beidou / Android 4.4 (KitKat) / 509 г / темно-синий')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (35, N'Ru', N'PocketBook 626 Touch Lux2 Black (PB626-E-CIS)', N'Диагональ дисплея: 6" / Разрешение: 1024х758 / Тип матрицы: E Ink Pearl / Количество градаций серого: 16
+					Встроенная память: 4 ГБ / Вес: 208 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (37, N'Ru', N'PocketBook 630 Kenzo Grey (PB630-G-CIS-KNZ)', N'Диагональ дисплея: 6" / Разрешение: 1024х758 / Тип матрицы: E Ink Pearl / Количество градаций серого: 16
+					Встроенная память: 4 ГБ / Вес: 155 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (38, N'Ru', N'PocketBook 614 Basic 2 White (PB614-D-CIS)', N'Диагональ дисплея: 6" / Разрешение: 800х600	/ Тип матрицы: E Ink Pearl / Количество градаций серого: 16
+					Встроенная память: 4 ГБ / Вес: 188 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (39, N'Ru', N'EvroMedia Е-Учебник Classic Pro', N'Диагональ дисплея: 9.7" / Разрешение: 1200x800	/ Тип матрицы: E Ink Pearl / Количество градаций серого: 16
+					Встроенная память: 4 ГБ / Вес: 350 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (40, N'Ru', N'PocketBook 630 Sense Brown (PB630-X-CIS)', N'Диагональ дисплея: 6" / Разрешение: 1024х758 / Тип матрицы: E Ink Pearl / Количество градаций серого: 16
+					Встроенная память: 4 ГБ / Вес: 155 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (41, N'Ru', N'Evromedia E-учебник Classic One', N'Диагональ дисплея: 6" / Разрешение: 800х600 / Тип матрицы: E Ink / Количество градаций серого: 16
+					Встроенная память: 4 ГБ / Вес: 191 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (42, N'Ru', N' EvroMedia Е-Учебник HD Paper', N'Диагональ дисплея: 6" / Разрешение: 1024х758 / Тип матрицы: E Ink Pearl / Количество градаций серого: 16
+					Встроенная память: 4 ГБ / Вес: 155 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (43, N'Ru', N'PocketBook Ultra 650 Белый ', N'Диагональ дисплея: 6" / Разрешение: 1024х758 / Тип матрицы: E Ink Pearl / Количество градаций серого: 16
+					Встроенная память: 4 ГБ / Вес: 175 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (44, N'Ru', N'PocketBook 515 Grey (PB515-Y)', N'Диагональ дисплея: 5" / Разрешение: 800х600 / Тип матрицы: E Ink / Количество градаций серого: 16
+					Встроенная память: 4 ГБ / Вес: 131 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (45, N'Ru', N'ARTLINE Home H43 v02 (H43v02)', N'AMD Athlon II X4 840 (3.1 ГГц) / RAM 4 ГБ / HDD 1 TБ / nVidia GeForce GT 730, 2 ГБ / DVD±RW / LAN / без ОС
+					Цена: 10 175 грн')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (46, N'Ru', N'Lenovo IdeaCentre H535 (57331379)', N'MD Trinity A8-5500 (3.2 - 3.7 ГГц) / RAM 4 ГБ / HDD 500 ГБ / AMD Radeon AHD 7560D / DVD±RW / LAN / кардридер / DOS / клавиатура+ мышь')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (13, N'Ru', N'Asus EeeBook E502MA (E502MA-XX0020D) Blue ', N'Экран 15.6" (1366x768) HD, глянцевый / Intel Pentium N3540 (2.16 - 2.66 ГГц) / RAM 4 ГБ 
+					HDD 1 ТБ / Intel HD Graphics / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / DOS / 1.86 кг / синий')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (15, N'Ru', N' Lenovo G50-45 (80E301XLUA) ', N'Экран 15.6" (1366x768) HD LED, глянцевый / AMD Quad-Core A4-6210 (1.8 ГГц) / RAM 2 ГБ 
+					HDD 500 ГБ / AMD Radeon R3 / Без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / Windows 10 Home / 2.5 кг / черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (17, N'Ru', N'HP 250 G4 (P5R75ES)', N'Экран 15.6” (1366x768) HD LED, матовый / Intel Core i3-4005U (1.7 ГГц) / RAM 4 ГБ 
+					HDD 500 ГБ / Intel HD Graphics / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / DOS / 2.15 кг / черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (21, N'Ru', N'Lenovo IdeaPad 100-15 (80QQ004NUA)', N'Экран 15.6" (1366x768) HD LED, глянцевый / Intel Pentium 3825U (1.9 ГГц) / RAM 4 ГБ 
+					HDD 500 ГБ / nVidia GeForce 920M, 1 ГБ / без ОД / LAN / Bluetooth / Wi-Fi / веб-камера / DOS / 2.3 кг / черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (56, N'Ru', N'Intel Core i5-4460 3.2GHz/5GT/s/6MB (BX80646I54460) s1150 BOX', N'Семейство процессора: Intel Core i5 / Тип разъема: Socket 1150 / Поколение процессора Intel: Haswell (четвертое) / Количество ядер: 4
+					Внутренняя тактовая частота: 3200 МГц / Интегрированная графика: Intel HD Graphics 4600 / Объем кэш памяти 3 уровня: 6 МБ')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (57, N'Ru', N'AMD FX-6300 3.5GHz/5200MHz /8MB (FD6300WMHKBOX) sAM3+ BOX', N'Семейство процессора: AMD FX-Series / Тип разъема: Socket AM3+ / Количество ядер: 6 
+					Внутренняя тактовая частота: 3500 МГц / Интегрированная графика: Нет / Объем кэш памяти 3 уровня: 8 МБ')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (58, N'Ru', N'Intel Core i3-4170 3.7GHz/5GT/s/3MB (BX80646I34170) s1150 BOX', N'Семейство процессора: Intel Core i3 / Тип разъема: Socket 1150 / Поколение процессора Intel: Haswell (четвертое) / Количество ядер: 2
+					Внутренняя тактовая частота: 3700 МГц / Интегрированная графика: Intel HD Graphics 4400 / Объем кэш памяти 3 уровня: 3 МБ')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (59, N'Ru', N'Intel Pentium G3260 3.3GHz/5GT/s/3MB (BX80646G3260) s1150 BOX ', N'Семейство процессора: Intel Pentium Dual-Core / Тип разъема: Socket 1150 / Поколение процессора Intel: Haswell (четвертое) / Количество ядер: 2
+					Внутренняя тактовая частота: 3300 МГц / Интегрированная графика: Intel HD Graphics / Объем кэш памяти 3 уровня: 3 МБ')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (60, N'Ru', N'Intel Core i7-4790K 4.0GHz/5GT/s/8MB (BX80646I74790K) s1150 BOX', N'Семейство процессора: Intel Core i7 / Тип разъема: Socket 1150 / Поколение процессора Intel: Haswell (четвертое) / Количество ядер: 4
+					Внутренняя тактовая частота: 4000 МГц / Интегрированная графика: Intel HD Graphics 4600 / Объем кэш памяти 3 уровня: 8 МБ')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (61, N'Ru', N'Intel Pentium G3250 3.2GHz/5GT/s/3MB (BX80646G3250) s1150 BOX', N'Семейство процессора: Intel Pentium Dual-Core / Тип разъема: Socket 1150 / Поколение процессора Intel: Haswell (четвертое) / Количество ядер: 2
+					Внутренняя тактовая частота: 3200 МГц / Интегрированная графика: Intel HD Graphics / Объем кэш памяти 3 уровня: 3 МБ')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (62, N'Ru', N'Intel Core i3-4160 3.6GHz/5GT/s/3MB (BX80646I34160) s1150 BOX', N'Семейство процессора: Intel Core i3 \ Тип разъема: Socket 1150 / Поколение процессора Intel: Haswell (четвертое) / Количество ядер: 2
+					Внутренняя тактовая частота: 3600 МГц / Интегрированная графика: Intel HD Graphics 4400 / Объем кэш памяти 3 уровня: 3 МБ')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (63, N'Ru', N'Intel Core i5-4590 3.3GHz/5GT/s/6MB (BX80646I54590) s1150 BOX', N'Семейство процессора: Intel Core i5 \ Тип разъема: Socket 1150 / Поколение процессора Intel: Haswell (четвертое) / Количество ядер: 4
+					Внутренняя тактовая частота: 3300 МГц / Интегрированная графика: Intel HD Graphics 4600 / Объем кэш памяти 3 уровня: 6 МБ')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1029, N'Ru', N'Jeka Neo 8GB Black/Blue ', N'8 ГБ / MP3, WMA, WAV, PEG, BMP, AVI, TXT 
+					1.8" TFT (160x128) / FM-приемник / miniUSB / 40 х 80 х 9 мм, 19 г / черный с синим')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1030, N'Ru', N'Transcend T-Sonic 350 8GB Blue', N'8 ГБ / MP3, WMA, WAV / OLED / USB 2.0 / FM-приемник / Диктофон / 22 г / синий')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (47, N'Ru', N'ARTLINE Business B23 v05 (B23v05)', N'Intel Celeron Dual Core G1820 (2.7 ГГц) / RAM 4 ГБ / HDD 500 ГБ / Intel HD Graphics / без ОД / LAN / без ОС')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (48, N'Ru', N'Everest Home & Office 1005 (1005_2511)', N'Intel Celeron Dual Core J1800 (2.41 ГГц) / RAM 4 ГБ / HDD 500 ГБ / Intel HD Graphics / без ОД / LAN / без ОС')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (49, N'Ru', N'Everest Home & Office 4060 (4060_5610)', N'Intel Pentium Dual Core G3220 (3.0 ГГц) / RAM 4 ГБ / HDD 500 ГБ / nVidia GeForce GT730, 2 ГБ / без ОД / LAN / без ОС')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (50, N'Ru', N'Everest Home&Office 1006 (1006_4103)', N'AMD A4-4000 (3.0 ГГц) / RAM 4 ГБ / HDD 1 ТБ / AMD Radeon R7 240 2 ГБ / DVD±RW / LAN / без ОС')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (51, N'Ru', N'Everest Home A6620 (6620_7910)', N'AMD Athlon II X4 750K (3.4 ГГц) / RAM 8 ГБ / HDD 1 ТБ / nVidia GeForce GT 730, 2 ГБ / DVD±RW / кардридер / LAN / без ОС')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (52, N'Ru', N'Modecom FreePC', N'Intel Atom Z3735F (1.33 ГГц) / RAM 2 ГБ / HDD 16 ГБ / Intel HD Graphics / без ОД / Wi-Fi / Bluetooth / кардридер / Windows 8.1')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (53, N'Ru', N'Lenovo IdeaCentre C20-00 (F0BB0044UA)', N'Экран 19.5" (1920x1080) LED / Intel Celeron N3050 (1.6 ГГц) / RAM 4 ГБ / HDD 500 ГБ / Intel HD Graphics / DVD-RW / Wi-Fi / Bluetooth / веб-камера / DOS / 3.88 кг / черный / клавиатура + мышь')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (54, N'Ru', N'Everest Game 9085 (9085_9109)', N'Intel Core i7-4790 (3.6 ГГц) / RAM 16 ГБ / SSD 120 ГБ + HDD 2 ТБ / nVidia GeForce GTX 970, 4 ГБ / DVD±RW / LAN / кардридер / без ОС')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (55, N'Ru', N'Everest Game 9085 (9085_9110)', N'Intel Core i7-6700 (3.4 ГГц) / RAM 16 ГБ / SSD 120 ГБ + HDD 2 ТБ / nVidia GeForce GTX 970, 4 ГБ / DVD±RW / LAN / кардридер / без ОС')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1002, N'Ru', N' Мышь Trust Primo Wireless Mouse Black (20322)', N'Тип датчика: Оптический / Интерфейс: Wireless / Количество кнопок: 4 / Особенности: Для обеих рук (симметричный дизайн), Поддержка MacOS
+					Совместимость с ОС: Mac OS, Microsoft Windows')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1014, N'En', N'Мышь Acme Compact Wireless Mouse MW13 (4770070874592)', N'Тип датчика: Оптический / Интерфейс: USB / Количество кнопок: 4 / Особенности: Для обеих рук (симметричный дизайн)
+					Совместимость с ОС: Microsoft Windows')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1006, N'Ru', N'Наушники Beats Solo 2 Wireless Headphones Black (MHNG2ZM/A) ', N'Тип наушников: Закрытые / Интерфейс проводного подключения: 1 x mini-jack (разъем 3.5 мм) / Длина шнура: 1.361 м / Вес: 205 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1007, N'Ru', N'Наушники Trust Primo Headset HS-2100 (11916)	', N'Тип наушников: Открытые / Диапазон частот наушников: 20 - 20000 Гц / Интерфейс проводного подключения: 2 x mini-jack (разъем 3.5 мм)
+					Длина шнура: 1.2 м / Вес: 75 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1008, N'Ru', N'Клавиатура Genius SlimStar i222 USB (31310046108)', N'Интерфейс: USB / Количество кнопок: 105 / Совместимость с ОС: Microsoft Windows / Тип упаковки: BOX / Подсветка клавиш: Нет')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1009, N'Ru', N'Клавиатура Acme Ultrathin Bluetooth Keyboard BK01 (4770070874271)', N'Интерфейс: Bluetooth / Особенности: Без цифрового блока, Встроенный USB-порт / Совместимость с ОС: Microsoft Windows / Подсветка клавиш: Нет')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1010, N'Ru', N'Монитор 23.8" Dell P2414H Professional (860-BBBQ)', N'Тип матрицы: S-IPS \ Особенности: Поворотный экран (Pivot), USB-концентратор, Регулировка по высоте / Интерфейсы: USB, DisplayPort, DVI, VGA
+					Время реакции матрицы: 8 мс / Яркость дисплея: 250 кд/м2 / Контрастность дисплея: 1000:1')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1011, N'Ru', N' Монитор 24" Dell UltraSharp U2412M Black (860-10161)', N'Тип матрицы: E-IPS / Особенности: Поворотный экран (Pivot), USB-концентратор, Регулировка по высоте / Интерфейсы: DisplayPort, DVI, VGA
+					Время реакции матрицы: 8 мс / Яркость дисплея: 300 кд/м2 / Контрастность дисплея: 1000:1')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1012, N'Ru', N'Веб-камера Gemix T21 Black (T21B)', N'Разрешение видео: VGA (640x480) / Встроенный микрофон: Есть / Гарантия: 24 месяца')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1013, N'Ru', N'Веб-камера Logitech Webcam HD Pro C920 (960-001055)', N'Разрешение видео: FullHD (1920x1080) / Встроенный микрофон: Есть / Гарантия: 24 месяца')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1039, N'Ru', N'Apple iPod shuffle 2GB Pink', N'2 ГБ / АAC, защищенный AAC, MP3, MP3 VBR, Audible, Apple Lossless, AIFF, WAV / 12.5 г / розовый')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1179, N'Ru', N'Discovery F-16', N'Назначение: Домашние / Конструкция: Складные /  Максимальная скорость: 16 км/ч
+					Максимальный вес пользователя: 120 кг / Регулировка угла наклона: Электрическая')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (64, N'Ru', N'Intel Core i5-6500 3.2GHz/8GT/s/6MB (BX80662I56500) s1151 BOX	', N'Семейство процессора: Intel Core i5 / Тип разъема: Socket 1151 / Поколение процессора Intel: Skylake (шестое) / Количество ядер: 4
+					Внутренняя тактовая частота: 3200 МГц / Интегрированная графика: Intel HD Graphics 530 / Объем кэш памяти 3 уровня: 6 МБ')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (65, N'Ru', N'Intel Core i7-6700K 4.0GHz/8GT/s/8MB (BX80662I76700K) s1151 BOX', N'Семейство процессора: Intel Core i7 / Тип разъема: Socket 1151 / Поколение процессора Intel: Skylake (шестое) / Количество ядер: 4
+					Внутренняя тактовая частота: 4000 МГц / Интегрированная графика: Intel HD Graphics 530 / Объем кэш памяти 3 уровня: 8 МБ')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (66, N'Ru', N'Intel Pentium G3240 3.1GHz/5GT/s/3MB (BX80646G3240) s1150 BOX', N'Семейство процессора: Intel Pentium Dual-Core / Тип разъема: Socket 1150/ Поколение процессора Intel: Haswell (четвертое) / Количество ядер: 2
+					Внутренняя тактовая частота: 3100 МГц / Интегрированная графика: Intel HD Graphics / Объем кэш памяти 3 уровня: 3 МБ ')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (67, N'Ru', N'Dr.Web Katana 1 ПК/1 год (скретч-карта)', N'Системные требования: Windows 10/8/8.1/7/Vista SP2/XP SP2+ (32-битные системы) / Windows 10/8/8.1/7/Vista SP2 (64-битные системы) / Оперативная память не менее 100 МБ
+					Свободное пространство на жестком диске: ~150 МБ. / Тип продукта: Скретч-карточка / Срок действия лицензии: 1 год (для 1 ПК)')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (68, N'Ru', N'Kaspersky Small Office Security 4(KL4531OCEFW) ', N'Системные требования: Intel Pentium 1 ГГц x86/x64* или выше (или совместимый аналог), 1 ГБ (x86)/2 ГБ (x64) свободной оперативной памяти
+					Тип продукта: Корпоративная лицензия / Срок действия лицензии: 1 год')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (69, N'Ru', N'ESET Smart Security 5 на 12 месяцев, для 2 ПК Коробочная версия', N'Системные требования: i386 (Intel ® 80386), amd64 (x86-64) / Операционные системы: Microsoft Windows 2000, Microsoft Windows XP, Microsoft Windows Vista, Microsoft Windows 7, Microsoft Windows Home Server
+					Оперативная память: 100 МБ / Свободного места на жестком диске: 400 МБ / Срок действия лицензии: 1 год / Тип продукта: Коробочная версия')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (70, N'Ru', N'McAfee AntiVirus Plus (на 1 год 1ПК, скретч-карточка)', N'Системные требования: 1 ГБ ОЗУ для Vista и Windows 7, 2 ГБ ОЗУ для Windows 8 и выше / 500 МБ свободного места на диске
+					Минимальное разрешение экрана: 1024 х 768 или выше / Срок действия лицензии: 1 год / Тип продукта: Скретч-карточка')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (71, N'Ru', N'Kaspersky Internet Securit', N'y для всех устройств 2016 1+1 Device 1 year Renewal Card (продление лицензии на 1 год 1+1 ПК, скретч-карточка) 
+					Системные требования: Процессор: не менее 800 МГц / ОЗУ: 512 MБ или больше / ПЗУ: Около 480 МБ свободного дискового пространства  
+					ОС: Windows 10 RTM**, 8.1, 8, 7, Vista, XP (32/64-bit***) / Срок действия лицензии: 1 год / Тип продукта: Скретч-карточка')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (72, N'Ru', N'Dr. Web Security Space 2', N'ПК/1 год (1 ПК/2 года) Версия 10.0 Коробочная версия
+					Системные требования: Windows 10/8.1/8/7/Vista (32- и 64-битные системы) и XP (32-битная система) / Оперативная память: не менее 512 МБ.
+					Cвободное пространство на жестком диске: ~400 МБ / Срок действия лицензии 1 год (для 2 ПК), 2 года (для 1 ПК) / Тип продукта: Коробочная версия')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (75, N'Ru', N'McAfee Internet Security (на 1 год 1ПК, скретч-карточка)', N'Системные требования: 1 ГБ ОЗУ для Vista и Windows 7, 2 ГБ ОЗУ для Windows 8 и выше / 500 МБ свободного места на диске
+					Срок действия лицензии: 1 год / Тип продукта: Скретч-карточка')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1033, N'Ru', N'Pixus Six 8GB New White ', N'8 ГБ / MP3, WMA, WAV / OLED черно-белый / FM-приемник 
+					Диктофон / USB 2.0 / 80 x 20 x 11 мм, 18 г / белый')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1034, N'Ru', N'NRG Stick Pro ', N'8 ГБ / MP3, WMA, WAV, FLAC / OLED 4х-строчный / FM-приемник / диктофон 
+					USB / 84 х 27 х 13 мм, 26 г / черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1036, N'Ru', N'Sony Walkman NWZ-WS613 4GB White ', N'4 ГБ / MP3, WMA, Linear PCM, AAC / USB / Bluetooth / NFC / водонепроницаемый / 37 г / белый')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1038, N'Ru', N'FiiO M3 White ', N'8 ГБ / APE / FLAC / WAV / MP3 / AAC / WMA / OGG / 2" TFT-экран / 40 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (76, N'Ru', N'Dr. Web Security Space 1', N'ПК/1 год Версия 10.0 Коробочная версия
+					Системные требования: Windows 10/8.1/8/7/Vista (32- и 64-битные системы) и XP (32-битная система) / Оперативная память: не менее 512 МБ.
+					Cвободное пространство на жестком диске: ~400 МБ / Срок действия лицензии: 1 год (для 1 ПК) / Тип продукта: Коробочная версия')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (77, N'Ru', N'Dr. Web Малый бизнес NEW 5 ПК/1 год Версия 10.0 Коробочная версия', N'Системные требования: Windows 10/8.1/8/7/Vista (32- и 64-битные системы) и XP (32-битная система) / Оперативная память: не менее 512 МБ.
+					Cвободное пространство на жестком диске: ~400 МБ / Срок действия лицензии: 1 год (для 5 ПК) / Тип продукта: Коробочная версия')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (78, N'Ru', N'Dr. Web Security Space 3 ПК/1 год Версия 10.0 Коробочная версия', N'Системные требования: Windows 10/8.1/8/7/Vista (32- и 64-битные системы) и XP (32-битная система) / Оперативная память: не менее 512 МБ.
+					Cвободное пространство на жестком диске: ~400 МБ / Срок действия лицензии: 1 год (для 3 ПК) / Тип продукта: Коробочная версия')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (79, N'Ru', N'Kaspersky Internet Security для всех устройств 2016 2+1 Device 1 year Base Box', N'Системные требования: Процессор: не менее 800 МГц / ОЗУ: 512 MБ или больше / ПЗУ: Около 480 МБ свободного дискового пространства 
+					ОС: Windows 10 RTM**, 8.1, 8, 7, Vista, XP (32/64-bit***)/ Срок действия лицензии: 1 год / Тип продукта: Коробочная версия')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1016, N'Ru', N'Samsung Galaxy J5 J500H/DS Black', N'Экран (5", Super AMOLED, 1280x720)/ Qualcomm Snapdragon 410 (1.2 ГГц)/ основная камера: 13 Мп, фронтальная камера: 5 Мп
+					RAM 1.5 ГБ/ 8 ГБ встроенной памяти + microSD/SDHC (до 128 ГБ)/ 3G / GPS/ поддержка 2х SIM-карт (Micro-SIM)
+					Android 5.1 (Lollipop) / 2600 мА*ч')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1017, N'Ru', N'Lenovo A7000 Onyx Black ', N'Экран (5.5", IPS, 1280x720)/ MediaTek MT6752 (1.5 ГГц)/ основная камера: 8 Мп, фронтальная камера: 5 Мп
+					RAM 2 ГБ/ 8 ГБ встроенной памяти + microSD/SDHC (до 32 ГБ)/ 3G/ GPS/ поддержка 2х SIM-карт (Micro-SIM)
+					Android 5.0 (Lollipop) / 2900 мА*ч')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1018, N'Ru', N'Samsung Galaxy A3 2016 Duos SM-A310 16Gb Black', N'Экран (4.7", Super AMOLED, 1280x720)/ Четырехъядерный Qualcomm Snapdragon 410 (1.5 ГГц)/ основная камера: 13 Мп, фронтальная камера: 5 Мп
+					RAM 1.5 ГБ/ 16 ГБ встроенной памяти + microSD/SDHC (до 128 ГБ)/ 3G/ LTE/ GPS/ поддержка 2х SIM-карт (Nano-SIM)
+					Android 5.1.1 (Lollipop)/ 2300 мА*ч')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1019, N'Ru', N'Samsung Galaxy S6 SS 32GB G920 Gold', N'Экран (5.1", Super AMOLED, 2560х1440)/ Samsung Exynos 7420 (Quad 2.1 ГГц + Quad 1.5 ГГц)/ основная камера: 16 Мп, фронтальная камера: 5 Мп
+					RAM 3 ГБ/ 32 ГБ встроенной памяти/ 3G/ LTE/ GPS/ Nano-SIM
+					Android 5.0 (Lollipop) / 2550 мА*ч')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1020, N'Ru', N' LG G4 Leather Brown', N'Экран (5.5", IPS, 2560х1440)/ Qualcomm Snapdragon 808 (1.8 ГГц)/ основная камера: 16 Мп, фронтальная камера: 8 Мп
+					RAM 3 ГБ/ 32 ГБ встроенной памяти + microSD/SDHC (до 2 ТБ)/ 3G/ LTE/ GPS/ поддержка 2х SIM-карт (Micro-SIM)
+					Android 5.1 (Lollipop) / 3000 мА*ч')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1021, N'Ru', N'Apple iPhone 5s 16GB Space Gray', N'Экран (4", IPS, 1136x640)/ Apple A7 (1.3 ГГц)/ основная камера: 8 Мп, фронтальная камера: 1.2 Мп
+					RAM 1 ГБ/ 16 ГБ встроенной памяти/ 3G/ LTE/ GPS/ Nano-SIM/ iOS 9/ 1560 мА*ч')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1022, N'Ru', N'izu M2 Note 16GB White с наушниками EP-21HD (Международная версия)', N'Экран (5.5", IGZO, 1920x1080)/ MediaTek MT6753 (1.3 ГГц)/ основная камера: 13 Мп, фронтальная камера: 5 Мп
+					RAM 2 ГБ/ 16 ГБ встроенной памяти + microSD/SDHC (до 128 ГБ)/ 3G/ LTE/ GPS/ поддержка 2х SIM-карт (Nano-SIM)
+					Android 5.1 (Lollipop) / 3100 мА*ч')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1189, N'Ru', N'Reebok One Series GB50 (RVON-10401BK)', N'Тип: Электромагнитные / Уровни нагрузки: 32 / Количество программ: 23 / Максимальный вес пользователя: 120 кг')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1190, N'Ru', N' Reebok One Series GB40 (RVON-10101BK)', N'Тип: Электромагнитные / Уровни нагрузки: 8 / Максимальный вес пользователя: 110 кг / Количество программ: 4')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1191, N'Ru', N'Sportop B800P+ ', N'Тип: Электромагнитные / Уровни нагрузки: 16 / Максимальный вес пользователя: 130 кг / Количество программ: 16')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1023, N'Ru', N'Samsung Galaxy S3 Neo Duos I9300i Black', N'Экран (4.8", Super AMOLED, 1280x720)/ Qualcomm MSM8226 Snapdragon 400 (1.4 ГГц)/ основная камера: 8 Мп, фронтальная камера: 1.9 Мп
+					RAM 1.5 ГБ/ 16 ГБ встроенной памяти + microSD/SDHC (до 64 ГБ)/ 3G/ GPS/ поддержка 2х SIM-карт (Micro-SIM)
+					Android 4.3 (Jelly Bean) / 2100 мА*ч')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1025, N'Ru', N'Xiaomi Redmi Note 2 16GB Gray', N'Экран (5.5", IPS, 1920x1080)/ MediaTek Helio X10 MT6795 (2.0 ГГц)/ основная камера: 13 Мп, фронтальная камера: 5 Мп
+					RAM 2 ГБ/ 16 ГБ встроенной памяти + microSD/SDHC (до 32 ГБ)/ 3G/ LTE/ GPS/ поддержка 2х SIM-карт (Micro-SIM)
+					Android 5.0 (Lollipop) / 3060 мА*ч')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1026, N'Ru', N'Microsoft Lumia 640 XL (Nokia) DS Cyan', N'Экран (5.7", IPS, 1280x720)/ Qualcomm Snapdragon 400 (1.2 ГГц)/ основная камера: 13 Мп, фронтальная камера: 5 Мп
+					RAM 1 ГБ/ 8 ГБ встроенной памяти + microSD/SDHC (до 128 ГБ)/ 3G/ GPS/ поддержка 2х SIM-карт (Micro-SIM)
+					Windows Phone 8.1/ 3000 мА*ч')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1027, N'Ru', N'Lenovo A2010 Black ', N'Экран (4.5", TN, 854x480)/ MediaTek MTK6735M (1.0 ГГц)/ основная камера: 5 Мп, фронтальная камера: 2 Мп
+					RAM 1 ГБ/ 8 ГБ встроенной памяти + microSD/SDHC (до 32 ГБ)/ 3G/ GPS/ поддержка 2х SIM-карт (Micro-SIM)
+					Android 5.1 (Lollipop) / 2000 мА*ч')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1028, N'Ru', N'Sony Walkman NWZ-A15 16GB Blue', N'16 ГБ / MP3, WMA, FLAC, L-PCM, AAC, HE-AAC, ALAC, AIFF, WAV, AVCHD, MPEG4, WMV9, JPEG 
+					2.2" TFT QVGA (320 x 240) / FM-радио / NFC / Bluetooth / USB / 66 г / голубой')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1031, N'Ru', N'Apple iPod touch 64GB Blue', N'64 ГБ / AAC, защищенный AAC, HE-AAC, MP3, MP3 VBR, Audible, Apple Lossless, AIFF, WAV, H.264, MPEG-4, M-JPEG 
+					сенсорный 4" Multi-Touch дисплей / камера 8 Мп + фронтальная камера 1.2 Мп 
+					Wi-Fi / Bluetooth 4.1 / iOS 8 / 88 г / голубой')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1035, N'Ru', N'Apple iPod nano 7Gen 16GB Space Gray', N'16 ГБ / АAC, защищенный AAC, HE-AAC, MP3, MP3 VBR, Audible, Apple Lossless, AIFF, WAV, H.264, M4V, MP4, MOV, MPEG-4 
+					2.5" Multi-Touch дисплей / FM-радио / Bluetooth 4.0 / 31 г / серый')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1040, N'Ru', N' Сетевой адаптер E-Power 1 USB + holder 2.1 A', N'Тип: Сетевые / Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов
+					Количество USB-портов 1 / Дополнительные характеристики: LED индикация процесса зарядки / Цвет Black / Гарантия: 6 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1041, N'Ru', N'Автомобильное зарядное устройство E-Power MicroUSB', N'Тип: Автомобильные / Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов
+					Количество USB-портов: 1 / Дополнительные характеристики: LED индикация процесса зарядки / Цвет: Black / Гарантия: 6 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1042, N'Ru', N'Сетевое зарядное устройство E-Power кабель Smart', N'Тип: Сетевые / Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов
+					Количество USB-портов: 2 / Дополнительные характеристики: LED индикация процесса зарядки / Цвет: Black / Гарантия: 6 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1043, N'Ru', N'Сетевое зарядное устройство Pixus Charge One Turquoise', N'Тип: Сетевые / Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов / Количество USB-портов: 1
+					Кабель: 1.2 м / Цвет: Turquoise / Гарантия: 12 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1044, N'Ru', N' Универсальный зарядный комплект E-Power 3 в 1', N'Тип: Автомобильные, Сетевые \ Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов
+					Количество USB-портов: 2 / Дополнительные характеристики: LED индикация процесса зарядки / Цвет: Black / Гарантия: 6 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1192, N'Ru', N'Sportop B600', N'Тип: Магнитные / Уровни нагрузки: 8 / Максимальный вес пользователя: 105 кг / Количество программ: Нет')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1193, N'Ru', N'InterFit Bike Drive (K.07)', N'Тип: Магнитные / Уровни нагрузки: 8 / Максимальный вес пользователя: 120 кг / Количество программ: 8')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1194, N'Ru', N'HouseFit Kinetic B1.0 (KINETIC B1.0)', N'Тип: Магнитные / Уровни нагрузки: 8 / Максимальный вес пользователя: 120 к, / Количество программ: Нет')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1195, N'Ru', N'EnergyFIT BC1200 ', N'Тип: Магнитные / Уровни нагрузки: 8 / Максимальный вес пользователя: 110 кг / Количество программ: Нет')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1045, N'Ru', N'Сетевое зарядное устройство Logan Quad USB Wall Charger 5V 4A CH-4 Orange', N'ип: Сетевые / Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов
+					Совместимость: Мобильные телефоны, смартфоны, фотоаппараты, mp3-плееры, планшеты с возможностью зарядки от USB порта
+					Количество USB-портов: 4 / Цвет: Orange / Гарантия: 12 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1046, N'Ru', N' Автомобильное зарядное устройство E-Power кабель MicroUSB', N'Тип: Автомобильные / Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов
+					Совместимость: Любой кабель с USB и MicroUSB / Количество USB-портов: 2 / Дополнительные характеристики: LED индикация процесса зарядки
+					Цвет: Black / Гарантия: 6 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1047, N'Ru', N'Сетевое зарядное устройство Global MSH-TR-071 c кабелем для iPhone 5, 6 White', N'Тип: Сетевые / Подходит для зарядки: Планшетов, Мобильных телефонов / Совместимость: iPhone 5, iPhone 6
+					Цвет: White / Гарантия: 12 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1048, N'Ru', N'Сетевое зарядное устройство Drobak Power Dual 220V-USB White/Black', N'Тип: Сетевые / Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов / Количество USB-портов: 2
+					Дополнительные характеристики: Прочный корпус, стойкий к царапинам и ударам / Цвет: White-Black / Гарантия: 6 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1049, N'Ru', N' Сетевое зарядное устройство Logan Quad USB Wall Charger 5V 2.6A CHC-4 White', N'Тип: Сетевые / Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов
+					Совместимость: Мобильные телефоны, смартфоны, фотоаппараты, mp3-плееры, планшеты с возможностью зарядки от USB порта
+					Количество USB-портов: 4 / Цвет: White / Гарантия: 12 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1050, N'Ru', N'Kingston MicroSDHC/MicroSDXC 16GB Class 10 UHS-I + SD адаптер', N'тандарт памяти: MicroSD / Объём памяти: 16 ГБ / Размеры:  15 x 11 мм / Гарантия: 60 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1051, N'Ru', N'Kingston MicroSDHC/MicroSDXC 32GB Class 10 UHS-I + SD адаптер', N'Стандарт памяти: MicroSD / Объём памяти: 32 ГБ / Размеры: 15 x 11 мм / Гарантия: 60 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1052, N'Ru', N'Transcend SDHC 32GB Class10 UHS-I 400X', N'Стандарт памяти: SD / Объём памяти: 32 ГБ / Размеры: 32 x 24 мм / Гарантия 60 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1053, N'Ru', N'Kingston MicroSDHC 32GB Class 10 UHS-I U3 + SD-adapter', N'тандарт памяти: MicroSD / Объём памяти: 32 ГБ / Размеры 11 x 15 x 1 мм / Гарантия 60 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1054, N'Ru', N'Transcend microSDHC 16GB Class 10 UHS-I Premium', N'Стандарт памяти: MicroSD / Объём памяти: 16 ГБ / Размеры: 11 x 15 x 1 мм / Гарантия: 60 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1055, N'Ru', N'Transcend microSDXC 64GB Class 10 UHS-I Premium + SD-adapter ', N'Стандарт памяти: MicroSD / Объём памяти: 64 Г / Размеры: 11 x 15 x 1 мм / Гарантия: 60 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1056, N'Ru', N'Transcend MicroSDHC 32GB Class 10 + P3 Card Reader', N'Стандарт памяти MicroSD / Объём памяти: 32 ГБ / Размеры: 11 x 15 x 1 (micro) / 32.7 x 16.0 x 7.8 (reader) мм / Гарантия: 24 месяца')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1057, N'Ru', N'Kingston Ultimate SDHC 16GB Class 10 UHS-I', N'Стандарт памяти: SD / Объём памяти: 16 ГБ / Размеры: 24 x 32 x 2.1 мм / Гарантия: 60 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1058, N'Ru', N'Pretec MicroSDXC 64GB Class 10 UHS-I + adapter', N'Стандарт памяти: MicroSD / Объём памяти: 64 ГБ / Размеры: 15 x 11 x 1 мм / Гарантия: 12 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1059, N'Ru', N' Kingston MicroSDHC/MicroSDXC 128GB Class 10 UHS-I + SD адаптер', N'Стандарт памяти: MicroSD / Объём памяти: 128 ГБ / Размеры: 15 x 11 мм / Гарантия: 60 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1060, N'Ru', N'Gorilla 2.5D для Xiaomi Redmi Note 2 (Note2Glass)', N'Тип: Защитное стекло / Вид: Противоударные / Назначение: Для мобильных телефонов / Совместимость: Xiaomi Redmi Note 2
+					Толщина: 0.26 мм / Олеофобное покрытие / Твердость поверхности: 9 / Кромка: 2.5D / Гарантия: 12 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1061, N'Ru', N'Spolky для Lenovo A2010', N'Тип: Пленки / Вид: Глянцевые / Назначение: Для мобильных телефонов / Совместимость: Lenovo A2010')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1062, N'Ru', N'Drobak для Samsung Galaxy J5', N'Тип: Пленки / Вид: Глянцевые / Назначение: Для мобильных телефонов / Размер: 5 " / Совместимость: Samsung Galaxy J5 / Гарантия: 14 дней')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1066, N'Ru', N'Global Shield Multi-Matte для Apple iPhone 5/5S', N'Тип: Пленки / Вид: Матовые / Назначение: Для мобильных телефонов / Совместимость: Apple iPhone 5/5S')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1064, N'Ru', N'robak Tempered Glass для Samsung Galaxy Grand Prime G530H', N'Тип: Защитное стекло / Вид: Глянцевые / Назначение: Для мобильных телефонов / Размер: 5 "
+					Совместимость: Samsung Galaxy Grand Prime G530H / Дополнительные характеристики: Толщина: 0.33 мм / Гарантия: 14 дней')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1067, N'Ru', N'Auzer для Lenovo A536 ', N'Тип Защитное стекло / Вид: Глянцевые/ Назначение: Для мобильных телефонов  
+					Размер: 5 / Совместимость: Lenovo A536/ Дополнительные характеристики: Толщина: 0.33 мм')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1068, N'Ru', N' Drobak Tempered Glass для Samsung Galaxy J7', N'Тип: Защитное стекло / Вид: Глянцевые / Назначение: Для мобильных телефонов 
+					Размер: 5.5 / Совместимость: Samsung Galaxy J7 SM-J700H / Дополнительные характеристики: Толщина: 0.33 мм / Гарантия: 14 дней')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1069, N'Ru', N' Drobak Diamond универсальная для планшетов 7"', N'Тип: Пленки / Назначение: Для планшетов / Размер: 7 " / Совместимость: Для устройства с диагональю экрана 7"
+					Ширина: 152 мм / Высота: 92 мм')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1071, N'Ru', N'robak Tempered Glass для Microsoft (Nokia) Lumia 535 DS', N'Тип: Защитное стекло / Вид: Глянцевые / Назначение: Для мобильных телефонов / Размер: 5 " / Совместимость: Microsoft (Nokia) Lumia 535 DS
+					Дополнительные характеристики: Прочность: 9H / Толщина: 0.33 мм / Гарантия: 14 дней')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1063, N'Ru', N'ColorWay для Apple iPhone 5/5s/5c', N'Тип: Защитное стекло / Назначение: Для мобильных телефонов / Размер: 4 " / Совместимость: Apple iPhone 5/5s/5c / Дополнительные характеристики: Твердость: H9
+					Толщина: 0.33 мм / Закругленные края: 2.5D / Гарантия: 14 дней')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1072, N'Ru', N'Стартовый пакет Vodafone Red ', N'Назначение: Частным клиентам / Использование: Для звонков и Интернета, Для международных звонков, Для роуминга
+					Тип: Стартовый пакет / География использования: Вся Украина')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1073, N'Ru', N'Стартовый пакет 3Mob 3G Смарт', N'Назначение: Частным клиентам / Использование: Для Интернета / Тип: Стартовый пакет
+					География использования: Вся Украина / Гарантия: 12 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1074, N'Ru', N'Набор "Интертелеком мобильный Wi-Fi роутер" Huawei EC 5220u-1', N'Тип: Стартовый набор (модем + подключение) / Поддержка стандартов: 3G / Максимальная скорость приема данных: 3.1 Мбит/с
+					Максимальная скорость отправки данных: 1.8 Мбит/с / Вес: 25 г / Комплектация: Модем Huawei EC 176,Справочник пользователя,Гарантийный талон
+					Размеры: 78.5 х 26 х 10.5 мм / Гарантия: 6 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1075, N'Ru', N'3G Модем ZTE MF710М ', N'Тип: Модем (без подключения) / Поддержка стандартов: 3G, GSM / Максимальная скорость приема данных: до 21.6 Мбит/с
+					Максимальная скорость отправки данных: до 11 Мбит/с / GSM: 850/900/1800/1900 МГц
+					Комплектация: 3G Модем, Справочник пользователя, Гарантийный талон
+					Размеры: 88.7 х 27.3 х 10.5 / Гарантия: 6 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1076, N'Ru', N'3G Модем Huawei E3531i-1 ', N'Тип: Модем (без подключения) / Поддержка стандартов: 3G, GSM / Максимальная скорость приема данных: до 21.6 Мбит/с
+					Поддерживаемые ОС: Windows XP SP3, Vista SP1/SP2, 7, 8, 8.1 (исключая RT версию), Mac OS X10.7, 10.8, 10.9
+					Размеры :84 x 27 x 10.5 мм / Гарантия: 12 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1077, N'Ru', N' 3G Роутер ZTE MF65M ', N'Тип: Роутер (без подключения) / Поддержка стандартов: 3G, GSM / Максимальная скорость приема данных: до 21.6 Мбит/с
+					Максимальная скорость отправки данных: до 11 Мбит/с / Аккумулятор: Емкость: 1500 мА*ч, Время работы: до 4.5 часов, Время ожидания: до 200 часов')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1131, N'Ru', N'HANSA AMG 20 BFH', N'Тип: с грилем. / Тип управления: сенсорное. / Объем(л): 20. / Мощность микроволн: 700 Вт. О
+					чистка паром: нет. / Габариты: 30,4х45,2х33 см. / Цвет: черный.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1132, N'Ru', N' SAMSUNG FW77SR-B', N'Тип: обычная (соло). / Тип управления: кнопочное. / Объем(л): 20. / Мощность микроволн: 800 Вт. 
+					Габариты: 31,2х48,9х35 см. / Цвет: черный.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1134, N'Ru', N'SAMSUNG FW77SR-W', N'Тип: обычная (соло). / Тип управления: кнопочное. / Объем(л): 20. / Мощность микроволн: 800 Вт.
+					Габариты: 27,5х48,9х31,2 см. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1078, N'Ru', N'Набор "Интертелеком мобильный Wi-Fi роутер" Huawei EC 5321u-1', N'Тип: Стартовый набор (модем + подключение) / Поддержка стандартов: CDMA / Максимальная скорость приема данных: 14.7 Мбит/с
+					Максимальная скорость отправки данных: 5.4 Мбит/с / Вес: 150 г / Комплектация: Модем Huawei EC 5321u-1,Справочник пользователя,Гарантийный талон
+					Размеры: 92.8 ? 60 ? 13.8 мм / Гарантия: 6 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1079, N'Ru', N'3G Роутер Huawei E5356s-2 ', N'Тип: Роутер (без подключения) / Поддержка стандартов: 3G, GSM /  Максимальная скорость приема данных до 43.2 Мбит/с
+					Поддерживаемые ОС:Windows XP, Vista, 7, 8Mac OS X10.6, 10.7, 10.8 / Размеры 93.2 x 60 x 14.5 мм / Гарантия 12 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1080, N'Ru', N'3G Роутер Huawei E5330Bs-2 ', N'Тип: Роутер (без подключения) / Максимальная скорость приема данных: до 21.6 Мбит/с / Емкость аккумулятора: 1500 мА*ч 
+					Поддерживаемые ОС:Windows XP SP3, Vista SP1/SP2, 7, 8 (исключая RT версию), Mac OS X10.6, 10.7, 10.8
+					Размеры: 92.8 x 60 x 14 мм / Гарантия: 12 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1081, N'Ru', N'Набор "Интертелеком 3G Турбо" Huawei EC 306-2', N'Тип: Стартовый набор (модем + подключение) / Поддержка стандартов: 3G / Максимальная скорость приема данных: 14.7 Мбит/с
+					Максимальная скорость отправки данных: 5.4 Мбит/с / Вес: 35 г / Размеры: 89 х 28 х 13.5 мм / Гарантия: 6 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1082, N'Ru', N'Jabra Mini Black', N'Спецификация Bluetooth: Bluetooth 4.0 / Время работы от батареи: В режиме разговора: до 9 часов 
+					В режиме ожидания: до 9 дней ')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1083, N'Ru', N'Gemix BH-06 Black', N'Спецификация Bluetooth: 4.1 / Время работы от батареи: Время работы в режиме разговора — до 8 ч 
+					Время работы в режиме прослушивания музыки — до 8 ч / Время работы в режиме ожидания – приблизительно 120 ч')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1084, N'Ru', N'Jabra BT2046', N'Спецификация Bluetooth: Bluetooth 2.1 + EDR / Разъем: Проприетарный / Время работы от батареи: Время работы в режиме разговора: до 8 часов
+					Время работы в режиме ожидания: 240 часов / Время зарядки: 2 часа / Вес: 10 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1085, N'Ru', N'Gemix BH-03 Black', N'Спецификация Bluetooth: 3.0 / Время работы от батареи: Время работы в режиме разговора — до 7 ч 
+					Время работы в режиме прослушивания музыки — до 4 ч / Время работы в режиме ожидания – приблизительно до 100 ч')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1086, N'Ru', N'Jabra Classic Black', N'Спецификация Bluetooth: Bluetooth 4.0 / Время работы от батареи: Время работы в режиме разговора: до 9 часов
+					Время работы в режиме ожидания: 9 дней / Время зарядки: 2 часа')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1087, N'Ru', N'Sennheiser EZX 80 2in1', N'Спецификация Bluetooth: Bluetooth 3.0 + EDR / Время работы от батареи 10 часов в режиме разговора / 10 дней режиме ожидания
+					Цвет Black / Гарантия 12 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1088, N'Ru', N'Sennheiser Communications VMX 200 II EU	', N'Спецификация Bluetooth Bluetooth 3.0 + EDR / поддержка профилей: A2DP + AVRCP + HSP + HFP \Время работы от батареи: До 10 часов непрерывного разговора
+					До 12 дней в режиме ожидания / Гарантия: 12 месяцев')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1089, N'Ru', N'Jabra Style Black', N'Спецификация Bluetooth: Bluetooth 4.0 / Время работы от батареи: Время работы в режиме разговора: до 6 часов
+					Время работы в режиме ожидания: до 7 дней / Время зарядки: 2 часа / Вес: 10 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1090, N'Ru', N'Jabra Stealth', N'Спецификация Bluetooth: Bluetooth 4.0 / Время работы от батареи: Время работы в режиме разговора: до 6 часов
+					Время работы в режиме ожидания: до 10 дней / Время зарядки: 2 часа / Вес: 7.9 грамм')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1098, N'Ru', N'SAMSUNG RB31FSRNDWW ', N'Тип холодильника: двухкамерный. / Общий объем холодильника: 331 л. / Полезный объем холод. камеры: 212 л.
+					Полезный объем мороз. камеры: 98 л. / Дисплей: нет. / Тип управления: электронное.
+					No Frost (Frost Free) : холодильное+морозильное отделения / Уровень шума: 37 дБ. / Габариты (ВхШхГ): 185x59,5x66,8 см.
+					Вес: 65 кг. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1130, N'Ru', N'SAMSUNG FW77SSTR', N'Тип: обычная (соло). / Тип управления: кнопочное. / Объем(л): 20. / Мощность микроволн: 800 Вт. 
+					Габариты: 31,2х48,9х35 см. / Цвет: нержавеющая сталь.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1091, N'Ru', N'Jabra Storm Black', N'Спецификация Bluetooth: Bluetooth 4.0 / Время работы от батареи: Время работы в режиме разговора: до 10 часов
+					Время работы в режиме ожидания: 10 дней / Время зарядки: 2 часа / Вес: 7.9 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1092, N'Ru', N'SNAIGE FR-240.1101AA', N'Тип холодильника: двухкамерный /  Общий объем холодильника: 220 л /  Полезный объем холод. камеры: 166 л  
+					Полезный объем мороз. камеры: 46 л /  Дисплей: нет/  Тип управления: механическое /  No Frost (Frost Free) : нет 
+					Уровень шума: 39 дБ /  Габариты (ВхШхГ): 144х56х60 см. /  Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1093, N'Ru', N'SAMSUNG RB31FSRNDEF', N'Тип холодильника: двухкамерный. /  Общий объем холодильника: 331 л. / Полезный объем холод. камеры: 212 л.
+					Полезный объем мороз. камеры: 98 л. /  Дисплей: нет. /  Тип управления: электронное. 
+					No Frost (Frost Free) : холодильное+морозильное отделения /  Уровень шума: 37 дБ. /  Габариты (ВхШхГ): 185x59,5x66,8 см. 
+					Вес: 65 кг. / Цвет: бежевый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1099, N'Ru', N'INDESIT NBS 18 AA UA ', N'Тип холодильника: двухкамерный. / Общий объем холодильника: 339 л. / Полезный объем холод. камеры: 233 л. 
+					Полезный объем мороз. камеры: 85 л. / Дисплей: нет. / Тип управления: механическое. / No Frost (Frost Free) : нет.
+					Уровень шума: 39 дБ. / Габариты (ВхШхГ): 185х60х66 см. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1100, N'Ru', N'LG GA-B419SQCL ', N'Тип холодильника: двухкамерный. / Общий объем холодильника: 354 л. / Полезный объем холод. камеры: 225 л. 
+					Полезный объем мороз. камеры: 87 л. / Дисплей: нет. / Тип управления: электронное. 
+					No Frost (Frost Free) : холодильное+морозильное отделения . / Уровень шума: 41 дБ. / Габариты (ВхШхГ): 190,7x59,5x64,3 см. 
+					Вес: 75 кг. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1101, N'Ru', N'SNAIGE FR-275.1101AA ', N'Тип холодильника: двухкамерный. / Общий объем холодильника: 260 л. / Полезный объем холод. камеры: 201 л. 
+					Полезный объем мороз. камеры: 57 л. / Дисплей: нет. / Тип управления: механическое. / No Frost (Frost Free) : нет. 
+					Уровень шума: 39 дБ. / Габариты (ВхШхГ): 169х56х60 см. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1102, N'Ru', N'INDESIT NTS 14 AA (UA) ', N'Тип холодильника: двухкамерный. / Общий объем холодильника: 249 л. / Полезный объем холод. камеры: 194 л. 
+					Полезный объем мороз. камеры: 51 л. / Дисплей: нет. / Тип управления: механическое. / No Frost (Frost Free) : нет.
+					Уровень шума: 39 дБ. / Габариты (ВхШхГ): 145х60х62 см. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1094, N'Ru', N'BOSCH KGV39VW31 ', N'Тип холодильника: двухкамерный. / Общий объем холодильника: 347 л. / Полезный объем холод. камеры: 250 л. 
+					Полезный объем мороз. камеры: 94 л. / Дисплей: нет. / Тип управления: электронное. / No Frost (Frost Free) : нет. 
+					Уровень шума: 39 дБ. / Габариты (ВхШхГ): 201x60x65 см. / Цвет: белый')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1095, N'Ru', N'ATLANT XM-6025-100', N'Тип холодильника: двухкамерный. / Общий объем холодильника: 384 л. / Полезный объем холод. камеры: 225 л.
+					Полезный объем мороз. камеры: 129 л. / Дисплей: нет. / Тип управления: механическое. / No Frost (Frost Free) : нет. 
+					Уровень шума: 39-42 дБ. / Габариты (ВхШхГ): 205х60х63 см. / Вес: 87 кг. / Цвет: белый')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1096, N'Ru', N'LG GA-B419SEQL', N'Тип холодильника: двухкамерный. / Общий объем холодильника: 354 л. / Полезный объем холод. камеры: 225 л.
+					Полезный объем мороз. камеры: 87 л. / Дисплей: есть. / Тип управления: электронное.
+					No Frost (Frost Free) : холодильное+морозильное отделения . / Уровень шума: 41 дБ. / Габариты (ВхШхГ): 190,7х59,5х64,3 см. 
+					Вес: 75 кг. / Цвет: бежевый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1097, N'Ru', N'INDESIT NBS 20 AA (UA)', N'Тип холодильника: двухкамерный. / Общий объем холодильника: 363 л. / Полезный объем холод. камеры: 233 л.
+					Полезный объем мороз. камеры: 108 л. / Дисплей: нет. / Тип управления: механическое. / No Frost (Frost Free) : нет. 
+					Уровень шума: 39 дБ. / Габариты (ВхШхГ): 200х60х66 см. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1104, N'Ru', N'NORD 100-2В Белая ', N'Тип: газовая. / Газ-контроль: нет. / Зоны нагрева: газовые. / Материал решеток поверхности: эмалированные. 
+					Тип духовки: газовая. / Полезный объем: 62 л. / Гриль: нет. / Конвекция: нет. / Таймер: нет. / Подсветка: нет. 
+					Габариты (ВхШхГ): 85х50х60 см. / Вес: 32,5 кг. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1106, N'Ru', N'GRETA 1470-0012 (WM)', N'Тип: газовая. / Газ-контроль: нет. / Зоны нагрева: газовые. / Материал решеток поверхности: эмалированные. 
+					Тип духовки: газовая. / Полезный объем: 54 л. / Гриль: нет. / Конвекция: нет. / Таймер: нет. / Подсветка: нет. 
+					Габариты (ВхШхГ): 85х50х54 см. / Вес: 31 кг. / Цвет: белый.')
 INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1108, N'Ru', N'ZANUSSI ZCE9550G1W ', N'
-					РўРёРї: СЌР»РµРєС‚СЂРёС‡РµСЃРєР°СЏ. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: СЌР»РµРєС‚СЂРёС‡РµСЃРєРёРµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: РЅРµС‚. / РўРёРї РґСѓС…РѕРІРєРё: СЌР»РµРєС‚СЂРёС‡РµСЃРєР°СЏ.
-					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 56 Р». / Р“СЂРёР»СЊ: РµСЃС‚СЊ. / РљРѕРЅРІРµРєС†РёСЏ: РµСЃС‚СЊ. / РўР°Р№РјРµСЂ: РЅРµС‚. / РџРѕРґСЃРІРµС‚РєР°: РµСЃС‚СЊ. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85,5С…50С…60 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1109, N'Ru', N'KAISER HGG 52511 W ', N'РўРёРї: РіР°Р·РѕРІР°СЏ. / Р“Р°Р·-РєРѕРЅС‚СЂРѕР»СЊ: РїРѕРІРµСЂС…РЅРѕСЃС‚Рё+РґСѓС…РѕРІРєРё. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: РіР°Р·РѕРІС‹Рµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: С‡СѓРіСѓРЅРЅС‹Рµ. 
-					РўРёРї РґСѓС…РѕРІРєРё: РіР°Р·РѕРІР°СЏ. / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 58 Р». / Р“СЂРёР»СЊ: РµСЃС‚СЊ. / РљРѕРЅРІРµРєС†РёСЏ: РЅРµС‚. / РўР°Р№РјРµСЂ: РµСЃС‚СЊ. / РџРѕРґСЃРІРµС‚РєР°: РµСЃС‚СЊ. 
-					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…50С…60 СЃРј. / Р’РµСЃ: 43,9 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№/С‡РµСЂРЅРѕРµ Р·РµСЂРєР°Р»СЊРЅРѕРµ СЃС‚РµРєР»Рѕ.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1110, N'Ru', N'HANSA FCEW 53000', N'РўРёРї: СЌР»РµРєС‚СЂРёС‡РµСЃРєР°СЏ. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: СЌР»РµРєС‚СЂРёС‡РµСЃРєРёРµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: РЅРµС‚. / РўРёРї РґСѓС…РѕРІРєРё: СЌР»РµРєС‚СЂРёС‡РµСЃРєР°СЏ. 
-					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 69 Р». / Р“СЂРёР»СЊ: РЅРµС‚. / РљРѕРЅРІРµРєС†РёСЏ: РЅРµС‚. / РўР°Р№РјРµСЂ: РЅРµС‚. / РџРѕРґСЃРІРµС‚РєР°: РµСЃС‚СЊ. 
-					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…50С…60 СЃРј. / Р’РµСЃ: 40 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1111, N'Ru', N'HANSA FCMW53050', N'РўРёРї: РєРѕРјР±РёРЅРёСЂРѕРІР°РЅРЅР°СЏ (РіР°Р·+СЌР»РµРєС‚СЂРѕ). / Р“Р°Р·-РєРѕРЅС‚СЂРѕР»СЊ: РЅРµС‚. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: РіР°Р·РѕРІС‹Рµ, СЌР»РµРєС‚СЂРёС‡РµСЃРєРёРµ. 
-					РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: СЌРјР°Р»РёСЂРѕРІР°РЅРЅС‹Рµ. / РўРёРї РґСѓС…РѕРІРєРё: СЌР»РµРєС‚СЂРёС‡РµСЃРєР°СЏ. / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 69 Р». / Р“СЂРёР»СЊ: РµСЃС‚СЊ. 
-					РљРѕРЅРІРµРєС†РёСЏ: РЅРµС‚. / РўР°Р№РјРµСЂ: РЅРµС‚. / РџРѕРґСЃРІРµС‚РєР°: РµСЃС‚СЊ. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…50С…60 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1112, N'Ru', N'GEFEST 6100-01', N'РўРёРї: РіР°Р·РѕРІР°СЏ. / Р“Р°Р·-РєРѕРЅС‚СЂРѕР»СЊ: РґСѓС…РѕРІРєРё. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: РіР°Р·РѕРІС‹Рµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: С‡СѓРіСѓРЅРЅС‹Рµ.
-					РўРёРї РґСѓС…РѕРІРєРё: РіР°Р·РѕРІР°СЏ. / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 52 Р». / Р“СЂРёР»СЊ: РЅРµС‚. / РљРѕРЅРІРµРєС†РёСЏ: РЅРµС‚. / РўР°Р№РјРµСЂ: РЅРµС‚. / РџРѕРґСЃРІРµС‚РєР°: РµСЃС‚СЊ. 
-					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…60С…60 СЃРј. / Р’РµСЃ: 43,5 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1113, N'Ru', N'GRETA 1470-0016 (W)', N'РўРёРї: РіР°Р·РѕРІР°СЏ. / Р“Р°Р·-РєРѕРЅС‚СЂРѕР»СЊ: РЅРµС‚. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: РіР°Р·РѕРІС‹Рµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: СЌРјР°Р»РёСЂРѕРІР°РЅРЅС‹Рµ. 
-					РўРёРї РґСѓС…РѕРІРєРё: РіР°Р·РѕРІР°СЏ. / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 54 Р». / Р“СЂРёР»СЊ: РЅРµС‚. / РљРѕРЅРІРµРєС†РёСЏ: РЅРµС‚. / РўР°Р№РјРµСЂ: РЅРµС‚. / РџРѕРґСЃРІРµС‚РєР°: РЅРµС‚.
-					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…50С…54 СЃРј. / Р’РµСЃ: 32 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1114, N'Ru', N'GRETA 1470-0007 (WM) ', N'РўРёРї: РіР°Р·РѕРІР°СЏ. / Р“Р°Р·-РєРѕРЅС‚СЂРѕР»СЊ: РЅРµС‚. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: РіР°Р·РѕРІС‹Рµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: СЌРјР°Р»РёСЂРѕРІР°РЅРЅС‹Рµ. 
-					РўРёРї РґСѓС…РѕРІРєРё: РіР°Р·РѕРІР°СЏ. / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 54 Р». / Р“СЂРёР»СЊ: РЅРµС‚. / РљРѕРЅРІРµРєС†РёСЏ: РЅРµС‚. / РўР°Р№РјРµСЂ: РЅРµС‚. / РџРѕРґСЃРІРµС‚РєР°: РµСЃС‚СЊ. 
-					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…50С…54 СЃРј. / Р’РµСЃ: 37 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1115, N'Ru', N'ELECTROLUX EKK 954507 W ', N'РўРёРї: РєРѕРјР±РёРЅРёСЂРѕРІР°РЅРЅР°СЏ (РіР°Р·+СЌР»РµРєС‚СЂРѕ). / Р“Р°Р·-РєРѕРЅС‚СЂРѕР»СЊ: РїРѕРІРµСЂС…РЅРѕСЃС‚Рё. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: РіР°Р·РѕРІС‹Рµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: С‡СѓРіСѓРЅРЅС‹Рµ. 
-					РўРёРї РґСѓС…РѕРІРєРё: СЌР»РµРєС‚СЂРёС‡РµСЃРєР°СЏ. / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 56 Р». / Р“СЂРёР»СЊ: РµСЃС‚СЊ. / РљРѕРЅРІРµРєС†РёСЏ: РµСЃС‚СЊ. / РўР°Р№РјРµСЂ: РµСЃС‚СЊ. / РџРѕРґСЃРІРµС‚РєР°: РµСЃС‚СЊ.
-					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85,5x50x60 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1116, N'Ru', N'INDESIT WISN 821 UA ', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 5 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 800 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ+. 
-					Р”РёСЃРїР»РµР№: РЅРµС‚. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 16. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85x59,5x42 СЃРј. / Р¦РІРµС‚:Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1117, N'Ru', N'ZANUSSI ZWSE 680 V', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 5 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 800 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ++. 
-					Р”РёСЃРїР»РµР№: РЅРµС‚. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 14. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85С…59,5С…37,7 СЃРј. / Р¦РІРµС‚:Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1118, N'Ru', N'ZANUSSI ZWSE 7120 V ', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 5 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 1200 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ++. 
-					Р”РёСЃРїР»РµР№: РµСЃС‚СЊ. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 14. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85С…59,5С…37,7 СЃРј. / Р¦РІРµС‚:Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1122, N'Ru', N' WHIRLPOOL AWS 63013', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 6 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 1000 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ+++. 
-					Р”РёСЃРїР»РµР№: РµСЃС‚СЊ. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 18. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 84,5С…59,5С…45,3 СЃРј. / Р’РµСЃ: 61 РєРі. / Р¦РІРµС‚:Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1123, N'Ru', N'ELECTROLUX EWS1266CI ', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 6 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 1200 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ+++.
-					Р”РёСЃРїР»РµР№: РµСЃС‚СЊ. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 14. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85С…59,5С…37,7 СЃРј. / Р¦РІРµС‚:Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1124, N'Ru', N'INDESIT IWSD 51051 UA', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 5 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 1000 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ+. 
-					Р”РёСЃРїР»РµР№: РµСЃС‚СЊ. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 16. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85С…59,5С…42 СЃРј. / Р¦РІРµС‚:Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1125, N'Ru', N'ZANUSSI ZWSE 6100 V', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 5 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 1000 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ++.
-					Р”РёСЃРїР»РµР№: РЅРµС‚. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 14. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85С…59,5С…37,7 СЃРј. / Р¦РІРµС‚:Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1126, N'Ru', N'ZANUSSI ZWSE 7100 VS ', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 5 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 1000 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ++.
-					Р”РёСЃРїР»РµР№: РµСЃС‚СЊ. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85x59,5x37,7 . / Р¦РІРµС‚:Р±РµР»С‹Р№/СЃРµСЂРµР±СЂРёСЃС‚С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1127, N'Ru', N'ELECTROLUX EWS1052NDU', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 5 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 1000 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ++.
-					Р”РёСЃРїР»РµР№: РЅРµС‚. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 14. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85С…59,5С…37,7. / Р¦РІРµС‚:Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1128, N'Ru', N' LG F80C3LD ', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 5 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 800 РѕР±/РјРёРЅ./ РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ++. 
-					Р”РёСЃРїР»РµР№: РЅРµС‚. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 9. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85x60x44 СЃРј. / Р’РµСЃ: 59 РєРі. / Р¦РІРµС‚:Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1129, N'Ru', N'GORENJE W 7202/S ', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 7 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 1000 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ++. 
-					Р”РёСЃРїР»РµР№: РЅРµС‚. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 18. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85С…60С…44 СЃРј. / Р’РµСЃ: 61,5 РєРі. / Р¦РІРµС‚:Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1133, N'Ru', N'WHIRLPOOL AMW 497 IX', N'РўРёРї: СЃ РіСЂРёР»РµРј. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РєРЅРѕРїРѕС‡РЅРѕРµ. / РћР±СЉРµРј(Р»): 22. / РњРѕС‰РЅРѕСЃС‚СЊ РјРёРєСЂРѕРІРѕР»РЅ: 750 Р’С‚. 
-					РћС‡РёСЃС‚РєР° РїР°СЂРѕРј: РЅРµС‚. / Р“Р°Р±Р°СЂРёС‚С‹: 38,2С…59,5С…32 СЃРј. / Р¦РІРµС‚: РЅРµСЂР¶Р°РІРµСЋС‰Р°СЏ СЃС‚Р°Р»СЊ/Р·РµСЂРєР°Р»СЊРЅС‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1196, N'Ru', N'EnergyFIT GB1206', N'РўРёРї: РњР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 8 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 100 РєРі / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: РќРµС‚')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1197, N'Ru', N'EnergyFIT GBBT1503 ', N'РўРёРї: РњР°РіРЅРёС‚РЅС‹Рµ / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 100 РєРі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1198, N'Ru', N'NordicTrack GX 5.0 (NTEVEX71014) ', N'РўРёРї: Р­Р»РµРєС‚СЂРѕРјР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 20 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 125 РєРі / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 20')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1199, N'Ru', N'Vision R60', N'РўРёРї: Р­Р»РµРєС‚СЂРѕРјР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 25 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 182 РєРі / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 12')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1135, N'Ru', N'HANSA AMM 20 BIH ', N'РўРёРї: СЃ РіСЂРёР»РµРј. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РєРЅРѕРїРѕС‡РЅРѕРµ СЃ РїРѕРІРѕСЂРѕС‚РЅС‹Рј РїРµСЂРµРєР»СЋС‡Р°С‚РµР»РµРј. / РћР±СЉРµРј(Р»): 20.
-					РњРѕС‰РЅРѕСЃС‚СЊ РјРёРєСЂРѕРІРѕР»РЅ: 800 Р’С‚. / Р“Р°Р±Р°СЂРёС‚С‹: 38,5С…59,5С…32 СЃРј. / Р¦РІРµС‚: РЅРµСЂР¶Р°РІРµСЋС‰Р°СЏ СЃС‚Р°Р»СЊ.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1136, N'Ru', N'KAISER EM 3200 ', N'РўРёРї: РјСѓР»СЊС‚РёС„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅР°СЏ (РіСЂРёР»СЊ+РєРѕРЅРІРµРєС†РёСЏ). / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЃРµРЅСЃРѕСЂРЅРѕРµ. / РћР±СЉРµРј(Р»): 32. 
-					РњРѕС‰РЅРѕСЃС‚СЊ РјРёРєСЂРѕРІРѕР»РЅ: 1000 Р’С‚. / Р“Р°Р±Р°СЂРёС‚С‹: 45,5С…59,5С…54,2 СЃРј. / Р¦РІРµС‚: СЃРµСЂРµР±СЂРёСЃС‚С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1137, N'Ru', N' WHIRLPOOL AMW 498 WH', N'РўРёРї: СЃ РіСЂРёР»РµРј. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РєРЅРѕРїРѕС‡РЅРѕРµ. / РћР±СЉРµРј(Р»): 22. / РњРѕС‰РЅРѕСЃС‚СЊ РјРёРєСЂРѕРІРѕР»РЅ: 750 Р’С‚.
-					РћС‡РёСЃС‚РєР° РїР°СЂРѕРј: РЅРµС‚. / Р“Р°Р±Р°СЂРёС‚С‹: 38,2С…59,5С…32 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1138, N'Ru', N'TEKA MWR 32 BI BGB ', N'РўРёРї: СЃ РіСЂРёР»РµРј. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РјРµС…Р°РЅРёС‡РµСЃРєРѕРµ. / РћР±СЉРµРј(Р»): 32. / РњРѕС‰РЅРѕСЃС‚СЊ РјРёРєСЂРѕРІРѕР»РЅ: 1000 Р’С‚. 
-					Р“Р°Р±Р°СЂРёС‚С‹: 45,5С…59,5С…47,2 СЃРј. / Р¦РІРµС‚: Р±РµР¶РµРІС‹Р№, С„СѓСЂРЅРёС‚СѓСЂР° - СЃРѕСЃС‚Р°СЂРµРЅРЅР°СЏ Р±СЂРѕРЅР·Р° .')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1139, N'Ru', N' WHIRLPOOL AMW 498 NB', N'РўРёРї: СЃ РіСЂРёР»РµРј. РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РєРЅРѕРїРѕС‡РЅРѕРµ. / РћР±СЉРµРј(Р»): 22. / РњРѕС‰РЅРѕСЃС‚СЊ РјРёРєСЂРѕРІРѕР»РЅ: 750 Р’С‚. 
-					РћС‡РёСЃС‚РєР° РїР°СЂРѕРј: РЅРµС‚. / Р“Р°Р±Р°СЂРёС‚С‹: 38,2С…59,5С…32 СЃРј. / Р¦РІРµС‚: С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1140, N'Ru', N' ELECTROLUX EMS 26204 OX ', N'РўРёРї: СЃ РіСЂРёР»РµРј. РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РєРЅРѕРїРѕС‡РЅРѕРµ СЃ РїРѕРІРѕСЂРѕС‚РЅС‹Рј РїРµСЂРµРєР»СЋС‡Р°С‚РµР»РµРј. / РћР±СЉРµРј(Р»): 25,37. / РњРѕС‰РЅРѕСЃС‚СЊ РјРёРєСЂРѕРІРѕР»РЅ: 900 Р’С‚. 
-					РћС‡РёСЃС‚РєР° РїР°СЂРѕРј: РЅРµС‚. / Р“Р°Р±Р°СЂРёС‚С‹: 45,9С…59,4С…41,7 СЃРј / Р¦РІРµС‚: РЅРµСЂР¶Р°РІРµСЋС‰Р°СЏ СЃС‚Р°Р»СЊ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1141, N'Ru', N'MAGIO MG-345', N'РўРёРї: РєР°РїРµР»СЊРЅР°СЏ (С„РёР»СЊС‚СЂР°С†РёРѕРЅРЅР°СЏ). / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РјРµС…Р°РЅРёС‡РµСЃРєРѕРµ. / РўРёРї РёСЃРїРѕР»СЊР·СѓРµРјРѕРіРѕ РєРѕС„Рµ: РјРѕР»РѕС‚С‹Р№.
-					Р РµР·РµСЂРІСѓР°СЂ РґР»СЏ РІРѕРґС‹: 0,24 Р». / Р¦РІРµС‚: РєРѕСЂРёС‡РЅРµРІС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1142, N'Ru', N'VITEK VT-1513 BK ', N'РўРёРї: СЌСЃРїСЂРµСЃСЃРѕ (СЂРѕР¶РєРѕРІР°СЏ). / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚СЂРѕРЅРЅРѕРµ. / РџСЂРёРіРѕС‚РѕРІР»РµРЅРёРµ РєР°РїСѓС‡РёРЅРѕ: СЂСѓС‡РЅРѕРµ.
-					РўРёРї РёСЃРїРѕР»СЊР·СѓРµРјРѕРіРѕ РєРѕС„Рµ: РјРѕР»РѕС‚С‹Р№. / Р РµР·РµСЂРІСѓР°СЂ РґР»СЏ РІРѕРґС‹: 1,25 Р». / Р”Р°РІР»РµРЅРёРµ РІРѕРґСЏРЅРѕРіРѕ РЅР°СЃРѕСЃР°: 15 Р±Р°СЂ. 
-					Р¤СѓРЅРєС†РёРё: РїРѕРґРѕРіСЂРµРІ С‡Р°С€РµРє. / Р’РµСЃ: 4,9 РєРі. / Р¦РІРµС‚: С‡РµСЂРЅС‹Р№/РЅРµСЂР¶Р°РІРµСЋС‰Р°СЏ СЃС‚Р°Р»СЊ.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1143, N'Ru', N' MAGIO MG-343', N'РўРёРї: РєР°РїРµР»СЊРЅР°СЏ (С„РёР»СЊС‚СЂР°С†РёРѕРЅРЅР°СЏ). / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РјРµС…Р°РЅРёС‡РµСЃРєРѕРµ. / РўРёРї РёСЃРїРѕР»СЊР·СѓРµРјРѕРіРѕ РєРѕС„Рµ: РјРѕР»РѕС‚С‹Р№. 
-					Р РµР·РµСЂРІСѓР°СЂ РґР»СЏ РІРѕРґС‹: 1,2 Р». / Р¦РІРµС‚: С‡С‘СЂРЅС‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1144, N'Ru', N'MAGIO MG-342 ', N'РўРёРї: РєР°РїРµР»СЊРЅР°СЏ (С„РёР»СЊС‚СЂР°С†РёРѕРЅРЅР°СЏ). / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РјРµС…Р°РЅРёС‡РµСЃРєРѕРµ. / РўРёРї РёСЃРїРѕР»СЊР·СѓРµРјРѕРіРѕ РєРѕС„Рµ: РјРѕР»РѕС‚С‹Р№.
-					Р РµР·РµСЂРІСѓР°СЂ РґР»СЏ РІРѕРґС‹: 0,24 Р». / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1145, N'Ru', N'VITEK VT-1511 BK ', N'РўРёРї: СЌСЃРїСЂРµСЃСЃРѕ (СЂРѕР¶РєРѕРІР°СЏ). / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚СЂРѕРЅРЅРѕРµ. / РџСЂРёРіРѕС‚РѕРІР»РµРЅРёРµ РєР°РїСѓС‡РёРЅРѕ: СЂСѓС‡РЅРѕРµ.
-					РўРёРї РёСЃРїРѕР»СЊР·СѓРµРјРѕРіРѕ РєРѕС„Рµ: РјРѕР»РѕС‚С‹Р№. / Р РµР·РµСЂРІСѓР°СЂ РґР»СЏ РІРѕРґС‹: 1,5 Р». / Р”Р°РІР»РµРЅРёРµ РІРѕРґСЏРЅРѕРіРѕ РЅР°СЃРѕСЃР°: 15 Р±Р°СЂ. 
-					Р¤СѓРЅРєС†РёРё: РїРѕРґРѕРіСЂРµРІ С‡Р°С€РµРє. / Р¦РІРµС‚: С‡РµСЂРЅС‹Р№/СЃРµСЂС‹Р№.
-					Р¦РµРЅР°: 1 929 РіСЂРЅ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1146, N'Ru', N' PHILIPS-SAECO HD7457/20 ', N'РўРёРї: РєР°РїРµР»СЊРЅР°СЏ (С„РёР»СЊС‚СЂР°С†РёРѕРЅРЅР°СЏ). / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РєРЅРѕРїРѕС‡РЅРѕРµ. / РўРёРї РёСЃРїРѕР»СЊР·СѓРµРјРѕРіРѕ РєРѕС„Рµ: РјРѕР»РѕС‚С‹Р№. 
-					Р РµР·РµСЂРІСѓР°СЂ РґР»СЏ РІРѕРґС‹: 1,2 Р». / Р¤СѓРЅРєС†РёРё: РїРѕРґРѕРіСЂРµРІ РєРѕС„РµР№РЅРёРєР°. / Р“Р°Р±Р°СЂРёС‚С‹: 29С…22С…22 СЃРј. 
-					Р’РµСЃ: 1,42 РєРі. / Р¦РІРµС‚: С‡РµСЂРЅС‹Р№/РјРµС‚Р°Р»Р»РёРє')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1147, N'Ru', N'PHILIPS-SAECO HD7459/20 ', N'РўРёРї: РєР°РїРµР»СЊРЅР°СЏ (С„РёР»СЊС‚СЂР°С†РёРѕРЅРЅР°СЏ). / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚РѕСЂРѕРЅРЅРѕРµ. / РўРёРї РёСЃРїРѕР»СЊР·СѓРµРјРѕРіРѕ РєРѕС„Рµ: РјРѕР»РѕС‚С‹Р№.
-					Р РµР·РµСЂРІСѓР°СЂ РґР»СЏ РІРѕРґС‹: 1,2 Р». / Р¤СѓРЅРєС†РёРё: Р°РІС‚РѕРѕС‚РєР»СЋС‡РµРЅРёРµ. / Р“Р°Р±Р°СЂРёС‚С‹: 32С…24С…21 СЃРј.
-					Р’РµСЃ: 1,42 РєРі. / Р¦РІРµС‚: С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1148, N'Ru', N'PHILIPS-SAECO Lirika', N'РўРёРї: РєРѕС„РµРјР°С€РёРЅР° СЌСЃРїСЂРµСЃСЃРѕ. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚СЂРѕРЅРЅС‹Р№. / РџСЂРёРіРѕС‚РѕРІР»РµРЅРёРµ РєР°РїСѓС‡РёРЅРѕ: СЂСѓС‡РЅРѕРµ.
-					РўРёРї РёСЃРїРѕР»СЊР·СѓРµРјРѕРіРѕ РєРѕС„Рµ: Р·РµСЂРЅРѕРІРѕР№. / Р РµР·РµСЂРІСѓР°СЂ РґР»СЏ РІРѕРґС‹: 2,5 Р». / Р”Р°РІР»РµРЅРёРµ РІРѕРґСЏРЅРѕРіРѕ РЅР°СЃРѕСЃР°: 15 Р±Р°СЂ. 
-					Р¤СѓРЅРєС†РёРё: РІС‹Р±РѕСЂ РѕР±СЉРµРјР° РїРѕСЂС†РёРё, РїРѕРґР°С‡Р° РіРѕСЂСЏС‡РµР№ РІРѕРґС‹ РґР»СЏ С‡Р°СЏ. / Р“Р°Р±Р°СЂРёС‚С‹: 21,5x38,1x45 СЃРј. / Р’РµСЃ: 8 РєРі, / Р¦РІРµС‚: С‡РµСЂРЅС‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1149, N'Ru', N'VITEK VT-1514 BK', N'РўРёРї: СЌСЃРїСЂРµСЃСЃРѕ (СЂРѕР¶РєРѕРІР°СЏ). / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚СЂРѕРЅРЅРѕРµ. / РџСЂРёРіРѕС‚РѕРІР»РµРЅРёРµ РєР°РїСѓС‡РёРЅРѕ: Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ.
-					РўРёРї РёСЃРїРѕР»СЊР·СѓРµРјРѕРіРѕ РєРѕС„Рµ: РјРѕР»РѕС‚С‹Р№. / Р РµР·РµСЂРІСѓР°СЂ РґР»СЏ РІРѕРґС‹: 1,65 Р». / Р”Р°РІР»РµРЅРёРµ РІРѕРґСЏРЅРѕРіРѕ РЅР°СЃРѕСЃР°: 15 Р±Р°СЂ.
-					Р¤СѓРЅРєС†РёРё: РїРѕРґРѕРіСЂРµРІ С‡Р°С€РµРє. / Р¦РІРµС‚: С‡РµСЂРЅС‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1150, N'Ru', N'DELONGHI ESAM 3000 B', N'РўРёРї: РєРѕС„РµРјР°С€РёРЅР° СЌСЃРїСЂРµСЃСЃРѕ. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚СЂРѕРЅРЅРѕРµ. / РџСЂРёРіРѕС‚РѕРІР»РµРЅРёРµ РєР°РїСѓС‡РёРЅРѕ: СЂСѓС‡РЅРѕРµ. / РўРёРї РёСЃРїРѕР»СЊР·СѓРµРјРѕРіРѕ РєРѕС„Рµ: Р·РµСЂРЅРѕРІРѕР№, РјРѕР»РѕС‚С‹Р№. 
-					Р РµР·РµСЂРІСѓР°СЂ РґР»СЏ РІРѕРґС‹: 1,8 Р». / Р”Р°РІР»РµРЅРёРµ РІРѕРґСЏРЅРѕРіРѕ РЅР°СЃРѕСЃР°: 15 Р±Р°СЂ. 
-					Р¤СѓРЅРєС†РёРё: Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєР°СЏ РѕС‡РёСЃС‚РєР° РѕС‚ РЅР°РєРёРїРё, Р°РІС‚РѕРѕС‚РєР»СЋС‡РµРЅРёРµ, РІС‹Р±РѕСЂ РѕР±СЉРµРјР° РїРѕСЂС†РёРё, СЂРµРіСѓР»РёСЂРѕРІРєР° РєСЂРµРїРѕСЃС‚Рё РєРѕС„Рµ. 
-					Р“Р°Р±Р°СЂРёС‚С‹: 28.5x37.5x36 СЃРј. / Р’РµСЃ: 10 РєРі. / Р¦РІРµС‚: С‡РµСЂРЅС‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1151, N'Ru', N'DELONGHI ECAM 22.110 B ', N'РўРёРї: РєРѕС„РµРјР°С€РёРЅР° СЌСЃРїСЂРµСЃСЃРѕ. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚СЂРѕРЅРЅРѕРµ. / РџСЂРёРіРѕС‚РѕРІР»РµРЅРёРµ РєР°РїСѓС‡РёРЅРѕ: СЂСѓС‡РЅРѕРµ. / РўРёРї РёСЃРїРѕР»СЊР·СѓРµРјРѕРіРѕ РєРѕС„Рµ: Р·РµСЂРЅРѕРІРѕР№, РјРѕР»РѕС‚С‹Р№. 
-					Р РµР·РµСЂРІСѓР°СЂ РґР»СЏ РІРѕРґС‹: 1,8 Р». / Р”Р°РІР»РµРЅРёРµ РІРѕРґСЏРЅРѕРіРѕ РЅР°СЃРѕСЃР°: 15 Р±Р°СЂ. 
-					Р¤СѓРЅРєС†РёРё: Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєР°СЏ РѕС‡РёСЃС‚РєР° РѕС‚ РЅР°РєРёРїРё, Р°РІС‚РѕРѕС‚РєР»СЋС‡РµРЅРёРµ, РІС‹Р±РѕСЂ РѕР±СЉРµРјР° РїРѕСЂС†РёРё, РїРѕРґРѕРіСЂРµРІ С‡Р°С€РµРє, СЂРµРіСѓР»РёСЂРѕРІРєР° РєСЂРµРїРѕСЃС‚Рё РєРѕС„Рµ. 
-					Р“Р°Р±Р°СЂРёС‚С‹: 35,1x23,8x43 СЃРј. / Р’РµСЃ: 9 РєРі. / Р¦РІРµС‚: С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1152, N'Ru', N' WHIRLPOOL ADP 500 WH ', N'Р’РёРґ: РїРѕР»РЅРѕРіР°Р±Р°СЂРёС‚РЅР°СЏ (60 СЃРј). / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ/СЃСѓС€РєРё/РјРѕР№РєРё: Рђ++/Рђ/Рђ. / Р’РјРµСЃС‚РёРјРѕСЃС‚СЊ РєРѕРјРїР»РµРєС‚РѕРІ: 13. 
-					Р Р°СЃС…РѕРґ РІРѕРґС‹ Р·Р° С†РёРєР»/РіРѕРґ: 10/2800 Р». / РџРѕС‚СЂРµР±Р»РµРЅРёРµ СЌР»РµРєС‚СЂРѕСЌРЅРµСЂРіРёРё Р·Р° С†РёРєР»/РіРѕРґ: 0,92/261 РєР’С‚/С‡. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 6.
-					Р РµР¶РёРј РїРѕР»РѕРІРёРЅРЅРѕР№ Р·Р°РіСЂСѓР·РєРё: РµСЃС‚СЊ. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85x60x59 СЃРј. / Р¦РІРµС‚ РёР·РґРµР»РёСЏ: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1153, N'Ru', N'BOSCH SKS50E32EU', N'Р’РёРґ: РєРѕРјРїР°РєС‚РЅР°СЏ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ/СЃСѓС€РєРё/РјРѕР№РєРё: Рђ+/Рђ/Рђ. / Р’РјРµСЃС‚РёРјРѕСЃС‚СЊ РєРѕРјРїР»РµРєС‚РѕРІ: 6. / Р Р°СЃС…РѕРґ РІРѕРґС‹ Р·Р° С†РёРєР»/РіРѕРґ: 8/2240 Р». 
-					РџРѕС‚СЂРµР±Р»РµРЅРёРµ СЌР»РµРєС‚СЂРѕСЌРЅРµСЂРіРёРё Р·Р° С†РёРєР»/РіРѕРґ: 0,61/174 РєР’С‚/С‡. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 5. / Р РµР¶РёРј РїРѕР»РѕРІРёРЅРЅРѕР№ Р·Р°РіСЂСѓР·РєРё: РЅРµС‚. 
-					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 45С…55,1С…50 СЃРј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1154, N'Ru', N' KAISER S 4581 XL', N'РЈР·РєР°СЏ РїРѕСЃСѓРґРѕРјРѕРµС‡РЅР°СЏ РјР°С€РёРЅР°. / Р Р°СЃС…РѕРґ РІРѕРґС‹: 12 Р»/С†РёРєР». / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ/РјРѕР№РєРё/СЃСѓС€РєРё: A/A/A.
-					РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РЅРѕСЂРј. РїСЂРѕРіСЂР°РјРјС‹, 55 В°РЎ 110 РјРёРЅ. / РљРѕР»РёС‡РµСЃС‚РІРѕ РѕСЃРЅРѕРІРЅС‹С… РїСЂРѕРіСЂР°РјРј: 8. / РџСЂРѕСЃС‚РѕРµ СѓРїСЂР°РІР»РµРЅРёРµ Logic Control.
-					РЎРїРµС†РёР°Р»СЊРЅС‹Р№ СЂРµР¶РёРј 3 РІ 1. / РЎРёСЃС‚РµРјР° СЃРјСЏРіС‡РµРЅРёСЏ РІРѕРґС‹. / LCD РґРёСЃРїР»РµР№. / Р Р°Р·РјРµСЂС‹ (Р’С…РЁС…Р“): 85С…45С…60 СЃРј. 
-					Р’РµСЃ: 38 РєРі. / Р¦РІРµС‚ РґРІРµСЂС†С‹: РЅРµСЂР¶. СЃС‚Р°Р»СЊ. / Р¦РІРµС‚ Р±РѕРєРѕРІС‹С… РїР°РЅРµР»РµР№: СЃРµСЂС‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1155, N'Ru', N' DELFA DDW-3201 (WQP6-3201) ', N'Р’РёРґ: РєРѕРјРїР°РєС‚РЅР°СЏ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ/СЃСѓС€РєРё/РјРѕР№РєРё: Рђ+/Рђ/Рђ. / Р’РјРµСЃС‚РёРјРѕСЃС‚СЊ РєРѕРјРїР»РµРєС‚РѕРІ: 6. / Р Р°СЃС…РѕРґ РІРѕРґС‹ Р·Р° С†РёРєР»/РіРѕРґ: 7/1960 Р». 
-					РџРѕС‚СЂРµР±Р»РµРЅРёРµ СЌР»РµРєС‚СЂРѕСЌРЅРµСЂРіРёРё Р·Р° С†РёРєР»/РіРѕРґ: 0,61/170 РєР’С‚/С‡. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 6. / Р РµР¶РёРј РїРѕР»РѕРІРёРЅРЅРѕР№ Р·Р°РіСЂСѓР·РєРё: РЅРµС‚.
-					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 43,8С…55С…50 СЃРј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1156, N'Ru', N'SIEMENS SN 278 I 03 TE ', N'РџРѕСЃСѓРґРѕРјРѕРµС‡РЅР°СЏ РјР°С€РёРЅР°. / РљРѕР»РёС‡РµСЃС‚РІРѕ РєРѕРјРїР»РµРєС‚РѕРІ: 13. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 8. / РљРѕР»РёС‡РµСЃС‚РІРѕ С‚РµРјРїРµСЂР°С‚СѓСЂРЅС‹С… СЂРµР¶РёРјРѕРІ: 6. 
-					РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 44 РґР‘. / РЎРёСЃС‚РµРјР° aquaStop. / Р“РёРґСЂР°РІР»РёС‡РµСЃРєР°СЏ СЃРёСЃС‚РµРјР° speedMatic. / РЎРёСЃС‚РµРјР° СЃСѓС€РєРё Zeolith. / РЎРµРЅСЃРѕСЂ Р·Р°РіСЂСѓР·РєРё. 
-					РЎРёСЃС‚РµРјР° Р·Р°С‰РёС‚С‹ СЃС‚РµРєР»Р° glassProtec. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’xРЁxР“): 84,5x60x60 СЃРј. / Р¦РІРµС‚: РёРјРёС‚Р°С†РёСЏ РЅРµСЂР¶. СЃС‚Р°Р»Рё')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1157, N'Ru', N'KAISER S 6086 XL W ', N'РћС‚РґРµР»СЊРЅРѕСЃС‚РѕСЏС‰Р°СЏ РїРѕСЃСѓРґРѕРјРѕРµС‡РЅР°СЏ РјР°С€РёРЅР°. / Р’РјРµСЃС‚РёРјРѕСЃС‚СЊ: 14 РєРѕРјРїР»РµРєС‚РѕРІ. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј РјРѕР№РєРё: 8.
-					РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ/РјРѕР№РєРё/СЃСѓС€РєРё: A+/A/A. / РЎРµРЅСЃРѕСЂРЅРѕРµ СѓРїСЂР°РІР»РµРЅРёРµ Full Touch Control. / РЎРёСЃС‚РµРјР° СЃРјСЏРіС‡РµРЅРёСЏ РІРѕРґС‹. 
-					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 81,5С…60С…64 СЃРј. / Р’РµСЃ: 49 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1158, N'Ru', N'WHIRLPOOL ADP 100 WH ', N'Р’РёРґ: РїРѕР»РЅРѕРіР°Р±Р°СЂРёС‚РЅР°СЏ (60 СЃРј). / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ/СЃСѓС€РєРё/РјРѕР№РєРё: Рђ+/Рђ/Рђ. / Р’РјРµСЃС‚РёРјРѕСЃС‚СЊ РєРѕРјРїР»РµРєС‚РѕРІ: 12.
-					Р Р°СЃС…РѕРґ РІРѕРґС‹ Р·Р° С†РёРєР»/РіРѕРґ: 12/3360 Р». / РџРѕС‚СЂРµР±Р»РµРЅРёРµ СЌР»РµРєС‚СЂРѕСЌРЅРµСЂРіРёРё Р·Р° С†РёРєР»/РіРѕРґ: 1,02/291 РєР’С‚/С‡. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 5. 
-					Р РµР¶РёРј РїРѕР»РѕРІРёРЅРЅРѕР№ Р·Р°РіСЂСѓР·РєРё: РµСЃС‚СЊ. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85x60x59 СЃРј. / Р¦РІРµС‚ РёР·РґРµР»РёСЏ: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1159, N'Ru', N'WHIRLPOOL ADP 7570 IX', N'Р’РёРґ: РїРѕР»РЅРѕРіР°Р±Р°СЂРёС‚РЅР°СЏ (60 СЃРј). / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ/СЃСѓС€РєРё/РјРѕР№РєРё: Рђ++/Рђ/Рђ. / Р’РјРµСЃС‚РёРјРѕСЃС‚СЊ РєРѕРјРїР»РµРєС‚РѕРІ: 13. 
-					Р Р°СЃС…РѕРґ РІРѕРґС‹ Р·Р° С†РёРєР»/РіРѕРґ: 9/2520 Р». / РџРѕС‚СЂРµР±Р»РµРЅРёРµ СЌР»РµРєС‚СЂРѕСЌРЅРµСЂРіРёРё Р·Р° С†РёРєР»/РіРѕРґ: 0,92/262 РєР’С‚/С‡. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 8. 
-					Р РµР¶РёРј РїРѕР»РѕРІРёРЅРЅРѕР№ Р·Р°РіСЂСѓР·РєРё: РµСЃС‚СЊ. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85x60x59 СЃРј. / Р¦РІРµС‚ РёР·РґРµР»РёСЏ: РЅРµСЂР¶Р°РІРµСЋС‰Р°СЏ СЃС‚Р°Р»СЊ.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1160, N'Ru', N'FAGOR 2LF-458', N'Р’РёРґ: СѓР·РєР°СЏ (45 СЃРј). / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ/СЃСѓС€РєРё/РјРѕР№РєРё: Рђ+/Рђ/Рђ. / Р’РјРµСЃС‚РёРјРѕСЃС‚СЊ РєРѕРјРїР»РµРєС‚РѕРІ: 9.
-					Р Р°СЃС…РѕРґ РІРѕРґС‹ Р·Р° С†РёРєР»/РіРѕРґ: 10/2800 Р». / РџРѕС‚СЂРµР±Р»РµРЅРёРµ СЌР»РµРєС‚СЂРѕСЌРЅРµСЂРіРёРё Р·Р° С†РёРєР»/РіРѕРґ: 0,8/224 РєР’С‚/С‡. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 7. 
-					Р РµР¶РёРј РїРѕР»РѕРІРёРЅРЅРѕР№ Р·Р°РіСЂСѓР·РєРё: РЅРµС‚. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…45С…58 СЃРј. / Р¦РІРµС‚ РёР·РґРµР»РёСЏ: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1161, N'Ru', N'FAGOR FDW-100W ', N'Р’РёРґ: РїРѕР»РЅРѕРіР°Р±Р°СЂРёС‚РЅР°СЏ (60 СЃРј). / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ/СЃСѓС€РєРё/РјРѕР№РєРё: Рђ/Рђ/Рђ. / Р’РјРµСЃС‚РёРјРѕСЃС‚СЊ РєРѕРјРїР»РµРєС‚РѕРІ: 13.
-					Р Р°СЃС…РѕРґ РІРѕРґС‹ Р·Р° С†РёРєР»/РіРѕРґ: 12/3360 Р». / РџРѕС‚СЂРµР±Р»РµРЅРёРµ СЌР»РµРєС‚СЂРѕСЌРЅРµСЂРіРёРё Р·Р° С†РёРєР»/РіРѕРґ: 1,05/294 РєР’С‚/С‡./  РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 6. 
-					Р РµР¶РёРј РїРѕР»РѕРІРёРЅРЅРѕР№ Р·Р°РіСЂСѓР·РєРё: РЅРµС‚. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…60С…60 СЃРј. / Р¦РІРµС‚ РёР·РґРµР»РёСЏ: Р±РµР»С‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1162, N'Ru', N'FAGOR FDW-200WE ', N'Р’РёРґ: РїРѕР»РЅРѕРіР°Р±Р°СЂРёС‚РЅР°СЏ (60 СЃРј). / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ/СЃСѓС€РєРё/РјРѕР№РєРё: Рђ++/Рђ/Рђ. / Р’РјРµСЃС‚РёРјРѕСЃС‚СЊ РєРѕРјРїР»РµРєС‚РѕРІ: 13.
-					Р Р°СЃС…РѕРґ РІРѕРґС‹ Р·Р° С†РёРєР»/РіРѕРґ: 10/2800 Р». / РџРѕС‚СЂРµР±Р»РµРЅРёРµ СЌР»РµРєС‚СЂРѕСЌРЅРµСЂРіРёРё Р·Р° С†РёРєР»/РіРѕРґ: 0,94/263 РєР’С‚/С‡. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 6. 
-					Р РµР¶РёРј РїРѕР»РѕРІРёРЅРЅРѕР№ Р·Р°РіСЂСѓР·РєРё: РЅРµС‚. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…60С…60 СЃРј. / Р¦РІРµС‚ РёР·РґРµР»РёСЏ: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1163, N'Ru', N'SAMSUNG VCC4325S3K/SBW', N'РўРёРї РїС‹Р»РµСЃРѕСЃР°: Р±РµР· РјРµС€РєР° РєРѕРЅС‚РµР№РЅРµСЂРЅРѕРіРѕ С‚РёРїР°. / РўРёРї СѓР±РѕСЂРєРё: СЃСѓС…Р°СЏ. / РџРѕС‚СЂРµР±Р»СЏРµРјР°СЏ РјРѕС‰РЅРѕСЃС‚СЊ: 1600 Р’С‚. 
-					РќР°СЃР°РґРєРё: РїРѕР»-РєРѕРІРµСЂ, С‰РµР»РµРІР°СЏ. / Р РµРіСѓР»РёСЂРѕРІРєР° РјРѕС‰РЅРѕСЃС‚Рё: Р±РµР· СЂРµРіСѓР»РёСЂРѕРІРєРё. / РћР±СЉРµРј РїС‹Р»РµСЃР±РѕСЂРЅРёРєР°: 1,3 Р». 
-					Р”Р»РёРЅР° С€РЅСѓСЂР°: 6,1 Рј. / РђРІС‚РѕСЃРјР°С‚С‹РІР°РЅРёРµ С€РЅСѓСЂР°: РµСЃС‚СЊ. / Р¦РІРµС‚: С‡РµСЂРЅС‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1164, N'Ru', N'PHILIPS FC8632/01 ', N'РўРёРї РїС‹Р»РµСЃРѕСЃР°: Р±РµР· РјРµС€РєР° РєРѕРЅС‚РµР№РЅРµСЂРЅРѕРіРѕ С‚РёРїР°. / РўРёРї СѓР±РѕСЂРєРё: СЃСѓС…Р°СЏ. / РџРѕС‚СЂРµР±Р»СЏРµРјР°СЏ РјРѕС‰РЅРѕСЃС‚СЊ: 2000 Р’С‚.
-					РќР°СЃР°РґРєРё: РґР»СЏ Р»Р°РјРёРЅР°С‚Р°/РїР°СЂРєРµС‚Р°, РїРѕР»-РєРѕРІРµСЂ, С‰РµР»РµРІР°СЏ. / Р РµРіСѓР»РёСЂРѕРІРєР° РјРѕС‰РЅРѕСЃС‚Рё: РЅР° РєРѕСЂРїСѓСЃРµ. / РћР±СЉРµРј РїС‹Р»РµСЃР±РѕСЂРЅРёРєР°: 1,7 Р».
-					Р”Р»РёРЅР° С€РЅСѓСЂР°: 6 Рј. / РђРІС‚РѕСЃРјР°С‚С‹РІР°РЅРёРµ С€РЅСѓСЂР°: РµСЃС‚СЊ. / Р¦РІРµС‚: РєСЂР°СЃРЅС‹Р№/РјРµС‚Р°Р»Р»РёРє.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1165, N'Ru', N'SCARLETT IS 580 ', N'РўРёРї РїС‹Р»РµСЃРѕСЃР°: Р±РµР· РјРµС€РєР° РєРѕРЅС‚РµР№РЅРµСЂРЅРѕРіРѕ С‚РёРїР°. / РўРёРї СѓР±РѕСЂРєРё: СЃСѓС…Р°СЏ. / РџРѕС‚СЂРµР±Р»СЏРµРјР°СЏ РјРѕС‰РЅРѕСЃС‚СЊ: 1800 Р’С‚.
-					РќР°СЃР°РґРєРё: РґР»СЏ РјСЏРіРєРѕР№ РјРµР±РµР»Рё, РїРѕР»-РєРѕРІРµСЂ, С‰РµР»РµРІР°СЏ. / Р РµРіСѓР»РёСЂРѕРІРєР° РјРѕС‰РЅРѕСЃС‚Рё: РЅР° РєРѕСЂРїСѓСЃРµ. / РћР±СЉРµРј РїС‹Р»РµСЃР±РѕСЂРЅРёРєР°: 2 Р».
-					Р”Р»РёРЅР° С€РЅСѓСЂР°: 5 Рј. / РђРІС‚РѕСЃРјР°С‚С‹РІР°РЅРёРµ С€РЅСѓСЂР°: РµСЃС‚СЊ. / Р¦РІРµС‚: С‡РµСЂРЅС‹Р№/РѕСЂР°РЅР¶РµРІС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1166, N'Ru', N'PHILIPS FC9170/01 ', N'РўРёРї РїС‹Р»РµСЃРѕСЃР°: СЃ РјРµС€РєРѕРј. / РўРёРї СѓР±РѕСЂРєРё: СЃСѓС…Р°СЏ. / РџРѕС‚СЂРµР±Р»СЏРµРјР°СЏ РјРѕС‰РЅРѕСЃС‚СЊ: 2200 Р’С‚. 
-					РќР°СЃР°РґРєРё: С‰РµР»РµРІР°СЏ. / Р РµРіСѓР»РёСЂРѕРІРєР° РјРѕС‰РЅРѕСЃС‚Рё: РЅР° РєРѕСЂРїСѓСЃРµ. / РћР±СЉРµРј РїС‹Р»РµСЃР±РѕСЂРЅРёРєР°: 4 Р». 
-					Р”Р»РёРЅР° С€РЅСѓСЂР°: 9 Рј. / РђРІС‚РѕСЃРјР°С‚С‹РІР°РЅРёРµ С€РЅСѓСЂР°: РµСЃС‚СЊ. / Р¦РІРµС‚: СЃРµСЂС‹Р№/СЃРёРЅРёР№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1167, N'Ru', N' ZELMER ZVC 762 ZKUA (VC 7920.5 SK) ', N'РўРёРї РїС‹Р»РµСЃРѕСЃР°: РјРѕСЋС‰РёР№ СЃ Р°РєРІР°С„РёР»СЊС‚СЂРѕРј. / РўРёРї СѓР±РѕСЂРєРё: РІР»Р°Р¶РЅР°СЏ, СЃР±РѕСЂ РІРѕРґС‹, СЃСѓС…Р°СЏ. / РџРѕС‚СЂРµР±Р»СЏРµРјР°СЏ РјРѕС‰РЅРѕСЃС‚СЊ: 1500 Р’С‚. 
-					РќР°СЃР°РґРєРё: РґР»СЏ РјСЏРіРєРѕР№ РјРµР±РµР»Рё, С‰РµР»РµРІР°СЏ. / Р РµРіСѓР»РёСЂРѕРІРєР° РјРѕС‰РЅРѕСЃС‚Рё: Р±РµР· СЂРµРіСѓР»РёСЂРѕРІРєРё. / РћР±СЉРµРј РїС‹Р»РµСЃР±РѕСЂРЅРёРєР°: 2,5 Р». 
-					Р”Р»РёРЅР° С€РЅСѓСЂР°: 6 Рј. / РђРІС‚РѕСЃРјР°С‚С‹РІР°РЅРёРµ С€РЅСѓСЂР°: РµСЃС‚СЊ. / Р¦РІРµС‚: СЃРµСЂС‹Р№/Р¶РµР»С‚С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1168, N'Ru', N'PHILIPS FC9176/01', N'РўРёРї РїС‹Р»РµСЃРѕСЃР°: СЃ РјРµС€РєРѕРј. / РўРёРї СѓР±РѕСЂРєРё: СЃСѓС…Р°СЏ. / РџРѕС‚СЂРµР±Р»СЏРµРјР°СЏ РјРѕС‰РЅРѕСЃС‚СЊ: 2200 Р’С‚. 
-					РќР°СЃР°РґРєРё: РґР»СЏ Р»Р°РјРёРЅР°С‚Р°/РїР°СЂРєРµС‚Р°, С‰РµР»РµРІР°СЏ. / Р РµРіСѓР»РёСЂРѕРІРєР° РјРѕС‰РЅРѕСЃС‚Рё: РЅР° СЂСѓС‡РєРµ. / РћР±СЉРµРј РїС‹Р»РµСЃР±РѕСЂРЅРёРєР°: 4 Р». 
-					Р”Р»РёРЅР° С€РЅСѓСЂР°: 7 Рј. / РђРІС‚РѕСЃРјР°С‚С‹РІР°РЅРёРµ С€РЅСѓСЂР°: РµСЃС‚СЊ. / Р¦РІРµС‚: С‡РµСЂРЅС‹Р№')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1169, N'Ru', N'SCARLETT SC-VC80B04', N'РўРёРї РїС‹Р»РµСЃРѕСЃР°: СЃ РјРµС€РєРѕРј. / РўРёРї СѓР±РѕСЂРєРё: СЃСѓС…Р°СЏ. / РџРѕС‚СЂРµР±Р»СЏРµРјР°СЏ РјРѕС‰РЅРѕСЃС‚СЊ: 1500 Р’С‚. / РќР°СЃР°РґРєРё: РїРѕР»-РєРѕРІРµСЂ, С‰РµР»РµРІР°СЏ. 
-					РћР±СЉРµРј РїС‹Р»РµСЃР±РѕСЂРЅРёРєР°: 1,5 Р». / РђРІС‚РѕСЃРјР°С‚С‹РІР°РЅРёРµ С€РЅСѓСЂР°: РµСЃС‚СЊ. / Р¦РІРµС‚: СЃРµСЂС‹Р№/РєСЂР°СЃРЅС‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1170, N'Ru', N' SAMSUNG VCC4140V38/XEV ', N'РўРёРї РїС‹Р»РµСЃРѕСЃР°: СЃ РјРµС€РєРѕРј. / РўРёРї СѓР±РѕСЂРєРё: СЃСѓС…Р°СЏ. / РџРѕС‚СЂРµР±Р»СЏРµРјР°СЏ РјРѕС‰РЅРѕСЃС‚СЊ: 1600 Р’С‚. 
-					РќР°СЃР°РґРєРё: РїРѕР»-РєРѕРІРµСЂ, С‰РµР»РµРІР°СЏ. / Р РµРіСѓР»РёСЂРѕРІРєР° РјРѕС‰РЅРѕСЃС‚Рё: РЅР° РєРѕСЂРїСѓСЃРµ./  РћР±СЉРµРј РїС‹Р»РµСЃР±РѕСЂРЅРёРєР°: 3 Р». 
-					РђРІС‚РѕСЃРјР°С‚С‹РІР°РЅРёРµ С€РЅСѓСЂР°: РµСЃС‚СЊ. / Р¦РІРµС‚: СЃРёРЅРёР№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1173, N'Ru', N'VITEK VT-1833 PR ', N'РўРёРї РїС‹Р»РµСЃРѕСЃР°: СЃ Р°РєРІР°С„РёР»СЊС‚СЂРѕРј. / РўРёРї СѓР±РѕСЂРєРё: СЃСѓС…Р°СЏ. / РџРѕС‚СЂРµР±Р»СЏРµРјР°СЏ РјРѕС‰РЅРѕСЃС‚СЊ: 1800 Р’С‚.
-					РќР°СЃР°РґРєРё: РґР»СЏ РјСЏРіРєРѕР№ РјРµР±РµР»Рё, РїРѕР»-РєРѕРІРµСЂ, С‚СѓСЂР±РѕС‰РµС‚РєР°, С‰РµР»РµРІР°СЏ. / Р РµРіСѓР»РёСЂРѕРІРєР° РјРѕС‰РЅРѕСЃС‚Рё: РЅР° РєРѕСЂРїСѓСЃРµ. 
-					РћР±СЉРµРј РїС‹Р»РµСЃР±РѕСЂРЅРёРєР°: 3,5 Р». / РђРІС‚РѕСЃРјР°С‚С‹РІР°РЅРёРµ С€РЅСѓСЂР°: РµСЃС‚СЊ. / Р¦РІРµС‚: С„РёРѕР»РµС‚РѕРІС‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1174, N'Ru', N' BLACK&DECKER NW4820N-QW ', N'РўРёРї РїС‹Р»РµСЃРѕСЃР°: СЌР»РµРєС‚СЂРѕРІРµРЅРёРє/Р°РєРєСѓРјСѓР»СЏС‚РѕСЂРЅС‹Р№ РїС‹Р»РµСЃРѕСЃ. / РўРёРї СѓР±РѕСЂРєРё: РІР»Р°Р¶РЅР°СЏ, СЃСѓС…Р°СЏ. / РќР°СЃР°РґРєРё: С‰РµР»РµРІР°СЏ. 
-					Р РµРіСѓР»РёСЂРѕРІРєР° РјРѕС‰РЅРѕСЃС‚Рё: Р±РµР· СЂРµРіСѓР»РёСЂРѕРІРєРё. / РћР±СЉРµРј РїС‹Р»РµСЃР±РѕСЂРЅРёРєР°: 0,175 Р». / РђРІС‚РѕСЃРјР°С‚С‹РІР°РЅРёРµ С€РЅСѓСЂР°: РЅРµС‚. / Р¦РІРµС‚: Р±РµР»С‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1175, N'Ru', N'PHILIPS FC9912/01 PowerPro Ultimate', N'РўРёРї РїС‹Р»РµСЃРѕСЃР°: Р±РµР· РјРµС€РєР° РєРѕРЅС‚РµР№РЅРµСЂРЅРѕРіРѕ С‚РёРїР°. / РўРёРї СѓР±РѕСЂРєРё: СЃСѓС…Р°СЏ. / РџРѕС‚СЂРµР±Р»СЏРµРјР°СЏ РјРѕС‰РЅРѕСЃС‚СЊ: 2400 Р’С‚. 
-					РќР°СЃР°РґРєРё: С‰РµР»РµРІР°СЏ. / Р РµРіСѓР»РёСЂРѕРІРєР° РјРѕС‰РЅРѕСЃС‚Рё: РЅР° СЂСѓС‡РєРµ. / РћР±СЉРµРј РїС‹Р»РµСЃР±РѕСЂРЅРёРєР°: 2 Р». 
-					Р”Р»РёРЅР° С€РЅСѓСЂР°: 7 Рј. / РђРІС‚РѕСЃРјР°С‚С‹РІР°РЅРёРµ С€РЅСѓСЂР°: РµСЃС‚СЊ. / Р¦РІРµС‚: С‡РµСЂРЅС‹Р№/РјРµРґРЅС‹Р№.')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1176, N'Ru', N'EnergyFIT EF-6606B ', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РєРѕРЅСЃС‚СЂСѓРєС†РёСЏ: СЃРєР»Р°РґРЅС‹Рµ / РѕСЃРѕР±РµРЅРЅРѕСЃС‚Рё: С‚СЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРѕС‡РЅС‹Рµ СЂРѕР»РёРєРё, РїРѕРґСЃС‚Р°РІРєР° РґР»СЏ Р°РєСЃРµСЃСЃСѓР°СЂРѕРІ
-					РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 14 РєРј/С‡ / РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 125 РєРі / СЂРµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: РјРµС…Р°РЅРёС‡РµСЃРєР°СЏ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1177, N'Ru', N'EnergyFIT EF-5501Р’ ', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: РўСЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРѕС‡РЅС‹Рµ СЂРѕР»РёРєРё, РџРѕРґСЃС‚Р°РІРєР° РґР»СЏ Р°РєСЃРµСЃСЃСѓР°СЂРѕРІ
-					РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 13 РєРј/С‡ / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 120 РєРі / Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: РњРµС…Р°РЅРёС‡РµСЃРєР°СЏ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1181, N'Ru', N' EnergyFIT EF-7705A ', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: РўСЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРѕС‡РЅС‹Рµ СЂРѕР»РёРєРё, РџРѕРґСЃС‚Р°РІРєР° РґР»СЏ Р°РєСЃРµСЃСЃСѓР°СЂРѕРІ
-					РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 16 РєРј/С‡ / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 140 РєРі / Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: РњРµС…Р°РЅРёС‡РµСЃРєР°СЏ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1182, N'Ru', N'InterAtletika Jessie KL-803 ', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: РўСЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРѕС‡РЅС‹Рµ СЂРѕР»РёРє, / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 100 РєРі
-					Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: РњРµС…Р°РЅРёС‡РµСЃРєР°СЏ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1183, N'Ru', N'ProForm Endurance S9 (PETL99714) ', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: Р’РµРЅС‚РёР»СЏС‚РѕСЂ / РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 20 РєРј/С‡
-					РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 135 РєРі / Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: Р­Р»РµРєС‚СЂРёС‡РµСЃРєР°СЏ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1184, N'Ru', N'NordicTrack T15 (NETL14711)', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: Р’РµРЅС‚РёР»СЏС‚РѕСЂ / РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 22 РєРј/С‡
-					РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 159 РєРі / Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: Р­Р»РµРєС‚СЂРёС‡РµСЃРєР°СЏ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1185, N'Ru', N'Spirit Esprit XT-485 ', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: РўСЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРѕС‡РЅС‹Рµ СЂРѕР»РёРєРё, РџРѕРґСЃС‚Р°РІРєР° РґР»СЏ Р°РєСЃРµСЃСЃСѓР°СЂРѕРІ, Р”РµСЂР¶Р°С‚РµР»СЊ РґР»СЏ Р±СѓС‚С‹Р»РєРё, Р’РµРЅС‚РёР»СЏС‚РѕСЂ
-					РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 18 РєРј/С‡ / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 195 РєРі / Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: Р­Р»РµРєС‚СЂРёС‡РµСЃРєР°СЏ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1186, N'Ru', N'NordicTrack C200 (NETL10814)', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: Р’РµРЅС‚РёР»СЏС‚РѕСЂ / РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 20 РєРј/С‡
-					РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 150 РєРі / Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: Р­Р»РµРєС‚СЂРёС‡РµСЃРєР°СЏ
-					Р¦РµРЅР°: 33 816 РіСЂРЅ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1187, N'Ru', N'HouseFit HT 9138HP (HT 9138HP)', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ /  РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 12 РєРј/С‡
-					РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 100 РєРі / Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: РњРµС…Р°РЅРёС‡РµСЃРєР°СЏ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1188, N'Ru', N'Circle Fitness M7', N'РќР°Р·РЅР°С‡РµРЅРёРµ: РџСЂРѕС„РµСЃСЃРёРѕРЅР°Р»СЊРЅС‹Рµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РќРµСЃРєР»Р°РґРЅС‹Рµ / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: РўСЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРѕС‡РЅС‹Рµ СЂРѕР»РёРєРё, РџРѕРґСЃС‚Р°РІРєР° РґР»СЏ Р°РєСЃРµСЃСЃСѓР°СЂРѕРІ, Р”РµСЂР¶Р°С‚РµР»СЊ РґР»СЏ Р±СѓС‚С‹Р»РєРё, Р’РµРЅС‚РёР»СЏС‚РѕСЂ
-					РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 20 РєРј/С‡ / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 182 РєРі/ Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: Р­Р»РµРєС‚СЂРёС‡РµСЃРєР°СЏ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2126, N'Ru', N'Р°РЅС‚РµР»СЊ С‡СѓРіСѓРЅРЅР°СЏ РЅР°Р±РѕСЂРЅР°СЏ Body Max 25 РєРі (Р’Рњ-018)', N'РўРёРї: Р“Р°РЅС‚РµР»Рё / Р’РёРґ Р·Р°РјРєР°: Р’РёРЅС‚РѕРІРѕР№ / Р¤РѕСЂРјР° РіСЂРёС„Р°: РџСЂСЏРјР°СЏ / Р”Р»РёРЅР°: 38 СЃРј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2127, N'Ru', N'Р“Р°РЅС‚РµР»СЊ РЅР°Р±РѕСЂРЅР°СЏ Newt 17.5 РєРі (TI-968-745-17)', N'РўРёРї: Р“Р°РЅС‚РµР»Рё / Р’РёРґ Р·Р°РјРєР°: Р’РёРЅС‚РѕРІРѕР№ / Р¤РѕСЂРјР° РіСЂРёС„Р°: РџСЂСЏРјР°СЏ / Р”Р»РёРЅР°: 33 СЃРј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2128, N'Ru', N'Р“Р°РЅС‚РµР»СЊ РЅР°Р±РѕСЂРЅР°СЏ Newt 15.5 РєРі (TI-968-745-1-1)', N'РўРёРї: Р“Р°РЅС‚РµР»Рё / Р’РёРґ Р·Р°РјРєР°: Р’РёРЅС‚РѕРІРѕР№ / Р¤РѕСЂРјР° РіСЂРёС„Р°: РџСЂСЏРјР°СЏ / Р”Р»РёРЅР°: 33 СЃРј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2129, N'Ru', N'Р“Р°РЅС‚РµР»СЊ РЅР°Р±РѕСЂРЅР°СЏ Newt 10 РєРі (TI-968-747)', N'РўРёРї: Р“Р°РЅС‚РµР»Рё / Р’РёРґ Р·Р°РјРєР°: Р’РёРЅС‚РѕРІРѕР№ / Р¤РѕСЂРјР° РіСЂРёС„Р°: РџСЂСЏРјР°СЏ / Р”Р»РёРЅР°: 33 СЃРј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2130, N'Ru', N'Р“Р°РЅС‚РµР»СЊ РЅР°Р±РѕСЂРЅР°СЏ Newt 25.5 РєРі (TI-968-745-25-1) ', N'РёРї: Р“Р°РЅС‚РµР»Рё / Р’РёРґ Р·Р°РјРєР°: Р’РёРЅС‚РѕРІРѕР№ / Р¤РѕСЂРјР° РіСЂРёС„Р°: РџСЂСЏРјР°СЏ / Р”Р»РёРЅР°: 40 СЃРј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2131, N'Ru', N'Р“Р°РЅС‚РµР»СЊ С‡СѓРіСѓРЅРЅР°СЏ РЅР°Р±РѕСЂРЅР°СЏ Body Max 20 РєРі (Р’Рњ-016) ', N'РёРї: Р“Р°РЅС‚РµР»Рё / Р’РёРґ Р·Р°РјРєР°: Р’РёРЅС‚РѕРІРѕР№ / Р¤РѕСЂРјР° РіСЂРёС„Р°: РџСЂСЏРјР°СЏ / Р”Р»РёРЅР°: 38 СЃРј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2132, N'Ru', N'Р”РёСЃРє Newt СЃС‚Р°Р»СЊРЅРѕР№ 5 РєРі (TI-0006)', N'РўРёРї: Р”РёСЃРєРё / РњР°С‚РµСЂРёР°Р»: РЎС‚Р°Р»СЊ / РџРѕРєСЂС‹С‚РёРµ: РџРѕРєСЂР°СЃРєР° / Р”РёР°РјРµС‚СЂ РѕС‚РІРµСЂС‚СЃРёСЏ: 27 - 30 РјРј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2133, N'Ru', N'Р”РёСЃРє Newt СЃС‚Р°Р»СЊРЅРѕР№ 1 РєРі (TI-0011)', N'РўРёРї: Р”РёСЃРєРё / РњР°С‚РµСЂРёР°Р»: РЎС‚Р°Р»СЊ / РџРѕРєСЂС‹С‚РёРµ: РџРѕРєСЂР°СЃРєР° / Р”РёР°РјРµС‚СЂ РѕС‚РІРµСЂС‚СЃРёСЏ: 27 - 30 РјРј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2134, N'Ru', N'Р”РёСЃРє Newt СЃС‚Р°Р»СЊРЅРѕР№ 3 РєРі (TI-0014)', N'РўРёРї: Р”РёСЃРєРё / РњР°С‚РµСЂРёР°Р»: РЎС‚Р°Р»СЊ / РџРѕРєСЂС‹С‚РёРµ: РџРѕРєСЂР°СЃРєР° / Р”РёР°РјРµС‚СЂ РѕС‚РІРµСЂС‚СЃРёСЏ: 27 - 30 РјРј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2135, N'Ru', N'РќР°Р±РѕСЂРЅР°СЏ С€С‚Р°РЅРіР° Newt Home 50 РєРі (TI-0201-180-50)', N'РўРёРї: РЁС‚Р°РЅРіРё / Р’РёРґ Р·Р°РјРєР°: Р’РёРЅС‚РѕРІРѕР№ / Р¤РѕСЂРјР° РіСЂРёС„Р°: РџСЂСЏРјР°СЏ / Р”Р»РёРЅР°: 180 СЃРј')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2136, N'Ru', N'Storm mk240 ', N'РўРёРї: Р“СЂРµР±РЅС‹Рµ / РўРёРї РґРЅРёС‰Р°: Р‘РµР· РґРЅРёС‰Р° РІ РєРѕРјРїР»РµРєС‚Рµ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 2 С‡РµР». / РџРѕРІРѕСЂРѕС‚РЅС‹Рµ СѓРєР»СЋС‡РёРЅС‹ Рё Р°Р»СЋРјРёРЅРёРµРІС‹Рµ РІРµСЃР»Р°')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2137, N'Ru', N'Р›Р°РґСЊСЏ Р›Рў-190', N'РёРї: Р“СЂРµР±РЅС‹Рµ / РўРёРї РґРЅРёС‰Р°: Р‘РµР· РґРЅРёС‰Р° РІ РєРѕРјРїР»РµРєС‚Рµ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 1 С‡РµР».')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2138, N'Ru', N'Р›Р°РґСЊСЏ Р›Рў-190РЈ', N'РўРёРї: Р“СЂРµР±РЅС‹Рµ / РўРёРї РґРЅРёС‰Р°: Р‘РµР· РґРЅРёС‰Р° РІ РєРѕРјРїР»РµРєС‚Рµ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 1 С‡РµР».')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2139, N'Ru', N'Р›Р°РґСЊСЏ Р›Рў-330Рњ', N'РўРёРї: Р“СЂРµР±РЅС‹Рµ / РўРёРї РґРЅРёС‰Р°: Р‘РµР· РґРЅРёС‰Р° РІ РєРѕРјРїР»РµРєС‚Рµ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 4 С‡РµР».')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2140, N'Ru', N'Storm stk-380', N'РўРёРї: РњРѕС‚РѕСЂРЅС‹Рµ СЃРѕ СЃС‚Р°С†РёРѕРЅР°СЂРЅС‹Рј С‚СЂР°РЅС†РµРј / РўРёРї РґРЅРёС‰Р°: Р–РµСЃС‚РєРѕРµ СЂР°Р·Р±РѕСЂРЅРѕРµ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 4 С‡РµР».')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2141, N'Ru', N'Р›Р°РґСЊСЏ Р›Рћ-250-РЎ ', N'РўРёРї: Р“СЂРµР±РЅС‹Рµ / РўРёРї РґРЅРёС‰Р°: РЎР»Р°РЅСЊ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 2 С‡РµР».')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2142, N'Ru', N'Р›Р°РґСЊСЏ Р›Рў-220-Р”РЎ', N'РўРёРї: Р“СЂРµР±РЅС‹Рµ / РўРёРї РґРЅРёС‰Р°: РЎР»Р°РЅСЊ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 1 С‡РµР».')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2143, N'Ru', N'Storm stm-280-40 ', N'РўРёРї: РњРѕС‚РѕСЂРЅС‹Рµ СЃРѕ СЃС‚Р°С†РёРѕРЅР°СЂРЅС‹Рј С‚СЂР°РЅС†РµРј / РўРёРї РґРЅРёС‰Р°: РЎР»Р°РЅСЊ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 2 С‡РµР».')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2144, N'Ru', N'Storm stm-330 ', N'РўРёРї: РњРѕС‚РѕСЂРЅС‹Рµ СЃРѕ СЃС‚Р°С†РёРѕРЅР°СЂРЅС‹Рј С‚СЂР°РЅС†РµРј / РўРёРї РґРЅРёС‰Р°: РЎР»Р°РЅСЊ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 2 С‡РµР».')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2145, N'Ru', N'Storm mk260 ', N'РўРёРї: Р“СЂРµР±РЅС‹Рµ / РўРёРї РґРЅРёС‰Р°: Р‘РµР· РґРЅРёС‰Р° РІ РєРѕРјРїР»РµРєС‚Рµ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 2 С‡РµР».')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2146, N'Ru', N' Arsenal 20x50 (10-2050) ', N'РўРёРї: Р‘РёРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 20x / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 50 РјРј / Р’РµСЃ: 0.74 РєРі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2147, N'Ru', N'rsenal 7x50 РњРѕСЂСЃРєРѕР№ Р§С‘СЂРЅС‹Р№ (NB61-0750C1 Black)', N'РўРёРї: Р‘РёРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 7x / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 50 РјРј / Р’РµСЃ: 0.89 РєРі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2148, N'Ru', N'Arsenal 12x25 NB25-1225 ', N'РўРёРї: Р‘РёРЅРѕРєР»СЊ / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 25 РјРј / Р’РµСЃ: 0.25 РєРі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2149, N'Ru', N'Alpen Sport II 10x25 Green (920296)', N'РўРёРї: Р‘РёРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 10С… / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 25 РјРј / Р’РµСЃ: 0.2 РєРі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2150, N'Ru', N'Arsenal 10-30С…60 Porro (BF1-103060) ', N'РўРёРї: Р‘РёРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 10x - 30x / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 60 РјРј / Р’РµСЃ: 0.85 РєРі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2151, N'Ru', N'Arsenal 12x25 NB27-1225 ', N'РўРёРї: РњРѕРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 12x / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 25 РјРј / Р’РµСЃ: 0.07 РєРі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2152, N'Ru', N'Arsenal 10x50 (10-1050) ', N'РўРёРї: Р‘РёРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 10С… / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 50 РјРј / Р’РµСЃ: 0.7 РєРі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2153, N'Ru', N'Praktica 12x25 (920721) ', N'РўРёРї: Р‘РёРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 12x / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 25 РјРј / Р’РµСЃ: 0.2 РєРі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2154, N'Ru', N'Р‘РёРЅРѕРєР»СЊ Zeiss Victory HT 10С…42 524529 (7120216)', N'РўРёРї: Р‘РёРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 10x / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 42 РјРј / Р’РµСЃ: 0.8 РєРі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2155, N'Ru', N'Kowa SV 10x42 WP (914770)', N'РўРёРї: Р‘РёРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 10С… / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 42 РјРј / Р’РµСЃ: 0.67 РєРі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2157, N'Ru', N'Motorola TLKR T80 Extreme ', N'Р”Р°Р»СЊРЅРѕСЃС‚СЊ СЃРІСЏР·Рё: РґРѕ 10 РєРј / Р’РµСЃ: 140 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2158, N'Ru', N'Voxtel MR160 ', N'РЎС‚Р°РЅРґР°СЂС‚: PMR446 / РќР°Р·РЅР°С‡РµРЅРёРµ: РџРµСЂРµРЅРѕСЃРЅС‹Рµ Р±РµР·Р»РёС†РµРЅР·РёРѕРЅРЅС‹Рµ / РњРѕС‰РЅРѕСЃС‚СЊ: 0.5 Р’С‚
-					Р”Р°Р»СЊРЅРѕСЃС‚СЊ СЃРІСЏР·Рё: РґРѕ 3 РєРј / Р’РµСЃ: 76 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2159, N'Ru', N'Motorola TLKR T80 Extreme ', N'РЎС‚Р°РЅРґР°СЂС‚: PMR446 / РќР°Р·РЅР°С‡РµРЅРёРµ: РџРµСЂРµРЅРѕСЃРЅС‹Рµ Р±РµР·Р»РёС†РµРЅР·РёРѕРЅРЅС‹Рµ / РњРѕС‰РЅРѕСЃС‚СЊ: 0.5 Р’С‚')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2160, N'Ru', N'Motorola TLKR T41 Pink (P14MAA03A1BN)', N'РЎС‚Р°РЅРґР°СЂС‚: PMR446 / РќР°Р·РЅР°С‡РµРЅРёРµ: РџРµСЂРµРЅРѕСЃРЅС‹Рµ Р±РµР·Р»РёС†РµРЅР·РёРѕРЅРЅС‹Рµ / РњРѕС‰РЅРѕСЃС‚СЊ: 0.5 Р’С‚
-					Р”Р°Р»СЊРЅРѕСЃС‚СЊ СЃРІСЏР·Рё: РґРѕ 4 РєРј / Р’РµСЃ: 74 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2161, N'Ru', N'Yaesu VX-6E', N'РЎС‚Р°РЅРґР°СЂС‚: VHF/UHF / РќР°Р·РЅР°С‡РµРЅРёРµ: РџРѕСЂС‚Р°С‚РёРІРЅС‹Рµ СЂР°РґРёРѕР»СЋР±РёС‚РµР»СЊСЃРєРёРµ / РњРѕС‰РЅРѕСЃС‚СЊ: 5 Р’С‚ / Р’РµСЃ: 270 Рі
-					Р¦РµРЅР°: 9 410 РіСЂРЅ')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2162, N'Ru', N'Baofeng UV-3R ', N'РЎС‚Р°РЅРґР°СЂС‚: VHF/UHF / РќР°Р·РЅР°С‡РµРЅРёРµ: РџРѕСЂС‚Р°С‚РёРІРЅС‹Рµ СЂР°РґРёРѕР»СЋР±РёС‚РµР»СЊСЃРєРёРµ / РњРѕС‰РЅРѕСЃС‚СЊ: 2 Р’С‚
-					Р”Р°Р»СЊРЅРѕСЃС‚СЊ СЃРІСЏР·Рё: РґРѕ 5 РєРј / Р’РµСЃ: 150 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2163, N'Ru', N'President Truman ASC (TXMU092) ', N'РЎС‚Р°РЅРґР°СЂС‚: AM/FM / РќР°Р·РЅР°С‡РµРЅРёРµ: РђРІС‚РѕРјРѕР±РёР»СЊРЅС‹Рµ / РњРѕС‰РЅРѕСЃС‚СЊ: 4 Р’С‚ / Р’РµСЃ: 700 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2164, N'Ru', N'Motorola TLKR T60', N'РЎС‚Р°РЅРґР°СЂС‚: PMR446 / РќР°Р·РЅР°С‡РµРЅРёРµ: РџРµСЂРµРЅРѕСЃРЅС‹Рµ Р±РµР·Р»РёС†РµРЅР·РёРѕРЅРЅС‹Рµ / РњРѕС‰РЅРѕСЃС‚СЊ: 0.5 Р’С‚
-					Р”Р°Р»СЊРЅРѕСЃС‚СЊ СЃРІСЏР·Рё: РґРѕ 8 РєРј / Р’РµСЃ: 103 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2165, N'Ru', N'Voxtel MR950', N'РЎС‚Р°РЅРґР°СЂС‚: PMR446 / РќР°Р·РЅР°С‡РµРЅРёРµ: РџРµСЂРµРЅРѕСЃРЅС‹Рµ Р±РµР·Р»РёС†РµРЅР·РёРѕРЅРЅС‹Рµ / РњРѕС‰РЅРѕСЃС‚СЊ: 0.5 Р’С‚
-					Р”Р°Р»СЊРЅРѕСЃС‚СЊ СЃРІСЏР·Рё: РґРѕ 10 РєРј / Р’РµСЃ: 350 Рі')
-INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2166, N'Ru', N'President Jimmy II ASC (TXMU045) ', N'РЎС‚Р°РЅРґР°СЂС‚: AM / РќР°Р·РЅР°С‡РµРЅРёРµ: РђРІС‚РѕРјРѕР±РёР»СЊРЅС‹Рµ / РњРѕС‰РЅРѕСЃС‚СЊ: 4 Р’С‚ / Р’РµСЃ: 600 Рі')
+					Тип: электрическая. / Зоны нагрева: электрические. / Материал решеток поверхности: нет. / Тип духовки: электрическая.
+					Полезный объем: 56 л. / Гриль: есть. / Конвекция: есть. / Таймер: нет. / Подсветка: есть. / Габариты (ВхШхГ): 85,5х50х60 см. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1109, N'Ru', N'KAISER HGG 52511 W ', N'Тип: газовая. / Газ-контроль: поверхности+духовки. / Зоны нагрева: газовые. / Материал решеток поверхности: чугунные. 
+					Тип духовки: газовая. / Полезный объем: 58 л. / Гриль: есть. / Конвекция: нет. / Таймер: есть. / Подсветка: есть. 
+					Габариты (ВхШхГ): 85х50х60 см. / Вес: 43,9 кг. / Цвет: белый/черное зеркальное стекло.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1110, N'Ru', N'HANSA FCEW 53000', N'Тип: электрическая. / Зоны нагрева: электрические. / Материал решеток поверхности: нет. / Тип духовки: электрическая. 
+					Полезный объем: 69 л. / Гриль: нет. / Конвекция: нет. / Таймер: нет. / Подсветка: есть. 
+					Габариты (ВхШхГ): 85х50х60 см. / Вес: 40 кг. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1111, N'Ru', N'HANSA FCMW53050', N'Тип: комбинированная (газ+электро). / Газ-контроль: нет. / Зоны нагрева: газовые, электрические. 
+					Материал решеток поверхности: эмалированные. / Тип духовки: электрическая. / Полезный объем: 69 л. / Гриль: есть. 
+					Конвекция: нет. / Таймер: нет. / Подсветка: есть. / Габариты (ВхШхГ): 85х50х60 см. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1112, N'Ru', N'GEFEST 6100-01', N'Тип: газовая. / Газ-контроль: духовки. / Зоны нагрева: газовые. / Материал решеток поверхности: чугунные.
+					Тип духовки: газовая. / Полезный объем: 52 л. / Гриль: нет. / Конвекция: нет. / Таймер: нет. / Подсветка: есть. 
+					Габариты (ВхШхГ): 85х60х60 см. / Вес: 43,5 кг. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1113, N'Ru', N'GRETA 1470-0016 (W)', N'Тип: газовая. / Газ-контроль: нет. / Зоны нагрева: газовые. / Материал решеток поверхности: эмалированные. 
+					Тип духовки: газовая. / Полезный объем: 54 л. / Гриль: нет. / Конвекция: нет. / Таймер: нет. / Подсветка: нет.
+					Габариты (ВхШхГ): 85х50х54 см. / Вес: 32 кг. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1114, N'Ru', N'GRETA 1470-0007 (WM) ', N'Тип: газовая. / Газ-контроль: нет. / Зоны нагрева: газовые. / Материал решеток поверхности: эмалированные. 
+					Тип духовки: газовая. / Полезный объем: 54 л. / Гриль: нет. / Конвекция: нет. / Таймер: нет. / Подсветка: есть. 
+					Габариты (ВхШхГ): 85х50х54 см. / Вес: 37 кг. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1115, N'Ru', N'ELECTROLUX EKK 954507 W ', N'Тип: комбинированная (газ+электро). / Газ-контроль: поверхности. / Зоны нагрева: газовые. / Материал решеток поверхности: чугунные. 
+					Тип духовки: электрическая. / Полезный объем: 56 л. / Гриль: есть. / Конвекция: есть. / Таймер: есть. / Подсветка: есть.
+					Габариты (ВхШхГ): 85,5x50x60 см. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1116, N'Ru', N'INDESIT WISN 821 UA ', N'Тип: узкая. / Количество белья при стирке: 5 кг. / Скорость отжима: 800 об/мин. / Класс энергопотребления: А+. 
+					Дисплей: нет. / Количество программ: 16. / Габариты (ВхШхГ) : 85x59,5x42 см. / Цвет:белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1117, N'Ru', N'ZANUSSI ZWSE 680 V', N'Тип: узкая. / Количество белья при стирке: 5 кг. / Скорость отжима: 800 об/мин. / Класс энергопотребления: А++. 
+					Дисплей: нет. / Количество программ: 14. / Габариты (ВхШхГ) : 85х59,5х37,7 см. / Цвет:белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1118, N'Ru', N'ZANUSSI ZWSE 7120 V ', N'Тип: узкая. / Количество белья при стирке: 5 кг. / Скорость отжима: 1200 об/мин. / Класс энергопотребления: А++. 
+					Дисплей: есть. / Количество программ: 14. / Габариты (ВхШхГ) : 85х59,5х37,7 см. / Цвет:белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1122, N'Ru', N' WHIRLPOOL AWS 63013', N'Тип: узкая. / Количество белья при стирке: 6 кг. / Скорость отжима: 1000 об/мин. / Класс энергопотребления: А+++. 
+					Дисплей: есть. / Количество программ: 18. / Габариты (ВхШхГ) : 84,5х59,5х45,3 см. / Вес: 61 кг. / Цвет:белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1123, N'Ru', N'ELECTROLUX EWS1266CI ', N'Тип: узкая. / Количество белья при стирке: 6 кг. / Скорость отжима: 1200 об/мин. / Класс энергопотребления: А+++.
+					Дисплей: есть. / Количество программ: 14. / Габариты (ВхШхГ) : 85х59,5х37,7 см. / Цвет:белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1124, N'Ru', N'INDESIT IWSD 51051 UA', N'Тип: узкая. / Количество белья при стирке: 5 кг. / Скорость отжима: 1000 об/мин. / Класс энергопотребления: А+. 
+					Дисплей: есть. / Количество программ: 16. / Габариты (ВхШхГ) : 85х59,5х42 см. / Цвет:белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1125, N'Ru', N'ZANUSSI ZWSE 6100 V', N'Тип: узкая. / Количество белья при стирке: 5 кг. / Скорость отжима: 1000 об/мин. / Класс энергопотребления: А++.
+					Дисплей: нет. / Количество программ: 14. / Габариты (ВхШхГ) : 85х59,5х37,7 см. / Цвет:белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1126, N'Ru', N'ZANUSSI ZWSE 7100 VS ', N'Тип: узкая. / Количество белья при стирке: 5 кг. / Скорость отжима: 1000 об/мин. / Класс энергопотребления: А++.
+					Дисплей: есть. / Габариты (ВхШхГ) : 85x59,5x37,7 . / Цвет:белый/серебристый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1127, N'Ru', N'ELECTROLUX EWS1052NDU', N'Тип: узкая. / Количество белья при стирке: 5 кг. / Скорость отжима: 1000 об/мин. / Класс энергопотребления: А++.
+					Дисплей: нет. / Количество программ: 14. / Габариты (ВхШхГ) : 85х59,5х37,7. / Цвет:белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1128, N'Ru', N' LG F80C3LD ', N'Тип: узкая. / Количество белья при стирке: 5 кг. / Скорость отжима: 800 об/мин./ Класс энергопотребления: А++. 
+					Дисплей: нет. / Количество программ: 9. / Габариты (ВхШхГ) : 85x60x44 см. / Вес: 59 кг. / Цвет:белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1129, N'Ru', N'GORENJE W 7202/S ', N'Тип: узкая. / Количество белья при стирке: 7 кг. / Скорость отжима: 1000 об/мин. / Класс энергопотребления: А++. 
+					Дисплей: нет. / Количество программ: 18. / Габариты (ВхШхГ) : 85х60х44 см. / Вес: 61,5 кг. / Цвет:белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1133, N'Ru', N'WHIRLPOOL AMW 497 IX', N'Тип: с грилем. / Тип управления: кнопочное. / Объем(л): 22. / Мощность микроволн: 750 Вт. 
+					Очистка паром: нет. / Габариты: 38,2х59,5х32 см. / Цвет: нержавеющая сталь/зеркальный.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1196, N'Ru', N'EnergyFIT GB1206', N'Тип: Магнитные / Уровни нагрузки: 8 / Максимальный вес пользователя: 100 кг / Количество программ: Нет')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1197, N'Ru', N'EnergyFIT GBBT1503 ', N'Тип: Магнитные / Максимальный вес пользователя: 100 кг')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1198, N'Ru', N'NordicTrack GX 5.0 (NTEVEX71014) ', N'Тип: Электромагнитные / Уровни нагрузки: 20 / Максимальный вес пользователя: 125 кг / Количество программ: 20')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1199, N'Ru', N'Vision R60', N'Тип: Электромагнитные / Уровни нагрузки: 25 / Максимальный вес пользователя: 182 кг / Количество программ: 12')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1135, N'Ru', N'HANSA AMM 20 BIH ', N'Тип: с грилем. / Тип управления: кнопочное с поворотным переключателем. / Объем(л): 20.
+					Мощность микроволн: 800 Вт. / Габариты: 38,5х59,5х32 см. / Цвет: нержавеющая сталь.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1136, N'Ru', N'KAISER EM 3200 ', N'Тип: мультифункциональная (гриль+конвекция). / Тип управления: сенсорное. / Объем(л): 32. 
+					Мощность микроволн: 1000 Вт. / Габариты: 45,5х59,5х54,2 см. / Цвет: серебристый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1137, N'Ru', N' WHIRLPOOL AMW 498 WH', N'Тип: с грилем. / Тип управления: кнопочное. / Объем(л): 22. / Мощность микроволн: 750 Вт.
+					Очистка паром: нет. / Габариты: 38,2х59,5х32 см. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1138, N'Ru', N'TEKA MWR 32 BI BGB ', N'Тип: с грилем. / Тип управления: механическое. / Объем(л): 32. / Мощность микроволн: 1000 Вт. 
+					Габариты: 45,5х59,5х47,2 см. / Цвет: бежевый, фурнитура - состаренная бронза .')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1139, N'Ru', N' WHIRLPOOL AMW 498 NB', N'Тип: с грилем. Тип управления: кнопочное. / Объем(л): 22. / Мощность микроволн: 750 Вт. 
+					Очистка паром: нет. / Габариты: 38,2х59,5х32 см. / Цвет: черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1140, N'Ru', N' ELECTROLUX EMS 26204 OX ', N'Тип: с грилем. Тип управления: кнопочное с поворотным переключателем. / Объем(л): 25,37. / Мощность микроволн: 900 Вт. 
+					Очистка паром: нет. / Габариты: 45,9х59,4х41,7 см / Цвет: нержавеющая сталь')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1141, N'Ru', N'MAGIO MG-345', N'Тип: капельная (фильтрационная). / Тип управления: механическое. / Тип используемого кофе: молотый.
+					Резервуар для воды: 0,24 л. / Цвет: коричневый')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1142, N'Ru', N'VITEK VT-1513 BK ', N'Тип: эспрессо (рожковая). / Тип управления: электронное. / Приготовление капучино: ручное.
+					Тип используемого кофе: молотый. / Резервуар для воды: 1,25 л. / Давление водяного насоса: 15 бар. 
+					Функции: подогрев чашек. / Вес: 4,9 кг. / Цвет: черный/нержавеющая сталь.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1143, N'Ru', N' MAGIO MG-343', N'Тип: капельная (фильтрационная). / Тип управления: механическое. / Тип используемого кофе: молотый. 
+					Резервуар для воды: 1,2 л. / Цвет: чёрный.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1144, N'Ru', N'MAGIO MG-342 ', N'Тип: капельная (фильтрационная). / Тип управления: механическое. / Тип используемого кофе: молотый.
+					Резервуар для воды: 0,24 л. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1145, N'Ru', N'VITEK VT-1511 BK ', N'Тип: эспрессо (рожковая). / Тип управления: электронное. / Приготовление капучино: ручное.
+					Тип используемого кофе: молотый. / Резервуар для воды: 1,5 л. / Давление водяного насоса: 15 бар. 
+					Функции: подогрев чашек. / Цвет: черный/серый.
+					Цена: 1 929 грн')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1146, N'Ru', N' PHILIPS-SAECO HD7457/20 ', N'Тип: капельная (фильтрационная). / Тип управления: кнопочное. / Тип используемого кофе: молотый. 
+					Резервуар для воды: 1,2 л. / Функции: подогрев кофейника. / Габариты: 29х22х22 см. 
+					Вес: 1,42 кг. / Цвет: черный/металлик')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1147, N'Ru', N'PHILIPS-SAECO HD7459/20 ', N'Тип: капельная (фильтрационная). / Тип управления: электоронное. / Тип используемого кофе: молотый.
+					Резервуар для воды: 1,2 л. / Функции: автоотключение. / Габариты: 32х24х21 см.
+					Вес: 1,42 кг. / Цвет: черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1148, N'Ru', N'PHILIPS-SAECO Lirika', N'Тип: кофемашина эспрессо. / Тип управления: электронный. / Приготовление капучино: ручное.
+					Тип используемого кофе: зерновой. / Резервуар для воды: 2,5 л. / Давление водяного насоса: 15 бар. 
+					Функции: выбор объема порции, подача горячей воды для чая. / Габариты: 21,5x38,1x45 см. / Вес: 8 кг, / Цвет: черный.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1149, N'Ru', N'VITEK VT-1514 BK', N'Тип: эспрессо (рожковая). / Тип управления: электронное. / Приготовление капучино: автоматическое.
+					Тип используемого кофе: молотый. / Резервуар для воды: 1,65 л. / Давление водяного насоса: 15 бар.
+					Функции: подогрев чашек. / Цвет: черный.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1150, N'Ru', N'DELONGHI ESAM 3000 B', N'Тип: кофемашина эспрессо. / Тип управления: электронное. / Приготовление капучино: ручное. / Тип используемого кофе: зерновой, молотый. 
+					Резервуар для воды: 1,8 л. / Давление водяного насоса: 15 бар. 
+					Функции: автоматическая очистка от накипи, автоотключение, выбор объема порции, регулировка крепости кофе. 
+					Габариты: 28.5x37.5x36 см. / Вес: 10 кг. / Цвет: черный.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1151, N'Ru', N'DELONGHI ECAM 22.110 B ', N'Тип: кофемашина эспрессо. / Тип управления: электронное. / Приготовление капучино: ручное. / Тип используемого кофе: зерновой, молотый. 
+					Резервуар для воды: 1,8 л. / Давление водяного насоса: 15 бар. 
+					Функции: автоматическая очистка от накипи, автоотключение, выбор объема порции, подогрев чашек, регулировка крепости кофе. 
+					Габариты: 35,1x23,8x43 см. / Вес: 9 кг. / Цвет: черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1152, N'Ru', N' WHIRLPOOL ADP 500 WH ', N'Вид: полногабаритная (60 см). / Класс энергопотребления/сушки/мойки: А++/А/А. / Вместимость комплектов: 13. 
+					Расход воды за цикл/год: 10/2800 л. / Потребление электроэнергии за цикл/год: 0,92/261 кВт/ч. / Количество программ: 6.
+					Режим половинной загрузки: есть. / Габариты (ВхШхГ): 85x60x59 см. / Цвет изделия: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1153, N'Ru', N'BOSCH SKS50E32EU', N'Вид: компактная. / Класс энергопотребления/сушки/мойки: А+/А/А. / Вместимость комплектов: 6. / Расход воды за цикл/год: 8/2240 л. 
+					Потребление электроэнергии за цикл/год: 0,61/174 кВт/ч. / Количество программ: 5. / Режим половинной загрузки: нет. 
+					Габариты (ВхШхГ): 45х55,1х50 см')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1154, N'Ru', N' KAISER S 4581 XL', N'Узкая посудомоечная машина. / Расход воды: 12 л/цикл. / Класс энергопотребления/мойки/сушки: A/A/A.
+					Продолжительность норм. программы, 55 °С 110 мин. / Количество основных программ: 8. / Простое управление Logic Control.
+					Специальный режим 3 в 1. / Система смягчения воды. / LCD дисплей. / Размеры (ВхШхГ): 85х45х60 см. 
+					Вес: 38 кг. / Цвет дверцы: нерж. сталь. / Цвет боковых панелей: серый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1155, N'Ru', N' DELFA DDW-3201 (WQP6-3201) ', N'Вид: компактная. / Класс энергопотребления/сушки/мойки: А+/А/А. / Вместимость комплектов: 6. / Расход воды за цикл/год: 7/1960 л. 
+					Потребление электроэнергии за цикл/год: 0,61/170 кВт/ч. / Количество программ: 6. / Режим половинной загрузки: нет.
+					Габариты (ВхШхГ): 43,8х55х50 см')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1156, N'Ru', N'SIEMENS SN 278 I 03 TE ', N'Посудомоечная машина. / Количество комплектов: 13. / Количество программ: 8. / Количество температурных режимов: 6. 
+					Уровень шума: 44 дБ. / Система aquaStop. / Гидравлическая система speedMatic. / Система сушки Zeolith. / Сенсор загрузки. 
+					Система защиты стекла glassProtec. / Габариты (ВxШxГ): 84,5x60x60 см. / Цвет: имитация нерж. стали')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1157, N'Ru', N'KAISER S 6086 XL W ', N'Отдельностоящая посудомоечная машина. / Вместимость: 14 комплектов. / Количество программ мойки: 8.
+					Класс энергопотребления/мойки/сушки: A+/A/A. / Сенсорное управление Full Touch Control. / Система смягчения воды. 
+					Габариты (ВхШхГ): 81,5х60х64 см. / Вес: 49 кг. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1158, N'Ru', N'WHIRLPOOL ADP 100 WH ', N'Вид: полногабаритная (60 см). / Класс энергопотребления/сушки/мойки: А+/А/А. / Вместимость комплектов: 12.
+					Расход воды за цикл/год: 12/3360 л. / Потребление электроэнергии за цикл/год: 1,02/291 кВт/ч. / Количество программ: 5. 
+					Режим половинной загрузки: есть. / Габариты (ВхШхГ): 85x60x59 см. / Цвет изделия: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1159, N'Ru', N'WHIRLPOOL ADP 7570 IX', N'Вид: полногабаритная (60 см). / Класс энергопотребления/сушки/мойки: А++/А/А. / Вместимость комплектов: 13. 
+					Расход воды за цикл/год: 9/2520 л. / Потребление электроэнергии за цикл/год: 0,92/262 кВт/ч. / Количество программ: 8. 
+					Режим половинной загрузки: есть. / Габариты (ВхШхГ): 85x60x59 см. / Цвет изделия: нержавеющая сталь.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1160, N'Ru', N'FAGOR 2LF-458', N'Вид: узкая (45 см). / Класс энергопотребления/сушки/мойки: А+/А/А. / Вместимость комплектов: 9.
+					Расход воды за цикл/год: 10/2800 л. / Потребление электроэнергии за цикл/год: 0,8/224 кВт/ч. / Количество программ: 7. 
+					Режим половинной загрузки: нет. / Габариты (ВхШхГ): 85х45х58 см. / Цвет изделия: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1161, N'Ru', N'FAGOR FDW-100W ', N'Вид: полногабаритная (60 см). / Класс энергопотребления/сушки/мойки: А/А/А. / Вместимость комплектов: 13.
+					Расход воды за цикл/год: 12/3360 л. / Потребление электроэнергии за цикл/год: 1,05/294 кВт/ч./  Количество программ: 6. 
+					Режим половинной загрузки: нет. / Габариты (ВхШхГ): 85х60х60 см. / Цвет изделия: белый')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1162, N'Ru', N'FAGOR FDW-200WE ', N'Вид: полногабаритная (60 см). / Класс энергопотребления/сушки/мойки: А++/А/А. / Вместимость комплектов: 13.
+					Расход воды за цикл/год: 10/2800 л. / Потребление электроэнергии за цикл/год: 0,94/263 кВт/ч. / Количество программ: 6. 
+					Режим половинной загрузки: нет. / Габариты (ВхШхГ): 85х60х60 см. / Цвет изделия: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1163, N'Ru', N'SAMSUNG VCC4325S3K/SBW', N'Тип пылесоса: без мешка контейнерного типа. / Тип уборки: сухая. / Потребляемая мощность: 1600 Вт. 
+					Насадки: пол-ковер, щелевая. / Регулировка мощности: без регулировки. / Объем пылесборника: 1,3 л. 
+					Длина шнура: 6,1 м. / Автосматывание шнура: есть. / Цвет: черный.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1164, N'Ru', N'PHILIPS FC8632/01 ', N'Тип пылесоса: без мешка контейнерного типа. / Тип уборки: сухая. / Потребляемая мощность: 2000 Вт.
+					Насадки: для ламината/паркета, пол-ковер, щелевая. / Регулировка мощности: на корпусе. / Объем пылесборника: 1,7 л.
+					Длина шнура: 6 м. / Автосматывание шнура: есть. / Цвет: красный/металлик.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1165, N'Ru', N'SCARLETT IS 580 ', N'Тип пылесоса: без мешка контейнерного типа. / Тип уборки: сухая. / Потребляемая мощность: 1800 Вт.
+					Насадки: для мягкой мебели, пол-ковер, щелевая. / Регулировка мощности: на корпусе. / Объем пылесборника: 2 л.
+					Длина шнура: 5 м. / Автосматывание шнура: есть. / Цвет: черный/оранжевый')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1166, N'Ru', N'PHILIPS FC9170/01 ', N'Тип пылесоса: с мешком. / Тип уборки: сухая. / Потребляемая мощность: 2200 Вт. 
+					Насадки: щелевая. / Регулировка мощности: на корпусе. / Объем пылесборника: 4 л. 
+					Длина шнура: 9 м. / Автосматывание шнура: есть. / Цвет: серый/синий.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1167, N'Ru', N' ZELMER ZVC 762 ZKUA (VC 7920.5 SK) ', N'Тип пылесоса: моющий с аквафильтром. / Тип уборки: влажная, сбор воды, сухая. / Потребляемая мощность: 1500 Вт. 
+					Насадки: для мягкой мебели, щелевая. / Регулировка мощности: без регулировки. / Объем пылесборника: 2,5 л. 
+					Длина шнура: 6 м. / Автосматывание шнура: есть. / Цвет: серый/желтый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1168, N'Ru', N'PHILIPS FC9176/01', N'Тип пылесоса: с мешком. / Тип уборки: сухая. / Потребляемая мощность: 2200 Вт. 
+					Насадки: для ламината/паркета, щелевая. / Регулировка мощности: на ручке. / Объем пылесборника: 4 л. 
+					Длина шнура: 7 м. / Автосматывание шнура: есть. / Цвет: черный')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1169, N'Ru', N'SCARLETT SC-VC80B04', N'Тип пылесоса: с мешком. / Тип уборки: сухая. / Потребляемая мощность: 1500 Вт. / Насадки: пол-ковер, щелевая. 
+					Объем пылесборника: 1,5 л. / Автосматывание шнура: есть. / Цвет: серый/красный.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1170, N'Ru', N' SAMSUNG VCC4140V38/XEV ', N'Тип пылесоса: с мешком. / Тип уборки: сухая. / Потребляемая мощность: 1600 Вт. 
+					Насадки: пол-ковер, щелевая. / Регулировка мощности: на корпусе./  Объем пылесборника: 3 л. 
+					Автосматывание шнура: есть. / Цвет: синий.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1173, N'Ru', N'VITEK VT-1833 PR ', N'Тип пылесоса: с аквафильтром. / Тип уборки: сухая. / Потребляемая мощность: 1800 Вт.
+					Насадки: для мягкой мебели, пол-ковер, турбощетка, щелевая. / Регулировка мощности: на корпусе. 
+					Объем пылесборника: 3,5 л. / Автосматывание шнура: есть. / Цвет: фиолетовый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1174, N'Ru', N' BLACK&DECKER NW4820N-QW ', N'Тип пылесоса: электровеник/аккумуляторный пылесос. / Тип уборки: влажная, сухая. / Насадки: щелевая. 
+					Регулировка мощности: без регулировки. / Объем пылесборника: 0,175 л. / Автосматывание шнура: нет. / Цвет: белый.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1175, N'Ru', N'PHILIPS FC9912/01 PowerPro Ultimate', N'Тип пылесоса: без мешка контейнерного типа. / Тип уборки: сухая. / Потребляемая мощность: 2400 Вт. 
+					Насадки: щелевая. / Регулировка мощности: на ручке. / Объем пылесборника: 2 л. 
+					Длина шнура: 7 м. / Автосматывание шнура: есть. / Цвет: черный/медный.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1176, N'Ru', N'EnergyFIT EF-6606B ', N'Назначение: Домашние / конструкция: складные / особенности: транспортировочные ролики, подставка для аксессуаров
+					максимальная скорость: 14 км/ч / максимальный вес пользователя: 125 кг / регулировка угла наклона: механическая')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1177, N'Ru', N'EnergyFIT EF-5501В ', N'Назначение: Домашние / Конструкция: Складные / Особенности: Транспортировочные ролики, Подставка для аксессуаров
+					Максимальная скорость: 13 км/ч / Максимальный вес пользователя: 120 кг / Регулировка угла наклона: Механическая')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1181, N'Ru', N' EnergyFIT EF-7705A ', N'Назначение: Домашние / Конструкция: Складные / Особенности: Транспортировочные ролики, Подставка для аксессуаров
+					Максимальная скорость: 16 км/ч / Максимальный вес пользователя: 140 кг / Регулировка угла наклона: Механическая')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1182, N'Ru', N'InterAtletika Jessie KL-803 ', N'Назначение: Домашние / Конструкция: Складные / Особенности: Транспортировочные ролик, / Максимальный вес пользователя: 100 кг
+					Регулировка угла наклона: Механическая')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1183, N'Ru', N'ProForm Endurance S9 (PETL99714) ', N'Назначение: Домашние / Конструкция: Складные / Особенности: Вентилятор / Максимальная скорость: 20 км/ч
+					Максимальный вес пользователя: 135 кг / Регулировка угла наклона: Электрическая')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1184, N'Ru', N'NordicTrack T15 (NETL14711)', N'Назначение: Домашние / Конструкция: Складные / Особенности: Вентилятор / Максимальная скорость: 22 км/ч
+					Максимальный вес пользователя: 159 кг / Регулировка угла наклона: Электрическая')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1185, N'Ru', N'Spirit Esprit XT-485 ', N'Назначение: Домашние / Конструкция: Складные / Особенности: Транспортировочные ролики, Подставка для аксессуаров, Держатель для бутылки, Вентилятор
+					Максимальная скорость: 18 км/ч / Максимальный вес пользователя: 195 кг / Регулировка угла наклона: Электрическая')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1186, N'Ru', N'NordicTrack C200 (NETL10814)', N'Назначение: Домашние / Конструкция: Складные / Особенности: Вентилятор / Максимальная скорость: 20 км/ч
+					Максимальный вес пользователя: 150 кг / Регулировка угла наклона: Электрическая
+					Цена: 33 816 грн')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1187, N'Ru', N'HouseFit HT 9138HP (HT 9138HP)', N'Назначение: Домашние / Конструкция: Складные /  Максимальная скорость: 12 км/ч
+					Максимальный вес пользователя: 100 кг / Регулировка угла наклона: Механическая')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (1188, N'Ru', N'Circle Fitness M7', N'Назначение: Профессиональные / Конструкция: Нескладные / Особенности: Транспортировочные ролики, Подставка для аксессуаров, Держатель для бутылки, Вентилятор
+					Максимальная скорость: 20 км/ч / Максимальный вес пользователя: 182 кг/ Регулировка угла наклона: Электрическая')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2126, N'Ru', N'антель чугунная наборная Body Max 25 кг (ВМ-018)', N'Тип: Гантели / Вид замка: Винтовой / Форма грифа: Прямая / Длина: 38 см')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2127, N'Ru', N'Гантель наборная Newt 17.5 кг (TI-968-745-17)', N'Тип: Гантели / Вид замка: Винтовой / Форма грифа: Прямая / Длина: 33 см')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2128, N'Ru', N'Гантель наборная Newt 15.5 кг (TI-968-745-1-1)', N'Тип: Гантели / Вид замка: Винтовой / Форма грифа: Прямая / Длина: 33 см')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2129, N'Ru', N'Гантель наборная Newt 10 кг (TI-968-747)', N'Тип: Гантели / Вид замка: Винтовой / Форма грифа: Прямая / Длина: 33 см')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2130, N'Ru', N'Гантель наборная Newt 25.5 кг (TI-968-745-25-1) ', N'ип: Гантели / Вид замка: Винтовой / Форма грифа: Прямая / Длина: 40 см')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2131, N'Ru', N'Гантель чугунная наборная Body Max 20 кг (ВМ-016) ', N'ип: Гантели / Вид замка: Винтовой / Форма грифа: Прямая / Длина: 38 см')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2132, N'Ru', N'Диск Newt стальной 5 кг (TI-0006)', N'Тип: Диски / Материал: Сталь / Покрытие: Покраска / Диаметр отвертсия: 27 - 30 мм')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2133, N'Ru', N'Диск Newt стальной 1 кг (TI-0011)', N'Тип: Диски / Материал: Сталь / Покрытие: Покраска / Диаметр отвертсия: 27 - 30 мм')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2134, N'Ru', N'Диск Newt стальной 3 кг (TI-0014)', N'Тип: Диски / Материал: Сталь / Покрытие: Покраска / Диаметр отвертсия: 27 - 30 мм')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2135, N'Ru', N'Наборная штанга Newt Home 50 кг (TI-0201-180-50)', N'Тип: Штанги / Вид замка: Винтовой / Форма грифа: Прямая / Длина: 180 см')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2136, N'Ru', N'Storm mk240 ', N'Тип: Гребные / Тип днища: Без днища в комплекте / Пассажировместимость: 2 чел. / Поворотные уключины и алюминиевые весла')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2137, N'Ru', N'Ладья ЛТ-190', N'ип: Гребные / Тип днища: Без днища в комплекте / Пассажировместимость: 1 чел.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2138, N'Ru', N'Ладья ЛТ-190У', N'Тип: Гребные / Тип днища: Без днища в комплекте / Пассажировместимость: 1 чел.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2139, N'Ru', N'Ладья ЛТ-330М', N'Тип: Гребные / Тип днища: Без днища в комплекте / Пассажировместимость: 4 чел.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2140, N'Ru', N'Storm stk-380', N'Тип: Моторные со стационарным транцем / Тип днища: Жесткое разборное / Пассажировместимость: 4 чел.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2141, N'Ru', N'Ладья ЛО-250-С ', N'Тип: Гребные / Тип днища: Слань / Пассажировместимость: 2 чел.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2142, N'Ru', N'Ладья ЛТ-220-ДС', N'Тип: Гребные / Тип днища: Слань / Пассажировместимость: 1 чел.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2143, N'Ru', N'Storm stm-280-40 ', N'Тип: Моторные со стационарным транцем / Тип днища: Слань / Пассажировместимость: 2 чел.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2144, N'Ru', N'Storm stm-330 ', N'Тип: Моторные со стационарным транцем / Тип днища: Слань / Пассажировместимость: 2 чел.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2145, N'Ru', N'Storm mk260 ', N'Тип: Гребные / Тип днища: Без днища в комплекте / Пассажировместимость: 2 чел.')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2146, N'Ru', N' Arsenal 20x50 (10-2050) ', N'Тип: Бинокль / Кратность приближения: 20x / Диаметр объектива: 50 мм / Вес: 0.74 кг')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2147, N'Ru', N'rsenal 7x50 Морской Чёрный (NB61-0750C1 Black)', N'Тип: Бинокль / Кратность приближения: 7x / Диаметр объектива: 50 мм / Вес: 0.89 кг')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2148, N'Ru', N'Arsenal 12x25 NB25-1225 ', N'Тип: Бинокль / Диаметр объектива: 25 мм / Вес: 0.25 кг')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2149, N'Ru', N'Alpen Sport II 10x25 Green (920296)', N'Тип: Бинокль / Кратность приближения: 10х / Диаметр объектива: 25 мм / Вес: 0.2 кг')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2150, N'Ru', N'Arsenal 10-30х60 Porro (BF1-103060) ', N'Тип: Бинокль / Кратность приближения: 10x - 30x / Диаметр объектива: 60 мм / Вес: 0.85 кг')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2151, N'Ru', N'Arsenal 12x25 NB27-1225 ', N'Тип: Монокль / Кратность приближения: 12x / Диаметр объектива: 25 мм / Вес: 0.07 кг')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2152, N'Ru', N'Arsenal 10x50 (10-1050) ', N'Тип: Бинокль / Кратность приближения: 10х / Диаметр объектива: 50 мм / Вес: 0.7 кг')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2153, N'Ru', N'Praktica 12x25 (920721) ', N'Тип: Бинокль / Кратность приближения: 12x / Диаметр объектива: 25 мм / Вес: 0.2 кг')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2154, N'Ru', N'Бинокль Zeiss Victory HT 10х42 524529 (7120216)', N'Тип: Бинокль / Кратность приближения: 10x / Диаметр объектива: 42 мм / Вес: 0.8 кг')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2155, N'Ru', N'Kowa SV 10x42 WP (914770)', N'Тип: Бинокль / Кратность приближения: 10х / Диаметр объектива: 42 мм / Вес: 0.67 кг')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2157, N'Ru', N'Motorola TLKR T80 Extreme ', N'Дальность связи: до 10 км / Вес: 140 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2158, N'Ru', N'Voxtel MR160 ', N'Стандарт: PMR446 / Назначение: Переносные безлицензионные / Мощность: 0.5 Вт
+					Дальность связи: до 3 км / Вес: 76 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2159, N'Ru', N'Motorola TLKR T80 Extreme ', N'Стандарт: PMR446 / Назначение: Переносные безлицензионные / Мощность: 0.5 Вт')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2160, N'Ru', N'Motorola TLKR T41 Pink (P14MAA03A1BN)', N'Стандарт: PMR446 / Назначение: Переносные безлицензионные / Мощность: 0.5 Вт
+					Дальность связи: до 4 км / Вес: 74 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2161, N'Ru', N'Yaesu VX-6E', N'Стандарт: VHF/UHF / Назначение: Портативные радиолюбительские / Мощность: 5 Вт / Вес: 270 г
+					Цена: 9 410 грн')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2162, N'Ru', N'Baofeng UV-3R ', N'Стандарт: VHF/UHF / Назначение: Портативные радиолюбительские / Мощность: 2 Вт
+					Дальность связи: до 5 км / Вес: 150 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2163, N'Ru', N'President Truman ASC (TXMU092) ', N'Стандарт: AM/FM / Назначение: Автомобильные / Мощность: 4 Вт / Вес: 700 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2164, N'Ru', N'Motorola TLKR T60', N'Стандарт: PMR446 / Назначение: Переносные безлицензионные / Мощность: 0.5 Вт
+					Дальность связи: до 8 км / Вес: 103 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2165, N'Ru', N'Voxtel MR950', N'Стандарт: PMR446 / Назначение: Переносные безлицензионные / Мощность: 0.5 Вт
+					Дальность связи: до 10 км / Вес: 350 г')
+INSERT INTO [dbo].[Products_tr] ([Id], [Languagecode], [Name], [Description]) VALUES (2166, N'Ru', N'President Jimmy II ASC (TXMU045) ', N'Стандарт: AM / Назначение: Автомобильные / Мощность: 4 Вт / Вес: 600 г')
 
 
 
