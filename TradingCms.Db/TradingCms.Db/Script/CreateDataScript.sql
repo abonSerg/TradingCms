@@ -1,22 +1,22 @@
+п»ї
 
 
 
 
 
-
---Category--
+---Category---
 
 INSERT INTO [dbo].[Categories]([TopId])
 values (NULL)
 
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),N'Ru',N'Компьютерная техника',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'РљРѕРјРїСЊСЋС‚РµСЂРЅР°СЏ С‚РµС…РЅРёРєР°',NULL from [dbo].[Categories]
 
 INSERT INTO [dbo].[Categories]([TopId])
 values (1)
 
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),N'Ru',N'Ноутбуки',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'РќРѕСѓС‚Р±СѓРєРё',NULL from [dbo].[Categories]
 
 
 ---Product---
@@ -24,72 +24,72 @@ select MAX(Id),N'Ru',N'Ноутбуки',NULL from [dbo].[Categories]
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) ,  6555,1,25/12/2014   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Lenovo IdeaPad 100-14 (80HH001XUA)', N'Экран 14" (1366x768) HD LED, глянцевый / Intel Celeron N2840 (2.16 ГГц) / RAM 2 ГБ 
-					HDD 500 ГБ / Intel HD Graphics / без ОД / LAN / Wi-Fi / веб-камера / DOS / 1.9 кг / черный' from [dbo].[Products]
+Select MAX(Id),'RU',N'Lenovo IdeaPad 100-14 (80HH001XUA)', N'Р­РєСЂР°РЅ 14" (1366x768) HD LED, РіР»СЏРЅС†РµРІС‹Р№ / Intel Celeron N2840 (2.16 Р“Р“С†) / RAM 2 Р“Р‘ 
+					HDD 500 Р“Р‘ / Intel HD Graphics / Р±РµР· РћР” / LAN / Wi-Fi / РІРµР±-РєР°РјРµСЂР° / DOS / 1.9 РєРі / С‡РµСЂРЅС‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) ,  6555,1,25/12/2014   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'HP 255G4 (NOY69ES)', N'Экран 15.6” (1366x768) HD LED, матовый / AMD Dual-Core E1-6015 (1.4 ГГц) / RAM 2 ГБ 
-					HDD 500 ГБ / AMD Radeon R2 / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / Linux / 2.15 кг / черный' from [dbo].[Products]
+Select MAX(Id),'RU',N'HP 255G4 (NOY69ES)', N'Р­РєСЂР°РЅ 15.6вЂќ (1366x768) HD LED, РјР°С‚РѕРІС‹Р№ / AMD Dual-Core E1-6015 (1.4 Р“Р“С†) / RAM 2 Р“Р‘ 
+					HDD 500 Р“Р‘ / AMD Radeon R2 / Р±РµР· РћР” / LAN / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / Linux / 2.15 РєРі / С‡РµСЂРЅС‹Р№' from [dbo].[Products]
 
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) ,  6555,1,25/12/2014   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Dell Inspiron 3551 (135C25NIW-22)', N'Экран 15.6" (1366x768) HD WLED, глянцевый / Intel Celeron N2830 (2.16 ГГц) / RAM 2 ГБ 
-					HDD 500 ГБ / Intel HD Graphics / Без ОД / Wi-Fi / Bluetooth 4.0 / веб-камера / Windows 8.1 / 2.14 кг / черный' from [dbo].[Products]
+Select MAX(Id),'RU',N'Dell Inspiron 3551 (135C25NIW-22)', N'Р­РєСЂР°РЅ 15.6" (1366x768) HD WLED, РіР»СЏРЅС†РµРІС‹Р№ / Intel Celeron N2830 (2.16 Р“Р“С†) / RAM 2 Р“Р‘ 
+					HDD 500 Р“Р‘ / Intel HD Graphics / Р‘РµР· РћР” / Wi-Fi / Bluetooth 4.0 / РІРµР±-РєР°РјРµСЂР° / Windows 8.1 / 2.14 РєРі / С‡РµСЂРЅС‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) ,  6555,1,25/12/2014   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Asus EeeBook E502MA (E502MA-XX0026D) Blue ', N'Экран 15.6" (1366x768) HD, глянцевый / Intel Celeron N2840 (2.16 ГГц) / RAM 4 ГБ 
-					HDD 500 ГБ / Intel HD Graphics / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / DOS / 1.86 кг / синий' from [dbo].[Products]
+Select MAX(Id),'RU',N'Asus EeeBook E502MA (E502MA-XX0026D) Blue ', N'Р­РєСЂР°РЅ 15.6" (1366x768) HD, РіР»СЏРЅС†РµРІС‹Р№ / Intel Celeron N2840 (2.16 Р“Р“С†) / RAM 4 Р“Р‘ 
+					HDD 500 Р“Р‘ / Intel HD Graphics / Р±РµР· РћР” / LAN / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / DOS / 1.86 РєРі / СЃРёРЅРёР№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) ,  6555,1,25/12/2014   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N' Acer Aspire ES1-520-392H (NX.G2JEU.002)', N'Экран 15.6'' (1366x768) HD LED, матовый / AMD E1-2500 (1.4 ГГц) / RAM 4 ГБ 
-					HDD 500 ГБ / Radeon HD 8240 / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / Linpus / 2.4 кг / черный' from [dbo].[Products]
+Select MAX(Id),'RU',N' Acer Aspire ES1-520-392H (NX.G2JEU.002)', N'Р­РєСЂР°РЅ 15.6'' (1366x768) HD LED, РјР°С‚РѕРІС‹Р№ / AMD E1-2500 (1.4 Р“Р“С†) / RAM 4 Р“Р‘ 
+					HDD 500 Р“Р‘ / Radeon HD 8240 / Р±РµР· РћР” / LAN / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / Linpus / 2.4 РєРі / С‡РµСЂРЅС‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) ,  6555,1,25/12/2014   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Lenovo IdeaPad 100S White ', N'Экран 11.6" TN (1366x768) WXGA HD LED, глянцевый / Intel Atom Z3735F (1.33 - 1.83 ГГц) / RAM 2 ГБ 
-					64 ГБ eMMC / Intel HD Graphics / без ОД / Wi-Fi / Bluetooth / веб-камера / Windows 10 Home / 1 кг / белый
-					Цена: 6 799 грн' from [dbo].[Products]
+Select MAX(Id),'RU',N'Lenovo IdeaPad 100S White ', N'Р­РєСЂР°РЅ 11.6" TN (1366x768) WXGA HD LED, РіР»СЏРЅС†РµРІС‹Р№ / Intel Atom Z3735F (1.33 - 1.83 Р“Р“С†) / RAM 2 Р“Р‘ 
+					64 Р“Р‘ eMMC / Intel HD Graphics / Р±РµР· РћР” / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / Windows 10 Home / 1 РєРі / Р±РµР»С‹Р№
+					Р¦РµРЅР°: 6 799 РіСЂРЅ' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) ,  6555,1,25/12/2014   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Acer Aspire E5-573G-312U (NX.MVMEU.025) Black-Iron ', N'Экран 15.6'' (1366x768) HD LED, матовый / Intel Core i3-5005U (2.0 ГГц) / RAM 4 ГБ 
-					HDD 500 ГБ / nVidia GeForce 920M, 2 ГБ / Без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / Linux / 2.4 кг / серый с черным' from [dbo].[Products]
+Select MAX(Id),'RU',N'Acer Aspire E5-573G-312U (NX.MVMEU.025) Black-Iron ', N'Р­РєСЂР°РЅ 15.6'' (1366x768) HD LED, РјР°С‚РѕРІС‹Р№ / Intel Core i3-5005U (2.0 Р“Р“С†) / RAM 4 Р“Р‘ 
+					HDD 500 Р“Р‘ / nVidia GeForce 920M, 2 Р“Р‘ / Р‘РµР· РћР” / LAN / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / Linux / 2.4 РєРі / СЃРµСЂС‹Р№ СЃ С‡РµСЂРЅС‹Рј' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) ,  6555,1,25/12/2014   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N' Asus EeeBook E502MA (E502MA-XX0020D) Blue ', N'Экран 15.6" (1366x768) HD, глянцевый / Intel Pentium N3540 (2.16 - 2.66 ГГц) / RAM 4 ГБ 
-					HDD 1 ТБ / Intel HD Graphics / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / DOS / 1.86 кг / синий
-					Цена: 8 999 грн ' from [dbo].[Products]
+Select MAX(Id),'RU',N' Asus EeeBook E502MA (E502MA-XX0020D) Blue ', N'Р­РєСЂР°РЅ 15.6" (1366x768) HD, РіР»СЏРЅС†РµРІС‹Р№ / Intel Pentium N3540 (2.16 - 2.66 Р“Р“С†) / RAM 4 Р“Р‘ 
+					HDD 1 РўР‘ / Intel HD Graphics / Р±РµР· РћР” / LAN / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / DOS / 1.86 РєРі / СЃРёРЅРёР№
+					Р¦РµРЅР°: 8 999 РіСЂРЅ ' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) ,  6555,1,25/12/2014   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Lenovo G50-45 (80E301XLUA) ', N'Экран 15.6" (1366x768) HD LED, глянцевый / AMD Quad-Core A4-6210 (1.8 ГГц) / RAM 2 ГБ 
-					HDD 500 ГБ / AMD Radeon R3 / Без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / Windows 10 Home / 2.5 кг / черный' from [dbo].[Products]
+Select MAX(Id),'RU',N'Lenovo G50-45 (80E301XLUA) ', N'Р­РєСЂР°РЅ 15.6" (1366x768) HD LED, РіР»СЏРЅС†РµРІС‹Р№ / AMD Quad-Core A4-6210 (1.8 Р“Р“С†) / RAM 2 Р“Р‘ 
+					HDD 500 Р“Р‘ / AMD Radeon R3 / Р‘РµР· РћР” / LAN / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / Windows 10 Home / 2.5 РєРі / С‡РµСЂРЅС‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) ,  6555,1,25/12/2014   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'HP 250 G4 (P5R75ES)',N'Экран 15.6” (1366x768) HD LED, матовый / Intel Core i3-4005U (1.7 ГГц) / RAM 4 ГБ 
-					HDD 500 ГБ / Intel HD Graphics / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / DOS / 2.15 кг / черный' from [dbo].[Products]
+Select MAX(Id),'RU',N'HP 250 G4 (P5R75ES)',N'Р­РєСЂР°РЅ 15.6вЂќ (1366x768) HD LED, РјР°С‚РѕРІС‹Р№ / Intel Core i3-4005U (1.7 Р“Р“С†) / RAM 4 Р“Р‘ 
+					HDD 500 Р“Р‘ / Intel HD Graphics / Р±РµР· РћР” / LAN / Wi-Fi / Bluetooth / РІРµР±-РєР°РјРµСЂР° / DOS / 2.15 РєРі / С‡РµСЂРЅС‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) ,  6555,1,25/12/2014   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Lenovo IdeaPad 100-15 (80QQ004NUA)', N'Экран 15.6" (1366x768) HD LED, глянцевый / Intel Pentium 3825U (1.9 ГГц) / RAM 4 ГБ 
-					HDD 500 ГБ / nVidia GeForce 920M, 1 ГБ / без ОД / LAN / Bluetooth / Wi-Fi / веб-камера / DOS / 2.3 кг / черный' from [dbo].[Products]
+Select MAX(Id),'RU',N'Lenovo IdeaPad 100-15 (80QQ004NUA)', N'Р­РєСЂР°РЅ 15.6" (1366x768) HD LED, РіР»СЏРЅС†РµРІС‹Р№ / Intel Pentium 3825U (1.9 Р“Р“С†) / RAM 4 Р“Р‘ 
+					HDD 500 Р“Р‘ / nVidia GeForce 920M, 1 Р“Р‘ / Р±РµР· РћР” / LAN / Bluetooth / Wi-Fi / РІРµР±-РєР°РјРµСЂР° / DOS / 2.3 РєРі / С‡РµСЂРЅС‹Р№' from [dbo].[Products]
 
 
 
@@ -98,89 +98,84 @@ INSERT INTO [dbo].[Categories]([TopId])
 values (2)
 
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),N'Ru',N'Планшеты',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'РџР»Р°РЅС€РµС‚С‹',NULL from [dbo].[Categories]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3000,1,25/12/2015   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Samsung Galaxy Tab E 9.6" 3G White (SM-T561NZWASEK)', N'Экран 9.6" (1280x800) емкостный MultiTouch / T-Shark2 (1.3 ГГц) / RAM 1.5 ГБ 
-					8 ГБ встроенной памяти + microSD / 3G / Wi-Fi 802.11a/b/g/n / Bluetooth 4.0 / основная камера 5 Мп, фронтальная 2 Мп 
-					GPS / ГЛОНАСС / Android 4.4 (KitKat) / 490 г / белый' from [dbo].[Products]
+Select MAX(Id),'RU',N'Samsung Galaxy Tab E 9.6" 3G White (SM-T561NZWASEK)', N'Р­РєСЂР°РЅ 9.6" (1280x800) РµРјРєРѕСЃС‚РЅС‹Р№ MultiTouch / T-Shark2 (1.3 Р“Р“С†) / RAM 1.5 Р“Р‘ 
+					8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / 3G / Wi-Fi 802.11a/b/g/n / Bluetooth 4.0 / РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 5 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ 2 РњРї 
+					GPS / Р“Р›РћРќРђРЎРЎ / Android 4.4 (KitKat) / 490 Рі / Р±РµР»С‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3000,1,25/12/2015   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Lenovo TAB 2 A7-10 7" 8GB WiFi Black (59434747)', N'Экран 7" (1024х600) IPS, емкостный MultiTouch / MediaTek MT8127 (1.3 ГГц) / RAM 1 ГБ 
-					8 ГБ встроенной памяти + microSD / Wi-Fi / Bluetooth 4.0 
-					фронтальная камера 0.3 Мп / A-GPS / Android 4.4 / 269 г / черный' from [dbo].[Products]
+Select MAX(Id),'RU',N'Lenovo TAB 2 A7-10 7" 8GB WiFi Black (59434747)', N'Р­РєСЂР°РЅ 7" (1024С…600) IPS, РµРјРєРѕСЃС‚РЅС‹Р№ MultiTouch / MediaTek MT8127 (1.3 Р“Р“С†) / RAM 1 Р“Р‘ 
+					8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / Wi-Fi / Bluetooth 4.0 
+					С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР° 0.3 РњРї / A-GPS / Android 4.4 / 269 Рі / С‡РµСЂРЅС‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3000,1,25/12/2015   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Asus ZenPad 7.0 16GB White (Z370C-1B042A)', N'Экран 7" IPS (1280x800) емкостный MultiTouch / Intel Atom x3-C3200 / RAM 2 ГБ / 16 ГБ встроенной памяти + microSD
-					Wi-Fi 802.11 b/g/n / Bluetooth 4.0 / основная камера 5 Мп, фронтальная - 0.3 Мп / GPS / ГЛОНАСС / ОС Android 5.0 (Lollipop) / 272 г / белый' from [dbo].[Products]
+Select MAX(Id),'RU',N'Asus ZenPad 7.0 16GB White (Z370C-1B042A)', N'Р­РєСЂР°РЅ 7" IPS (1280x800) РµРјРєРѕСЃС‚РЅС‹Р№ MultiTouch / Intel Atom x3-C3200 / RAM 2 Р“Р‘ / 16 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD
+					Wi-Fi 802.11 b/g/n / Bluetooth 4.0 / РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 5 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ - 0.3 РњРї / GPS / Р“Р›РћРќРђРЎРЎ / РћРЎ Android 5.0 (Lollipop) / 272 Рі / Р±РµР»С‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3000,1,25/12/2015   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Samsung Galaxy Tab S2 9.7" 32GB Black (SM-T810NZKESEK)', N'Экран 9.7" Super AMOLED (2048x1536) емкостный MultiTouch / Samsung Exynos 5433 (1.9 ГГц + 1.3 ГГц) / RAM 3 ГБ 
-					32 ГБ встроенной памяти + microSD / 802.11 a/b/g/n/ac / Bluetooth 4.1 
-					основная камера 8 Мп, фронтальная 2.1 Мп / GPS / ГЛОНАСС / Android 5.0 (Lollipop) / 375 г / черный' from [dbo].[Products]
+Select MAX(Id),'RU',N'Samsung Galaxy Tab S2 9.7" 32GB Black (SM-T810NZKESEK)', N'Р­РєСЂР°РЅ 9.7" Super AMOLED (2048x1536) РµРјРєРѕСЃС‚РЅС‹Р№ MultiTouch / Samsung Exynos 5433 (1.9 Р“Р“С† + 1.3 Р“Р“С†) / RAM 3 Р“Р‘ 
+					32 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / 802.11 a/b/g/n/ac / Bluetooth 4.1 
+					РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 8 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ 2.1 РњРї / GPS / Р“Р›РћРќРђРЎРЎ / Android 5.0 (Lollipop) / 375 Рі / С‡РµСЂРЅС‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3000,1,25/12/2015   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Lenovo Tab 2 A7-30DC 7" 3G 8GB Black (59444592)', N'Экран 7" (1024х600) IPS, емкостный MultiTouch / MediaTek MT8382M (1.3 ГГц) / RAM 1 ГБ 
-					8 ГБ встроенной памяти + microSD / 3G / Wi-Fi / Bluetooth 4.0 
-					основная камера 2 Мп + фронтальная 0.3 Мп / GPS / Android 4.4 (KitKat) / 269 г / черный' from [dbo].[Products]
+Select MAX(Id),'RU',N'Lenovo Tab 2 A7-30DC 7" 3G 8GB Black (59444592)', N'Р­РєСЂР°РЅ 7" (1024С…600) IPS, РµРјРєРѕСЃС‚РЅС‹Р№ MultiTouch / MediaTek MT8382M (1.3 Р“Р“С†) / RAM 1 Р“Р‘ 
+					8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / 3G / Wi-Fi / Bluetooth 4.0 
+					РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 2 РњРї + С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ 0.3 РњРї / GPS / Android 4.4 (KitKat) / 269 Рі / С‡РµСЂРЅС‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3000,1,25/12/2015   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Prestigio MultiPad 10.1 3G Black (PMT3341_3G)', N'Экран 10.1" IPS (1280x800) емкостный Multi-Touch / Intel Atom X3 C3230 (1.2 ГГц) / RAM 1 ГБ 
-					8 ГБ встроенной памяти + поддержка карт памяти microSD / 3G / Wi-Fi / Bluetooth 
-					основная камера 2 Мп, фронтальная - 0.3 Мп / Android 5.1 (Lollipop) / 552 г / черный' from [dbo].[Products]
+Select MAX(Id),'RU',N'Prestigio MultiPad 10.1 3G Black (PMT3341_3G)', N'Р­РєСЂР°РЅ 10.1" IPS (1280x800) РµРјРєРѕСЃС‚РЅС‹Р№ Multi-Touch / Intel Atom X3 C3230 (1.2 Р“Р“С†) / RAM 1 Р“Р‘ 
+					8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + РїРѕРґРґРµСЂР¶РєР° РєР°СЂС‚ РїР°РјСЏС‚Рё microSD / 3G / Wi-Fi / Bluetooth 
+					РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 2 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ - 0.3 РњРї / Android 5.1 (Lollipop) / 552 Рі / С‡РµСЂРЅС‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3000,1,25/12/2015   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Jeka JK-103 16GB 3G IPS', N'Экран 10.1" IPS (1024х600), емкостный, MultiTouch / ARM Cortex A7 (1.3 ГГц) / RAM 1 ГБ 
-					16 ГБ встроенной памяти + microSD / 3G / Wi-Fi / Bluetooth 4.0 / основная камера 2 Мп, фронтальная - 0.3 Мп 
-					GPS / A-GPS / ОС Android 5.1 (Lollipop) / вес 568 г / черный' from [dbo].[Products]
+Select MAX(Id),'RU',N'Jeka JK-103 16GB 3G IPS', N'Р­РєСЂР°РЅ 10.1" IPS (1024С…600), РµРјРєРѕСЃС‚РЅС‹Р№, MultiTouch / ARM Cortex A7 (1.3 Р“Р“С†) / RAM 1 Р“Р‘ 
+					16 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / 3G / Wi-Fi / Bluetooth 4.0 / РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 2 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ - 0.3 РњРї 
+					GPS / A-GPS / РћРЎ Android 5.1 (Lollipop) / РІРµСЃ 568 Рі / С‡РµСЂРЅС‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3000,1,25/12/2015   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Prestigio MultiPad Color 2 3G Black (PMT3777_3G_C)',N'Экран 7" IPS (1280x800) емкостный, MultiTouch / Intel Atom x3-C3230RK (1.2 ГГц) / RAM 1 ГБ 
-					8 ГБ встроенной памяти + microSD / 3G / Wi-Fi / Bluetooth 4.0 / основная камера 2 Мп, фронтальная - 0.3 Мп 
-					GPS / Android 5.1 (Lollipop) / 270 г / черный' from [dbo].[Products]
+Select MAX(Id),'RU',N'Prestigio MultiPad Color 2 3G Black (PMT3777_3G_C)',N'Р­РєСЂР°РЅ 7" IPS (1280x800) РµРјРєРѕСЃС‚РЅС‹Р№, MultiTouch / Intel Atom x3-C3230RK (1.2 Р“Р“С†) / RAM 1 Р“Р‘ 
+					8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / 3G / Wi-Fi / Bluetooth 4.0 / РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 2 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ - 0.3 РњРї 
+					GPS / Android 5.1 (Lollipop) / 270 Рі / С‡РµСЂРЅС‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3000,1,25/12/2015   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Fly Flylife Connect 10.1 3G 2 Black', N'Экран 10.1" IPS (1280х800) емкостный MultiTouch / MediaTek MT8382V/W (1.3 ГГц) / RAM 1 ГБ 
-					8 ГБ встроенной памяти + microSD / Wi-Fi / Bluetooth / 3G / основная камера 5 Мп, фронтальная 0.3 Мп 
-					GPS / ОС Android 4.2.2 / 624 г / черный' from [dbo].[Products]
+Select MAX(Id),'RU',N'Fly Flylife Connect 10.1 3G 2 Black', N'Р­РєСЂР°РЅ 10.1" IPS (1280С…800) РµРјРєРѕСЃС‚РЅС‹Р№ MultiTouch / MediaTek MT8382V/W (1.3 Р“Р“С†) / RAM 1 Р“Р‘ 
+					8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / Wi-Fi / Bluetooth / 3G / РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 5 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ 0.3 РњРї 
+					GPS / РћРЎ Android 4.2.2 / 624 Рі / С‡РµСЂРЅС‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3000,1,25/12/2015   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Assistant AP-115G White ', N'Экран 10.1" (1024x600) емкостный MultiTouch / MTK6572 Dual Core (1.2 ГГц) / RAM 1 ГБ 
-					8 ГБ встроенной памяти + microSD / Wi-Fi b/g/n / 3G / Bluetooth / фронтальная камера 0.3 Мп, тыловая камера 2 Мп 
-					GPS / OC Android 4.2 / 530 г / белый' from [dbo].[Products]
+Select MAX(Id),'RU',N'Assistant AP-115G White ', N'Р­РєСЂР°РЅ 10.1" (1024x600) РµРјРєРѕСЃС‚РЅС‹Р№ MultiTouch / MTK6572 Dual Core (1.2 Р“Р“С†) / RAM 1 Р“Р‘ 
+					8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / Wi-Fi b/g/n / 3G / Bluetooth / С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР° 0.3 РњРї, С‚С‹Р»РѕРІР°СЏ РєР°РјРµСЂР° 2 РњРї 
+					GPS / OC Android 4.2 / 530 Рі / Р±РµР»С‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3000,1,25/12/2015   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU','', '' from [dbo].[Products]
-
-INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
-select  MAX(Id) , 3000,1,25/12/2015   from [dbo].[Categories]
-INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Lenovo Tab 2 A10-70L 16GB LTE Blue (ZA010015UA)', N'Экран 10.1" (1920x1200) IPS емкостный, MultiTouch / MediaTek MT8732 (1.5 ГГц) / RAM 2 ГБ 
-					16 ГБ встроенной памяти + microSD / Wi-Fi b/g/n / Bluetooth 4.0 / 3G / LTE / основная камера 8 Мп, фронтальная - 5 Мп 
-					GPS / ГЛОНАСС / Beidou / Android 4.4 (KitKat) / 509 г / темно-синий' from [dbo].[Products]
+Select MAX(Id),'RU',N'Lenovo Tab 2 A10-70L 16GB LTE Blue (ZA010015UA)', N'Р­РєСЂР°РЅ 10.1" (1920x1200) IPS РµРјРєРѕСЃС‚РЅС‹Р№, MultiTouch / MediaTek MT8732 (1.5 Р“Р“С†) / RAM 2 Р“Р‘ 
+					16 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD / Wi-Fi b/g/n / Bluetooth 4.0 / 3G / LTE / РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР° 8 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ - 5 РњРї 
+					GPS / Р“Р›РћРќРђРЎРЎ / Beidou / Android 4.4 (KitKat) / 509 Рі / С‚РµРјРЅРѕ-СЃРёРЅРёР№' from [dbo].[Products]
 
 
 
@@ -188,75 +183,75 @@ INSERT INTO [dbo].[Categories]([TopId])
 values (3)
 
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),N'Ru',N'Электронные книги',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'Р­Р»РµРєС‚СЂРѕРЅРЅС‹Рµ РєРЅРёРіРё',NULL from [dbo].[Categories]
 
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 4500,1,2015-04-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'PocketBook 624 Basic Touch Grey (PB624-Y-WW)', N'Диагональ дисплея: 6" / Разрешение: 800х600 / Тип матрицы: E Ink / Количество градаций серого: 16
-					Встроенная память: 4 ГБ / Вес: 191 г' from [dbo].[Products]
+Select MAX(Id),'RU',N'PocketBook 624 Basic Touch Grey (PB624-Y-WW)', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 6" / Р Р°Р·СЂРµС€РµРЅРёРµ: 800С…600 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
+					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 191 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3500,1,2015-04-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'PocketBook 626 Touch Lux2 Black (PB626-E-CIS)',N'Диагональ дисплея: 6" / Разрешение: 1024х758 / Тип матрицы: E Ink Pearl / Количество градаций серого: 16
-					Встроенная память: 4 ГБ / Вес: 208 г' from [dbo].[Products]
+Select MAX(Id),'RU',N'PocketBook 626 Touch Lux2 Black (PB626-E-CIS)',N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 6" / Р Р°Р·СЂРµС€РµРЅРёРµ: 1024С…758 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink Pearl / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
+					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 208 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 2500,1,2015-04-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'PocketBook InkPad 840 Brown', N'Диагональ дисплея: 8" / Разрешение: 1600x1200 / Тип матрицы: E Ink Pearl / Количество градаций серого: 16
-					Встроенная память: 4 ГБ / Вес: 350 г' from [dbo].[Products]
+Select MAX(Id),'RU',N'PocketBook InkPad 840 Brown', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 8" / Р Р°Р·СЂРµС€РµРЅРёРµ: 1600x1200 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink Pearl / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
+					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 350 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 2500,1,2015-04-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'PocketBook 630 Kenzo Grey (PB630-G-CIS-KNZ)', N'Диагональ дисплея: 6" / Разрешение: 1024х758 / Тип матрицы: E Ink Pearl / Количество градаций серого: 16
-					Встроенная память: 4 ГБ / Вес: 155 г' from [dbo].[Products]
+Select MAX(Id),'RU',N'PocketBook 630 Kenzo Grey (PB630-G-CIS-KNZ)', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 6" / Р Р°Р·СЂРµС€РµРЅРёРµ: 1024С…758 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink Pearl / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
+					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 155 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 2500,1,2015-04-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'PocketBook 614 Basic 2 White (PB614-D-CIS)', N'Диагональ дисплея: 6" / Разрешение: 800х600	/ Тип матрицы: E Ink Pearl / Количество градаций серого: 16
-					Встроенная память: 4 ГБ / Вес: 188 г' from [dbo].[Products]
+Select MAX(Id),'RU',N'PocketBook 614 Basic 2 White (PB614-D-CIS)', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 6" / Р Р°Р·СЂРµС€РµРЅРёРµ: 800С…600	/ РўРёРї РјР°С‚СЂРёС†С‹: E Ink Pearl / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
+					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 188 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 2500,1,2015-04-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'EvroMedia Е-Учебник Classic Pro', N'Диагональ дисплея: 9.7" / Разрешение: 1200x800	/ Тип матрицы: E Ink Pearl / Количество градаций серого: 16
-					Встроенная память: 4 ГБ / Вес: 350 г' from [dbo].[Products]
+Select MAX(Id),'RU',N'EvroMedia Р•-РЈС‡РµР±РЅРёРє Classic Pro', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 9.7" / Р Р°Р·СЂРµС€РµРЅРёРµ: 1200x800	/ РўРёРї РјР°С‚СЂРёС†С‹: E Ink Pearl / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
+					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 350 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 2500,1,2015-04-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'PocketBook 630 Sense Brown (PB630-X-CIS)', N'Диагональ дисплея: 6" / Разрешение: 1024х758 / Тип матрицы: E Ink Pearl / Количество градаций серого: 16
-					Встроенная память: 4 ГБ / Вес: 155 г' from [dbo].[Products]
+Select MAX(Id),'RU',N'PocketBook 630 Sense Brown (PB630-X-CIS)', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 6" / Р Р°Р·СЂРµС€РµРЅРёРµ: 1024С…758 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink Pearl / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
+					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 155 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 2500,1,2015-04-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Evromedia E-учебник Classic One', N'Диагональ дисплея: 6" / Разрешение: 800х600 / Тип матрицы: E Ink / Количество градаций серого: 16
-					Встроенная память: 4 ГБ / Вес: 191 г' from [dbo].[Products]
+Select MAX(Id),'RU',N'Evromedia E-СѓС‡РµР±РЅРёРє Classic One', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 6" / Р Р°Р·СЂРµС€РµРЅРёРµ: 800С…600 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
+					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 191 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 2500,1,2015-04-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'EvroMedia Е-Учебник HD Paper', N'Диагональ дисплея: 6" / Разрешение: 1024х758 / Тип матрицы: E Ink Pearl / Количество градаций серого: 16
-					Встроенная память: 4 ГБ / Вес: 155 г' from [dbo].[Products]
+Select MAX(Id),'RU',N'EvroMedia Р•-РЈС‡РµР±РЅРёРє HD Paper', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 6" / Р Р°Р·СЂРµС€РµРЅРёРµ: 1024С…758 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink Pearl / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
+					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 155 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 2500,1,2015-04-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'PocketBook Ultra 650 Белый ', N'Диагональ дисплея: 6" / Разрешение: 1024х758 / Тип матрицы: E Ink Pearl / Количество градаций серого: 16
-					Встроенная память: 4 ГБ / Вес: 175 г' from [dbo].[Products]
+Select MAX(Id),'RU',N'PocketBook Ultra 650 Р‘РµР»С‹Р№ ', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 6" / Р Р°Р·СЂРµС€РµРЅРёРµ: 1024С…758 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink Pearl / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
+					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 175 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 2500,1,2015-04-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'PocketBook 515 Grey (PB515-Y)', N'Диагональ дисплея: 5" / Разрешение: 800х600 / Тип матрицы: E Ink / Количество градаций серого: 16
-					Встроенная память: 4 ГБ / Вес: 131 г' from [dbo].[Products]
+Select MAX(Id),'RU',N'PocketBook 515 Grey (PB515-Y)', N'Р”РёР°РіРѕРЅР°Р»СЊ РґРёСЃРїР»РµСЏ: 5" / Р Р°Р·СЂРµС€РµРЅРёРµ: 800С…600 / РўРёРї РјР°С‚СЂРёС†С‹: E Ink / РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°РґР°С†РёР№ СЃРµСЂРѕРіРѕ: 16
+					Р’СЃС‚СЂРѕРµРЅРЅР°СЏ РїР°РјСЏС‚СЊ: 4 Р“Р‘ / Р’РµСЃ: 131 Рі' from [dbo].[Products]
 
 
 
@@ -267,95 +262,95 @@ INSERT INTO [dbo].[Categories]([TopId])
 values (NULL)
 
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),N'Ru',N'Телефоны, MP3, GPS',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'РўРµР»РµС„РѕРЅС‹, MP3, GPS',NULL from [dbo].[Categories]
 
 INSERT INTO [dbo].[Categories]([TopId])
 values (1)
 
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),N'Ru',N'Смартфоны',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'РЎРјР°СЂС‚С„РѕРЅС‹',NULL from [dbo].[Categories]
 
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Samsung Galaxy J5 J500H/DS Black', N'Экран (5", Super AMOLED, 1280x720)/ Qualcomm Snapdragon 410 (1.2 ГГц)/ основная камера: 13 Мп, фронтальная камера: 5 Мп
-					RAM 1.5 ГБ/ 8 ГБ встроенной памяти + microSD/SDHC (до 128 ГБ)/ 3G / GPS/ поддержка 2х SIM-карт (Micro-SIM)
-					Android 5.1 (Lollipop) / 2600 мА*ч' from [dbo].[Products]
+Select MAX(Id),'RU',N'Samsung Galaxy J5 J500H/DS Black', N'Р­РєСЂР°РЅ (5", Super AMOLED, 1280x720)/ Qualcomm Snapdragon 410 (1.2 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 13 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 5 РњРї
+					RAM 1.5 Р“Р‘/ 8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 128 Р“Р‘)/ 3G / GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Micro-SIM)
+					Android 5.1 (Lollipop) / 2600 РјРђ*С‡' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Lenovo A7000 Onyx Black ', N'Экран (5.5", IPS, 1280x720)/ MediaTek MT6752 (1.5 ГГц)/ основная камера: 8 Мп, фронтальная камера: 5 Мп
-					RAM 2 ГБ/ 8 ГБ встроенной памяти + microSD/SDHC (до 32 ГБ)/ 3G/ GPS/ поддержка 2х SIM-карт (Micro-SIM)
-					Android 5.0 (Lollipop) / 2900 мА*ч' from [dbo].[Products]
-
-
-INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
-select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
-INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Samsung Galaxy A3 2016 Duos SM-A310 16Gb Black',N'Экран (4.7", Super AMOLED, 1280x720)/ Четырехъядерный Qualcomm Snapdragon 410 (1.5 ГГц)/ основная камера: 13 Мп, фронтальная камера: 5 Мп
-					RAM 1.5 ГБ/ 16 ГБ встроенной памяти + microSD/SDHC (до 128 ГБ)/ 3G/ LTE/ GPS/ поддержка 2х SIM-карт (Nano-SIM)
-					Android 5.1.1 (Lollipop)/ 2300 мА*ч' from [dbo].[Products]
+Select MAX(Id),'RU',N'Lenovo A7000 Onyx Black ', N'Р­РєСЂР°РЅ (5.5", IPS, 1280x720)/ MediaTek MT6752 (1.5 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 8 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 5 РњРї
+					RAM 2 Р“Р‘/ 8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 32 Р“Р‘)/ 3G/ GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Micro-SIM)
+					Android 5.0 (Lollipop) / 2900 РјРђ*С‡' from [dbo].[Products]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Samsung Galaxy S6 SS 32GB G920 Gold', N'Экран (5.1", Super AMOLED, 2560х1440)/ Samsung Exynos 7420 (Quad 2.1 ГГц + Quad 1.5 ГГц)/ основная камера: 16 Мп, фронтальная камера: 5 Мп
-					RAM 3 ГБ/ 32 ГБ встроенной памяти/ 3G/ LTE/ GPS/ Nano-SIM
-					Android 5.0 (Lollipop) / 2550 мА*ч' from [dbo].[Products]
-
-INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
-select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
-INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'LG G4 Leather Brown', N'Экран (5.5", IPS, 2560х1440)/ Qualcomm Snapdragon 808 (1.8 ГГц)/ основная камера: 16 Мп, фронтальная камера: 8 Мп
-					RAM 3 ГБ/ 32 ГБ встроенной памяти + microSD/SDHC (до 2 ТБ)/ 3G/ LTE/ GPS/ поддержка 2х SIM-карт (Micro-SIM)
-					Android 5.1 (Lollipop) / 3000 мА*ч' from [dbo].[Products]
+Select MAX(Id),'RU',N'Samsung Galaxy A3 2016 Duos SM-A310 16Gb Black',N'Р­РєСЂР°РЅ (4.7", Super AMOLED, 1280x720)/ Р§РµС‚С‹СЂРµС…СЉСЏРґРµСЂРЅС‹Р№ Qualcomm Snapdragon 410 (1.5 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 13 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 5 РњРї
+					RAM 1.5 Р“Р‘/ 16 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 128 Р“Р‘)/ 3G/ LTE/ GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Nano-SIM)
+					Android 5.1.1 (Lollipop)/ 2300 РјРђ*С‡' from [dbo].[Products]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Apple iPhone 5s 16GB Space Gray', N'Экран (4", IPS, 1136x640)/ Apple A7 (1.3 ГГц)/ основная камера: 8 Мп, фронтальная камера: 1.2 Мп
-					RAM 1 ГБ/ 16 ГБ встроенной памяти/ 3G/ LTE/ GPS/ Nano-SIM/ iOS 9/ 1560 мА*ч' from [dbo].[Products]
+Select MAX(Id),'RU',N'Samsung Galaxy S6 SS 32GB G920 Gold', N'Р­РєСЂР°РЅ (5.1", Super AMOLED, 2560С…1440)/ Samsung Exynos 7420 (Quad 2.1 Р“Р“С† + Quad 1.5 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 16 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 5 РњРї
+					RAM 3 Р“Р‘/ 32 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё/ 3G/ LTE/ GPS/ Nano-SIM
+					Android 5.0 (Lollipop) / 2550 РјРђ*С‡' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Meizu M2 Note 16GB White с наушниками EP-21HD (Международная версия)', N'Экран (5.5", IGZO, 1920x1080)/ MediaTek MT6753 (1.3 ГГц)/ основная камера: 13 Мп, фронтальная камера: 5 Мп
-					RAM 2 ГБ/ 16 ГБ встроенной памяти + microSD/SDHC (до 128 ГБ)/ 3G/ LTE/ GPS/ поддержка 2х SIM-карт (Nano-SIM)
-					Android 5.1 (Lollipop) / 3100 мА*ч' from [dbo].[Products]
-
-INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
-select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
-INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Samsung Galaxy S3 Neo Duos I9300i Black', N'Экран (4.8", Super AMOLED, 1280x720)/ Qualcomm MSM8226 Snapdragon 400 (1.4 ГГц)/ основная камера: 8 Мп, фронтальная камера: 1.9 Мп
-					RAM 1.5 ГБ/ 16 ГБ встроенной памяти + microSD/SDHC (до 64 ГБ)/ 3G/ GPS/ поддержка 2х SIM-карт (Micro-SIM)
-					Android 4.3 (Jelly Bean) / 2100 мА*ч' from [dbo].[Products]
-
-INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
-select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
-INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Xiaomi Redmi Note 2 16GB Gray', N'Экран (5.5", IPS, 1920x1080)/ MediaTek Helio X10 MT6795 (2.0 ГГц)/ основная камера: 13 Мп, фронтальная камера: 5 Мп
-					RAM 2 ГБ/ 16 ГБ встроенной памяти + microSD/SDHC (до 32 ГБ)/ 3G/ LTE/ GPS/ поддержка 2х SIM-карт (Micro-SIM)
-					Android 5.0 (Lollipop) / 3060 мА*ч' from [dbo].[Products]
-
-INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
-select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
-INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Microsoft Lumia 640 XL (Nokia) DS Cyan', N'Экран (5.7", IPS, 1280x720)/ Qualcomm Snapdragon 400 (1.2 ГГц)/ основная камера: 13 Мп, фронтальная камера: 5 Мп
-					RAM 1 ГБ/ 8 ГБ встроенной памяти + microSD/SDHC (до 128 ГБ)/ 3G/ GPS/ поддержка 2х SIM-карт (Micro-SIM)
-					Windows Phone 8.1/ 3000 мА*ч' from [dbo].[Products]
+Select MAX(Id),'RU',N'LG G4 Leather Brown', N'Р­РєСЂР°РЅ (5.5", IPS, 2560С…1440)/ Qualcomm Snapdragon 808 (1.8 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 16 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 8 РњРї
+					RAM 3 Р“Р‘/ 32 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 2 РўР‘)/ 3G/ LTE/ GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Micro-SIM)
+					Android 5.1 (Lollipop) / 3000 РјРђ*С‡' from [dbo].[Products]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Lenovo A2010 Black ', N'Экран (4.5", TN, 854x480)/ MediaTek MTK6735M (1.0 ГГц)/ основная камера: 5 Мп, фронтальная камера: 2 Мп
-					RAM 1 ГБ/ 8 ГБ встроенной памяти + microSD/SDHC (до 32 ГБ)/ 3G/ GPS/ поддержка 2х SIM-карт (Micro-SIM)
-					Android 5.1 (Lollipop) / 2000 мА*ч' from [dbo].[Products]
+Select MAX(Id),'RU',N'Apple iPhone 5s 16GB Space Gray', N'Р­РєСЂР°РЅ (4", IPS, 1136x640)/ Apple A7 (1.3 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 8 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 1.2 РњРї
+					RAM 1 Р“Р‘/ 16 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё/ 3G/ LTE/ GPS/ Nano-SIM/ iOS 9/ 1560 РјРђ*С‡' from [dbo].[Products]
+
+INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
+select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
+INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
+Select MAX(Id),'RU',N'Meizu M2 Note 16GB White СЃ РЅР°СѓС€РЅРёРєР°РјРё EP-21HD (РњРµР¶РґСѓРЅР°СЂРѕРґРЅР°СЏ РІРµСЂСЃРёСЏ)', N'Р­РєСЂР°РЅ (5.5", IGZO, 1920x1080)/ MediaTek MT6753 (1.3 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 13 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 5 РњРї
+					RAM 2 Р“Р‘/ 16 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 128 Р“Р‘)/ 3G/ LTE/ GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Nano-SIM)
+					Android 5.1 (Lollipop) / 3100 РјРђ*С‡' from [dbo].[Products]
+
+INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
+select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
+INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
+Select MAX(Id),'RU',N'Samsung Galaxy S3 Neo Duos I9300i Black', N'Р­РєСЂР°РЅ (4.8", Super AMOLED, 1280x720)/ Qualcomm MSM8226 Snapdragon 400 (1.4 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 8 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 1.9 РњРї
+					RAM 1.5 Р“Р‘/ 16 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 64 Р“Р‘)/ 3G/ GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Micro-SIM)
+					Android 4.3 (Jelly Bean) / 2100 РјРђ*С‡' from [dbo].[Products]
+
+INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
+select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
+INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
+Select MAX(Id),'RU',N'Xiaomi Redmi Note 2 16GB Gray', N'Р­РєСЂР°РЅ (5.5", IPS, 1920x1080)/ MediaTek Helio X10 MT6795 (2.0 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 13 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 5 РњРї
+					RAM 2 Р“Р‘/ 16 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 32 Р“Р‘)/ 3G/ LTE/ GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Micro-SIM)
+					Android 5.0 (Lollipop) / 3060 РјРђ*С‡' from [dbo].[Products]
+
+INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
+select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
+INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
+Select MAX(Id),'RU',N'Microsoft Lumia 640 XL (Nokia) DS Cyan', N'Р­РєСЂР°РЅ (5.7", IPS, 1280x720)/ Qualcomm Snapdragon 400 (1.2 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 13 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 5 РњРї
+					RAM 1 Р“Р‘/ 8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 128 Р“Р‘)/ 3G/ GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Micro-SIM)
+					Windows Phone 8.1/ 3000 РјРђ*С‡' from [dbo].[Products]
+
+
+INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
+select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
+INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
+Select MAX(Id),'RU',N'Lenovo A2010 Black ', N'Р­РєСЂР°РЅ (4.5", TN, 854x480)/ MediaTek MTK6735M (1.0 Р“Р“С†)/ РѕСЃРЅРѕРІРЅР°СЏ РєР°РјРµСЂР°: 5 РњРї, С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР°: 2 РњРї
+					RAM 1 Р“Р‘/ 8 Р“Р‘ РІСЃС‚СЂРѕРµРЅРЅРѕР№ РїР°РјСЏС‚Рё + microSD/SDHC (РґРѕ 32 Р“Р‘)/ 3G/ GPS/ РїРѕРґРґРµСЂР¶РєР° 2С… SIM-РєР°СЂС‚ (Micro-SIM)
+					Android 5.1 (Lollipop) / 2000 РјРђ*С‡' from [dbo].[Products]
 
 
 
@@ -365,73 +360,73 @@ INSERT INTO [dbo].[Categories]([TopId])
 values (2)
 
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),N'Ru',N'MP3-плееры',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'MP3-РїР»РµРµСЂС‹',NULL from [dbo].[Categories]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Sony Walkman NWZ-A15 16GB Blue',N'16 ГБ / MP3, WMA, FLAC, L-PCM, AAC, HE-AAC, ALAC, AIFF, WAV, AVCHD, MPEG4, WMV9, JPEG 
-					2.2" TFT QVGA (320 x 240) / FM-радио / NFC / Bluetooth / USB / 66 г / голубой' from [dbo].[Products]
+Select MAX(Id),'RU',N'Sony Walkman NWZ-A15 16GB Blue',N'16 Р“Р‘ / MP3, WMA, FLAC, L-PCM, AAC, HE-AAC, ALAC, AIFF, WAV, AVCHD, MPEG4, WMV9, JPEG 
+					2.2" TFT QVGA (320 x 240) / FM-СЂР°РґРёРѕ / NFC / Bluetooth / USB / 66 Рі / РіРѕР»СѓР±РѕР№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Jeka Neo 8GB Black/Blue ',N'8 ГБ / MP3, WMA, WAV, PEG, BMP, AVI, TXT 
-					1.8" TFT (160x128) / FM-приемник / miniUSB / 40 х 80 х 9 мм, 19 г / черный с синим' from [dbo].[Products]
+Select MAX(Id),'RU',N'Jeka Neo 8GB Black/Blue ',N'8 Р“Р‘ / MP3, WMA, WAV, PEG, BMP, AVI, TXT 
+					1.8" TFT (160x128) / FM-РїСЂРёРµРјРЅРёРє / miniUSB / 40 С… 80 С… 9 РјРј, 19 Рі / С‡РµСЂРЅС‹Р№ СЃ СЃРёРЅРёРј' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Transcend T-Sonic 350 8GB Blue', N'8 ГБ / MP3, WMA, WAV / OLED / USB 2.0 / FM-приемник / Диктофон / 22 г / синий' from [dbo].[Products]
+Select MAX(Id),'RU',N'Transcend T-Sonic 350 8GB Blue', N'8 Р“Р‘ / MP3, WMA, WAV / OLED / USB 2.0 / FM-РїСЂРёРµРјРЅРёРє / Р”РёРєС‚РѕС„РѕРЅ / 22 Рі / СЃРёРЅРёР№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Apple iPod touch 64GB Blue', N'64 ГБ / AAC, защищенный AAC, HE-AAC, MP3, MP3 VBR, Audible, Apple Lossless, AIFF, WAV, H.264, MPEG-4, M-JPEG 
-					сенсорный 4" Multi-Touch дисплей / камера 8 Мп + фронтальная камера 1.2 Мп 
-					Wi-Fi / Bluetooth 4.1 / iOS 8 / 88 г / голубой' from [dbo].[Products]
+Select MAX(Id),'RU',N'Apple iPod touch 64GB Blue', N'64 Р“Р‘ / AAC, Р·Р°С‰РёС‰РµРЅРЅС‹Р№ AAC, HE-AAC, MP3, MP3 VBR, Audible, Apple Lossless, AIFF, WAV, H.264, MPEG-4, M-JPEG 
+					СЃРµРЅСЃРѕСЂРЅС‹Р№ 4" Multi-Touch РґРёСЃРїР»РµР№ / РєР°РјРµСЂР° 8 РњРї + С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР° 1.2 РњРї 
+					Wi-Fi / Bluetooth 4.1 / iOS 8 / 88 Рі / РіРѕР»СѓР±РѕР№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Pixus Six 8GB New White ', N'8 ГБ / MP3, WMA, WAV / OLED черно-белый / FM-приемник 
-					Диктофон / USB 2.0 / 80 x 20 x 11 мм, 18 г / белый' from [dbo].[Products]
+Select MAX(Id),'RU',N'Pixus Six 8GB New White ', N'8 Р“Р‘ / MP3, WMA, WAV / OLED С‡РµСЂРЅРѕ-Р±РµР»С‹Р№ / FM-РїСЂРёРµРјРЅРёРє 
+					Р”РёРєС‚РѕС„РѕРЅ / USB 2.0 / 80 x 20 x 11 РјРј, 18 Рі / Р±РµР»С‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU','NRG Stick Pro ', N'8 ГБ / MP3, WMA, WAV, FLAC / OLED 4х-строчный / FM-приемник / диктофон 
-					USB / 84 х 27 х 13 мм, 26 г / черный' from [dbo].[Products]
+Select MAX(Id),'RU','NRG Stick Pro ', N'8 Р“Р‘ / MP3, WMA, WAV, FLAC / OLED 4С…-СЃС‚СЂРѕС‡РЅС‹Р№ / FM-РїСЂРёРµРјРЅРёРє / РґРёРєС‚РѕС„РѕРЅ 
+					USB / 84 С… 27 С… 13 РјРј, 26 Рі / С‡РµСЂРЅС‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Apple iPod nano 7Gen 16GB Space Gray',N'16 ГБ / АAC, защищенный AAC, HE-AAC, MP3, MP3 VBR, Audible, Apple Lossless, AIFF, WAV, H.264, M4V, MP4, MOV, MPEG-4 
-					2.5" Multi-Touch дисплей / FM-радио / Bluetooth 4.0 / 31 г / серый' from [dbo].[Products]
+Select MAX(Id),'RU',N'Apple iPod nano 7Gen 16GB Space Gray',N'16 Р“Р‘ / РђAC, Р·Р°С‰РёС‰РµРЅРЅС‹Р№ AAC, HE-AAC, MP3, MP3 VBR, Audible, Apple Lossless, AIFF, WAV, H.264, M4V, MP4, MOV, MPEG-4 
+					2.5" Multi-Touch РґРёСЃРїР»РµР№ / FM-СЂР°РґРёРѕ / Bluetooth 4.0 / 31 Рі / СЃРµСЂС‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Sony Walkman NWZ-WS613 4GB White ', N'4 ГБ / MP3, WMA, Linear PCM, AAC / USB / Bluetooth / NFC / водонепроницаемый / 37 г / белый' from [dbo].[Products]
+Select MAX(Id),'RU',N'Sony Walkman NWZ-WS613 4GB White ', N'4 Р“Р‘ / MP3, WMA, Linear PCM, AAC / USB / Bluetooth / NFC / РІРѕРґРѕРЅРµРїСЂРѕРЅРёС†Р°РµРјС‹Р№ / 37 Рі / Р±РµР»С‹Р№' from [dbo].[Products]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'FiiO M3 White ', N'8 ГБ / APE / FLAC / WAV / MP3 / AAC / WMA / OGG / 2" TFT-экран / 40 г' from [dbo].[Products]
+Select MAX(Id),'RU',N'FiiO M3 White ', N'8 Р“Р‘ / APE / FLAC / WAV / MP3 / AAC / WMA / OGG / 2" TFT-СЌРєСЂР°РЅ / 40 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Apple iPod shuffle 2GB Pink', N'2 ГБ / АAC, защищенный AAC, MP3, MP3 VBR, Audible, Apple Lossless, AIFF, WAV / 12.5 г / розовый' from [dbo].[Products]
+Select MAX(Id),'RU',N'Apple iPod shuffle 2GB Pink', N'2 Р“Р‘ / РђAC, Р·Р°С‰РёС‰РµРЅРЅС‹Р№ AAC, MP3, MP3 VBR, Audible, Apple Lossless, AIFF, WAV / 12.5 Рі / СЂРѕР·РѕРІС‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Apple iPod touch 16GB Gold', N'16 ГБ / AAC, защищенный AAC, HE-AAC, MP3, MP3 VBR, Audible, Apple Lossless, AIFF, WAV, H.264, MPEG-4, M-JPEG 
-					сенсорный 4" Multi-Touch дисплей / камера 8 Мп + фронтальная камера 1.2 Мп 
-					Wi-Fi / Bluetooth 4.1 / iOS 8 / 88 г / золотистый' from [dbo].[Products]
+Select MAX(Id),'RU',N'Apple iPod touch 16GB Gold', N'16 Р“Р‘ / AAC, Р·Р°С‰РёС‰РµРЅРЅС‹Р№ AAC, HE-AAC, MP3, MP3 VBR, Audible, Apple Lossless, AIFF, WAV, H.264, MPEG-4, M-JPEG 
+					СЃРµРЅСЃРѕСЂРЅС‹Р№ 4" Multi-Touch РґРёСЃРїР»РµР№ / РєР°РјРµСЂР° 8 РњРї + С„СЂРѕРЅС‚Р°Р»СЊРЅР°СЏ РєР°РјРµСЂР° 1.2 РњРї 
+					Wi-Fi / Bluetooth 4.1 / iOS 8 / 88 Рі / Р·РѕР»РѕС‚РёСЃС‚С‹Р№' from [dbo].[Products]
 
 
 
@@ -440,88 +435,88 @@ INSERT INTO [dbo].[Categories]([TopId])
 values (3)
 
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),N'Ru',N'Зарядные устройтсва ',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'Р—Р°СЂСЏРґРЅС‹Рµ СѓСЃС‚СЂРѕР№С‚СЃРІР° ',NULL from [dbo].[Categories]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Сетевой адаптер E-Power 1 USB + holder 2.1 A', N'Тип: Сетевые / Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов
-					Количество USB-портов 1 / Дополнительные характеристики: LED индикация процесса зарядки / Цвет Black / Гарантия: 6 месяцев' from [dbo].[Products]
-
-
-
-INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
-select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
-INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Автомобильное зарядное устройство E-Power MicroUSB', 'Тип: Автомобильные / Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов
-					Количество USB-портов: 1 / Дополнительные характеристики: LED индикация процесса зарядки / Цвет: Black / Гарантия: 6 месяцев' from [dbo].[Products]
+Select MAX(Id),'RU',N'РЎРµС‚РµРІРѕР№ Р°РґР°РїС‚РµСЂ E-Power 1 USB + holder 2.1 A', N'РўРёРї: РЎРµС‚РµРІС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ
+					РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ 1 / Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: LED РёРЅРґРёРєР°С†РёСЏ РїСЂРѕС†РµСЃСЃР° Р·Р°СЂСЏРґРєРё / Р¦РІРµС‚ Black / Р“Р°СЂР°РЅС‚РёСЏ: 6 РјРµСЃСЏС†РµРІ' from [dbo].[Products]
 
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Сетевое зарядное устройство E-Power кабель Smart', N'Тип: Сетевые / Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов
-					Количество USB-портов: 2 / Дополнительные характеристики: LED индикация процесса зарядки / Цвет: Black / Гарантия: 6 месяцев' from [dbo].[Products]
+Select MAX(Id),'RU',N'РђРІС‚РѕРјРѕР±РёР»СЊРЅРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ E-Power MicroUSB', 'РўРёРї: РђРІС‚РѕРјРѕР±РёР»СЊРЅС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ
+					РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ: 1 / Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: LED РёРЅРґРёРєР°С†РёСЏ РїСЂРѕС†РµСЃСЃР° Р·Р°СЂСЏРґРєРё / Р¦РІРµС‚: Black / Р“Р°СЂР°РЅС‚РёСЏ: 6 РјРµСЃСЏС†РµРІ' from [dbo].[Products]
 
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Сетевое зарядное устройство Pixus Charge One Turquoise', N'Тип: Сетевые / Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов / Количество USB-портов: 1
-					Кабель: 1.2 м / Цвет: Turquoise / Гарантия: 12 месяцев' from [dbo].[Products]
+Select MAX(Id),'RU',N'РЎРµС‚РµРІРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ E-Power РєР°Р±РµР»СЊ Smart', N'РўРёРї: РЎРµС‚РµРІС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ
+					РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ: 2 / Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: LED РёРЅРґРёРєР°С†РёСЏ РїСЂРѕС†РµСЃСЃР° Р·Р°СЂСЏРґРєРё / Р¦РІРµС‚: Black / Р“Р°СЂР°РЅС‚РёСЏ: 6 РјРµСЃСЏС†РµРІ' from [dbo].[Products]
+
+
+
+INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
+select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
+INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
+Select MAX(Id),'RU',N'РЎРµС‚РµРІРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ Pixus Charge One Turquoise', N'РўРёРї: РЎРµС‚РµРІС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ / РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ: 1
+					РљР°Р±РµР»СЊ: 1.2 Рј / Р¦РІРµС‚: Turquoise / Р“Р°СЂР°РЅС‚РёСЏ: 12 РјРµСЃСЏС†РµРІ' from [dbo].[Products]
 
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 250,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Универсальный зарядный комплект E-Power 3 в 1',N'Тип: Автомобильные, Сетевые \ Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов
-					Количество USB-портов: 2 / Дополнительные характеристики: LED индикация процесса зарядки / Цвет: Black / Гарантия: 6 месяцев' from [dbo].[Products]
+Select MAX(Id),'RU',N'РЈРЅРёРІРµСЂСЃР°Р»СЊРЅС‹Р№ Р·Р°СЂСЏРґРЅС‹Р№ РєРѕРјРїР»РµРєС‚ E-Power 3 РІ 1',N'РўРёРї: РђРІС‚РѕРјРѕР±РёР»СЊРЅС‹Рµ, РЎРµС‚РµРІС‹Рµ \ РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ
+					РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ: 2 / Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: LED РёРЅРґРёРєР°С†РёСЏ РїСЂРѕС†РµСЃСЃР° Р·Р°СЂСЏРґРєРё / Р¦РІРµС‚: Black / Р“Р°СЂР°РЅС‚РёСЏ: 6 РјРµСЃСЏС†РµРІ' from [dbo].[Products]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Сетевое зарядное устройство Logan Quad USB Wall Charger 5V 4A CH-4 Orange', N'Тип: Сетевые / Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов
-					Совместимость: Мобильные телефоны, смартфоны, фотоаппараты, mp3-плееры, планшеты с возможностью зарядки от USB порта
-					Количество USB-портов: 4 / Цвет: Orange / Гарантия: 12 месяцев' from [dbo].[Products]
+Select MAX(Id),'RU',N'РЎРµС‚РµРІРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ Logan Quad USB Wall Charger 5V 4A CH-4 Orange', N'РўРёРї: РЎРµС‚РµРІС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ
+					РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: РњРѕР±РёР»СЊРЅС‹Рµ С‚РµР»РµС„РѕРЅС‹, СЃРјР°СЂС‚С„РѕРЅС‹, С„РѕС‚РѕР°РїРїР°СЂР°С‚С‹, mp3-РїР»РµРµСЂС‹, РїР»Р°РЅС€РµС‚С‹ СЃ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊСЋ Р·Р°СЂСЏРґРєРё РѕС‚ USB РїРѕСЂС‚Р°
+					РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ: 4 / Р¦РІРµС‚: Orange / Р“Р°СЂР°РЅС‚РёСЏ: 12 РјРµСЃСЏС†РµРІ' from [dbo].[Products]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Автомобильное зарядное устройство E-Power кабель MicroUSB', '' from [dbo].[Products]
+Select MAX(Id),'RU',N'РђРІС‚РѕРјРѕР±РёР»СЊРЅРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ E-Power РєР°Р±РµР»СЊ MicroUSB', '' from [dbo].[Products]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Сетевое зарядное устройство', '' from [dbo].[Products]
+Select MAX(Id),'RU',N'РЎРµС‚РµРІРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ', '' from [dbo].[Products]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Сетевое зарядное устройство Global MSH-TR-071 c кабелем для iPhone 5, 6 White', N'Тип: Сетевые / Подходит для зарядки: Планшетов, Мобильных телефонов / Совместимость: iPhone 5, iPhone 6
-					Цвет: White / Гарантия: 12 месяцев' from [dbo].[Products]
+Select MAX(Id),'RU',N'РЎРµС‚РµРІРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ Global MSH-TR-071 c РєР°Р±РµР»РµРј РґР»СЏ iPhone 5, 6 White', N'РўРёРї: РЎРµС‚РµРІС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ / РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: iPhone 5, iPhone 6
+					Р¦РІРµС‚: White / Р“Р°СЂР°РЅС‚РёСЏ: 12 РјРµСЃСЏС†РµРІ' from [dbo].[Products]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Сетевое зарядное устройство Drobak Power Dual 220V-USB White/Black', N'Тип: Сетевые / Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов / Количество USB-портов: 2
-					Дополнительные характеристики: Прочный корпус, стойкий к царапинам и ударам / Цвет: White-Black / Гарантия: 6 месяцев' from [dbo].[Products]
+Select MAX(Id),'RU',N'РЎРµС‚РµРІРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ Drobak Power Dual 220V-USB White/Black', N'РўРёРї: РЎРµС‚РµРІС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ / РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ: 2
+					Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: РџСЂРѕС‡РЅС‹Р№ РєРѕСЂРїСѓСЃ, СЃС‚РѕР№РєРёР№ Рє С†Р°СЂР°РїРёРЅР°Рј Рё СѓРґР°СЂР°Рј / Р¦РІРµС‚: White-Black / Р“Р°СЂР°РЅС‚РёСЏ: 6 РјРµСЃСЏС†РµРІ' from [dbo].[Products]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Сетевое зарядное устройство Logan Quad USB Wall Charger 5V 2.6A CHC-4 White',N'Тип: Сетевые / Подходит для зарядки: Электронных книг, Планшетов, Мобильных телефонов
-					Совместимость: Мобильные телефоны, смартфоны, фотоаппараты, mp3-плееры, планшеты с возможностью зарядки от USB порта
-					Количество USB-портов: 4 / Цвет: White / Гарантия: 12 месяцев' from [dbo].[Products]
+Select MAX(Id),'RU',N'РЎРµС‚РµРІРѕРµ Р·Р°СЂСЏРґРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ Logan Quad USB Wall Charger 5V 2.6A CHC-4 White',N'РўРёРї: РЎРµС‚РµРІС‹Рµ / РџРѕРґС…РѕРґРёС‚ РґР»СЏ Р·Р°СЂСЏРґРєРё: Р­Р»РµРєС‚СЂРѕРЅРЅС‹С… РєРЅРёРі, РџР»Р°РЅС€РµС‚РѕРІ, РњРѕР±РёР»СЊРЅС‹С… С‚РµР»РµС„РѕРЅРѕРІ
+					РЎРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: РњРѕР±РёР»СЊРЅС‹Рµ С‚РµР»РµС„РѕРЅС‹, СЃРјР°СЂС‚С„РѕРЅС‹, С„РѕС‚РѕР°РїРїР°СЂР°С‚С‹, mp3-РїР»РµРµСЂС‹, РїР»Р°РЅС€РµС‚С‹ СЃ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊСЋ Р·Р°СЂСЏРґРєРё РѕС‚ USB РїРѕСЂС‚Р°
+					РљРѕР»РёС‡РµСЃС‚РІРѕ USB-РїРѕСЂС‚РѕРІ: 4 / Р¦РІРµС‚: White / Р“Р°СЂР°РЅС‚РёСЏ: 12 РјРµСЃСЏС†РµРІ' from [dbo].[Products]
 
 
 
@@ -530,250 +525,250 @@ Select MAX(Id),N'RU',N'Сетевое зарядное устройство Logan Quad USB Wall Charger 5
 INSERT INTO [dbo].[Categories]([TopId])
 values (NULL)
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),N'Ru',N'Бытовая техника',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'Р‘С‹С‚РѕРІР°СЏ С‚РµС…РЅРёРєР°',NULL from [dbo].[Categories]
 INSERT INTO [dbo].[Categories]([TopId])
 values (1)
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),N'Ru',N'Холодильники',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'РҐРѕР»РѕРґРёР»СЊРЅРёРєРё',NULL from [dbo].[Categories]
 
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 6500,1,2015-03-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'Ru',N'SNAIGE FR-240.1101AA',N'Тип холодильника: двухкамерный /  Общий объем холодильника: 220 л /  Полезный объем холод. камеры: 166 л  
-					Полезный объем мороз. камеры: 46 л /  Дисплей: нет/  Тип управления: механическое /  No Frost (Frost Free) : нет 
-					Уровень шума: 39 дБ /  Габариты (ВхШхГ): 144х56х60 см. /  Цвет: белый.' from [dbo].[Products]
+Select MAX(Id),'Ru',N'SNAIGE FR-240.1101AA',N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№ /  РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 220 Р» /  РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 166 Р»  
+					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 46 Р» /  Р”РёСЃРїР»РµР№: РЅРµС‚/  РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РјРµС…Р°РЅРёС‡РµСЃРєРѕРµ /  No Frost (Frost Free) : РЅРµС‚ 
+					РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 39 РґР‘ /  Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 144С…56С…60 СЃРј. /  Р¦РІРµС‚: Р±РµР»С‹Р№.' from [dbo].[Products]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'SAMSUNG RB31FSRNDEF', N'Тип холодильника: двухкамерный. /  Общий объем холодильника: 331 л. / Полезный объем холод. камеры: 212 л.
-					Полезный объем мороз. камеры: 98 л. /  Дисплей: нет. /  Тип управления: электронное. 
-					No Frost (Frost Free) : холодильное+морозильное отделения /  Уровень шума: 37 дБ. /  Габариты (ВхШхГ): 185x59,5x66,8 см. 
-					Вес: 65 кг. / Цвет: бежевый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'SAMSUNG RB31FSRNDEF', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. /  РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 331 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 212 Р».
+					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 98 Р». /  Р”РёСЃРїР»РµР№: РЅРµС‚. /  РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚СЂРѕРЅРЅРѕРµ. 
+					No Frost (Frost Free) : С…РѕР»РѕРґРёР»СЊРЅРѕРµ+РјРѕСЂРѕР·РёР»СЊРЅРѕРµ РѕС‚РґРµР»РµРЅРёСЏ /  РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 37 РґР‘. /  Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 185x59,5x66,8 СЃРј. 
+					Р’РµСЃ: 65 РєРі. / Р¦РІРµС‚: Р±РµР¶РµРІС‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'INDESIT NBS 18 AA UA', N'Тип холодильника: двухкамерный. / Общий объем холодильника: 339 л. / Полезный объем холод. камеры: 233 л. 
-					Полезный объем мороз. камеры: 85 л. / Дисплей: нет. / Тип управления: механическое. / No Frost (Frost Free) : нет.
-					Уровень шума: 39 дБ. / Габариты (ВхШхГ): 185х60х66 см. / Цвет: белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'INDESIT NBS 18 AA UA', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 339 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 233 Р». 
+					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 85 Р». / Р”РёСЃРїР»РµР№: РЅРµС‚. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РјРµС…Р°РЅРёС‡РµСЃРєРѕРµ. / No Frost (Frost Free) : РЅРµС‚.
+					РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 39 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 185С…60С…66 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'LG GA-B419SQCL ', N'Тип холодильника: двухкамерный. / Общий объем холодильника: 354 л. / Полезный объем холод. камеры: 225 л. 
-					Полезный объем мороз. камеры: 87 л. / Дисплей: нет. / Тип управления: электронное. 
-					No Frost (Frost Free) : холодильное+морозильное отделения . / Уровень шума: 41 дБ. / Габариты (ВхШхГ): 190,7x59,5x64,3 см. 
-					Вес: 75 кг. / Цвет: белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'LG GA-B419SQCL ', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 354 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 225 Р». 
+					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 87 Р». / Р”РёСЃРїР»РµР№: РЅРµС‚. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚СЂРѕРЅРЅРѕРµ. 
+					No Frost (Frost Free) : С…РѕР»РѕРґРёР»СЊРЅРѕРµ+РјРѕСЂРѕР·РёР»СЊРЅРѕРµ РѕС‚РґРµР»РµРЅРёСЏ . / РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 41 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 190,7x59,5x64,3 СЃРј. 
+					Р’РµСЃ: 75 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'SNAIGE FR-275.1101AA ', N'Тип холодильника: двухкамерный. / Общий объем холодильника: 260 л. / Полезный объем холод. камеры: 201 л. 
-					Полезный объем мороз. камеры: 57 л. / Дисплей: нет. / Тип управления: механическое. / No Frost (Frost Free) : нет. 
-					Уровень шума: 39 дБ. / Габариты (ВхШхГ): 169х56х60 см. / Цвет: белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'SNAIGE FR-275.1101AA ', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 260 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 201 Р». 
+					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 57 Р». / Р”РёСЃРїР»РµР№: РЅРµС‚. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РјРµС…Р°РЅРёС‡РµСЃРєРѕРµ. / No Frost (Frost Free) : РЅРµС‚. 
+					РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 39 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 169С…56С…60 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'INDESIT NTS 14 AA (UA) ', N'Тип холодильника: двухкамерный. / Общий объем холодильника: 249 л. / Полезный объем холод. камеры: 194 л. 
-					Полезный объем мороз. камеры: 51 л. / Дисплей: нет. / Тип управления: механическое. / No Frost (Frost Free) : нет.
-					Уровень шума: 39 дБ. / Габариты (ВхШхГ): 145х60х62 см. / Цвет: белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'INDESIT NTS 14 AA (UA) ', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 249 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 194 Р». 
+					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 51 Р». / Р”РёСЃРїР»РµР№: РЅРµС‚. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РјРµС…Р°РЅРёС‡РµСЃРєРѕРµ. / No Frost (Frost Free) : РЅРµС‚.
+					РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 39 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 145С…60С…62 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'BOSCH KGV39VW31', N'Тип холодильника: двухкамерный. / Общий объем холодильника: 347 л. / Полезный объем холод. камеры: 250 л. 
-					Полезный объем мороз. камеры: 94 л. / Дисплей: нет. / Тип управления: электронное. / No Frost (Frost Free) : нет. 
-					Уровень шума: 39 дБ. / Габариты (ВхШхГ): 201x60x65 см. / Цвет: белый' from [dbo].[Products]
+Select MAX(Id),'RU',N'BOSCH KGV39VW31', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 347 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 250 Р». 
+					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 94 Р». / Р”РёСЃРїР»РµР№: РЅРµС‚. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚СЂРѕРЅРЅРѕРµ. / No Frost (Frost Free) : РЅРµС‚. 
+					РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 39 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 201x60x65 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'ATLANT XM-6025-100', 'Тип холодильника: двухкамерный. / Общий объем холодильника: 384 л. / Полезный объем холод. камеры: 225 л.
-					Полезный объем мороз. камеры: 129 л. / Дисплей: нет. / Тип управления: механическое. / No Frost (Frost Free) : нет. 
-					Уровень шума: 39-42 дБ. / Габариты (ВхШхГ): 205х60х63 см. / Вес: 87 кг. / Цвет: белый' from [dbo].[Products]
+Select MAX(Id),'RU',N'ATLANT XM-6025-100', 'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 384 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 225 Р».
+					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 129 Р». / Р”РёСЃРїР»РµР№: РЅРµС‚. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РјРµС…Р°РЅРёС‡РµСЃРєРѕРµ. / No Frost (Frost Free) : РЅРµС‚. 
+					РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 39-42 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 205С…60С…63 СЃРј. / Р’РµСЃ: 87 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'LG GA-B419SEQL',N'Тип холодильника: двухкамерный. / Общий объем холодильника: 354 л. / Полезный объем холод. камеры: 225 л.
-					Полезный объем мороз. камеры: 87 л. / Дисплей: есть. / Тип управления: электронное.
-					No Frost (Frost Free) : холодильное+морозильное отделения . / Уровень шума: 41 дБ. / Габариты (ВхШхГ): 190,7х59,5х64,3 см. 
-					Вес: 75 кг. / Цвет: бежевый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'LG GA-B419SEQL',N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 354 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 225 Р».
+					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 87 Р». / Р”РёСЃРїР»РµР№: РµСЃС‚СЊ. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚СЂРѕРЅРЅРѕРµ.
+					No Frost (Frost Free) : С…РѕР»РѕРґРёР»СЊРЅРѕРµ+РјРѕСЂРѕР·РёР»СЊРЅРѕРµ РѕС‚РґРµР»РµРЅРёСЏ . / РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 41 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 190,7С…59,5С…64,3 СЃРј. 
+					Р’РµСЃ: 75 РєРі. / Р¦РІРµС‚: Р±РµР¶РµРІС‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'INDESIT NBS 20 AA (UA) ', N'Тип холодильника: двухкамерный. / Общий объем холодильника: 363 л. / Полезный объем холод. камеры: 233 л.
-					Полезный объем мороз. камеры: 108 л. / Дисплей: нет. / Тип управления: механическое. / No Frost (Frost Free) : нет. 
-					Уровень шума: 39 дБ. / Габариты (ВхШхГ): 200х60х66 см. / Цвет: белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'INDESIT NBS 20 AA (UA) ', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 363 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 233 Р».
+					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 108 Р». / Р”РёСЃРїР»РµР№: РЅРµС‚. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: РјРµС…Р°РЅРёС‡РµСЃРєРѕРµ. / No Frost (Frost Free) : РЅРµС‚. 
+					РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 39 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 200С…60С…66 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'SAMSUNG RB31FSRNDWW ', N'Тип холодильника: двухкамерный. / Общий объем холодильника: 331 л. / Полезный объем холод. камеры: 212 л.
-					Полезный объем мороз. камеры: 98 л. / Дисплей: нет. / Тип управления: электронное.
-					No Frost (Frost Free) : холодильное+морозильное отделения / Уровень шума: 37 дБ. / Габариты (ВхШхГ): 185x59,5x66,8 см.
-					Вес: 65 кг. / Цвет: белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'SAMSUNG RB31FSRNDWW ', N'РўРёРї С…РѕР»РѕРґРёР»СЊРЅРёРєР°: РґРІСѓС…РєР°РјРµСЂРЅС‹Р№. / РћР±С‰РёР№ РѕР±СЉРµРј С…РѕР»РѕРґРёР»СЊРЅРёРєР°: 331 Р». / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј С…РѕР»РѕРґ. РєР°РјРµСЂС‹: 212 Р».
+					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј РјРѕСЂРѕР·. РєР°РјРµСЂС‹: 98 Р». / Р”РёСЃРїР»РµР№: РЅРµС‚. / РўРёРї СѓРїСЂР°РІР»РµРЅРёСЏ: СЌР»РµРєС‚СЂРѕРЅРЅРѕРµ.
+					No Frost (Frost Free) : С…РѕР»РѕРґРёР»СЊРЅРѕРµ+РјРѕСЂРѕР·РёР»СЊРЅРѕРµ РѕС‚РґРµР»РµРЅРёСЏ / РЈСЂРѕРІРµРЅСЊ С€СѓРјР°: 37 РґР‘. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 185x59,5x66,8 СЃРј.
+					Р’РµСЃ: 65 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.' from [dbo].[Products]
 
 
 
 INSERT INTO [dbo].[Categories]([TopId])
 values (2)
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),N'Ru',N'Плиты',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'РџР»РёС‚С‹',NULL from [dbo].[Categories]
 
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'NORD 100-2В Белая ', N'Тип: газовая. / Газ-контроль: нет. / Зоны нагрева: газовые. / Материал решеток поверхности: эмалированные. 
-					Тип духовки: газовая. / Полезный объем: 62 л. / Гриль: нет. / Конвекция: нет. / Таймер: нет. / Подсветка: нет. 
-					Габариты (ВхШхГ): 85х50х60 см. / Вес: 32,5 кг. / Цвет: белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'NORD 100-2Р’ Р‘РµР»Р°СЏ ', N'РўРёРї: РіР°Р·РѕРІР°СЏ. / Р“Р°Р·-РєРѕРЅС‚СЂРѕР»СЊ: РЅРµС‚. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: РіР°Р·РѕРІС‹Рµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: СЌРјР°Р»РёСЂРѕРІР°РЅРЅС‹Рµ. 
+					РўРёРї РґСѓС…РѕРІРєРё: РіР°Р·РѕРІР°СЏ. / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 62 Р». / Р“СЂРёР»СЊ: РЅРµС‚. / РљРѕРЅРІРµРєС†РёСЏ: РЅРµС‚. / РўР°Р№РјРµСЂ: РЅРµС‚. / РџРѕРґСЃРІРµС‚РєР°: РЅРµС‚. 
+					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…50С…60 СЃРј. / Р’РµСЃ: 32,5 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.' from [dbo].[Products]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'GRETA 1470-0012 (WM)',N'Тип: газовая. / Газ-контроль: нет. / Зоны нагрева: газовые. / Материал решеток поверхности: эмалированные. 
-					Тип духовки: газовая. / Полезный объем: 54 л. / Гриль: нет. / Конвекция: нет. / Таймер: нет. / Подсветка: нет. 
-					Габариты (ВхШхГ): 85х50х54 см. / Вес: 31 кг. / Цвет: белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'GRETA 1470-0012 (WM)',N'РўРёРї: РіР°Р·РѕРІР°СЏ. / Р“Р°Р·-РєРѕРЅС‚СЂРѕР»СЊ: РЅРµС‚. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: РіР°Р·РѕРІС‹Рµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: СЌРјР°Р»РёСЂРѕРІР°РЅРЅС‹Рµ. 
+					РўРёРї РґСѓС…РѕРІРєРё: РіР°Р·РѕРІР°СЏ. / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 54 Р». / Р“СЂРёР»СЊ: РЅРµС‚. / РљРѕРЅРІРµРєС†РёСЏ: РЅРµС‚. / РўР°Р№РјРµСЂ: РЅРµС‚. / РџРѕРґСЃРІРµС‚РєР°: РЅРµС‚. 
+					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…50С…54 СЃРј. / Р’РµСЃ: 31 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.' from [dbo].[Products]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'ZANUSSI ZCE9550G1W', N'Тип: электрическая. / Зоны нагрева: электрические. / Материал решеток поверхности: нет. / Тип духовки: электрическая.
-					Полезный объем: 56 л. / Гриль: есть. / Конвекция: есть. / Таймер: нет. / Подсветка: есть. / Габариты (ВхШхГ): 85,5х50х60 см. / Цвет: белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'ZANUSSI ZCE9550G1W', N'РўРёРї: СЌР»РµРєС‚СЂРёС‡РµСЃРєР°СЏ. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: СЌР»РµРєС‚СЂРёС‡РµСЃРєРёРµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: РЅРµС‚. / РўРёРї РґСѓС…РѕРІРєРё: СЌР»РµРєС‚СЂРёС‡РµСЃРєР°СЏ.
+					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 56 Р». / Р“СЂРёР»СЊ: РµСЃС‚СЊ. / РљРѕРЅРІРµРєС†РёСЏ: РµСЃС‚СЊ. / РўР°Р№РјРµСЂ: РЅРµС‚. / РџРѕРґСЃРІРµС‚РєР°: РµСЃС‚СЊ. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85,5С…50С…60 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'KAISER HGG 52511 W ', N'Тип: газовая. / Газ-контроль: поверхности+духовки. / Зоны нагрева: газовые. / Материал решеток поверхности: чугунные. 
-					Тип духовки: газовая. / Полезный объем: 58 л. / Гриль: есть. / Конвекция: нет. / Таймер: есть. / Подсветка: есть. 
-					Габариты (ВхШхГ): 85х50х60 см. / Вес: 43,9 кг. / Цвет: белый/черное зеркальное стекло.' from [dbo].[Products]
+Select MAX(Id),'RU',N'KAISER HGG 52511 W ', N'РўРёРї: РіР°Р·РѕРІР°СЏ. / Р“Р°Р·-РєРѕРЅС‚СЂРѕР»СЊ: РїРѕРІРµСЂС…РЅРѕСЃС‚Рё+РґСѓС…РѕРІРєРё. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: РіР°Р·РѕРІС‹Рµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: С‡СѓРіСѓРЅРЅС‹Рµ. 
+					РўРёРї РґСѓС…РѕРІРєРё: РіР°Р·РѕРІР°СЏ. / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 58 Р». / Р“СЂРёР»СЊ: РµСЃС‚СЊ. / РљРѕРЅРІРµРєС†РёСЏ: РЅРµС‚. / РўР°Р№РјРµСЂ: РµСЃС‚СЊ. / РџРѕРґСЃРІРµС‚РєР°: РµСЃС‚СЊ. 
+					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…50С…60 СЃРј. / Р’РµСЃ: 43,9 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№/С‡РµСЂРЅРѕРµ Р·РµСЂРєР°Р»СЊРЅРѕРµ СЃС‚РµРєР»Рѕ.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'HANSA FCEW 53000', N'Тип: электрическая. / Зоны нагрева: электрические. / Материал решеток поверхности: нет. / Тип духовки: электрическая. 
-					Полезный объем: 69 л. / Гриль: нет. / Конвекция: нет. / Таймер: нет. / Подсветка: есть. 
-					Габариты (ВхШхГ): 85х50х60 см. / Вес: 40 кг. / Цвет: белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'HANSA FCEW 53000', N'РўРёРї: СЌР»РµРєС‚СЂРёС‡РµСЃРєР°СЏ. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: СЌР»РµРєС‚СЂРёС‡РµСЃРєРёРµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: РЅРµС‚. / РўРёРї РґСѓС…РѕРІРєРё: СЌР»РµРєС‚СЂРёС‡РµСЃРєР°СЏ. 
+					РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 69 Р». / Р“СЂРёР»СЊ: РЅРµС‚. / РљРѕРЅРІРµРєС†РёСЏ: РЅРµС‚. / РўР°Р№РјРµСЂ: РЅРµС‚. / РџРѕРґСЃРІРµС‚РєР°: РµСЃС‚СЊ. 
+					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…50С…60 СЃРј. / Р’РµСЃ: 40 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'HANSA FCMW53050 ', N'Тип: комбинированная (газ+электро). / Газ-контроль: нет. / Зоны нагрева: газовые, электрические. 
-					Материал решеток поверхности: эмалированные. / Тип духовки: электрическая. / Полезный объем: 69 л. / Гриль: есть. 
-					Конвекция: нет. / Таймер: нет. / Подсветка: есть. / Габариты (ВхШхГ): 85х50х60 см. / Цвет: белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'HANSA FCMW53050 ', N'РўРёРї: РєРѕРјР±РёРЅРёСЂРѕРІР°РЅРЅР°СЏ (РіР°Р·+СЌР»РµРєС‚СЂРѕ). / Р“Р°Р·-РєРѕРЅС‚СЂРѕР»СЊ: РЅРµС‚. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: РіР°Р·РѕРІС‹Рµ, СЌР»РµРєС‚СЂРёС‡РµСЃРєРёРµ. 
+					РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: СЌРјР°Р»РёСЂРѕРІР°РЅРЅС‹Рµ. / РўРёРї РґСѓС…РѕРІРєРё: СЌР»РµРєС‚СЂРёС‡РµСЃРєР°СЏ. / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 69 Р». / Р“СЂРёР»СЊ: РµСЃС‚СЊ. 
+					РљРѕРЅРІРµРєС†РёСЏ: РЅРµС‚. / РўР°Р№РјРµСЂ: РЅРµС‚. / РџРѕРґСЃРІРµС‚РєР°: РµСЃС‚СЊ. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…50С…60 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'GEFEST 6100-01 ', N'Тип: газовая. / Газ-контроль: духовки. / Зоны нагрева: газовые. / Материал решеток поверхности: чугунные.
-					Тип духовки: газовая. / Полезный объем: 52 л. / Гриль: нет. / Конвекция: нет. / Таймер: нет. / Подсветка: есть. 
-					Габариты (ВхШхГ): 85х60х60 см. / Вес: 43,5 кг. / Цвет: белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'GEFEST 6100-01 ', N'РўРёРї: РіР°Р·РѕРІР°СЏ. / Р“Р°Р·-РєРѕРЅС‚СЂРѕР»СЊ: РґСѓС…РѕРІРєРё. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: РіР°Р·РѕРІС‹Рµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: С‡СѓРіСѓРЅРЅС‹Рµ.
+					РўРёРї РґСѓС…РѕРІРєРё: РіР°Р·РѕРІР°СЏ. / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 52 Р». / Р“СЂРёР»СЊ: РЅРµС‚. / РљРѕРЅРІРµРєС†РёСЏ: РЅРµС‚. / РўР°Р№РјРµСЂ: РЅРµС‚. / РџРѕРґСЃРІРµС‚РєР°: РµСЃС‚СЊ. 
+					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…60С…60 СЃРј. / Р’РµСЃ: 43,5 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'GRETA 1470-0016 (W)', N'Тип: газовая. / Газ-контроль: нет. / Зоны нагрева: газовые. / Материал решеток поверхности: эмалированные. 
-					Тип духовки: газовая. / Полезный объем: 54 л. / Гриль: нет. / Конвекция: нет. / Таймер: нет. / Подсветка: нет.
-					Габариты (ВхШхГ): 85х50х54 см. / Вес: 32 кг. / Цвет: белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'GRETA 1470-0016 (W)', N'РўРёРї: РіР°Р·РѕРІР°СЏ. / Р“Р°Р·-РєРѕРЅС‚СЂРѕР»СЊ: РЅРµС‚. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: РіР°Р·РѕРІС‹Рµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: СЌРјР°Р»РёСЂРѕРІР°РЅРЅС‹Рµ. 
+					РўРёРї РґСѓС…РѕРІРєРё: РіР°Р·РѕРІР°СЏ. / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 54 Р». / Р“СЂРёР»СЊ: РЅРµС‚. / РљРѕРЅРІРµРєС†РёСЏ: РЅРµС‚. / РўР°Р№РјРµСЂ: РЅРµС‚. / РџРѕРґСЃРІРµС‚РєР°: РЅРµС‚.
+					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…50С…54 СЃРј. / Р’РµСЃ: 32 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'GRETA 1470-0007 (WM) ', N'Тип: газовая. / Газ-контроль: нет. / Зоны нагрева: газовые. / Материал решеток поверхности: эмалированные. 
-					Тип духовки: газовая. / Полезный объем: 54 л. / Гриль: нет. / Конвекция: нет. / Таймер: нет. / Подсветка: есть. 
-					Габариты (ВхШхГ): 85х50х54 см. / Вес: 37 кг. / Цвет: белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'GRETA 1470-0007 (WM) ', N'РўРёРї: РіР°Р·РѕРІР°СЏ. / Р“Р°Р·-РєРѕРЅС‚СЂРѕР»СЊ: РЅРµС‚. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: РіР°Р·РѕРІС‹Рµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: СЌРјР°Р»РёСЂРѕРІР°РЅРЅС‹Рµ. 
+					РўРёРї РґСѓС…РѕРІРєРё: РіР°Р·РѕРІР°СЏ. / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 54 Р». / Р“СЂРёР»СЊ: РЅРµС‚. / РљРѕРЅРІРµРєС†РёСЏ: РЅРµС‚. / РўР°Р№РјРµСЂ: РЅРµС‚. / РџРѕРґСЃРІРµС‚РєР°: РµСЃС‚СЊ. 
+					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85С…50С…54 СЃРј. / Р’РµСЃ: 37 РєРі. / Р¦РІРµС‚: Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'ELECTROLUX EKK 954507 W ', N'Тип: комбинированная (газ+электро). / Газ-контроль: поверхности. / Зоны нагрева: газовые. / Материал решеток поверхности: чугунные. 
-					Тип духовки: электрическая. / Полезный объем: 56 л. / Гриль: есть. / Конвекция: есть. / Таймер: есть. / Подсветка: есть.
-					Габариты (ВхШхГ): 85,5x50x60 см. / Цвет: белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'ELECTROLUX EKK 954507 W ', N'РўРёРї: РєРѕРјР±РёРЅРёСЂРѕРІР°РЅРЅР°СЏ (РіР°Р·+СЌР»РµРєС‚СЂРѕ). / Р“Р°Р·-РєРѕРЅС‚СЂРѕР»СЊ: РїРѕРІРµСЂС…РЅРѕСЃС‚Рё. / Р—РѕРЅС‹ РЅР°РіСЂРµРІР°: РіР°Р·РѕРІС‹Рµ. / РњР°С‚РµСЂРёР°Р» СЂРµС€РµС‚РѕРє РїРѕРІРµСЂС…РЅРѕСЃС‚Рё: С‡СѓРіСѓРЅРЅС‹Рµ. 
+					РўРёРї РґСѓС…РѕРІРєРё: СЌР»РµРєС‚СЂРёС‡РµСЃРєР°СЏ. / РџРѕР»РµР·РЅС‹Р№ РѕР±СЉРµРј: 56 Р». / Р“СЂРёР»СЊ: РµСЃС‚СЊ. / РљРѕРЅРІРµРєС†РёСЏ: РµСЃС‚СЊ. / РўР°Р№РјРµСЂ: РµСЃС‚СЊ. / РџРѕРґСЃРІРµС‚РєР°: РµСЃС‚СЊ.
+					Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“): 85,5x50x60 СЃРј. / Р¦РІРµС‚: Р±РµР»С‹Р№.' from [dbo].[Products]
 
 
 
 INSERT INTO [dbo].[Categories]([TopId])
 values (3)
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),N'Ru',N'Стиральные машины',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'РЎС‚РёСЂР°Р»СЊРЅС‹Рµ РјР°С€РёРЅС‹',NULL from [dbo].[Categories]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 4700,1,2015-06-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'INDESIT WISN 821 UA ', N'Тип: узкая. / Количество белья при стирке: 5 кг. / Скорость отжима: 800 об/мин. / Класс энергопотребления: А+. 
-					Дисплей: нет. / Количество программ: 16. / Габариты (ВхШхГ) : 85x59,5x42 см. / Цвет:белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'INDESIT WISN 821 UA ', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 5 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 800 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ+. 
+					Р”РёСЃРїР»РµР№: РЅРµС‚. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 16. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85x59,5x42 СЃРј. / Р¦РІРµС‚:Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'ZANUSSI ZWSE 680 V', N'Тип: узкая. / Количество белья при стирке: 5 кг. / Скорость отжима: 800 об/мин. / Класс энергопотребления: А++. 
-					Дисплей: нет. / Количество программ: 14. / Габариты (ВхШхГ) : 85х59,5х37,7 см. / Цвет:белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'ZANUSSI ZWSE 680 V', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 5 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 800 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ++. 
+					Р”РёСЃРїР»РµР№: РЅРµС‚. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 14. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85С…59,5С…37,7 СЃРј. / Р¦РІРµС‚:Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'ZANUSSI ZWSE 7120 V ',N'Тип: узкая. / Количество белья при стирке: 5 кг. / Скорость отжима: 1200 об/мин. / Класс энергопотребления: А++. 
-					Дисплей: есть. / Количество программ: 14. / Габариты (ВхШхГ) : 85х59,5х37,7 см. / Цвет:белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'ZANUSSI ZWSE 7120 V ',N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 5 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 1200 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ++. 
+					Р”РёСЃРїР»РµР№: РµСЃС‚СЊ. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 14. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85С…59,5С…37,7 СЃРј. / Р¦РІРµС‚:Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'WHIRLPOOL AWS 63013', N'Тип: узкая. / Количество белья при стирке: 6 кг. / Скорость отжима: 1000 об/мин. / Класс энергопотребления: А+++. 
-					Дисплей: есть. / Количество программ: 18. / Габариты (ВхШхГ) : 84,5х59,5х45,3 см. / Вес: 61 кг. / Цвет:белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'WHIRLPOOL AWS 63013', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 6 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 1000 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ+++. 
+					Р”РёСЃРїР»РµР№: РµСЃС‚СЊ. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 18. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 84,5С…59,5С…45,3 СЃРј. / Р’РµСЃ: 61 РєРі. / Р¦РІРµС‚:Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'ELECTROLUX EWS1266CI ', N'Тип: узкая. / Количество белья при стирке: 6 кг. / Скорость отжима: 1200 об/мин. / Класс энергопотребления: А+++.
-					Дисплей: есть. / Количество программ: 14. / Габариты (ВхШхГ) : 85х59,5х37,7 см. / Цвет:белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'ELECTROLUX EWS1266CI ', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 6 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 1200 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ+++.
+					Р”РёСЃРїР»РµР№: РµСЃС‚СЊ. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 14. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85С…59,5С…37,7 СЃРј. / Р¦РІРµС‚:Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'INDESIT IWSD 51051 UA ', N'Тип: узкая. / Количество белья при стирке: 5 кг. / Скорость отжима: 1000 об/мин. / Класс энергопотребления: А+. 
-					Дисплей: есть. / Количество программ: 16. / Габариты (ВхШхГ) : 85х59,5х42 см. / Цвет:белый.
-					Цена: 4 758 грн' from [dbo].[Products]
+Select MAX(Id),'RU',N'INDESIT IWSD 51051 UA ', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 5 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 1000 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ+. 
+					Р”РёСЃРїР»РµР№: РµСЃС‚СЊ. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 16. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85С…59,5С…42 СЃРј. / Р¦РІРµС‚:Р±РµР»С‹Р№.
+					Р¦РµРЅР°: 4 758 РіСЂРЅ' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'ZANUSSI ZWSE 6100 V', N'Тип: узкая. / Количество белья при стирке: 5 кг. / Скорость отжима: 1000 об/мин. / Класс энергопотребления: А++.
-					Дисплей: нет. / Количество программ: 14. / Габариты (ВхШхГ) : 85х59,5х37,7 см. / Цвет:белый.' from [dbo].[Products]
+Select MAX(Id),N'RU',N'ZANUSSI ZWSE 6100 V', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 5 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 1000 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ++.
+					Р”РёСЃРїР»РµР№: РЅРµС‚. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 14. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85С…59,5С…37,7 СЃРј. / Р¦РІРµС‚:Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'ZANUSSI ZWSE 7100 VS ',N'Тип: узкая. / Количество белья при стирке: 5 кг. / Скорость отжима: 1000 об/мин. / Класс энергопотребления: А++.
-					Дисплей: есть. / Габариты (ВхШхГ) : 85x59,5x37,7 . / Цвет:белый/серебристый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'ZANUSSI ZWSE 7100 VS ',N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 5 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 1000 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ++.
+					Р”РёСЃРїР»РµР№: РµСЃС‚СЊ. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85x59,5x37,7 . / Р¦РІРµС‚:Р±РµР»С‹Р№/СЃРµСЂРµР±СЂРёСЃС‚С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'ELECTROLUX EWS1052NDU', N'Тип: узкая. / Количество белья при стирке: 5 кг. / Скорость отжима: 1000 об/мин. / Класс энергопотребления: А++.
-					Дисплей: нет. / Количество программ: 14. / Габариты (ВхШхГ) : 85х59,5х37,7. / Цвет:белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'ELECTROLUX EWS1052NDU', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 5 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 1000 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ++.
+					Р”РёСЃРїР»РµР№: РЅРµС‚. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 14. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85С…59,5С…37,7. / Р¦РІРµС‚:Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'LG F80C3LD', N'Тип: узкая. / Количество белья при стирке: 5 кг. / Скорость отжима: 800 об/мин./ Класс энергопотребления: А++. 
-					Дисплей: нет. / Количество программ: 9. / Габариты (ВхШхГ) : 85x60x44 см. / Вес: 59 кг. / Цвет:белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'LG F80C3LD', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 5 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 800 РѕР±/РјРёРЅ./ РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ++. 
+					Р”РёСЃРїР»РµР№: РЅРµС‚. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 9. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85x60x44 СЃРј. / Р’РµСЃ: 59 РєРі. / Р¦РІРµС‚:Р±РµР»С‹Р№.' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'GORENJE W 7202/S ', N'Тип: узкая. / Количество белья при стирке: 7 кг. / Скорость отжима: 1000 об/мин. / Класс энергопотребления: А++. 
-					Дисплей: нет. / Количество программ: 18. / Габариты (ВхШхГ) : 85х60х44 см. / Вес: 61,5 кг. / Цвет:белый.' from [dbo].[Products]
+Select MAX(Id),'RU',N'GORENJE W 7202/S ', N'РўРёРї: СѓР·РєР°СЏ. / РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РµР»СЊСЏ РїСЂРё СЃС‚РёСЂРєРµ: 7 РєРі. / РЎРєРѕСЂРѕСЃС‚СЊ РѕС‚Р¶РёРјР°: 1000 РѕР±/РјРёРЅ. / РљР»Р°СЃСЃ СЌРЅРµСЂРіРѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ: Рђ++. 
+					Р”РёСЃРїР»РµР№: РЅРµС‚. / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 18. / Р“Р°Р±Р°СЂРёС‚С‹ (Р’С…РЁС…Р“) : 85С…60С…44 СЃРј. / Р’РµСЃ: 61,5 РєРі. / Р¦РІРµС‚:Р±РµР»С‹Р№.' from [dbo].[Products]
 
 
 
@@ -781,79 +776,79 @@ Select MAX(Id),N'RU',N'GORENJE W 7202/S ', N'Тип: узкая. / Количество белья при 
 INSERT INTO [dbo].[Categories]([TopId])
 values (NULL)
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),N'Ru',N'Спортивные товары',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'РЎРїРѕСЂС‚РёРІРЅС‹Рµ С‚РѕРІР°СЂС‹',NULL from [dbo].[Categories]
 
 INSERT INTO [dbo].[Categories]([TopId])
 values (1)
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),N'Ru',N'Беговые дорожки',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'Р‘РµРіРѕРІС‹Рµ РґРѕСЂРѕР¶РєРё',NULL from [dbo].[Categories]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'EnergyFIT EF-6606B ', N'Назначение: Домашние / конструкция: складные / особенности: транспортировочные ролики, подставка для аксессуаров
-					максимальная скорость: 14 км/ч / максимальный вес пользователя: 125 кг / регулировка угла наклона: механическая' from [dbo].[Products]
+Select MAX(Id),'RU',N'EnergyFIT EF-6606B ', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РєРѕРЅСЃС‚СЂСѓРєС†РёСЏ: СЃРєР»Р°РґРЅС‹Рµ / РѕСЃРѕР±РµРЅРЅРѕСЃС‚Рё: С‚СЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРѕС‡РЅС‹Рµ СЂРѕР»РёРєРё, РїРѕРґСЃС‚Р°РІРєР° РґР»СЏ Р°РєСЃРµСЃСЃСѓР°СЂРѕРІ
+					РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 14 РєРј/С‡ / РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 125 РєРі / СЂРµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: РјРµС…Р°РЅРёС‡РµСЃРєР°СЏ' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N' EnergyFIT EF-5501В ', N'Назначение: Домашние / Конструкция: Складные / Особенности: Транспортировочные ролики, Подставка для аксессуаров
-					Максимальная скорость: 13 км/ч / Максимальный вес пользователя: 120 кг / Регулировка угла наклона: Механическая' from [dbo].[Products]
+Select MAX(Id),'RU',N' EnergyFIT EF-5501Р’ ', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: РўСЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРѕС‡РЅС‹Рµ СЂРѕР»РёРєРё, РџРѕРґСЃС‚Р°РІРєР° РґР»СЏ Р°РєСЃРµСЃСЃСѓР°СЂРѕРІ
+					РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 13 РєРј/С‡ / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 120 РєРі / Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: РњРµС…Р°РЅРёС‡РµСЃРєР°СЏ' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'EnergyFIT EF-7705A ', N'Назначение: Домашние / Конструкция: Складные / Особенности: Транспортировочные ролики, Подставка для аксессуаров
-					Максимальная скорость: 16 км/ч / Максимальный вес пользователя: 140 кг / Регулировка угла наклона: Механическая' from [dbo].[Products]
+Select MAX(Id),'RU',N'EnergyFIT EF-7705A ', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: РўСЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРѕС‡РЅС‹Рµ СЂРѕР»РёРєРё, РџРѕРґСЃС‚Р°РІРєР° РґР»СЏ Р°РєСЃРµСЃСЃСѓР°СЂРѕРІ
+					РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 16 РєРј/С‡ / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 140 РєРі / Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: РњРµС…Р°РЅРёС‡РµСЃРєР°СЏ' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'InterAtletika Jessie KL-803',N'Назначение: Домашние / Конструкция: Складные / Особенности: Транспортировочные ролик, / Максимальный вес пользователя: 100 кг
-					Регулировка угла наклона: Механическая' from [dbo].[Products]
+Select MAX(Id),'RU',N'InterAtletika Jessie KL-803',N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: РўСЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРѕС‡РЅС‹Рµ СЂРѕР»РёРє, / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 100 РєРі
+					Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: РњРµС…Р°РЅРёС‡РµСЃРєР°СЏ' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'ProForm Endurance S9 (PETL99714) ', N'Назначение: Домашние / Конструкция: Складные / Особенности: Вентилятор / Максимальная скорость: 20 км/ч
-					Максимальный вес пользователя: 135 кг / Регулировка угла наклона: Электрическая' from [dbo].[Products]
+Select MAX(Id),'RU',N'ProForm Endurance S9 (PETL99714) ', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: Р’РµРЅС‚РёР»СЏС‚РѕСЂ / РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 20 РєРј/С‡
+					РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 135 РєРі / Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: Р­Р»РµРєС‚СЂРёС‡РµСЃРєР°СЏ' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'NordicTrack T15 (NETL14711)',N'Назначение: Домашние / Конструкция: Складные / Особенности: Вентилятор / Максимальная скорость: 22 км/ч
-					Максимальный вес пользователя: 159 кг / Регулировка угла наклона: Электрическая' from [dbo].[Products]
+Select MAX(Id),'RU',N'NordicTrack T15 (NETL14711)',N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: Р’РµРЅС‚РёР»СЏС‚РѕСЂ / РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 22 РєРј/С‡
+					РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 159 РєРі / Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: Р­Р»РµРєС‚СЂРёС‡РµСЃРєР°СЏ' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),N'RU',N'Spirit Esprit XT-485 ',N'Назначение: Домашние / Конструкция: Складные / Особенности: Транспортировочные ролики, Подставка для аксессуаров, Держатель для бутылки, Вентилятор
-					Максимальная скорость: 18 км/ч / Максимальный вес пользователя: 195 кг / Регулировка угла наклона: Электрическая' from [dbo].[Products]
+Select MAX(Id),'RU',N'Spirit Esprit XT-485 ',N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: РўСЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРѕС‡РЅС‹Рµ СЂРѕР»РёРєРё, РџРѕРґСЃС‚Р°РІРєР° РґР»СЏ Р°РєСЃРµСЃСЃСѓР°СЂРѕРІ, Р”РµСЂР¶Р°С‚РµР»СЊ РґР»СЏ Р±СѓС‚С‹Р»РєРё, Р’РµРЅС‚РёР»СЏС‚РѕСЂ
+					РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 18 РєРј/С‡ / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 195 РєРі / Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: Р­Р»РµРєС‚СЂРёС‡РµСЃРєР°СЏ' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'NordicTrack C200 (NETL10814)', N'Назначение: Домашние / Конструкция: Складные / Особенности: Вентилятор / Максимальная скорость: 20 км/ч
-					Максимальный вес пользователя: 150 кг / Регулировка угла наклона: Электрическая' from [dbo].[Products]
+Select MAX(Id),'RU',N'NordicTrack C200 (NETL10814)', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: Р’РµРЅС‚РёР»СЏС‚РѕСЂ / РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 20 РєРј/С‡
+					РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 150 РєРі / Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: Р­Р»РµРєС‚СЂРёС‡РµСЃРєР°СЏ' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'HouseFit HT 9138HP (HT 9138HP)',N'Назначение: Домашние / Конструкция: Складные /  Максимальная скорость: 12 км/ч
-					Максимальный вес пользователя: 100 кг / Регулировка угла наклона: Механическая' from [dbo].[Products]
+Select MAX(Id),'RU',N'HouseFit HT 9138HP (HT 9138HP)',N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ /  РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 12 РєРј/С‡
+					РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 100 РєРі / Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: РњРµС…Р°РЅРёС‡РµСЃРєР°СЏ' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 3700,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Circle Fitness M7', N'Назначение: Профессиональные / Конструкция: Нескладные / Особенности: Транспортировочные ролики, Подставка для аксессуаров, Держатель для бутылки, Вентилятор
-					Максимальная скорость: 20 км/ч / Максимальный вес пользователя: 182 кг/ Регулировка угла наклона: Электрическая' from [dbo].[Products]
+Select MAX(Id),'RU','Circle Fitness M7', N'РќР°Р·РЅР°С‡РµРЅРёРµ: РџСЂРѕС„РµСЃСЃРёРѕРЅР°Р»СЊРЅС‹Рµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РќРµСЃРєР»Р°РґРЅС‹Рµ / РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё: РўСЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРѕС‡РЅС‹Рµ СЂРѕР»РёРєРё, РџРѕРґСЃС‚Р°РІРєР° РґР»СЏ Р°РєСЃРµСЃСЃСѓР°СЂРѕРІ, Р”РµСЂР¶Р°С‚РµР»СЊ РґР»СЏ Р±СѓС‚С‹Р»РєРё, Р’РµРЅС‚РёР»СЏС‚РѕСЂ
+					РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 20 РєРј/С‡ / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 182 РєРі/ Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: Р­Р»РµРєС‚СЂРёС‡РµСЃРєР°СЏ' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 2900,1,2015-05-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Discovery F-16', N'Назначение: Домашние / Конструкция: Складные /  Максимальная скорость: 16 км/ч
-					Максимальный вес пользователя: 120 кг / Регулировка угла наклона: Электрическая' from [dbo].[Products]
+Select MAX(Id),'RU','Discovery F-16', N'РќР°Р·РЅР°С‡РµРЅРёРµ: Р”РѕРјР°С€РЅРёРµ / РљРѕРЅСЃС‚СЂСѓРєС†РёСЏ: РЎРєР»Р°РґРЅС‹Рµ /  РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: 16 РєРј/С‡
+					РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 120 РєРі / Р РµРіСѓР»РёСЂРѕРІРєР° СѓРіР»Р° РЅР°РєР»РѕРЅР°: Р­Р»РµРєС‚СЂРёС‡РµСЃРєР°СЏ' from [dbo].[Products]
 
 
 
@@ -861,117 +856,117 @@ Select MAX(Id),'RU','Discovery F-16', N'Назначение: Домашние / Конструкция: Скла
 INSERT INTO [dbo].[Categories]([TopId])
 values (2)
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),'Ru',N'Велотренажеры',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'Р’РµР»РѕС‚СЂРµРЅР°Р¶РµСЂС‹',NULL from [dbo].[Categories]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Reebok One Series GB50 (RVON-10401BK)',N'Тип: Электромагнитные / Уровни нагрузки: 32 / Количество программ: 23 / Максимальный вес пользователя: 120 кг' from [dbo].[Products]
+Select MAX(Id),'RU','Reebok One Series GB50 (RVON-10401BK)',N'РўРёРї: Р­Р»РµРєС‚СЂРѕРјР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 32 / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 23 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 120 РєРі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Reebok One Series GB40 (RVON-10101BK)',N'Тип: Электромагнитные / Уровни нагрузки: 8 / Максимальный вес пользователя: 110 кг / Количество программ: 4' from [dbo].[Products]
+Select MAX(Id),'RU','Reebok One Series GB40 (RVON-10101BK)',N'РўРёРї: Р­Р»РµРєС‚СЂРѕРјР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 8 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 110 РєРі / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 4' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Sportop B800P+ ', N'Тип: Электромагнитные / Уровни нагрузки: 16 / Максимальный вес пользователя: 130 кг / Количество программ: 16
-					Цена: 10 441 грн ' from [dbo].[Products]
+Select MAX(Id),'RU','Sportop B800P+ ', N'РўРёРї: Р­Р»РµРєС‚СЂРѕРјР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 16 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 130 РєРі / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 16
+					Р¦РµРЅР°: 10 441 РіСЂРЅ ' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Sportop B600', N'Тип: Магнитные / Уровни нагрузки: 8 / Максимальный вес пользователя: 105 кг / Количество программ: Нет' from [dbo].[Products]
+Select MAX(Id),'RU','Sportop B600', N'РўРёРї: РњР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 8 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 105 РєРі / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: РќРµС‚' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','InterFit Bike Drive (K.07)', N'Тип: Магнитные / Уровни нагрузки: 8 / Максимальный вес пользователя: 120 кг / Количество программ: 8' from [dbo].[Products]
+Select MAX(Id),'RU','InterFit Bike Drive (K.07)', N'РўРёРї: РњР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 8 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 120 РєРі / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 8' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','HouseFit Kinetic B1.0 (KINETIC B1.0)', N'Тип: Магнитные / Уровни нагрузки: 8 / Максимальный вес пользователя: 120 к, / Количество программ: Нет' from [dbo].[Products]
+Select MAX(Id),'RU','HouseFit Kinetic B1.0 (KINETIC B1.0)', N'РўРёРї: РњР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 8 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 120 Рє, / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: РќРµС‚' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','EnergyFIT BC1200 ', N'Тип: Магнитные / Уровни нагрузки: 8 / Максимальный вес пользователя: 110 кг / Количество программ: Нет' from [dbo].[Products]
+Select MAX(Id),'RU','EnergyFIT BC1200 ', N'РўРёРї: РњР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 8 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 110 РєРі / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: РќРµС‚' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','EnergyFIT GB1206',N'Тип: Магнитные / Уровни нагрузки: 8 / Максимальный вес пользователя: 100 кг / Количество программ: Нет' from [dbo].[Products]
+Select MAX(Id),'RU','EnergyFIT GB1206',N'РўРёРї: РњР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 8 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 100 РєРі / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: РќРµС‚' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','EnergyFIT GBBT1503', N'Тип: Магнитные / Максимальный вес пользователя: 100 кг' from [dbo].[Products]
+Select MAX(Id),'RU','EnergyFIT GBBT1503', N'РўРёРї: РњР°РіРЅРёС‚РЅС‹Рµ / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 100 РєРі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','NordicTrack GX 5.0 (NTEVEX71014) ', N'Тип: Электромагнитные / Уровни нагрузки: 20 / Максимальный вес пользователя: 125 кг / Количество программ: 20' from [dbo].[Products]
+Select MAX(Id),'RU','NordicTrack GX 5.0 (NTEVEX71014) ', N'РўРёРї: Р­Р»РµРєС‚СЂРѕРјР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 20 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 125 РєРі / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 20' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Vision R60', N'Тип: Электромагнитные / Уровни нагрузки: 25 / Максимальный вес пользователя: 182 кг / Количество программ: 12' from [dbo].[Products]
+Select MAX(Id),'RU','Vision R60', N'РўРёРї: Р­Р»РµРєС‚СЂРѕРјР°РіРЅРёС‚РЅС‹Рµ / РЈСЂРѕРІРЅРё РЅР°РіСЂСѓР·РєРё: 25 / РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ: 182 РєРі / РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРіСЂР°РјРј: 12' from [dbo].[Products]
 
 
 
 INSERT INTO [dbo].[Categories]([TopId])
 values (3)
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),'Ru',N'Гантели, диски',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'Р“Р°РЅС‚РµР»Рё, РґРёСЃРєРё',NULL from [dbo].[Categories]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 1700,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'Гантель чугунная наборная Body Max 25 кг (ВМ-018)', N'Тип: Гантели / Вид замка: Винтовой / Форма грифа: Прямая / Длина: 38 см' from [dbo].[Products]
+Select MAX(Id),'RU',N'Р“Р°РЅС‚РµР»СЊ С‡СѓРіСѓРЅРЅР°СЏ РЅР°Р±РѕСЂРЅР°СЏ Body Max 25 РєРі (Р’Рњ-018)', N'РўРёРї: Р“Р°РЅС‚РµР»Рё / Р’РёРґ Р·Р°РјРєР°: Р’РёРЅС‚РѕРІРѕР№ / Р¤РѕСЂРјР° РіСЂРёС„Р°: РџСЂСЏРјР°СЏ / Р”Р»РёРЅР°: 38 СЃРј' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'Гантель наборная Newt 17.5 кг (TI-968-745-17)', 'Тип: Гантели / Вид замка: Винтовой / Форма грифа: Прямая / Длина: 33 см' from [dbo].[Products]
+Select MAX(Id),'RU',N'Р“Р°РЅС‚РµР»СЊ РЅР°Р±РѕСЂРЅР°СЏ Newt 17.5 РєРі (TI-968-745-17)', 'РўРёРї: Р“Р°РЅС‚РµР»Рё / Р’РёРґ Р·Р°РјРєР°: Р’РёРЅС‚РѕРІРѕР№ / Р¤РѕСЂРјР° РіСЂРёС„Р°: РџСЂСЏРјР°СЏ / Р”Р»РёРЅР°: 33 СЃРј' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'Гантель наборная Newt 15.5 кг (TI-968-745-1-1)',N'Тип: Гантели / Вид замка: Винтовой / Форма грифа: Прямая / Длина: 33 см' from [dbo].[Products]
+Select MAX(Id),'RU',N'Р“Р°РЅС‚РµР»СЊ РЅР°Р±РѕСЂРЅР°СЏ Newt 15.5 РєРі (TI-968-745-1-1)',N'РўРёРї: Р“Р°РЅС‚РµР»Рё / Р’РёРґ Р·Р°РјРєР°: Р’РёРЅС‚РѕРІРѕР№ / Р¤РѕСЂРјР° РіСЂРёС„Р°: РџСЂСЏРјР°СЏ / Р”Р»РёРЅР°: 33 СЃРј' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'Гантель наборная Newt 10 кг (TI-968-747)', N'Тип: Гантели / Вид замка: Винтовой / Форма грифа: Прямая / Длина: 33 см' from [dbo].[Products]
+Select MAX(Id),'RU',N'Р“Р°РЅС‚РµР»СЊ РЅР°Р±РѕСЂРЅР°СЏ Newt 10 РєРі (TI-968-747)', N'РўРёРї: Р“Р°РЅС‚РµР»Рё / Р’РёРґ Р·Р°РјРєР°: Р’РёРЅС‚РѕРІРѕР№ / Р¤РѕСЂРјР° РіСЂРёС„Р°: РџСЂСЏРјР°СЏ / Р”Р»РёРЅР°: 33 СЃРј' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'Гантель наборная Newt 25.5 кг (TI-968-745-25-1) ', N'Тип: Гантели / Вид замка: Винтовой / Форма грифа: Прямая / Длина: 40 см' from [dbo].[Products]
-
-
-INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
-select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
-INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N' Гантель чугунная наборная Body Max 20 кг (ВМ-016) ', N'Тип: Гантели / Вид замка: Винтовой / Форма грифа: Прямая / Длина: 38 см' from [dbo].[Products]
-
-INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
-select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
-INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'Диск Newt стальной 5 кг (TI-0006)', N'Тип: Диски / Материал: Сталь / Покрытие: Покраска / Диаметр отвертсия: 27 - 30 мм' from [dbo].[Products]
+Select MAX(Id),'RU',N'Р“Р°РЅС‚РµР»СЊ РЅР°Р±РѕСЂРЅР°СЏ Newt 25.5 РєРі (TI-968-745-25-1) ', N'РўРёРї: Р“Р°РЅС‚РµР»Рё / Р’РёРґ Р·Р°РјРєР°: Р’РёРЅС‚РѕРІРѕР№ / Р¤РѕСЂРјР° РіСЂРёС„Р°: РџСЂСЏРјР°СЏ / Р”Р»РёРЅР°: 40 СЃРј' from [dbo].[Products]
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'Диск Newt стальной 1 кг (TI-0011)',N'Тип: Диски / Материал: Сталь / Покрытие: Покраска / Диаметр отвертсия: 27 - 30 мм' from [dbo].[Products]
+Select MAX(Id),'RU',N' Р“Р°РЅС‚РµР»СЊ С‡СѓРіСѓРЅРЅР°СЏ РЅР°Р±РѕСЂРЅР°СЏ Body Max 20 РєРі (Р’Рњ-016) ', N'РўРёРї: Р“Р°РЅС‚РµР»Рё / Р’РёРґ Р·Р°РјРєР°: Р’РёРЅС‚РѕРІРѕР№ / Р¤РѕСЂРјР° РіСЂРёС„Р°: РџСЂСЏРјР°СЏ / Р”Р»РёРЅР°: 38 СЃРј' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'Диск Newt стальной 3 кг (TI-0014)',N'Тип: Диски / Материал: Сталь / Покрытие: Покраска / Диаметр отвертсия: 27 - 30 мм' from [dbo].[Products]
+Select MAX(Id),'RU',N'Р”РёСЃРє Newt СЃС‚Р°Р»СЊРЅРѕР№ 5 РєРі (TI-0006)', N'РўРёРї: Р”РёСЃРєРё / РњР°С‚РµСЂРёР°Р»: РЎС‚Р°Р»СЊ / РџРѕРєСЂС‹С‚РёРµ: РџРѕРєСЂР°СЃРєР° / Р”РёР°РјРµС‚СЂ РѕС‚РІРµСЂС‚СЃРёСЏ: 27 - 30 РјРј' from [dbo].[Products]
+
+
+INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
+select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
+INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
+Select MAX(Id),'RU',N'Р”РёСЃРє Newt СЃС‚Р°Р»СЊРЅРѕР№ 1 РєРі (TI-0011)',N'РўРёРї: Р”РёСЃРєРё / РњР°С‚РµСЂРёР°Р»: РЎС‚Р°Р»СЊ / РџРѕРєСЂС‹С‚РёРµ: РџРѕРєСЂР°СЃРєР° / Р”РёР°РјРµС‚СЂ РѕС‚РІРµСЂС‚СЃРёСЏ: 27 - 30 РјРј' from [dbo].[Products]
+
+INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
+select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
+INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
+Select MAX(Id),'RU',N'Р”РёСЃРє Newt СЃС‚Р°Р»СЊРЅРѕР№ 3 РєРі (TI-0014)',N'РўРёРї: Р”РёСЃРєРё / РњР°С‚РµСЂРёР°Р»: РЎС‚Р°Р»СЊ / РџРѕРєСЂС‹С‚РёРµ: РџРѕРєСЂР°СЃРєР° / Р”РёР°РјРµС‚СЂ РѕС‚РІРµСЂС‚СЃРёСЏ: 27 - 30 РјРј' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
@@ -981,7 +976,7 @@ Select MAX(Id),'RU','', '' from [dbo].[Products]
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'Наборная штанга Newt Home 50 кг (TI-0201-180-50)', N'Тип: Штанги / Вид замка: Винтовой / Форма грифа: Прямая / Длина: 180 см' from [dbo].[Products]
+Select MAX(Id),'RU',N'РќР°Р±РѕСЂРЅР°СЏ С€С‚Р°РЅРіР° Newt Home 50 РєРі (TI-0201-180-50)', N'РўРёРї: РЁС‚Р°РЅРіРё / Р’РёРґ Р·Р°РјРєР°: Р’РёРЅС‚РѕРІРѕР№ / Р¤РѕСЂРјР° РіСЂРёС„Р°: РџСЂСЏРјР°СЏ / Р”Р»РёРЅР°: 180 СЃРј' from [dbo].[Products]
 
 
 
@@ -989,62 +984,62 @@ Select MAX(Id),'RU',N'Наборная штанга Newt Home 50 кг (TI-0201-180-50)', N'Тип: 
 INSERT INTO [dbo].[Categories]([TopId])
 values (NULL)
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),'Ru',N'Активный отдых и туризм',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'РђРєС‚РёРІРЅС‹Р№ РѕС‚РґС‹С… Рё С‚СѓСЂРёР·Рј',NULL from [dbo].[Categories]
 
 INSERT INTO [dbo].[Categories]([TopId])
 values (1)
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),'Ru',N'Лодки',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'Р›РѕРґРєРё',NULL from [dbo].[Categories]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'Storm mk240',N'Тип: Гребные / Тип днища: Без днища в комплекте / Пассажировместимость: 2 чел. / Поворотные уключины и алюминиевые весла' from [dbo].[Products]
+Select MAX(Id),'RU',N'Storm mk240',N'РўРёРї: Р“СЂРµР±РЅС‹Рµ / РўРёРї РґРЅРёС‰Р°: Р‘РµР· РґРЅРёС‰Р° РІ РєРѕРјРїР»РµРєС‚Рµ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 2 С‡РµР». / РџРѕРІРѕСЂРѕС‚РЅС‹Рµ СѓРєР»СЋС‡РёРЅС‹ Рё Р°Р»СЋРјРёРЅРёРµРІС‹Рµ РІРµСЃР»Р°' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'Ладья ЛТ-190', N'Тип: Гребные / Тип днища: Без днища в комплекте / Пассажировместимость: 1 чел. ' from [dbo].[Products]
+Select MAX(Id),'RU',N'Р›Р°РґСЊСЏ Р›Рў-190', N'РўРёРї: Р“СЂРµР±РЅС‹Рµ / РўРёРї РґРЅРёС‰Р°: Р‘РµР· РґРЅРёС‰Р° РІ РєРѕРјРїР»РµРєС‚Рµ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 1 С‡РµР». ' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'Ладья ЛТ-190У', N'Тип: Гребные / Тип днища: Без днища в комплекте / Пассажировместимость: 1 чел.' from [dbo].[Products]
+Select MAX(Id),'RU',N'Р›Р°РґСЊСЏ Р›Рў-190РЈ', N'РўРёРї: Р“СЂРµР±РЅС‹Рµ / РўРёРї РґРЅРёС‰Р°: Р‘РµР· РґРЅРёС‰Р° РІ РєРѕРјРїР»РµРєС‚Рµ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 1 С‡РµР».' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'Ладья ЛТ-330М', N'Тип: Гребные / Тип днища: Без днища в комплекте / Пассажировместимость: 4 чел.' from [dbo].[Products]
+Select MAX(Id),'RU',N'Р›Р°РґСЊСЏ Р›Рў-330Рњ', N'РўРёРї: Р“СЂРµР±РЅС‹Рµ / РўРёРї РґРЅРёС‰Р°: Р‘РµР· РґРЅРёС‰Р° РІ РєРѕРјРїР»РµРєС‚Рµ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 4 С‡РµР».' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Storm stk-380', N'Тип: Моторные со стационарным транцем / Тип днища: Жесткое разборное / Пассажировместимость: 4 чел.' from [dbo].[Products]
+Select MAX(Id),'RU','Storm stk-380', N'РўРёРї: РњРѕС‚РѕСЂРЅС‹Рµ СЃРѕ СЃС‚Р°С†РёРѕРЅР°СЂРЅС‹Рј С‚СЂР°РЅС†РµРј / РўРёРї РґРЅРёС‰Р°: Р–РµСЃС‚РєРѕРµ СЂР°Р·Р±РѕСЂРЅРѕРµ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 4 С‡РµР».' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'Ладья ЛО-250-С ', N'Тип: Гребные / Тип днища: Слань / Пассажировместимость: 2 чел.' from [dbo].[Products]
+Select MAX(Id),'RU',N'Р›Р°РґСЊСЏ Р›Рћ-250-РЎ ', N'РўРёРї: Р“СЂРµР±РЅС‹Рµ / РўРёРї РґРЅРёС‰Р°: РЎР»Р°РЅСЊ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 2 С‡РµР».' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',N'Ладья ЛТ-220-ДС', N'Тип: Гребные / Тип днища: Слань / Пассажировместимость: 1 чел.' from [dbo].[Products]
+Select MAX(Id),'RU',N'Р›Р°РґСЊСЏ Р›Рў-220-Р”РЎ', N'РўРёРї: Р“СЂРµР±РЅС‹Рµ / РўРёРї РґРЅРёС‰Р°: РЎР»Р°РЅСЊ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 1 С‡РµР».' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Storm stm-280-40 ', N'Тип: Моторные со стационарным транцем / Тип днища: Слань / Пассажировместимость: 2 чел.' from [dbo].[Products]
+Select MAX(Id),'RU','Storm stm-280-40 ', N'РўРёРї: РњРѕС‚РѕСЂРЅС‹Рµ СЃРѕ СЃС‚Р°С†РёРѕРЅР°СЂРЅС‹Рј С‚СЂР°РЅС†РµРј / РўРёРї РґРЅРёС‰Р°: РЎР»Р°РЅСЊ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 2 С‡РµР».' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Storm stm-330 ', N'Тип: Моторные со стационарным транцем / Тип днища: Слань / Пассажировместимость: 2 чел.' from [dbo].[Products]
+Select MAX(Id),'RU','Storm stm-330 ', N'РўРёРї: РњРѕС‚РѕСЂРЅС‹Рµ СЃРѕ СЃС‚Р°С†РёРѕРЅР°СЂРЅС‹Рј С‚СЂР°РЅС†РµРј / РўРёРї РґРЅРёС‰Р°: РЎР»Р°РЅСЊ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 2 С‡РµР».' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',' Storm mk260', N'Тип: Гребные / Тип днища: Без днища в комплекте / Пассажировместимость: 2 чел.' from [dbo].[Products]
+Select MAX(Id),'RU',' Storm mk260', N'РўРёРї: Р“СЂРµР±РЅС‹Рµ / РўРёРї РґРЅРёС‰Р°: Р‘РµР· РґРЅРёС‰Р° РІ РєРѕРјРїР»РµРєС‚Рµ / РџР°СЃСЃР°Р¶РёСЂРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ: 2 С‡РµР».' from [dbo].[Products]
 
 
 
@@ -1053,121 +1048,121 @@ Select MAX(Id),'RU',' Storm mk260', N'Тип: Гребные / Тип днища: Без днища в комп
 INSERT INTO [dbo].[Categories]([TopId])
 values (2)
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),'Ru',N'Бинокли',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'Р‘РёРЅРѕРєР»Рё',NULL from [dbo].[Categories]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Arsenal 20x50 (10-2050) ', N'Тип: Бинокль / Кратность приближения: 20x / Диаметр объектива: 50 мм / Вес: 0.74 кг' from [dbo].[Products]
+Select MAX(Id),'RU','Arsenal 20x50 (10-2050) ', N'РўРёРї: Р‘РёРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 20x / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 50 РјРј / Р’РµСЃ: 0.74 РєРі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',' Arsenal 7x50 Морской Чёрный (NB61-0750C1 Black)',N'Тип: Бинокль / Кратность приближения: 7x / Диаметр объектива: 50 мм / Вес: 0.89 кг' from [dbo].[Products]
+Select MAX(Id),'RU',' Arsenal 7x50 РњРѕСЂСЃРєРѕР№ Р§С‘СЂРЅС‹Р№ (NB61-0750C1 Black)',N'РўРёРї: Р‘РёРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 7x / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 50 РјРј / Р’РµСЃ: 0.89 РєРі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Arsenal 12x25 NB25-1225', N'Тип: Бинокль / Диаметр объектива: 25 мм / Вес: 0.25 кг' from [dbo].[Products]
+Select MAX(Id),'RU','Arsenal 12x25 NB25-1225', N'РўРёРї: Р‘РёРЅРѕРєР»СЊ / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 25 РјРј / Р’РµСЃ: 0.25 РєРі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Alpen Sport II 10x25 Green (920296)', 'Тип: Бинокль / Кратность приближения: 10х / Диаметр объектива: 25 мм / Вес: 0.2 кг' from [dbo].[Products]
+Select MAX(Id),'RU','Alpen Sport II 10x25 Green (920296)', 'РўРёРї: Р‘РёРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 10С… / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 25 РјРј / Р’РµСЃ: 0.2 РєРі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Arsenal 10-30х60 Porro (BF1-103060)', N'Тип: Бинокль / Кратность приближения: 10x - 30x / Диаметр объектива: 60 мм / Вес: 0.85 кг' from [dbo].[Products]
+Select MAX(Id),'RU','Arsenal 10-30С…60 Porro (BF1-103060)', N'РўРёРї: Р‘РёРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 10x - 30x / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 60 РјРј / Р’РµСЃ: 0.85 РєРі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Arsenal 12x25 NB27-1225 ', N'Тип: Монокль / Кратность приближения: 12x / Диаметр объектива: 25 мм / Вес: 0.07 кг' from [dbo].[Products]
+Select MAX(Id),'RU','Arsenal 12x25 NB27-1225 ', N'РўРёРї: РњРѕРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 12x / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 25 РјРј / Р’РµСЃ: 0.07 РєРі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Arsenal 10x50 (10-1050)', N'Тип: Бинокль / Кратность приближения: 10х / Диаметр объектива: 50 мм / Вес: 0.7 кг' from [dbo].[Products]
+Select MAX(Id),'RU','Arsenal 10x50 (10-1050)', N'РўРёРї: Р‘РёРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 10С… / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 50 РјРј / Р’РµСЃ: 0.7 РєРі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Praktica 12x25 (920721)',N'Бинокль Zeiss Victory HT 10х42 524529 (7120216)' from [dbo].[Products]
+Select MAX(Id),'RU','Praktica 12x25 (920721)',N'Р‘РёРЅРѕРєР»СЊ Zeiss Victory HT 10С…42 524529 (7120216)' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Бинокль Zeiss Victory HT 10х42 524529 (7120216)',N'Тип: Бинокль / Кратность приближения: 10x / Диаметр объектива: 42 мм / Вес: 0.8 кг' from [dbo].[Products]
+Select MAX(Id),'RU','Р‘РёРЅРѕРєР»СЊ Zeiss Victory HT 10С…42 524529 (7120216)',N'РўРёРї: Р‘РёРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 10x / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 42 РјРј / Р’РµСЃ: 0.8 РєРі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Kowa SV 10x42 WP (914770)', N'Тип: Бинокль / Кратность приближения: 10х / Диаметр объектива: 42 мм / Вес: 0.67 кг' from [dbo].[Products]
+Select MAX(Id),'RU','Kowa SV 10x42 WP (914770)', N'РўРёРї: Р‘РёРЅРѕРєР»СЊ / РљСЂР°С‚РЅРѕСЃС‚СЊ РїСЂРёР±Р»РёР¶РµРЅРёСЏ: 10С… / Р”РёР°РјРµС‚СЂ РѕР±СЉРµРєС‚РёРІР°: 42 РјРј / Р’РµСЃ: 0.67 РєРі' from [dbo].[Products]
 
 
 INSERT INTO [dbo].[Categories]([TopId])
 values (3)
 INSERT INTO [dbo].[Categories_tr] ([Id],[Languagecode],[Name],[Description])
-select MAX(Id),'Ru',N'Рации',NULL from [dbo].[Categories]
+select MAX(Id),'Ru',N'Р Р°С†РёРё',NULL from [dbo].[Categories]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 500,1,2015-10-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Motorola TLKR T80 Extreme', N'Стандарт: PMR446 / Назначение: Переносные безлицензионные / Мощность: 0.5 Вт 
-					Дальность связи: до 10 км / Вес: 140 г' from [dbo].[Products]
+Select MAX(Id),'RU','Motorola TLKR T80 Extreme', N'РЎС‚Р°РЅРґР°СЂС‚: PMR446 / РќР°Р·РЅР°С‡РµРЅРёРµ: РџРµСЂРµРЅРѕСЃРЅС‹Рµ Р±РµР·Р»РёС†РµРЅР·РёРѕРЅРЅС‹Рµ / РњРѕС‰РЅРѕСЃС‚СЊ: 0.5 Р’С‚ 
+					Р”Р°Р»СЊРЅРѕСЃС‚СЊ СЃРІСЏР·Рё: РґРѕ 10 РєРј / Р’РµСЃ: 140 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 500,1,2015-10-07    from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Voxtel MR160 ', N'Стандарт: PMR446 / Назначение: Переносные безлицензионные / Мощность: 0.5 Вт
-					Дальность связи: до 3 км / Вес: 76 г' from [dbo].[Products]
+Select MAX(Id),'RU','Voxtel MR160 ', N'РЎС‚Р°РЅРґР°СЂС‚: PMR446 / РќР°Р·РЅР°С‡РµРЅРёРµ: РџРµСЂРµРЅРѕСЃРЅС‹Рµ Р±РµР·Р»РёС†РµРЅР·РёРѕРЅРЅС‹Рµ / РњРѕС‰РЅРѕСЃС‚СЊ: 0.5 Р’С‚
+					Р”Р°Р»СЊРЅРѕСЃС‚СЊ СЃРІСЏР·Рё: РґРѕ 3 РєРј / Р’РµСЃ: 76 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 500,1,2015-10-07    from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Motorola TLKR T80 Extreme ', N'Стандарт: PMR446 / Назначение: Переносные безлицензионные / Мощность: 0.5 Вт
-					Дальность связи: до 10 км / Вес: 140 г' from [dbo].[Products]
+Select MAX(Id),'RU','Motorola TLKR T80 Extreme ', N'РЎС‚Р°РЅРґР°СЂС‚: PMR446 / РќР°Р·РЅР°С‡РµРЅРёРµ: РџРµСЂРµРЅРѕСЃРЅС‹Рµ Р±РµР·Р»РёС†РµРЅР·РёРѕРЅРЅС‹Рµ / РњРѕС‰РЅРѕСЃС‚СЊ: 0.5 Р’С‚
+					Р”Р°Р»СЊРЅРѕСЃС‚СЊ СЃРІСЏР·Рё: РґРѕ 10 РєРј / Р’РµСЃ: 140 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 500,1,2015-10-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Motorola TLKR T41 Pink (P14MAA03A1BN)',N'Стандарт: PMR446 / Назначение: Переносные безлицензионные / Мощность: 0.5 Вт
-					Дальность связи: до 4 км / Вес: 74 г' from [dbo].[Products]
+Select MAX(Id),'RU','Motorola TLKR T41 Pink (P14MAA03A1BN)',N'РЎС‚Р°РЅРґР°СЂС‚: PMR446 / РќР°Р·РЅР°С‡РµРЅРёРµ: РџРµСЂРµРЅРѕСЃРЅС‹Рµ Р±РµР·Р»РёС†РµРЅР·РёРѕРЅРЅС‹Рµ / РњРѕС‰РЅРѕСЃС‚СЊ: 0.5 Р’С‚
+					Р”Р°Р»СЊРЅРѕСЃС‚СЊ СЃРІСЏР·Рё: РґРѕ 4 РєРј / Р’РµСЃ: 74 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 500,1,2015-10-07    from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Yaesu VX-6E', N'Стандарт: VHF/UHF / Назначение: Портативные радиолюбительские / Мощность: 5 Вт / Вес: 270 г
-					Цена: 9 410 грн' from [dbo].[Products]
+Select MAX(Id),'RU','Yaesu VX-6E', N'РЎС‚Р°РЅРґР°СЂС‚: VHF/UHF / РќР°Р·РЅР°С‡РµРЅРёРµ: РџРѕСЂС‚Р°С‚РёРІРЅС‹Рµ СЂР°РґРёРѕР»СЋР±РёС‚РµР»СЊСЃРєРёРµ / РњРѕС‰РЅРѕСЃС‚СЊ: 5 Р’С‚ / Р’РµСЃ: 270 Рі
+					Р¦РµРЅР°: 9 410 РіСЂРЅ' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 500,1,2015-10-07    from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Baofeng UV-3R ', N'Стандарт: VHF/UHF / Назначение: Портативные радиолюбительские / Мощность: 2 Вт
-					Дальность связи: до 5 км / Вес: 150 г' from [dbo].[Products]
+Select MAX(Id),'RU','Baofeng UV-3R ', N'РЎС‚Р°РЅРґР°СЂС‚: VHF/UHF / РќР°Р·РЅР°С‡РµРЅРёРµ: РџРѕСЂС‚Р°С‚РёРІРЅС‹Рµ СЂР°РґРёРѕР»СЋР±РёС‚РµР»СЊСЃРєРёРµ / РњРѕС‰РЅРѕСЃС‚СЊ: 2 Р’С‚
+					Р”Р°Р»СЊРЅРѕСЃС‚СЊ СЃРІСЏР·Рё: РґРѕ 5 РєРј / Р’РµСЃ: 150 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 500,1,2015-10-07    from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','President Truman ASC (TXMU092) ', N'Стандарт: AM/FM / Назначение: Автомобильные / Мощность: 4 Вт / Вес: 700 г' from [dbo].[Products]
+Select MAX(Id),'RU','President Truman ASC (TXMU092) ', N'РЎС‚Р°РЅРґР°СЂС‚: AM/FM / РќР°Р·РЅР°С‡РµРЅРёРµ: РђРІС‚РѕРјРѕР±РёР»СЊРЅС‹Рµ / РњРѕС‰РЅРѕСЃС‚СЊ: 4 Р’С‚ / Р’РµСЃ: 700 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 500,1,2015-10-07    from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Motorola TLKR T60', N'Стандарт: PMR446 / Назначение: Переносные безлицензионные / Мощность: 0.5 Вт
-					Дальность связи: до 8 км / Вес: 103 г' from [dbo].[Products]
+Select MAX(Id),'RU','Motorola TLKR T60', N'РЎС‚Р°РЅРґР°СЂС‚: PMR446 / РќР°Р·РЅР°С‡РµРЅРёРµ: РџРµСЂРµРЅРѕСЃРЅС‹Рµ Р±РµР·Р»РёС†РµРЅР·РёРѕРЅРЅС‹Рµ / РњРѕС‰РЅРѕСЃС‚СЊ: 0.5 Р’С‚
+					Р”Р°Р»СЊРЅРѕСЃС‚СЊ СЃРІСЏР·Рё: РґРѕ 8 РєРј / Р’РµСЃ: 103 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 500,1,2015-10-07    from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','Voxtel MR950',N'Стандарт: PMR446 / Назначение: Переносные безлицензионные / Мощность: 0.5 Вт
-					Дальность связи: до 10 км / Вес: 350 г' from [dbo].[Products]
+Select MAX(Id),'RU','Voxtel MR950',N'РЎС‚Р°РЅРґР°СЂС‚: PMR446 / РќР°Р·РЅР°С‡РµРЅРёРµ: РџРµСЂРµРЅРѕСЃРЅС‹Рµ Р±РµР·Р»РёС†РµРЅР·РёРѕРЅРЅС‹Рµ / РњРѕС‰РЅРѕСЃС‚СЊ: 0.5 Р’С‚
+					Р”Р°Р»СЊРЅРѕСЃС‚СЊ СЃРІСЏР·Рё: РґРѕ 10 РєРј / Р’РµСЃ: 350 Рі' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 500,1,2015-10-07    from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU','President Jimmy II ASC (TXMU045) ',N'Стандарт: AM / Назначение: Автомобильные / Мощность: 4 Вт / Вес: 600 г' from [dbo].[Products]
+Select MAX(Id),'RU','President Jimmy II ASC (TXMU045) ',N'РЎС‚Р°РЅРґР°СЂС‚: AM / РќР°Р·РЅР°С‡РµРЅРёРµ: РђРІС‚РѕРјРѕР±РёР»СЊРЅС‹Рµ / РњРѕС‰РЅРѕСЃС‚СЊ: 4 Р’С‚ / Р’РµСЃ: 600 Рі' from [dbo].[Products]
 
 
 
