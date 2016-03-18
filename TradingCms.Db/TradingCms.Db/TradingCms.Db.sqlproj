@@ -58,5 +58,32 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Tables" />
+    <Folder Include="Tables\Keys" />
+    <Folder Include="Script" />
+    <Folder Include="Tables\Constraints" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Categories.table.sql" />
+    <Build Include="Tables\Products.table.sql" />
+    <Build Include="Tables\ProductImages.table.sql" />
+    <Build Include="Tables\FeedBacks.table.sql" />
+    <Build Include="Tables\Keys\FK_Categories_TopId.fkey.sql" />
+    <Build Include="Tables\Keys\FK_ProductImages_ProductsId.fkey.sql" />
+    <Build Include="Tables\Keys\FK_Products_CategoriesId.fkey.sql" />
+    <Build Include="Tables\Keys\PK_Categories_Id.pkey.sql" />
+    <Build Include="Tables\Keys\PK_Products_Id.pkey.sql" />
+    <Build Include="Tables\Keys\PK_ProductImages_Id.pkey.sql" />
+    <Build Include="Tables\Keys\FK_FeedBacks_ReplyFeedBackId.fkey.sql" />
+    <Build Include="Tables\Keys\PK_FeedBacks_Id.pkey.sql" />
+    <Build Include="Tables\Keys\FK_FeedBacks_ProductsId.fkey.sql" />
+    <Build Include="Tables\Products_tr.table.sql" />
+    <Build Include="Tables\Keys\FK_Products_tr_ProductsId.fkey.sql" />
+    <Build Include="Tables\Categories_tr.table.sql" />
+    <Build Include="Tables\Keys\FK_Categories_tr_Id.fkey.sql" />
+    <Build Include="Tables\Constraints\CHK_FeedBacks_Rate.const.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tables\Constraints\DF_FeedBacks_IsActive.const.sql" />
   </ItemGroup>
 </Project>
