@@ -60,8 +60,8 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="Tables\Keys" />
-    <Folder Include="Script" />
     <Folder Include="Tables\Constraints" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Categories.table.sql" />
@@ -85,6 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Tables\Constraints\DF_FeedBacks_IsActive.const.sql" />
-    <None Include="Script\CreateTestData.sql" />
+    <None Include="Scripts\CreateDataScript.sql" />
   </ItemGroup>
 </Project>
