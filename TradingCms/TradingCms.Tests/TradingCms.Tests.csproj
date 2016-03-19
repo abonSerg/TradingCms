@@ -47,6 +47,10 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.4.0.0.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
@@ -119,6 +123,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TradingCms.Data.Access\TradingCms.Data.Access.csproj">
+      <Project>{6849B044-753C-45B2-8AFB-C580FDEF977E}</Project>
+      <Name>TradingCms.Data.Access</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TradingCms.Data\TradingCms.Data.csproj">
       <Project>{2722FEE1-AE3A-4F74-B029-D2854A422DAF}</Project>
       <Name>TradingCms.Data</Name>

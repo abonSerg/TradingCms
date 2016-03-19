@@ -1,30 +1,52 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TradingCms.Controllers;
+using Moq;
+using TradingCms.Data;
+using TradingCms.Data.Access;
 
 namespace TradingCms.Tests.Controllers
 {
     [TestClass]
     public class CategoryControllerTest
     {
+        private MockRepository _factory;
+        private CategoryController _categoryController;
+        private Mock<IRepository<Category>> _mockCategoryRepository;
+
+        [TestInitialize]
+        public void Init()
+        {
+            _factory = new MockRepository(MockBehavior.Strict);
+            _mockCategoryRepository = _factory.Create<IRepository<Category>>();
+            _categoryController = new CategoryController { CategoryRepository = _mockCategoryRepository.Object };
+        }
+
         [TestMethod]
         public void Index()
         {
-            CategoryController categoryController = new CategoryController();
+            var categories = new List<Category>() {new Category()};
 
-            ViewResult result = categoryController.Index() as ViewResult;
+            _mockCategoryRepository.Setup(a => a.Items).Returns(categories.AsQueryable());
 
-            Assert.IsNotNull(result.Model);
+            var result = _categoryController.Index();
+
+            var model = (result as ViewResult).Model as List<Category>;
+
+            Assert.IsNotNull(model);
         }
 
         [TestMethod]
         public void Details()
         {
-            CategoryController categoryController = new CategoryController();
+            _mockCategoryRepository.Setup(a => a.Find(It.IsAny<int>())).Returns(new Category());
 
-            ViewResult result = categoryController.Details(1) as ViewResult;
+            var result = _categoryController.Details(1);
+            var model = (result as ViewResult).Model as Category;
 
-            Assert.IsNotNull(result.Model);
+            Assert.IsNotNull(model);
         }
     }
 }
