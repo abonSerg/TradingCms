@@ -107,6 +107,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CategoryControllerTest.cs" />
+    <Compile Include="Controllers\ProductControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\ValuesControllerTest.cs" />
   </ItemGroup>
@@ -117,6 +119,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TradingCms.Data\TradingCms.Data.csproj">
+      <Project>{2722FEE1-AE3A-4F74-B029-D2854A422DAF}</Project>
+      <Name>TradingCms.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TradingCms\TradingCms.csproj">
       <Project>{D24953D4-C956-4651-9CB4-7E42334105EF}</Project>
       <Name>TradingCms</Name>
