@@ -15,6 +15,7 @@ namespace TradingCms.Tests.Controllers
         private MockRepository _factory;
         private CategoryController _categoryController;
         private Mock<IRepository<Category>> _mockCategoryRepository;
+        const int TestValue = 1;
 
         [TestInitialize]
         public void Init()
@@ -22,31 +23,29 @@ namespace TradingCms.Tests.Controllers
             _factory = new MockRepository(MockBehavior.Strict);
             _mockCategoryRepository = _factory.Create<IRepository<Category>>();
             _categoryController = new CategoryController { CategoryRepository = _mockCategoryRepository.Object };
+
+            var categories = new List<Category>() { new Category() };
+
+            _mockCategoryRepository.Setup(a => a.Items).Returns(categories.AsQueryable());
+            _mockCategoryRepository.Setup(a => a.Find(It.IsAny<int>())).Returns(new Category() { Id = TestValue });
         }
 
         [TestMethod]
-        public void Index()
+        public void Index_View_Model_Not_Null()
         {
-            var categories = new List<Category>() {new Category()};
-
-            _mockCategoryRepository.Setup(a => a.Items).Returns(categories.AsQueryable());
-
             var result = _categoryController.Index();
-
             var model = (result as ViewResult).Model as List<Category>;
 
             Assert.IsNotNull(model);
         }
 
         [TestMethod]
-        public void Details()
+        public void Details_Get_From_Repo_By_Id_Is_True()
         {
-            _mockCategoryRepository.Setup(a => a.Find(It.IsAny<int>())).Returns(new Category());
-
-            var result = _categoryController.Details(1);
+            var result = _categoryController.Details(TestValue);
             var model = (result as ViewResult).Model as Category;
 
-            Assert.IsNotNull(model);
+            Assert.IsTrue(model.Id == TestValue);
         }
     }
 }

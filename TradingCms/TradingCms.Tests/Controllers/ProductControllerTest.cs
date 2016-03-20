@@ -15,6 +15,7 @@ namespace TradingCms.Tests.Controllers
         private MockRepository _factory;
         private ProductController _productController;
         private Mock<IRepository<Product>> _mockProductRepository;
+        const int TestValue = 1;
 
         [TestInitialize]
         public void Init()
@@ -22,31 +23,28 @@ namespace TradingCms.Tests.Controllers
             _factory = new MockRepository(MockBehavior.Strict);
             _mockProductRepository = _factory.Create<IRepository<Product>>();
             _productController = new ProductController { ProductRepository = _mockProductRepository.Object };
+
+            var products = new List<Product>() { new Product() };
+            _mockProductRepository.Setup(a => a.Items).Returns(products.AsQueryable());
+            _mockProductRepository.Setup(a => a.Find(It.IsAny<int>())).Returns(new Product() { Id = TestValue });
         }
 
         [TestMethod]
-        public void Index()
+        public void Index_View_Model_Not_Null()
         {
-            var products = new List<Product>() { new Product() };
-
-            _mockProductRepository.Setup(a => a.Items).Returns(products.AsQueryable());
-
             var result = _productController.Index();
-
             var model = (result as ViewResult).Model as List<Product>;
 
             Assert.IsNotNull(model);
         }
 
         [TestMethod]
-        public void Details()
+        public void Details_Get_From_Repo_By_Id_Is_True()
         {
-            _mockProductRepository.Setup(a => a.Find(It.IsAny<int>())).Returns(new Product());
-
-            var result = _productController.Details(1);
+            var result = _productController.Details(TestValue);
             var model = (result as ViewResult).Model as Product;
 
-            Assert.IsNotNull(model);
+            Assert.IsTrue(model.Id == TestValue);
         }
     }
 }
