@@ -12,7 +12,6 @@ namespace TradingCms.Tests.Controllers
     [TestClass]
     public class ProductControllerTest
     {
-        private MockRepository _factory;
         private ProductController _productController;
         private Mock<IRepository<Product>> _mockProductRepository;
         const int TestValue = 1;
@@ -20,8 +19,7 @@ namespace TradingCms.Tests.Controllers
         [TestInitialize]
         public void Init()
         {
-            _factory = new MockRepository(MockBehavior.Strict);
-            _mockProductRepository = _factory.Create<IRepository<Product>>();
+            _mockProductRepository = new Mock<IRepository<Product>>();
             _productController = new ProductController { ProductRepository = _mockProductRepository.Object };
 
             var products = new List<Product>() { new Product() };
@@ -30,7 +28,7 @@ namespace TradingCms.Tests.Controllers
         }
 
         [TestMethod]
-        public void Index_View_Model_Not_Null()
+        public void Assert_Index_ViewModelIsNotNull()
         {
             var result = _productController.Index();
             var model = (result as ViewResult).Model as List<Product>;
@@ -39,7 +37,7 @@ namespace TradingCms.Tests.Controllers
         }
 
         [TestMethod]
-        public void Details_Get_From_Repo_By_Id_Is_True()
+        public void Assert_DetailsReturnProductById()
         {
             var result = _productController.Details(TestValue);
             var model = (result as ViewResult).Model as Product;
