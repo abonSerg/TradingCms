@@ -1053,7 +1053,7 @@ Select MAX(Id),'RU','Arsenal 20x50 (10-2050) ', N'Тип: Бинокль / Кр�
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
 INSERT INTO [dbo].[Products_tr] ([Id],[Languagecode],[Name],[Description])
-Select MAX(Id),'RU',' Arsenal 7x50 Морской Чёрный (NB61-0750C1 Black)',N'Тип: Бинокль / Кратность приближения: 7x / Диаметр объектива: 50 мм / Вес: 0.89 кг' from [dbo].[Products]
+Select MAX(Id),'RU',N'Arsenal 7x50 Морской Чёрный (NB61-0750C1 Black)',N'Тип: Бинокль / Кратность приближения: 7x / Диаметр объектива: 50 мм / Вес: 0.89 кг' from [dbo].[Products]
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
 select  MAX(Id) , 7000,1,2015-09-07   from [dbo].[Categories]
