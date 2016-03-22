@@ -43,6 +43,7 @@
     <Compile Include="CategoryTranslation.cs" />
     <Compile Include="FeedBack.cs" />
     <Compile Include="IEntity.cs" />
+    <Compile Include="Language.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductTranslation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

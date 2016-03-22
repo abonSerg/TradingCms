@@ -77,14 +77,25 @@
     <Build Include="Tables\Keys\FK_FeedBacks_ReplyFeedBackId.fkey.sql" />
     <Build Include="Tables\Keys\PK_FeedBacks_Id.pkey.sql" />
     <Build Include="Tables\Keys\FK_FeedBacks_ProductsId.fkey.sql" />
-    <Build Include="Tables\Products_tr.table.sql" />
-    <Build Include="Tables\Keys\FK_Products_tr_ProductsId.fkey.sql" />
-    <Build Include="Tables\Categories_tr.table.sql" />
-    <Build Include="Tables\Keys\FK_Categories_tr_Id.fkey.sql" />
+    <Build Include="Tables\ProductTranslations.table.sql" />
+    <Build Include="Tables\CategoryTranslations.table.sql" />
+    <Build Include="Tables\Keys\FK_CategoryTranslations_CategoriesId.fkey.sql" />
     <Build Include="Tables\Constraints\CHK_FeedBacks_Rate.const.sql" />
+    <Build Include="Tables\Keys\UQ_CategoryTranslations_Name.unique.sql" />
+    <Build Include="Tables\Languages.table.sql" />
+    <Build Include="Tables\Keys\PK_Languages_Id.pkey.sql" />
+    <Build Include="Tables\Keys\PK_ProductTranslations_Id.pkey.sql" />
+    <Build Include="Tables\Keys\PK_CategoryTranslations_Id.pkey.sql" />
+    <Build Include="Tables\Keys\FK_CategoryTranslations_LanguagesId.fkey.sql" />
+    <Build Include="Tables\Keys\UQ_CategoryTranslations_CategoryId_LanguageId.unique.sql" />
+    <Build Include="Tables\Keys\UQ_ProductTranslations_CategoryId_LanguageId.unique.sql" />
+    <Build Include="Tables\Keys\FK_ProductTranslations_LanguagesId.fkey.sql" />
+    <Build Include="Tables\Keys\FK_ProductTranslations_ProductsId.fkey.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Tables\Constraints\DF_FeedBacks_IsActive.const.sql" />
+    <Build Include="Tables\Constraints\DF_FeedBacks_IsActive.const.sql" />
     <None Include="Scripts\CreateDataScript.sql" />
+    <Build Include="Tables\Constraints\DF_FeedBacks_IsModerated.const.sql" />
+    <Build Include="Tables\Constraints\DF_Products_IsAvailable.const.sql" />
   </ItemGroup>
 </Project>

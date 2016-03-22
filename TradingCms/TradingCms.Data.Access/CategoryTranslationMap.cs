@@ -8,11 +8,10 @@ namespace TradingCms.Data.Access
         {
             Id(x => x.Id);
             Map(x => x.Name).Not.Nullable();
-            Map(x => x.Description).Nullable();
-            Map(x => x.Languagecode).Not.Nullable();
-            References(x => x.Category, "Categories").Cascade.SaveUpdate();
-
-            Table("Categories_tr");
+            Map(x => x.CategoryId).Not.Nullable();
+            Map(x => x.LanguageId).Not.Nullable();
+            
+            Table("CategoryTranslations");
         }
     }
 }
