@@ -13,7 +13,6 @@ namespace TradingCms.Tests.Controllers
     public class FeedBackControllerTest
     {
         private FeedBackController _feedbackController;
-        private MockRepository _factory;
         private Mock<IRepository<FeedBack>> _mockFeedbackRepository;
         private IEnumerable<FeedBack> _feedBacks;
         private const int TestId = 1;
@@ -22,8 +21,7 @@ namespace TradingCms.Tests.Controllers
         public void Init()
         {
             // Arrange
-            _factory = new MockRepository(MockBehavior.Strict);
-            _mockFeedbackRepository = _factory.Create<IRepository<FeedBack>>();
+            _mockFeedbackRepository = new Mock<IRepository<FeedBack>>();
             _feedbackController = new FeedBackController { FeedbackRepository = _mockFeedbackRepository.Object };
 
             _feedBacks = new List<FeedBack>
@@ -38,7 +36,7 @@ namespace TradingCms.Tests.Controllers
         }
 
         [TestMethod]
-        public void Index_ViewModel_NotNull()
+        public void Assert_Index_ViewModelIsNotNull()
         {
             // Act
             var result = _feedbackController.Index();
@@ -49,7 +47,7 @@ namespace TradingCms.Tests.Controllers
         }
 
         [TestMethod]
-        public void Details_GetFromRepoById_IsTrue()
+        public void Assert_DetailsReturnFeedbackById()
         {
             // Act
             var result = _feedbackController.Details(TestId);
