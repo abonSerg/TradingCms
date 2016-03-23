@@ -1,4 +1,4 @@
 ﻿ALTER TABLE [dbo].[UsersInRoles]
-	ADD CONSTRAINT [FK_UsersInRoles_UsersId] FOREIGN KEY ([User_Id]) REFERENCES [dbo].[Users] ([Id])
+	ADD CONSTRAINT [FK_UsersInRoles_UsersId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users] ([Id])
 
 
