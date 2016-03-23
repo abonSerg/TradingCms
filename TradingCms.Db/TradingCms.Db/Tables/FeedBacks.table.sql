@@ -2,7 +2,7 @@
 (
 	[Id] INT IDENTITY(1,1) NOT NULL,
 	[ReplyFeedBackId] INT NULL,
-	[CreatorId] NVARCHAR (128) NOT NULL,
+	[CreatorName] NVARCHAR (128) NOT NULL,
 	[CreateDate] DATETIME NOT NULL, 
     [IsActive] BIT NOT NULL, 
     [IsModerated] BIT NOT NULL, 

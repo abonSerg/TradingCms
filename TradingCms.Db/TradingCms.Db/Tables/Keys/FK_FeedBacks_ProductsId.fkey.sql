@@ -1,2 +1,3 @@
 ﻿ALTER TABLE [dbo].[FeedBacks]
-	ADD CONSTRAINT [FK_FeedBacks_ProductsId] FOREIGN KEY ([ProductId]) REFERENCES [Products]([Id]);
+	ADD CONSTRAINT [FK_FeedBacks_ProductsId] FOREIGN KEY ([ProductId]) REFERENCES [Products]([Id])
+		ON DELETE CASCADE ON UPDATE NO ACTION

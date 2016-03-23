@@ -9,10 +9,10 @@ namespace TradingCms.Data.Access
             Id(x => x.Id);
             Map(x => x.Name).Not.Nullable();
             Map(x => x.Description).Nullable();
-            Map(x => x.Languagecode).Not.Nullable();
-            References(x => x.Product, "Products").Cascade.SaveUpdate();
-
-            Table("Products_tr");
+            Map(x => x.LanguageId).Not.Nullable();
+            Map(x => x.ProductId).Not.Nullable();
+            
+            Table("ProductTranslations");
         }
     }
 }
