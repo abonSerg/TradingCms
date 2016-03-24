@@ -4,9 +4,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using NHibernate;
 using NHibernate.Linq;
-using TradingCms.Data.Access;
 
-namespace TradingCms.Data
+namespace TradingCms.Data.Access.Repositories
 {
     public class Repository<T> : IRepository<T> where T:class 
     {
@@ -52,7 +51,7 @@ namespace TradingCms.Data
         {
             get
             {
-                return Session.Linq<T>();
+                return Session.Query<T>();
             }
         }
 

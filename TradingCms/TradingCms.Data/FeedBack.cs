@@ -13,9 +13,7 @@ namespace TradingCms.Data
         public virtual string Advantages { get; set; }
         public virtual string Disadvantages { get; set; }
         public virtual string Text { get; set; }
-
-        public virtual string CreatorId { get; set; }
-
+        public virtual string CreatorName { get; set; }
         public virtual int ReplyFeedBackId { get; set; }
         public virtual FeedBack ReplyFeedBack { get; set; }
 
