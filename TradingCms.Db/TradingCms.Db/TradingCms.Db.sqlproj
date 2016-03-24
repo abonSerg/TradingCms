@@ -91,11 +91,21 @@
     <Build Include="Tables\Keys\UQ_ProductTranslations_CategoryId_LanguageId.unique.sql" />
     <Build Include="Tables\Keys\FK_ProductTranslations_LanguagesId.fkey.sql" />
     <Build Include="Tables\Keys\FK_ProductTranslations_ProductsId.fkey.sql" />
+    <Build Include="Tables\Roles.table.sql" />
+    <Build Include="Tables\UsersInRoles.table.sql" />
+    <Build Include="Tables\Keys\PK_UsersInRoles_Id.pkey.sql" />
+    <Build Include="Tables\Keys\PK_Users_Id.pkey.sql" />
+    <Build Include="Tables\Keys\FK_UsersInRoles_RoleId.fkey.sql" />
+    <Build Include="Tables\Keys\PK_Roles_Id.pkey .sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Constraints\DF_FeedBacks_IsActive.const.sql" />
     <None Include="Scripts\CreateDataScript.sql" />
     <Build Include="Tables\Constraints\DF_FeedBacks_IsModerated.const.sql" />
     <Build Include="Tables\Constraints\DF_Products_IsAvailable.const.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Users.table.sql" />
+    <Build Include="Tables\Keys\FK_ UsersInRoles_UserId.fkey.sql" />
   </ItemGroup>
 </Project>
