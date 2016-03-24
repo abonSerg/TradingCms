@@ -5,10 +5,10 @@ using TradingCms.Data;
 using TradingCms.Data.Access.Repositories;
 using TradingCms.Data.Access.RepositoryExtensions;
 
-namespace TradingCms.Controllers
+namespace TradingCms.Controllers.APIs
 {
     [RoutePrefix("api/FeedBack")]
-    public class FeedBackController : ApiController
+    public class FeedBackApiController : ApiController
     {
         public IRepository<FeedBack> FeedbackRepository { get; set; }
 
