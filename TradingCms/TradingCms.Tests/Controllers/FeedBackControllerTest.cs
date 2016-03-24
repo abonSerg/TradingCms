@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using TradingCms.Controllers;
 using TradingCms.Data;
-using TradingCms.Data.Access;
+using TradingCms.Data.Access.Repositories;
 
 namespace TradingCms.Tests.Controllers
 {
@@ -15,7 +14,7 @@ namespace TradingCms.Tests.Controllers
         private FeedBackController _feedbackController;
         private Mock<IRepository<FeedBack>> _mockFeedbackRepository;
         private IEnumerable<FeedBack> _feedBacks;
-        private const int TestId = 1;
+        private const int TestProductId = 1;
 
         [TestInitialize]
         public void Init()
@@ -26,35 +25,23 @@ namespace TradingCms.Tests.Controllers
 
             _feedBacks = new List<FeedBack>
             {
-                new FeedBack { Id = 1 },
-                new FeedBack { Id = 2 },
-                new FeedBack { Id = 3 }
+                new FeedBack { Id = 1, ProductId = 1 },
+                new FeedBack { Id = 2, ProductId = 2 },
+                new FeedBack { Id = 3, ProductId = 1 }
             };
 
             _mockFeedbackRepository.Setup(repository => repository.Items).Returns(_feedBacks.AsQueryable());
-            _mockFeedbackRepository.Setup(repository => repository.Find(It.IsAny<int>())).Returns(new FeedBack { Id = TestId });
         }
 
         [TestMethod]
-        public void Assert_Index_ViewModelIsNotNull()
+        public void Assert_ReturnProductFeedbacks()
         {
             // Act
-            var result = _feedbackController.Index();
-            var model = ((ViewResult)result).Model;
+            var result = _feedbackController.GetProductFeedbacks(TestProductId).Count();
+            var expected = _feedBacks.Count(f => f.ProductId == TestProductId);
 
             // Assert
-            Assert.IsNotNull(model);
-        }
-
-        [TestMethod]
-        public void Assert_DetailsReturnFeedbackById()
-        {
-            // Act
-            var result = _feedbackController.Details(TestId);
-            var model = ((ViewResult)result).Model;
-
-            // Assert
-            Assert.IsTrue(((FeedBack)model).Id == TestId);
+            Assert.IsTrue(result == expected);
         }
     }
 }

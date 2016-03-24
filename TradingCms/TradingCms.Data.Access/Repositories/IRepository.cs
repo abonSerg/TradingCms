@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace TradingCms.Data.Access
+namespace TradingCms.Data.Access.Repositories
 {
     public interface IRepository<IEntity> where IEntity : class
     {

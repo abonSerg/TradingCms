@@ -1,7 +1,5 @@
-﻿using System.Linq;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Reflection;
-using System.Web.Compilation;
 using System.Web.Http;
 using System.Web.Mvc;
 using Autofac;
@@ -10,6 +8,7 @@ using Autofac.Integration.WebApi;
 using NHibernate;
 using TradingCms.Data.Access;
 using TradingCms.Data;
+using TradingCms.Data.Access.Repositories;
 
 namespace TradingCms
 {

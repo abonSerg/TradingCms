@@ -1,30 +1,22 @@
-﻿using System.Linq;
-using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Http;
 using TradingCms.Data;
-using TradingCms.Data.Access;
+using TradingCms.Data.Access.Repositories;
+using TradingCms.Data.Access.RepositoryExtensions;
 
 namespace TradingCms.Controllers
 {
-    public class FeedBackController : Controller
+    [RoutePrefix("api/FeedBack")]
+    public class FeedBackController : ApiController
     {
         public IRepository<FeedBack> FeedbackRepository { get; set; }
 
-        // GET FeedBack
-        public ActionResult Index()
+        [Route("GetProductFeedbacks/{productId}")]
+        public IEnumerable<FeedBack> GetProductFeedbacks(int productId)
         {
-            var model = FeedbackRepository.Items.ToList();
-            return View(model);
-        }
-
-        public ActionResult Details(int? id)
-        {
-            if (id > 0)
-            {
-                var feedback = FeedbackRepository.Find(id);
-                if (feedback != null)
-                    return View(feedback);
-            }
-            return HttpNotFound();
+            var res = FeedbackRepository.GetFeedbackByProduct(productId).ToList();
+            return res;
         }
     }
 }
