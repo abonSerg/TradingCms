@@ -3,7 +3,7 @@ using System.Net;
 using System.Web.Mvc;
 //using NHibernate.Exceptions;
 using TradingCms.Data;
-using TradingCms.Data.Access;
+using TradingCms.Data.Access.Repositories;
 
 namespace TradingCms.Controllers
 {

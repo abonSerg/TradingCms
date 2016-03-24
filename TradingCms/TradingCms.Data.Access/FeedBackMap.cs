@@ -16,7 +16,7 @@ namespace TradingCms.Data.Access
             Map(x => x.Disadvantages).Nullable();
             Map(x => x.Text).Nullable();
 
-            Map(x => x.CreatorId).Not.Nullable();
+            Map(x => x.CreatorName).Not.Nullable();
 
             Map(x => x.ReplyFeedBackId).Nullable();
             References(x => x.ReplyFeedBack, "ReplyFeedBackId").Nullable();

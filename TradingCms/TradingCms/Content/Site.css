@@ -692,3 +692,128 @@ form.reg_label >label>p{
 	float: right;
 }
 /*END-REGISTRATION*/
+
+/* BUCKET */
+.bucket {
+	padding: 2% 1%;
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+	width: 100%;
+	margin-top: 10px;
+	overflow: hidden;
+}
+
+.bucket > div {
+	float: left;
+}
+
+.bucket_position {
+	margin-bottom: 5px;
+	height: 100px;
+	border-bottom: 1px solid #deb887; 
+}
+
+	.bucket_position > div {
+		float: left;
+	}
+
+.bucket_tov {
+ width: 50%;
+ height: 100%;
+}
+
+	.bucket_tov img {
+		float: left;
+		width: 25%;
+		height: 100px;
+	} 
+
+	.bucket_tov p {
+		text-align: center;
+	}
+
+.bucket_sum {
+	padding: 2%;
+	width: 25%;
+	height: 100%;
+}
+
+	.minus,.plus {
+		margin-top: 5px;
+		width: 25px;
+		height: 25px;
+		background: #deb887;
+		color: #fff8dc;
+		display: block;
+		cursor: pointer;
+		text-align: center;
+		font-size: 18px;
+	}
+
+	.minus {
+		float: left;
+		margin-left: 27%
+	}
+		.minus:hover {
+			background: #333;
+		}
+
+	.plus {
+		float: right;
+		margin-right: 27%;
+	}
+
+		.plus:hover {
+			background: #333;
+		}
+
+	.sum_form {
+		margin: 0 2%;
+		width: 20%;
+		text-align: center;
+		float: left;
+	}
+
+.bucket_price {
+	padding: 2%;
+	width: 25%;
+	height: 100%;
+	text-align: right;
+}
+
+.price {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+	.price span {
+		font-size: 20px;
+	}
+
+.bucket_finish {
+	width: 20%;
+	border: 1px solid white;
+	float: right!important;
+	text-align: center;
+}
+
+.buck_by {
+	width: 60%;
+	background:#deb887;
+	color: #fff8dc; 
+	font-size: 18px;
+}
+
+.buck_by:hover {
+	background:#333;
+	color: #fff8dc; 
+}
+
+.coast {
+	font-weight: bold;
+}
+
+	.coast span {
+		font-size: 20px;
+	}
+/* END OF BUCKET */
