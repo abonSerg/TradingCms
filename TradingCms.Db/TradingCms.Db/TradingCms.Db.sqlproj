@@ -88,15 +88,17 @@
     <Build Include="Tables\Keys\PK_CategoryTranslations_Id.pkey.sql" />
     <Build Include="Tables\Keys\FK_CategoryTranslations_LanguagesId.fkey.sql" />
     <Build Include="Tables\Keys\UQ_CategoryTranslations_CategoryId_LanguageId.unique.sql" />
-    <Build Include="Tables\Keys\UQ_ProductTranslations_CategoryId_LanguageId.unique.sql" />
+    <Build Include="Tables\Keys\UQ_ProductTranslations_ProductId_LanguageId.unique.sql" />
     <Build Include="Tables\Keys\FK_ProductTranslations_LanguagesId.fkey.sql" />
     <Build Include="Tables\Keys\FK_ProductTranslations_ProductsId.fkey.sql" />
     <Build Include="Tables\Roles.table.sql" />
     <Build Include="Tables\UsersInRoles.table.sql" />
-    <Build Include="Tables\Keys\PK_UsersInRoles_Id.pkey.sql" />
+    <Build Include="Tables\Keys\PK_UsersInRoles_UserId_RoleId.pkey.sql" />
     <Build Include="Tables\Keys\PK_Users_Id.pkey.sql" />
     <Build Include="Tables\Keys\FK_UsersInRoles_RoleId.fkey.sql" />
     <Build Include="Tables\Keys\PK_Roles_Id.pkey .sql" />
+    <Build Include="Tables\Companies.table.sql" />
+    <Build Include="Tables\CompaniesToCategories.table.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Constraints\DF_FeedBacks_IsActive.const.sql" />
@@ -107,5 +109,14 @@
   <ItemGroup>
     <Build Include="Tables\Users.table.sql" />
     <Build Include="Tables\Keys\FK_ UsersInRoles_UserId.fkey.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tables\Keys\UQ_UsersInRoles_UserId_RoleId.unique.sql" />
+    <Build Include="Tables\Keys\PK_Companies_Id.pkey.sql" />
+    <Build Include="Tables\Keys\FK_Users_CompanyId.fkey.sql" />
+    <Build Include="Tables\Keys\PK_CompaniesToCategories_CompanyId_CategoryId.pkey.sql" />
+    <Build Include="Tables\Keys\FK_CompaniesToCategories_CompanyId.fkey.sql" />
+    <Build Include="Tables\Keys\FK_CompaniesToCategories_CategoryId.fkey.sql" />
+    <Build Include="Tables\Keys\UQ_Users_CompanyId.unique.sql" />
   </ItemGroup>
 </Project>

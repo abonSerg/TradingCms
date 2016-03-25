@@ -1,2 +1,0 @@
-﻿ALTER TABLE [dbo].[UsersInRoles]
-	ADD CONSTRAINT [PK_UsersInRoles_Id] PRIMARY KEY CLUSTERED ([UserId] ASC)

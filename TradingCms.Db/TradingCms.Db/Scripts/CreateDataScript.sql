@@ -1,5 +1,8 @@
 ﻿Use TradingCms
 
+INSERT INTO [dbo].[Roles]([Id],[Name])
+values ('48646D11-73F7-4D8B-B948-147E6503374D','Supplier'), ('A84E2232-1532-4E1E-B05B-D2EA14AF802E','Buyer'), ('4F680AC3-9559-41CD-991E-F60C1FAE76F1','Admin')
+
 INSERT INTO [dbo].[Languages]([Code],[Name])
 values ('Ru', 'Русский')
 
