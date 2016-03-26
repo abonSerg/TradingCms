@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[Users]
+	ADD CONSTRAINT [FK_Users_CompanyId] FOREIGN KEY ([CompanyId]) REFERENCES [Companies]([Id])
+		ON DELETE CASCADE ON UPDATE NO ACTION
