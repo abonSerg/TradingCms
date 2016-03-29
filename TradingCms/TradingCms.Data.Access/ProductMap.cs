@@ -12,7 +12,7 @@ namespace TradingCms.Data.Access
             Map(x => x.CreateDate).Not.Nullable();
 
             Map(x => x.CategoryId).Not.Nullable();
-            References(x => x.Category, "Categories").Not.Nullable();
+            References(x => x.Category, "CategoryId").Not.Nullable();
 
             HasMany(x => x.ProductTranslations).Inverse();
 
