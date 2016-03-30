@@ -118,6 +118,7 @@
     <Build Include="Tables\Keys\PK_DeliveryAddresses_Id.pkey.sql" />
     <Build Include="Tables\Keys\FK_DeliveryAddresses_UserId.fkey.sql" />
     <Build Include="Tables\Keys\FK_Orders_DeliveryAddressId.fkey.sql" />
+    <Build Include="Tables\Keys\PK_OrdersToProducts_Id.pkey.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Constraints\DF_FeedBacks_IsActive.const.sql" />

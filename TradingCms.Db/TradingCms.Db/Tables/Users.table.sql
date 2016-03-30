@@ -12,5 +12,5 @@
     [LockoutEnabled]       BIT            NOT NULL,
     [AccessFailedCount]    INT            NOT NULL,
     [UserName]             NVARCHAR (256) NOT NULL,
-    [CompanyId]            INT            NOT NULL
+    [CompanyId]            INT            NULL
 )
