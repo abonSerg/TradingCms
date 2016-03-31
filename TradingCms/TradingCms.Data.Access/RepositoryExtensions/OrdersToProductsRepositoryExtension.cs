@@ -14,7 +14,7 @@ namespace TradingCms.Data.Access.RepositoryExtensions
                     Product = group.Key,
                     Count = group.Count()
                 })
-                .OrderBy(x => x.Product.Id).Take(count);
+                .OrderBy(x => x.Count).Take(count);
 
             var list = new List<Product>();
             foreach (var item in top)
