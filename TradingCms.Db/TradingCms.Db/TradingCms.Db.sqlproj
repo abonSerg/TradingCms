@@ -88,14 +88,56 @@
     <Build Include="Tables\Keys\PK_CategoryTranslations_Id.pkey.sql" />
     <Build Include="Tables\Keys\FK_CategoryTranslations_LanguagesId.fkey.sql" />
     <Build Include="Tables\Keys\UQ_CategoryTranslations_CategoryId_LanguageId.unique.sql" />
-    <Build Include="Tables\Keys\UQ_ProductTranslations_CategoryId_LanguageId.unique.sql" />
+    <Build Include="Tables\Keys\UQ_ProductTranslations_ProductId_LanguageId.unique.sql" />
     <Build Include="Tables\Keys\FK_ProductTranslations_LanguagesId.fkey.sql" />
     <Build Include="Tables\Keys\FK_ProductTranslations_ProductsId.fkey.sql" />
+    <Build Include="Tables\Roles.table.sql" />
+    <Build Include="Tables\UsersInRoles.table.sql" />
+    <Build Include="Tables\Keys\PK_UsersInRoles_UserId_RoleId.pkey.sql" />
+    <Build Include="Tables\Keys\PK_Users_Id.pkey.sql" />
+    <Build Include="Tables\Keys\FK_UsersInRoles_RoleId.fkey.sql" />
+    <Build Include="Tables\Keys\PK_Roles_Id.pkey .sql" />
+    <Build Include="Tables\Companies.table.sql" />
+    <Build Include="Tables\CompaniesToCategories.table.sql" />
+    <Build Include="Tables\Constraints\DF_Orders_IsActive.const.sql" />
+    <Build Include="Tables\Keys\FK_OrdersToProducts_OrderId.fkey.sql" />
+    <Build Include="Tables\Keys\FK_OrdersToProducts_ProductId.fkey.sql" />
+    <Build Include="Tables\Keys\PK_Orders_Id.pkey.sql" />
+    <Build Include="Tables\Orders.table.sql" />
+    <Build Include="Tables\OrdersToProducts.table.sql" />
+    <Build Include="Tables\Keys\FK_Orders_CreatorId.fkey.sql" />
+    <Build Include="Tables\PaymentTypes.table.sql" />
+    <Build Include="Tables\Keys\UQ_PaymentTypes_Type.unique.sql" />
+    <Build Include="Tables\Keys\FK_Orders_PaymentTypeId.fkey.sql" />
+    <Build Include="Tables\Keys\PK_PaymentTypes_Id.pkey.sql" />
+    <Build Include="Tables\DeliveryTypes.table.sql" />
+    <Build Include="Tables\Keys\UQ_DeliveryTypes_Type.unique.sql" />
+    <Build Include="Tables\Keys\PK_DeliveryTypes_Id.pkey.sql" />
+    <Build Include="Tables\Keys\FK_Orders_DeliveryTypeId.fkey.sql" />
+    <Build Include="Tables\DeliveryAdresses.table.sql" />
+    <Build Include="Tables\Keys\PK_DeliveryAddresses_Id.pkey.sql" />
+    <Build Include="Tables\Keys\FK_DeliveryAddresses_UserId.fkey.sql" />
+    <Build Include="Tables\Keys\FK_Orders_DeliveryAddressId.fkey.sql" />
+    <Build Include="Tables\Keys\PK_OrdersToProducts_Id.pkey.sql" />
+    <Build Include="Tables\Keys\UQ_OrdersToProducts_OrderId_ProductId.unique.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Constraints\DF_FeedBacks_IsActive.const.sql" />
     <None Include="Scripts\CreateDataScript.sql" />
     <Build Include="Tables\Constraints\DF_FeedBacks_IsModerated.const.sql" />
     <Build Include="Tables\Constraints\DF_Products_IsAvailable.const.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Users.table.sql" />
+    <Build Include="Tables\Keys\FK_ UsersInRoles_UserId.fkey.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Keys\UQ_UsersInRoles_UserId_RoleId.unique.sql" />
+    <Build Include="Tables\Keys\PK_Companies_Id.pkey.sql" />
+    <Build Include="Tables\Keys\FK_Users_CompanyId.fkey.sql" />
+    <Build Include="Tables\Keys\PK_CompaniesToCategories_CompanyId_CategoryId.pkey.sql" />
+    <Build Include="Tables\Keys\FK_CompaniesToCategories_CompanyId.fkey.sql" />
+    <Build Include="Tables\Keys\FK_CompaniesToCategories_CategoryId.fkey.sql" />
+    <Build Include="Tables\Keys\UQ_Users_CompanyId.unique.sql" />
   </ItemGroup>
 </Project>

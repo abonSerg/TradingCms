@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Companies]
+(
+	[Id] INT IDENTITY(1,1) NOT NULL,
+	[Name] NVARCHAR(256) NOT NULL,
+	[Description] NVARCHAR (MAX) NULL,
+	[Sphere] NVARCHAR (256) NULL,
+	[Contacts] NVARCHAR (256) NOT NULL,
+	[PathToLogo] VARCHAR(512) NOT NULL,
+)

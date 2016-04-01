@@ -1,5 +1,8 @@
 ﻿Use TradingCms
 
+INSERT INTO [dbo].[Roles]([Id],[Name])
+values ('48646D11-73F7-4D8B-B948-147E6503374D','Supplier'), ('A84E2232-1532-4E1E-B05B-D2EA14AF802E','Buyer'), ('4F680AC3-9559-41CD-991E-F60C1FAE76F1','Admin')
+
 INSERT INTO [dbo].[Languages]([Code],[Name])
 values ('Ru', 'Русский')
 
@@ -1318,3 +1321,121 @@ values (@currentSubCategory,500,1,2015-10-07)
 
 INSERT INTO [dbo].[ProductTranslations] ([ProductId],[LanguageId],[Name],[Description])
 Select MAX(Id),@lang,'President Jimmy II ASC (TXMU045) ',N'Стандарт: AM / Назначение: Автомобильные / Мощность: 4 Вт / Вес: 600 г' from [dbo].[Products]
+
+
+--USERS--
+INSERT INTO [dbo].[Users] ([Id],[Email],[EmailConfirmed],[PasswordHash],[SecurityStamp],[PhoneNumber],[PhoneNumberConfirmed],[TwoFactorEnabled],[LockoutEndDateUtc],[LockoutEnabled],[AccessFailedCount],[UserName],[CompanyId])
+     VALUES (1, 'test1@app.com', 1, 'AKMKBYBitWlt0Gm81eVp+lO/feu2TaQFfBtRWkGcD/xH3mQVvqXagxIlN03aXl6Fjg==', 'dbd3a7ee-f435-4151-8c29-b2cd2f377128', '+3897276748361', 0, 0, null, 0, 0, 'Sara Connor', NULL)
+INSERT INTO [dbo].[Users] ([Id],[Email],[EmailConfirmed],[PasswordHash],[SecurityStamp],[PhoneNumber],[PhoneNumberConfirmed],[TwoFactorEnabled],[LockoutEndDateUtc],[LockoutEnabled],[AccessFailedCount],[UserName],[CompanyId])
+     VALUES (2, 'test2@app.com', 1, 'AKMKBYBitWlt0Gm81eVp+lO/feu2TaQFfBtRWkGcD/xH3mQVvqXagxIlN03aXl6Fjg==', 'dbd3a7ee-f435-4151-8c29-b2cd2f377128', '+3897276748362', 0, 0, null, 0, 0, 'Sara Connor 2', NULL)
+INSERT INTO [dbo].[Users] ([Id],[Email],[EmailConfirmed],[PasswordHash],[SecurityStamp],[PhoneNumber],[PhoneNumberConfirmed],[TwoFactorEnabled],[LockoutEndDateUtc],[LockoutEnabled],[AccessFailedCount],[UserName],[CompanyId])
+     VALUES (3, 'test3@app.com', 1, 'AKMKBYBitWlt0Gm81eVp+lO/feu2TaQFfBtRWkGcD/xH3mQVvqXagxIlN03aXl6Fjg==', 'dbd3a7ee-f435-4151-8c29-b2cd2f377128', '+3897276748363', 0, 0, null, 0, 0, 'Sara Connor 3', NULL)
+INSERT INTO [dbo].[Users] ([Id],[Email],[EmailConfirmed],[PasswordHash],[SecurityStamp],[PhoneNumber],[PhoneNumberConfirmed],[TwoFactorEnabled],[LockoutEndDateUtc],[LockoutEnabled],[AccessFailedCount],[UserName],[CompanyId])
+     VALUES (4, 'test4@app.com', 1, 'AKMKBYBitWlt0Gm81eVp+lO/feu2TaQFfBtRWkGcD/xH3mQVvqXagxIlN03aXl6Fjg==', 'dbd3a7ee-f435-4151-8c29-b2cd2f377128', '+3897276748364', 0, 0, null, 0, 0, 'Sara Connor 4', NULL)
+INSERT INTO [dbo].[Users] ([Id],[Email],[EmailConfirmed],[PasswordHash],[SecurityStamp],[PhoneNumber],[PhoneNumberConfirmed],[TwoFactorEnabled],[LockoutEndDateUtc],[LockoutEnabled],[AccessFailedCount],[UserName],[CompanyId])
+     VALUES (5, 'test5@app.com', 1, 'AKMKBYBitWlt0Gm81eVp+lO/feu2TaQFfBtRWkGcD/xH3mQVvqXagxIlN03aXl6Fjg==', 'dbd3a7ee-f435-4151-8c29-b2cd2f377128', '+3897276748365', 0, 0, null, 0, 0, 'Sara Connor 5', NULL)
+
+--[PaymentTypes]--
+INSERT INTO [dbo].[PaymentTypes] ([Type]) values (N'Наличными')
+INSERT INTO [dbo].[PaymentTypes] ([Type]) values (N'PayPal')
+INSERT INTO [dbo].[PaymentTypes] ([Type]) values (N'Карта Visa')
+INSERT INTO [dbo].[PaymentTypes] ([Type]) values (N'Карта Master')
+INSERT INTO [dbo].[PaymentTypes] ([Type]) values (N'Банковский перевод')
+
+--[DeliveryTypes]--
+INSERT INTO [dbo].[DeliveryTypes]([Type]) values (N'Самовывоз')
+INSERT INTO [dbo].[DeliveryTypes]([Type]) values (N'Курьер')
+INSERT INTO [dbo].[DeliveryTypes]([Type]) values (N'Новая почта')
+
+--[Orders]--
+INSERT INTO [dbo].[Orders] ([CreatorId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[ComentsToOrder])
+     VALUES (1, '20151215 09:11:32.590', 1, 1, null, 1, null, 'comment to order 1')
+INSERT INTO [dbo].[Orders] ([CreatorId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[ComentsToOrder])
+     VALUES (1, '20151215 09:11:32.590', 1, 2, null, 2, null, 'comment to order 2')
+INSERT INTO [dbo].[Orders] ([CreatorId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[ComentsToOrder])
+     VALUES (1, '20151215 09:11:32.590', 1, 2, null, 2, null, 'comment to order 3')
+INSERT INTO [dbo].[Orders] ([CreatorId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[ComentsToOrder])
+     VALUES (2, '20151215 09:11:32.590', 1, 3, null, 3, null, 'comment to order 4')
+INSERT INTO [dbo].[Orders] ([CreatorId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[ComentsToOrder])
+     VALUES (2, '20151215 09:11:32.590', 1, 1, null, 3, null, 'comment to order 5')
+INSERT INTO [dbo].[Orders] ([CreatorId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[ComentsToOrder])
+     VALUES (3, '20151215 09:11:32.590', 1, 2, null, 2, null, 'comment to order 6')
+INSERT INTO [dbo].[Orders] ([CreatorId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[ComentsToOrder])
+     VALUES (4, '20151215 09:11:32.590', 1, 2, null, 1, null, 'comment to order 7')
+INSERT INTO [dbo].[Orders] ([CreatorId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[ComentsToOrder])
+     VALUES (5, '20151215 09:11:32.590', 1, 1, null, 1, null, 'comment to order 8')
+	 
+--[OrdersToProducts]--
+DECLARE @productPrice MONEY
+
+SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 1
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+     VALUES (1, 1, @productPrice)
+
+SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 2
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+     VALUES (1, 2, @productPrice)
+
+SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 3
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+     VALUES (1, 3, @productPrice)
+
+SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 2
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+     VALUES (2, 2, @productPrice)
+
+SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 4
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+     VALUES (2, 4, @productPrice)
+
+SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 5
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+     VALUES (3, 5, @productPrice)
+
+SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 6
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+     VALUES (4, 6, @productPrice)
+
+SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 7
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+     VALUES (4, 7, @productPrice)
+
+SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 8
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+     VALUES (5, 8, @productPrice)
+
+SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 9
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+     VALUES (6, 9, @productPrice)
+
+SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 10
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+     VALUES (7, 10, @productPrice)
+
+SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 11
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+     VALUES (8, 11, @productPrice)
+
+SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 12
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+     VALUES (8, 12, @productPrice)
+
+--[FeedBacks]--
+INSERT INTO [dbo].[FeedBacks] ([ReplyFeedBackId],[CreatorName],[CreateDate],[IsActive],[IsModerated],[ModerateDate],[Rate],[Advantages],[Disadvantages],[Text],[ProductId])
+     VALUES (null, 1, '20151215 09:11:32.590', 1, 1, '20151216 09:11:32.590', 4, 'advantages 1', 'disadvantages 1', 'Text 1', 1)
+INSERT INTO [dbo].[FeedBacks] ([ReplyFeedBackId],[CreatorName],[CreateDate],[IsActive],[IsModerated],[ModerateDate],[Rate],[Advantages],[Disadvantages],[Text],[ProductId])
+     VALUES (1, 2, '20151216 09:11:32.590', 1, 1, '20151223 09:11:32.590', 4, 'advantages 2', 'disadvantages 2', 'Text 2', 1)
+INSERT INTO [dbo].[FeedBacks] ([ReplyFeedBackId],[CreatorName],[CreateDate],[IsActive],[IsModerated],[ModerateDate],[Rate],[Advantages],[Disadvantages],[Text],[ProductId])
+     VALUES (1, 1, '20151217 09:11:32.590', 1, 1, '20151223 09:11:32.590', 4, 'advantages 3', 'disadvantages 3', 'Text 3', 1)
+INSERT INTO [dbo].[FeedBacks] ([ReplyFeedBackId],[CreatorName],[CreateDate],[IsActive],[IsModerated],[ModerateDate],[Rate],[Advantages],[Disadvantages],[Text],[ProductId])
+     VALUES (null, 3, '20151218 09:11:32.590', 1, 1, '20151223 09:11:32.590', 4, 'advantages 4', 'disadvantages 4', 'Text 4', 2)
+INSERT INTO [dbo].[FeedBacks] ([ReplyFeedBackId],[CreatorName],[CreateDate],[IsActive],[IsModerated],[ModerateDate],[Rate],[Advantages],[Disadvantages],[Text],[ProductId])
+     VALUES (2, 1, '20151219 09:11:32.590', 1, 1, '20151223 09:11:32.590', 4, 'advantages 5', 'disadvantages 5', 'Text 5', 1)
+INSERT INTO [dbo].[FeedBacks] ([ReplyFeedBackId],[CreatorName],[CreateDate],[IsActive],[IsModerated],[ModerateDate],[Rate],[Advantages],[Disadvantages],[Text],[ProductId])
+     VALUES (1, 2, '20151220 09:11:32.590', 1, 1, '20151223 09:11:32.590', 4, 'advantages 6', 'disadvantages 6', 'Text 6', 2)
+INSERT INTO [dbo].[FeedBacks] ([ReplyFeedBackId],[CreatorName],[CreateDate],[IsActive],[IsModerated],[ModerateDate],[Rate],[Advantages],[Disadvantages],[Text],[ProductId])
+     VALUES (null, 4, '20151221 09:11:32.590', 1, 1, '20151223 09:11:32.590', 4, 'advantages 7', 'disadvantages 7', 'Text 7', 3)
+INSERT INTO [dbo].[FeedBacks] ([ReplyFeedBackId],[CreatorName],[CreateDate],[IsActive],[IsModerated],[ModerateDate],[Rate],[Advantages],[Disadvantages],[Text],[ProductId])
+     VALUES (null, 4, '20151222 09:11:32.590', 1, 1, '20151223 09:11:32.590', 4, 'advantages 8', 'disadvantages 8', 'Text 8', 4)
+INSERT INTO [dbo].[FeedBacks] ([ReplyFeedBackId],[CreatorName],[CreateDate],[IsActive],[IsModerated],[ModerateDate],[Rate],[Advantages],[Disadvantages],[Text],[ProductId])
+     VALUES (null, 5, '20151223 09:11:32.590', 1, 1, '20151224 09:11:32.590', 4, 'advantages 9', 'disadvantages 9', 'Text 9', 5)

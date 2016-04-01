@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[DeliveryAddresses]
+(
+	[Id] INT IDENTITY(1,1) NOT NULL,
+	[UserId] NVARCHAR(128) NOT NULL,
+	[Country] NVARCHAR(64) NOT NULL,
+	[Region] NVARCHAR(64) NOT NULL,
+	[District] NVARCHAR(64) NOT NULL,
+	[City] NVARCHAR(64) NOT NULL,
+	[Street] NVARCHAR(64) NOT NULL,
+	[HouseNumber] NVARCHAR(16) NOT NULL,
+	[Apartment] NVARCHAR(16) NOT NULL
+)
