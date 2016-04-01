@@ -27,13 +27,15 @@ namespace TradingCms.Tests.Controllers
             _mockOrdersToProductsRepository = new Mock<IRepository<OrdersToProducts>>();
             _productApiController = new ProductApiController { OrdersToProductsRepository = _mockOrdersToProductsRepository.Object };
 
+            var lang = new Language() {Id = 1, Code = "RU"};
+            
             var productTranslations = new List<ProductTranslation>()
             {
-                new ProductTranslation(){ ProductId = 1, Description = "Description1", Name = "Name1" },
-                new ProductTranslation(){ ProductId = 2, Description = "Description2", Name = "Name2" },
-                new ProductTranslation(){ ProductId = 3, Description = "Description3", Name = "Name3" },
-                new ProductTranslation(){ ProductId = 4, Description = "Description4", Name = "Name4" },
-                new ProductTranslation(){ ProductId = 5, Description = "Description5", Name = "Name5" },
+                new ProductTranslation(){ ProductId = 1, Description = "Description1", Name = "Name1", Language = lang },
+                new ProductTranslation(){ ProductId = 2, Description = "Description2", Name = "Name2", Language = lang },
+                new ProductTranslation(){ ProductId = 3, Description = "Description3", Name = "Name3", Language = lang },
+                new ProductTranslation(){ ProductId = 4, Description = "Description4", Name = "Name4", Language = lang },
+                new ProductTranslation(){ ProductId = 5, Description = "Description5", Name = "Name5", Language = lang },
             };
 
             var productImages = new List<ProductImages>()
