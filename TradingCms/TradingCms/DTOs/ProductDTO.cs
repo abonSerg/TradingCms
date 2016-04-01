@@ -7,6 +7,6 @@ namespace TradingCms.DTOs
         public virtual string Name { get; set; }
         public virtual string Description { get; set; }
         public virtual string Image { get; set; }
-        public virtual float Price { get; set; }
+        public virtual decimal Price { get; set; }
     }
 }

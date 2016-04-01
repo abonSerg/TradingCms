@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TradingCms.Data
 {
@@ -12,6 +13,16 @@ namespace TradingCms.Data
         public virtual DateTime? PaymentDate { get; set; }
         public virtual int? DeliveryTypeId { get; set; }
         public virtual int? DeliveryAddressId { get; set; }
-        public virtual string ComentsToOrder { get; set; }
+        public virtual string CommentsToOrder { get; set; }
+
+        private IList<Product> _products;
+        public virtual IList<Product> Products
+        {
+            get
+            {
+                return _products ?? (_products = new List<Product>());
+            }
+            set { _products = value; }
+        }
     }
 }

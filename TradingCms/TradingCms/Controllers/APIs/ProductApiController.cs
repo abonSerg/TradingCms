@@ -11,17 +11,12 @@ namespace TradingCms.Controllers.APIs
     [RoutePrefix("api/Product")]
     public class ProductApiController : ApiController
     {
-        public IRepository<Product> ProductRepository {get; set;}
-        public IRepository<OrdersToProducts> OrdersToProductsRepository { get; set; }
+        public IRepository<Product> ProductRepository { get; set; }
 
         [Route("GetTopProducts/{count}")]
         public IEnumerable<ProductDTO> GetTopProducts(int count)
         {
-            if (count > 0)
-            {
-                return OrdersToProductsRepository.GetTopProducts(count).ToProductDto();
-            }
-            return null;
+            return ProductRepository.GetTopProducts(count).ToProductDto();
         }
     }
 }

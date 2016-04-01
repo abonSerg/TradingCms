@@ -14,7 +14,11 @@ namespace TradingCms.Data.Access
             Map(x => x.PaymentDate).Nullable();
             Map(x => x.DeliveryTypeId).Nullable();
             Map(x => x.DeliveryAddressId).Nullable();
-            Map(x => x.ComentsToOrder).Nullable();
+            Map(x => x.CommentsToOrder).Nullable();
+
+            HasMany(x => x.Products).Cascade.SaveUpdate()
+            .Inverse()
+            .Table("OrdersToProducts");
 
             Table("Orders");
         }

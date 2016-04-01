@@ -71,7 +71,7 @@
     <Compile Include="ProductTranslationMap.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepositoryExtensions\OrdersToProductsRepositoryExtension.cs" />
+    <Compile Include="RepositoryExtensions\ProductsRepositoryExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.config" />

@@ -17,6 +17,10 @@ namespace TradingCms.Data.Access
             HasMany(x => x.ProductTranslations).Inverse();
             HasMany(x => x.ProductImages).Inverse();
 
+            HasMany(x => x.Orders).Cascade.All()
+            .Inverse()
+            .Table("OrdersToProducts");
+
             Table("Products");
         }
     }

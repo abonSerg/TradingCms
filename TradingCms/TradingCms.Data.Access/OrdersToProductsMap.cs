@@ -6,11 +6,10 @@ namespace TradingCms.Data.Access
     {
         public OrdersToProductsMap()
         {
-            Id(x => x.Id);
-            Map(x => x.OrderId).Not.Nullable();
-            References(x => x.Order, "OrderId").Not.Nullable();
-            Map(x => x.ProductId).Not.Nullable();
-            References(x => x.Product, "ProductId").Not.Nullable();
+            CompositeId()
+            .KeyReference(x => x.Product, "ProductId")
+            .KeyReference(x => x.Order, "OrderId");
+
             Map(x => x.ProductCost).Not.Nullable();
 
             Table("OrdersToProducts");
