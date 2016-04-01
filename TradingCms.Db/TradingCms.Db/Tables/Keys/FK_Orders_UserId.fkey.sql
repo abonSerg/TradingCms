@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[Orders]
+	ADD CONSTRAINT [FK_Orders_UserId] FOREIGN KEY (UserId) REFERENCES [Users] (Id)
+	ON DELETE CASCADE
