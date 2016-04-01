@@ -10,7 +10,7 @@ namespace TradingCms.Data.Access
             .KeyReference(x => x.Product, "ProductId")
             .KeyReference(x => x.Order, "OrderId");
 
-            Map(x => x.ProductCost).Not.Nullable();
+            Map(x => x.Price).Not.Nullable();
 
             Table("OrdersToProducts");
         }

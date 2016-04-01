@@ -7,14 +7,14 @@ namespace TradingCms.Data.Access
         public OrderMap()
         {
             Id(x => x.Id);
-            Map(x => x.CreatorId).Not.Nullable();
+            Map(x => x.UserId).Not.Nullable();
             Map(x => x.CreateDate).Not.Nullable();
             Map(x => x.IsActive).Not.Nullable();
             Map(x => x.PaymentTypeId).Nullable();
             Map(x => x.PaymentDate).Nullable();
             Map(x => x.DeliveryTypeId).Nullable();
             Map(x => x.DeliveryAddressId).Nullable();
-            Map(x => x.CommentsToOrder).Nullable();
+            Map(x => x.Comments).Nullable();
 
             HasMany(x => x.Products).Cascade.SaveUpdate()
             .Inverse()
