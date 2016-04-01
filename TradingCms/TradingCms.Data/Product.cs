@@ -22,5 +22,15 @@ namespace TradingCms.Data
             }
             set { _productTranslations = value; }
         }
+
+        private IList<ProductImages> _productImages;
+        public virtual IList<ProductImages> ProductImages
+        {
+            get
+            {
+                return _productImages ?? (_productImages = new List<ProductImages>());
+            }
+            set { _productImages = value; }
+        }
     }
 }

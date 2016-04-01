@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentNHibernate.Mapping;
+﻿using FluentNHibernate.Mapping;
 
 namespace TradingCms.Data.Access
 {
@@ -12,7 +7,8 @@ namespace TradingCms.Data.Access
         public LanguageMap()
         {
             Id(x => x.Id);
-            Map(x => x.LanguageName).Not.Nullable();
+            Map(x => x.Code).Not.Nullable();
+            Map(x => x.Name).Not.Nullable();
 
             Table("Languages");
         }

@@ -44,7 +44,10 @@
     <Compile Include="FeedBack.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="Language.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrdersToProducts.cs" />
     <Compile Include="Product.cs" />
+    <Compile Include="ProductImages.cs" />
     <Compile Include="ProductTranslation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
