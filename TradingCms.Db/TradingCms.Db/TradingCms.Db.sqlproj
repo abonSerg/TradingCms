@@ -105,7 +105,6 @@
     <Build Include="Tables\Keys\PK_Orders_Id.pkey.sql" />
     <Build Include="Tables\Orders.table.sql" />
     <Build Include="Tables\OrdersToProducts.table.sql" />
-    <Build Include="Tables\Keys\FK_Orders_CreatorId.fkey.sql" />
     <Build Include="Tables\PaymentTypes.table.sql" />
     <Build Include="Tables\Keys\UQ_PaymentTypes_Type.unique.sql" />
     <Build Include="Tables\Keys\FK_Orders_PaymentTypeId.fkey.sql" />
@@ -120,6 +119,7 @@
     <Build Include="Tables\Keys\FK_Orders_DeliveryAddressId.fkey.sql" />
     <Build Include="Tables\Keys\PK_OrdersToProducts_Id.pkey.sql" />
     <Build Include="Tables\Keys\UQ_OrdersToProducts_OrderId_ProductId.unique.sql" />
+    <Build Include="Tables\Keys\FK_Orders_UserId.fkey.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Constraints\DF_FeedBacks_IsActive.const.sql" />
