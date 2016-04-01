@@ -20,6 +20,10 @@ namespace TradingCms.Data.Access
             .Inverse()
             .Table("OrdersToProducts");
 
+            HasMany(x => x.Orders).Cascade.All()
+            .Inverse()
+            .Table("OrdersToProducts");
+
             Table("Products");
         }
     }
