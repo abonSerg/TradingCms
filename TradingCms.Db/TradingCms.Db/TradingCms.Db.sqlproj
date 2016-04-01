@@ -118,6 +118,8 @@
     <Build Include="Tables\Keys\PK_DeliveryAddresses_Id.pkey.sql" />
     <Build Include="Tables\Keys\FK_DeliveryAddresses_UserId.fkey.sql" />
     <Build Include="Tables\Keys\FK_Orders_DeliveryAddressId.fkey.sql" />
+    <Build Include="Tables\Keys\PK_OrdersToProducts_Id.pkey.sql" />
+    <Build Include="Tables\Keys\UQ_OrdersToProducts_OrderId_ProductId.unique.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Constraints\DF_FeedBacks_IsActive.const.sql" />
@@ -130,7 +132,7 @@
     <Build Include="Tables\Keys\FK_ UsersInRoles_UserId.fkey.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Tables\Keys\UQ_UsersInRoles_UserId_RoleId.unique.sql" />
+    <Build Include="Tables\Keys\UQ_UsersInRoles_UserId_RoleId.unique.sql" />
     <Build Include="Tables\Keys\PK_Companies_Id.pkey.sql" />
     <Build Include="Tables\Keys\FK_Users_CompanyId.fkey.sql" />
     <Build Include="Tables\Keys\PK_CompaniesToCategories_CompanyId_CategoryId.pkey.sql" />
