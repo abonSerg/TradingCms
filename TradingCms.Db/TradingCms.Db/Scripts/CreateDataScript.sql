@@ -1348,76 +1348,76 @@ INSERT INTO [dbo].[DeliveryTypes]([Type]) values (N'Курьер')
 INSERT INTO [dbo].[DeliveryTypes]([Type]) values (N'Новая почта')
 
 --[Orders]--
-INSERT INTO [dbo].[Orders] ([CreatorId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[ComentsToOrder])
+INSERT INTO [dbo].[Orders] ([UserId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[Comments])
      VALUES (1, '20151215 09:11:32.590', 1, 1, null, 1, null, 'comment to order 1')
-INSERT INTO [dbo].[Orders] ([CreatorId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[ComentsToOrder])
+INSERT INTO [dbo].[Orders] ([UserId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[Comments])
      VALUES (1, '20151215 09:11:32.590', 1, 2, null, 2, null, 'comment to order 2')
-INSERT INTO [dbo].[Orders] ([CreatorId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[ComentsToOrder])
+INSERT INTO [dbo].[Orders] ([UserId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[Comments])
      VALUES (1, '20151215 09:11:32.590', 1, 2, null, 2, null, 'comment to order 3')
-INSERT INTO [dbo].[Orders] ([CreatorId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[ComentsToOrder])
+INSERT INTO [dbo].[Orders] ([UserId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[Comments])
      VALUES (2, '20151215 09:11:32.590', 1, 3, null, 3, null, 'comment to order 4')
-INSERT INTO [dbo].[Orders] ([CreatorId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[ComentsToOrder])
+INSERT INTO [dbo].[Orders] ([UserId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[Comments])
      VALUES (2, '20151215 09:11:32.590', 1, 1, null, 3, null, 'comment to order 5')
-INSERT INTO [dbo].[Orders] ([CreatorId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[ComentsToOrder])
+INSERT INTO [dbo].[Orders] ([UserId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[Comments])
      VALUES (3, '20151215 09:11:32.590', 1, 2, null, 2, null, 'comment to order 6')
-INSERT INTO [dbo].[Orders] ([CreatorId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[ComentsToOrder])
+INSERT INTO [dbo].[Orders] ([UserId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[Comments])
      VALUES (4, '20151215 09:11:32.590', 1, 2, null, 1, null, 'comment to order 7')
-INSERT INTO [dbo].[Orders] ([CreatorId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[ComentsToOrder])
+INSERT INTO [dbo].[Orders] ([UserId],[CreateDate],[IsActive],[PaymentTypeId],[PaymentDate],[DeliveryTypeId],[DeliveryAddressId],[Comments])
      VALUES (5, '20151215 09:11:32.590', 1, 1, null, 1, null, 'comment to order 8')
 	 
 --[OrdersToProducts]--
 DECLARE @productPrice MONEY
 
 SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 1
-INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[Price])
      VALUES (1, 1, @productPrice)
 
 SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 2
-INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[Price])
      VALUES (1, 2, @productPrice)
 
 SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 3
-INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[Price])
      VALUES (1, 3, @productPrice)
 
 SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 2
-INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[Price])
      VALUES (2, 2, @productPrice)
 
 SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 4
-INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[Price])
      VALUES (2, 4, @productPrice)
 
 SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 5
-INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[Price])
      VALUES (3, 5, @productPrice)
 
 SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 6
-INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[Price])
      VALUES (4, 6, @productPrice)
 
 SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 7
-INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[Price])
      VALUES (4, 7, @productPrice)
 
 SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 8
-INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[Price])
      VALUES (5, 8, @productPrice)
 
 SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 9
-INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[Price])
      VALUES (6, 9, @productPrice)
 
 SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 10
-INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[Price])
      VALUES (7, 10, @productPrice)
 
 SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 11
-INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[Price])
      VALUES (8, 11, @productPrice)
 
 SELECT @productPrice = [Price] from  [dbo].[Products] where Id = 12
-INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[ProductCost])
+INSERT INTO [dbo].[OrdersToProducts] ([OrderId],[ProductId],[Price])
      VALUES (8, 12, @productPrice)
 
 --[FeedBacks]--

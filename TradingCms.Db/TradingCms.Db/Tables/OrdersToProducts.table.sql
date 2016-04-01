@@ -3,5 +3,5 @@
 	[Id] INT IDENTITY(1,1) NOT NULL,
 	[OrderId] INT NOT NULL,
 	[ProductId] INT NOT NULL,
-	[ProductCost] MONEY NOT NULL
+	[Price] MONEY NOT NULL
 )
