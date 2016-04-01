@@ -15,7 +15,6 @@ namespace TradingCms.Data.Access
             References(x => x.Category, "CategoryId").Not.Nullable();
 
             HasMany(x => x.ProductTranslations).Inverse();
-            HasMany(x => x.ProductImages).Inverse();
 
             Table("Products");
         }
