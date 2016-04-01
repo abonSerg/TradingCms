@@ -21,7 +21,7 @@ namespace TradingCms.Tests.Controllers.APIs
         private const int TestCount = 2;
 
 
-        private void InitTestData()
+        private void SetupProductRepository()
         {
             var lang = new Language() { Id = 1, Code = "RU" };
 
@@ -70,6 +70,8 @@ namespace TradingCms.Tests.Controllers.APIs
                 }},
                 new Product() { Id = TopIdTwo, Price = 4, ProductTranslations = productTranslations, ProductImages = productImages, Orders = ordersTopTwo }
             };
+
+            _mockProductRepository.Setup(repository => repository.Items).Returns(_products.AsQueryable());
         }
 
         [TestInitialize]
@@ -79,9 +81,7 @@ namespace TradingCms.Tests.Controllers.APIs
             _mockProductRepository = new Mock<IRepository<Product>>();
             _productApiController = new ProductApiController { ProductRepository = _mockProductRepository.Object };
 
-            InitTestData();
-
-            _mockProductRepository.Setup(repository => repository.Items).Returns(_products.AsQueryable());
+            SetupProductRepository();
         }
 
         [TestMethod]

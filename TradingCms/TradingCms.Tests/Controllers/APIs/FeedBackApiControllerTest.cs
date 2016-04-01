@@ -6,7 +6,7 @@ using TradingCms.Controllers.APIs;
 using TradingCms.Data;
 using TradingCms.Data.Access.Repositories;
 
-namespace TradingCms.Tests.Controllers
+namespace TradingCms.Tests.Controllers.APIs
 {
     [TestClass]
     public class FeedBackApiControllerTest
