@@ -14,102 +14,118 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-        <div class="fluid-container top-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <ul class="top-nav">
-                            <li><a href="#" class="top-logo-img-link"><img src="@Url.Content("~/Content/Images/1.jpg")" alt="" class="top-logo-img"></a></li>
-                            <li><a href="#" class="top-nav-links">Войти в кабинет</a></li>
-                            <li><a href="#" class="top-nav-links">Регистрация</a></li>
-                            <li><a href="#" class="top-nav-links">Корзина</a></li>
-                        </ul>
+
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-WFX23V"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WFX23V');</script>
+    <!-- End Google Tag Manager -->
+
+    <div class="fluid-container top-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul class="top-nav">
+                        <li><a href="#" class="top-logo-img-link"><img src="@Url.Content("~/Content/Images/1.jpg")" alt="" class="top-logo-img"></a></li>
+                        <li><a href="#" class="top-nav-links">Войти в кабинет</a></li>
+                        <li><a href="#" class="top-nav-links">Регистрация</a></li>
+                        <li><a href="#" class="top-nav-links">Корзина</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="fluid-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="header">
+                        <div class="logo">
+                            <div class="img">
+                                LOGO
+                            </div>
+                        </div>
+
+                        <div class="buy">
+                            <form>
+                                <select class="form-control many_one">
+                                    <option>Покупатель</option>
+                                    <option>Заказчик</option>
+                                </select>
+                            </form>
+                        </div>
+
+                        <div class="search">
+                            <form>
+                                <input type="text" class="search_place" placeholder="Поиск..">
+                                <select class="search_variant">
+                                    <option>По всем категориям</option>
+                                    <option>категория1</option>
+                                    <option>категория2</option>
+                                    <option>категория3</option>
+                                    <option>категория4</option>
+                                </select>
+                            </form>
+                        </div>
+
+                        <div class="basket">
+                            <form class="lang">
+                                <select>
+                                    <option>RU</option>
+                                    <option>EN</option>
+                                </select>
+                            </form>
+                            <a href="#" class="cabinet">Личный кабинет</a>
+                            <a href="#" class="icon_basket">
+                                <p class="cart"><i class="fa fa-shopping-cart"></i></p>
+                                Корзина
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </header>
 
-        <header class="fluid-container">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="header">
-                            <div class="logo">
-                                <div class="img">
-                                    LOGO
-                                </div>
-                            </div>
+    @RenderBody()
 
-                            <div class="buy">
-                                <form>
-                                    <select class="form-control many_one">
-                                        <option>Покупатель</option>
-                                        <option>Заказчик</option>
-                                    </select>
-                                </form>
-                            </div>
-
-                            <div class="search">
-                                <form>
-                                    <input type="text" class="search_place" placeholder="Поиск..">
-                                    <select class="search_variant">
-                                        <option>По всем категориям</option>
-                                        <option>категория1</option>
-                                        <option>категория2</option>
-                                        <option>категория3</option>
-                                        <option>категория4</option>
-                                    </select>
-                                </form>
-                            </div>
-
-                            <div class="basket">
-                                <form class="lang">
-                                    <select>
-                                        <option>RU</option>
-                                        <option>EN</option>
-                                    </select>
-                                </form>
-                                <a href="#" class="cabinet">Личный кабинет</a>
-                                <a href="#" class="icon_basket">
-                                    <p class="cart"><i class="fa fa-shopping-cart"></i></p>
-                                    Корзина
-                                </a>
-                            </div>
+    <footer class="fluid-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="footer">
+                        <div class="about_us">О нас</div>
+                        <div class="enjoy">Вопросы и ответы</div>
+                        <div class="contacts">Конткты</div>
+                        <div class="social">
+                            <a href="#"><i class="fa fa-vk"></i></a>
+                            <a href="#"><i class="fa fa-facebook-square"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-tumblr"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
+    </footer>
 
-        @RenderBody()
-
-            <footer class="fluid-container">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="footer">
-                                <div class="about_us">О нас</div>
-                                <div class="enjoy">Вопросы и ответы</div>
-                                <div class="contacts">Конткты</div>
-                                <div class="social">
-                                    <a href="#"><i class="fa fa-vk"></i></a>
-                                    <a href="#"><i class="fa fa-facebook-square"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-tumblr"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
- 
     <!--[if lt IE 9]>
-    <script src="libs/html5shiv/es5-shim.min.js"></script>
-    <script src="libs/html5shiv/html5shiv.min.js"></script>
-    <script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>
-    <script src="libs/respond/respond.min.js"></script>
+        <script src="libs/html5shiv/es5-shim.min.js"></script>
+        <script src="libs/html5shiv/html5shiv.min.js"></script>
+        <script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>
+        <script src="libs/respond/respond.min.js"></script>
     <![endif]-->
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/js")
