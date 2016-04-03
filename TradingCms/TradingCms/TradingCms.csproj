@@ -145,7 +145,6 @@
     <Folder Include="Models\" />
     <Folder Include="Views\Category\" />
     <Folder Include="Views\FeedBack\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -309,6 +308,8 @@
     <Content Include="Views\Home\Subcategories.cshtml" />
     <Content Include="Views\Home\Registration.cshtml" />
     <Content Include="Views\Home\Cart.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TradingCms.Data.Access\TradingCms.Data.Access.csproj">
