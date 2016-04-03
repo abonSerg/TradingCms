@@ -486,7 +486,7 @@ values (@currentCategory)
 SELECT @currentSubCategory= MAX(Id) from  [dbo].[Categories]
 
 INSERT INTO [dbo].[CategoryTranslations] ([CategoryId],[LanguageId],[Name])
-values(@currentSubCategory,@lang,N'Зарядные устройтсва ')
+values(@currentSubCategory,@lang,N'Зарядные устройства ')
 
 
 INSERT INTO [dbo].[Products] ([CategoryId],[Price],[IsAvailable],[CreateDate])
