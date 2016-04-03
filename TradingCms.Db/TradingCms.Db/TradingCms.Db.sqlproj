@@ -120,6 +120,12 @@
     <Build Include="Tables\Keys\PK_OrdersToProducts_Id.pkey.sql" />
     <Build Include="Tables\Keys\UQ_OrdersToProducts_OrderId_ProductId.unique.sql" />
     <Build Include="Tables\Keys\FK_Orders_UserId.fkey.sql" />
+    <Build Include="Tables\UserClaims.sql" />
+    <Build Include="Tables\Keys\PK_UserClaims_Id.pkey.sql" />
+    <Build Include="Tables\Keys\FK_UserClaims_UserId.fkey.sql" />
+    <Build Include="Tables\UserLogins.sql" />
+    <Build Include="Tables\Keys\PK_UserLogins_UserId_LoginProvider_ProviderKey.pkey.sql" />
+    <Build Include="Tables\Keys\FK_UserLogins_UserId.fkey.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Constraints\DF_FeedBacks_IsActive.const.sql" />
