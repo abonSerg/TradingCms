@@ -1,0 +1,24 @@
+﻿@model IEnumerable<TradingCms.Data.Product>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>@Html.LabelFor(models => models.First().Id)</th>
+            <th>@Html.LabelFor(models => models.First().CreateDate)</th>
+            <th>@Html.LabelFor(models => models.First().IsAvailable)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            if (product != null)
+            {
+                    <tr>
+                        <td>@product.Id</td>
+                        <td>@product.CreateDate</td>
+                        <td>@product.IsAvailable</td>
+                    </tr>
+            }
+        }
+    </tbody>
+</table>
