@@ -9,7 +9,9 @@ namespace TradingCms.Data.Access
             Id(x => x.Id);
             Map(x => x.Name).Not.Nullable();
             Map(x => x.CategoryId).Not.Nullable();
+            References(x => x.Category, "CategoryId").Not.Nullable();
             Map(x => x.LanguageId).Not.Nullable();
+            References(x => x.Language, "LanguageId").Not.Nullable();
             
             Table("CategoryTranslations");
         }

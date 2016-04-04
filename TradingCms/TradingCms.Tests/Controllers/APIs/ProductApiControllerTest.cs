@@ -23,25 +23,41 @@ namespace TradingCms.Tests.Controllers.APIs
 
         private void SetupProductRepository()
         {
-            var lang = new Language() { Id = 1, Code = "RU" };
+            var lang = new Language() { Id = 1, Code = "Ru" };
 
-            var productTranslations = new List<ProductTranslation>()
+            var productTranslations1 = new List<ProductTranslation>()
             {
-                new ProductTranslation(){ ProductId = TopIdOne, Description = "Description1", Name = "Name1", Language = lang },
-                new ProductTranslation(){ ProductId = TopIdTwo, Description = "Description2", Name = "Name2", Language = lang },
-                new ProductTranslation(){ ProductId = 3, Description = "Description3", Name = "Name3", Language = lang },
-                new ProductTranslation(){ ProductId = 4, Description = "Description4", Name = "Name4", Language = lang },
-                new ProductTranslation(){ ProductId = 5, Description = "Description5", Name = "Name5", Language = lang },
+                new ProductTranslation(){ ProductId = TopIdOne, Description = "Description1", Name = "Name1", Language = lang }
             };
 
-            var productImages = new List<ProductImages>()
+            var productTranslations2 = new List<ProductTranslation>()
             {
-                new ProductImages() { Path = "Path1", ProductId = TopIdOne },
-                new ProductImages() { Path = "Path2", ProductId = TopIdTwo },
-                new ProductImages() { Path = "Path3", ProductId = 3 },
-                new ProductImages() { Path = "Path4", ProductId = 4 },
-                new ProductImages() { Path = "Path5", ProductId = 5 },
+                new ProductTranslation(){ ProductId = TopIdTwo, Description = "Description2", Name = "Name2", Language = lang }
             };
+
+            var productTranslations3 = new List<ProductTranslation>()
+            {
+                new ProductTranslation(){ ProductId = 3, Description = "Description3", Name = "Name3", Language = lang }
+            };
+
+            var productTranslations4 = new List<ProductTranslation>()
+            {
+                new ProductTranslation(){ ProductId = 9, Description = "Description4", Name = "Name4", Language = lang }
+            };
+
+            var productTranslations5 = new List<ProductTranslation>()
+            {
+                new ProductTranslation(){ ProductId = 6, Description = "Description5", Name = "Name5", Language = lang }
+            };
+
+            //var productImages = new List<ProductImages>()
+            //{
+            //    new ProductImages() { Path = "Path1", ProductId = TopIdOne },
+            //    new ProductImages() { Path = "Path2", ProductId = TopIdTwo },
+            //    new ProductImages() { Path = "Path3", ProductId = 3 },
+            //    new ProductImages() { Path = "Path4", ProductId = 4 },
+            //    new ProductImages() { Path = "Path5", ProductId = 5 },
+            //};
 
             var ordersTopOne = new List<Order>()
             {
@@ -58,17 +74,17 @@ namespace TradingCms.Tests.Controllers.APIs
 
             _products = new List<Product>
             {
-                new Product() { Id = TopIdOne, Price = 4, ProductTranslations = productTranslations, ProductImages = productImages, Orders = ordersTopOne },
-                new Product() { Id = 9, Price = 4, ProductTranslations = productTranslations, ProductImages = productImages, Orders = new List<Order>(){
+                new Product() { Id = TopIdOne, Price = 4, ProductTranslations = productTranslations1,  Orders = ordersTopOne },
+                new Product() { Id = 9, Price = 4, ProductTranslations = productTranslations4,  Orders = new List<Order>(){
                     new Order() {Id = 6, Products = new List<Product>() {new Product() {Id = 4}}}
                 }},
-                new Product() { Id = 3, Price = 4, ProductTranslations = productTranslations, ProductImages = productImages, Orders = new List<Order>(){
+                new Product() { Id = 3, Price = 4, ProductTranslations = productTranslations3,  Orders = new List<Order>(){
                     new Order() {Id = 7, Products = new List<Product>() {new Product() {Id = 4}}}
                 }},
-                new Product() { Id = 6, Price = 4, ProductTranslations = productTranslations, ProductImages = productImages, Orders = new List<Order>(){
+                new Product() { Id = 6, Price = 4, ProductTranslations = productTranslations5,  Orders = new List<Order>(){
                     new Order() {Id = 8, Products = new List<Product>() {new Product() {Id = 4}}}
                 }},
-                new Product() { Id = TopIdTwo, Price = 4, ProductTranslations = productTranslations, ProductImages = productImages, Orders = ordersTopTwo }
+                new Product() { Id = TopIdTwo, Price = 4, ProductTranslations = productTranslations2,  Orders = ordersTopTwo }
             };
 
             _mockProductRepository.Setup(repository => repository.Items).Returns(_products.AsQueryable());
@@ -89,7 +105,7 @@ namespace TradingCms.Tests.Controllers.APIs
         {
             // Act
             var result = _productApiController.GetTopProducts(TestCount);
-            int countTopIds = result.Count(item => _topIds.Contains(item.Id));
+            int countTopIds = result.Where(p => p.Id == TopIdOne || p.Id == TopIdTwo).ToList().Count;
 
             // Assert
             Assert.IsTrue(result.Count() == TestCount);
