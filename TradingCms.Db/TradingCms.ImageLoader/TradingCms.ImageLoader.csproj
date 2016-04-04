@@ -143,12 +143,6 @@
     <Content Include="Content\Boats\Boat %289%29.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Category1\SubCategory1\Notebook1.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Category1\SubCategory1\Notrbook2.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\Chargers\Charger %281%29.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

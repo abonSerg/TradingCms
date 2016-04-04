@@ -15,7 +15,7 @@ namespace TradingCms.ImageLoader
         Dictionary<string, List<byte[]>> images;
         List<string> subSategories;
 
-        string conectionString = @"Data Source=ABON-PC\SQLEXPRESS;Initial Catalog=TradingCms;Integrated Security=True";
+        string conectionString;
 
         string selectQuery = "select Products.Id, CategoryTranslations.Name" +
                                " from Products join Categories on Products.CategoryId = Categories.Id " +
@@ -46,12 +46,11 @@ namespace TradingCms.ImageLoader
                                        "N'Рации'"
                                       });
             
-
-            LoaImgPathes();
+            LoadImgPathes();
         }
 
         //Do not forget to set "Copy always" value for files after adding in file properties
-        private void LoaImgPathes() 
+        private void LoadImgPathes() 
         {
             try
             {
