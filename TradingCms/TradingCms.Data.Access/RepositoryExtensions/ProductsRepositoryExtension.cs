@@ -9,13 +9,11 @@ namespace TradingCms.Data.Access.RepositoryExtensions
         {
             return repository.Items.OrderByDescending(x => x.Orders.Count).Take(count).AsQueryable();
         }
+
         public static IQueryable<Product> GetNewProducts(this IRepository<Product> repository, int count)
 
         {
-            var newProducts = repository.Items
-                .OrderByDescending(d => d.CreateDate)
-                .Take(count).AsQueryable();
-            return newProducts;
+            return repository.Items.OrderByDescending(d => d.CreateDate).Take(count).AsQueryable();
         }
     }
 }
