@@ -19,5 +19,10 @@ namespace TradingCms.Controllers.APIs
         {
             return ProductRepository.GetTopProducts(count).ToList().ToProductDto();
         }
+        [Route("GetNewProducts/{count}")]
+        public IEnumerable<ProductDTO> GetNewProducts(int count)
+        {
+            return ProductRepository.GetNewProducts(count).ToProductDto();
+        }
     }
 }
