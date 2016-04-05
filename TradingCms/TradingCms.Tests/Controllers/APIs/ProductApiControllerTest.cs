@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -19,6 +20,12 @@ namespace TradingCms.Tests.Controllers.APIs
         private const int TopIdOne = 11;
         private const int TopIdTwo = 5;
         private readonly List<int> _topIds = new List<int>() { TopIdOne, TopIdTwo };
+        private DateTime date1 = DateTime.Now;
+        private DateTime date2 = DateTime.Today;
+        private const int NewProductIdOne = 3;
+        private const int NewProductIdTwo = 6;
+        private readonly List<int> _topCreateDates = new List<int>() { NewProductIdOne, NewProductIdTwo };
+
 
         [TestInitialize]
         public void Init()
@@ -40,6 +47,18 @@ namespace TradingCms.Tests.Controllers.APIs
             // Assert
             Assert.IsTrue(topProducts.Count() == TestCount);
             Assert.IsTrue(_topIds.Count() == countTopIds);
+        }
+
+        [TestMethod]
+        public void Assert_NewProducts()
+        {
+            // Act
+            var resultNewProducts = _productApiController.GetNewProducts(TestCount).ToList();
+            int resultCount = resultNewProducts.Where(p => p.Id == NewProductIdOne || p.Id == NewProductIdTwo).ToList().Count;
+
+            // Assert
+            Assert.IsTrue(resultNewProducts.Count() == TestCount);
+            Assert.IsTrue(_topCreateDates.Count() == resultCount);
         }
 
         private void SetupProductRepository()
@@ -65,6 +84,7 @@ namespace TradingCms.Tests.Controllers.APIs
                 {
                     Id = TopIdOne,
                     Price = 4,
+                    CreateDate = date2,
                     ProductTranslations = new List<ProductTranslation>()
                     {
                         new ProductTranslation(){ ProductId = TopIdOne, Description = "Description1", Name = "Name1", Language = lang }
@@ -75,6 +95,7 @@ namespace TradingCms.Tests.Controllers.APIs
                 {
                     Id = 9,
                     Price = 4,
+                    CreateDate = date2,
                     ProductTranslations = new List<ProductTranslation>()
                     {
                         new ProductTranslation(){ ProductId = 9, Description = "Description4", Name = "Name4", Language = lang }
@@ -88,6 +109,7 @@ namespace TradingCms.Tests.Controllers.APIs
                 {
                     Id = 3,
                     Price = 4,
+                    CreateDate = date1,
                     ProductTranslations = new List<ProductTranslation>()
                     {
                         new ProductTranslation(){ ProductId = 3, Description = "Description3", Name = "Name3", Language = lang }
@@ -101,6 +123,7 @@ namespace TradingCms.Tests.Controllers.APIs
                 {
                     Id = 6,
                     Price = 4,
+                    CreateDate = date1,
                     ProductTranslations = new List<ProductTranslation>()
                     {
                         new ProductTranslation(){ ProductId = 6, Description = "Description5", Name = "Name5", Language = lang }
@@ -114,6 +137,7 @@ namespace TradingCms.Tests.Controllers.APIs
                 {
                     Id = TopIdTwo,
                     Price = 4,
+                    CreateDate =date2,
                     ProductTranslations = new List<ProductTranslation>()
                     {
                         new ProductTranslation(){ ProductId = TopIdTwo, Description = "Description2", Name = "Name2", Language = lang }
