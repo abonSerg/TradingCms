@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using TradingCms.Data;
 using TradingCms.Data.Access.Repositories;
@@ -16,7 +17,7 @@ namespace TradingCms.Controllers.APIs
         [Route("GetTopProducts/{count}")]
         public IEnumerable<ProductDTO> GetTopProducts(int count)
         {
-            return ProductRepository.GetTopProducts(count).ToProductDto();
+            return ProductRepository.GetTopProducts(count).ToList().ToProductDto();
         }
     }
 }
