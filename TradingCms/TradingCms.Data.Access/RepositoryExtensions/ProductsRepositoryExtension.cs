@@ -11,7 +11,6 @@ namespace TradingCms.Data.Access.RepositoryExtensions
         }
 
         public static IQueryable<Product> GetNewProducts(this IRepository<Product> repository, int count)
-
         {
             return repository.Items.OrderByDescending(d => d.CreateDate).Take(count).AsQueryable();
         }
