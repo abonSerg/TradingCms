@@ -15,8 +15,8 @@ namespace TradingCms.Controllers.APIs
         [Route("GetProductFeedbacks/{productId}")]
         public IEnumerable<FeedBack> GetProductFeedbacks(int productId)
         {
-            var res = FeedbackRepository.GetFeedbackByProduct(productId).ToList();
-            return res;
+            var feedbacks = FeedbackRepository.GetFeedbacksByProduct(productId).ToList();
+            return feedbacks;
         }
     }
 }

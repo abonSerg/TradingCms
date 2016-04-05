@@ -14,8 +14,8 @@ namespace TradingCms.Controllers
         // GET: Category
         public ActionResult Index()
         {
-            var model = CategoryRepository.Items.ToList();
-            return View(model);
+            var categories = CategoryRepository.Items.ToList();
+            return View(categories);
         }
 
         // GET: Category/Details/5
@@ -25,7 +25,9 @@ namespace TradingCms.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var category = CategoryRepository.Find(id);
+
             if (category == null)
             {
                 return HttpNotFound();

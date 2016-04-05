@@ -17,13 +17,15 @@ namespace TradingCms.Controllers.APIs
         [Route("GetTopProducts/{count}")]
         public IEnumerable<ProductDTO> GetTopProducts(int count)
         {
-            return ProductRepository.GetTopProducts(count).ToList().ToProductDto();
+            var topProducts = ProductRepository.GetTopProducts(count).ToList().ToProductDto();
+            return topProducts;
         }
 
         [Route("GetNewProducts/{count}")]
         public IEnumerable<ProductDTO> GetNewProducts(int count)
         {
-            return ProductRepository.GetNewProducts(count).ToProductDto();
+            var newProducts = ProductRepository.GetNewProducts(count).ToProductDto();
+            return newProducts;
         }
     }
 }

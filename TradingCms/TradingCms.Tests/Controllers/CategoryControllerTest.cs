@@ -14,6 +14,7 @@ namespace TradingCms.Tests.Controllers
     {
         private CategoryController _categoryController;
         private Mock<IRepository<Category>> _mockCategoryRepository;
+
         const int TestValue = 1;
 
         [TestInitialize]
@@ -32,8 +33,8 @@ namespace TradingCms.Tests.Controllers
         [TestMethod]
         public void Assert_Index_ViewModelIsNotNull()
         {
-            var result = _categoryController.Index();
-            var model = (result as ViewResult).Model as List<Category>;
+            var categories = _categoryController.Index();
+            var model = (categories as ViewResult).Model as List<Category>;
 
             Assert.IsNotNull(model);
         }
@@ -41,8 +42,8 @@ namespace TradingCms.Tests.Controllers
         [TestMethod]
         public void Assert_DetailsReturnCategoryById()
         {
-            var result = _categoryController.Details(TestValue);
-            var model = (result as ViewResult).Model as Category;
+            var category = _categoryController.Details(TestValue);
+            var model = (category as ViewResult).Model as Category;
 
             Assert.IsTrue(model.Id == TestValue);
         }

@@ -12,14 +12,16 @@ namespace TradingCms.Extensions.ConvertExtensions
             return products.Select(p =>
             {
                 var productTranslation = p.ProductTranslations.FirstOrDefault(t => t.Language.Code == lang);
-                return productTranslation != null ? new ProductDTO()
+                return productTranslation != null 
+                ? new ProductDTO()
                 {
                     Id = p.Id,
                     Price = p.Price,
                     Name = productTranslation.Name,
                     Description = productTranslation.Description,
                     //Image = p.ProductImages.FirstOrDefault(i => i.ProductId == p.Id).Path
-                } : null;
+                } 
+                : null;
             });
         }
     }

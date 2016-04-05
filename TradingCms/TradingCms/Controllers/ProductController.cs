@@ -10,11 +10,12 @@ namespace TradingCms.Controllers
     public class ProductController : Controller
     {
         public IRepository<Product> ProductRepository { get; set; }
+        
         // GET: Product
         public ActionResult Index()
         {
-            var model = ProductRepository.Items.ToList();
-            return View(model);
+            var products = ProductRepository.Items.ToList();
+            return View(products);
         }
 
         // GET: Product/Details/5
@@ -24,11 +25,14 @@ namespace TradingCms.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var product = ProductRepository.Find(id);
+
             if (product == null)
             {
                 return HttpNotFound();
             }
+
             return View(product);
         }
 

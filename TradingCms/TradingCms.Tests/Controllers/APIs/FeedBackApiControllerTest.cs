@@ -12,7 +12,7 @@ namespace TradingCms.Tests.Controllers.APIs
     public class FeedBackApiControllerTest
     {
         private FeedBackApiController _feedBackApiController;
-        private Mock<IRepository<FeedBack>> _mockFeedbackRepository;
+        private Mock<IRepository<FeedBack>> _feedbackRepositoryMock;
         private IEnumerable<FeedBack> _feedBacks;
         private const int TestProductId = 1;
 
@@ -20,28 +20,29 @@ namespace TradingCms.Tests.Controllers.APIs
         public void Init()
         {
             // Arrange
-            _mockFeedbackRepository = new Mock<IRepository<FeedBack>>();
-            _feedBackApiController = new FeedBackApiController { FeedbackRepository = _mockFeedbackRepository.Object };
+            _feedbackRepositoryMock = new Mock<IRepository<FeedBack>>();
+            _feedBackApiController = new FeedBackApiController { FeedbackRepository = _feedbackRepositoryMock.Object };
 
             _feedBacks = new List<FeedBack>
             {
-                new FeedBack { Id = 1, ProductId = 1 },
-                new FeedBack { Id = 2, ProductId = 2 },
-                new FeedBack { Id = 3, ProductId = 1 }
+                new FeedBack { Id = 1, ProductId = 1, Text = "Text1"},
+                new FeedBack { Id = 2, ProductId = 2, Text = "Text2" },
+                new FeedBack { Id = 3, ProductId = 1, Text = "Text3" }
             };
 
-            _mockFeedbackRepository.Setup(repository => repository.Items).Returns(_feedBacks.AsQueryable());
+            _feedbackRepositoryMock.Setup(repository => repository.Items).Returns(_feedBacks.AsQueryable());
         }
 
+        // need refactoring to check if resulted feedbacks are for these product
         [TestMethod]
         public void Assert_ReturnProductFeedbacks()
         {
             // Act
-            var result = _feedBackApiController.GetProductFeedbacks(TestProductId).Count();
-            var expected = _feedBacks.Count(f => f.ProductId == TestProductId);
+            var feedBacksCount = _feedBackApiController.GetProductFeedbacks(TestProductId).Count();
+            var expectedFeedBacksCount = _feedBacks.Count(f => f.ProductId == TestProductId);
 
             // Assert
-            Assert.IsTrue(result == expected);
+            Assert.IsTrue(feedBacksCount == expectedFeedBacksCount);
         }
     }
 }

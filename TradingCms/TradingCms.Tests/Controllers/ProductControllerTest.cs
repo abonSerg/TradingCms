@@ -30,17 +30,17 @@ namespace TradingCms.Tests.Controllers
         [TestMethod]
         public void Assert_Index_ViewModelIsNotNull()
         {
-            var result = _productController.Index();
-            var model = (result as ViewResult).Model as List<Product>;
+            var products = _productController.Index();
+            var model = (products as ViewResult).Model as List<Product>;
 
             Assert.IsNotNull(model);
         }
-
+        // need refactoring - setup product repository, including product details and check values here - price, description etc
         [TestMethod]
         public void Assert_DetailsReturnProductById()
         {
-            var result = _productController.Details(TestValue);
-            var model = (result as ViewResult).Model as Product;
+            var product = _productController.Details(TestValue);
+            var model = (product as ViewResult).Model as Product;
 
             Assert.IsTrue(model.Id == TestValue);
         }
