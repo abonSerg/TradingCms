@@ -7,16 +7,20 @@ namespace TradingCms.Extensions.ConvertExtensions
 {
     public static class ProductExtensions
     {
-        public static IEnumerable<ProductDTO> ToProductDto(this IQueryable<Product> products, string lang = "RU")
+        public static IEnumerable<ProductDTO> ToProductDto(this IEnumerable<Product> products, string lang = "Ru")
         {
-            return products.Select(p => new ProductDTO()
+            return products.Select(p =>
             {
-                Id = p.Id,
-                Price = p.Price,
-                Name = p.ProductTranslations.FirstOrDefault(t => (t.ProductId == p.Id && t.Language.Code.Equals(lang))).Name,
-                Description = p.ProductTranslations.FirstOrDefault(t => (t.ProductId == p.Id && t.Language.Code.Equals(lang))).Description,
-                Image = p.ProductImages.FirstOrDefault(i => i.ProductId == p.Id).Path
-            }).ToList();
+                var productTranslation = p.ProductTranslations.FirstOrDefault(t => t.Language.Code == lang);
+                return productTranslation != null ? new ProductDTO()
+                {
+                    Id = p.Id,
+                    Price = p.Price,
+                    Name = productTranslation.Name,
+                    Description = productTranslation.Description,
+                    //Image = p.ProductImages.FirstOrDefault(i => i.ProductId == p.Id).Path
+                } : null;
+            });
         }
     }
 }

@@ -16,9 +16,11 @@ namespace TradingCms.Data.Access
             Map(x => x.DeliveryAddressId).Nullable();
             Map(x => x.Comments).Nullable();
 
-            HasMany(x => x.Products).Cascade.SaveUpdate()
-            .Inverse()
-            .Table("OrdersToProducts");
+            HasManyToMany(x => x.Products)
+            .Table("OrdersToProducts")
+            .ParentKeyColumn("ProductId")
+            .ChildKeyColumn("OrderId")
+            .Cascade.SaveUpdate();
 
             Table("Orders");
         }
