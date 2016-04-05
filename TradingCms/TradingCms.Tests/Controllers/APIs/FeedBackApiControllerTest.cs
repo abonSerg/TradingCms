@@ -5,6 +5,7 @@ using Moq;
 using TradingCms.Controllers.APIs;
 using TradingCms.Data;
 using TradingCms.Data.Access.Repositories;
+using TradingCms.Tests.Helpers;
 
 namespace TradingCms.Tests.Controllers.APIs
 {
@@ -14,7 +15,7 @@ namespace TradingCms.Tests.Controllers.APIs
         private FeedBackApiController _feedBackApiController;
         private Mock<IRepository<FeedBack>> _feedbackRepositoryMock;
         private IEnumerable<FeedBack> _feedBacks;
-        private const int TestProductId = 1;
+        private const int productId = 1;
 
         [TestInitialize]
         public void Init()
@@ -33,16 +34,20 @@ namespace TradingCms.Tests.Controllers.APIs
             _feedbackRepositoryMock.Setup(repository => repository.Items).Returns(_feedBacks.AsQueryable());
         }
 
-        // need refactoring to check if resulted feedbacks are for these product
         [TestMethod]
         public void Assert_ReturnProductFeedbacks()
         {
+            var _expectedfeedBacks = new List<FeedBack>
+            {
+                new FeedBack { Id = 1, ProductId = 1, Text = "Text1"},
+                new FeedBack { Id = 3, ProductId = 1, Text = "Text3" }
+            };
+
             // Act
-            var feedBacksCount = _feedBackApiController.GetProductFeedbacks(TestProductId).Count();
-            var expectedFeedBacksCount = _feedBacks.Count(f => f.ProductId == TestProductId);
+            var feedBacksCount = _feedBackApiController.GetProductFeedbacks(productId).ToList();
 
             // Assert
-            Assert.IsTrue(feedBacksCount == expectedFeedBacksCount);
+            Assert.IsTrue(feedBacksCount.SequenceEqual(_expectedfeedBacks, new EntityComparer<FeedBack>()));
         }
     }
 }

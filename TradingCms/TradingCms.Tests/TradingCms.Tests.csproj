@@ -115,6 +115,7 @@
     <Compile Include="Controllers\APIs\ProductApiControllerTest.cs" />
     <Compile Include="Controllers\ProductControllerTest.cs" />
     <Compile Include="Controllers\APIs\FeedBackApiControllerTest.cs" />
+    <Compile Include="Helpers\EntityComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

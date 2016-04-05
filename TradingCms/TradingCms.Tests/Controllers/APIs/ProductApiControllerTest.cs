@@ -16,12 +16,12 @@ namespace TradingCms.Tests.Controllers.APIs
         private Mock<IRepository<Product>> _productRepositoryMock;
         private IEnumerable<Product> _products;
 
-        private const int TestCount = 3;
+        private const int Count = 3;
         private const int TopIdOne = 11;
         private const int TopIdTwo = 5;
         private readonly List<int> _topIds = new List<int>() { TopIdOne, TopIdTwo };
-        private DateTime date1 = DateTime.Now;
-        private DateTime date2 = DateTime.Today;
+        private readonly DateTime _date1 = DateTime.Now;
+        private readonly DateTime _date2 = DateTime.Today;
         private const int NewProductIdOne = 3;
         private const int NewProductIdTwo = 6;
         private readonly List<int> _topCreateDates = new List<int>() { NewProductIdOne, NewProductIdTwo };
@@ -41,11 +41,11 @@ namespace TradingCms.Tests.Controllers.APIs
         public void Assert_ReturnTopProducts()
         {
             // Act
-            var topProducts = _productApiController.GetTopProducts(TestCount);
+            var topProducts = _productApiController.GetTopProducts(Count);
             int countTopIds = topProducts.Where(p => p.Id == TopIdOne || p.Id == TopIdTwo).ToList().Count;
 
             // Assert
-            Assert.IsTrue(topProducts.Count() == TestCount);
+            Assert.IsTrue(topProducts.Count() == Count);
             Assert.IsTrue(_topIds.Count() == countTopIds);
         }
 
@@ -53,11 +53,11 @@ namespace TradingCms.Tests.Controllers.APIs
         public void Assert_NewProducts()
         {
             // Act
-            var resultNewProducts = _productApiController.GetNewProducts(TestCount).ToList();
+            var resultNewProducts = _productApiController.GetNewProducts(Count).ToList();
             int resultCount = resultNewProducts.Where(p => p.Id == NewProductIdOne || p.Id == NewProductIdTwo).ToList().Count;
 
             // Assert
-            Assert.IsTrue(resultNewProducts.Count() == TestCount);
+            Assert.IsTrue(resultNewProducts.Count() == Count);
             Assert.IsTrue(_topCreateDates.Count() == resultCount);
         }
 
@@ -84,7 +84,7 @@ namespace TradingCms.Tests.Controllers.APIs
                 {
                     Id = TopIdOne,
                     Price = 4,
-                    CreateDate = date2,
+                    CreateDate = _date2,
                     ProductTranslations = new List<ProductTranslation>()
                     {
                         new ProductTranslation(){ ProductId = TopIdOne, Description = "Description1", Name = "Name1", Language = lang }
@@ -95,7 +95,7 @@ namespace TradingCms.Tests.Controllers.APIs
                 {
                     Id = 9,
                     Price = 4,
-                    CreateDate = date2,
+                    CreateDate = _date2,
                     ProductTranslations = new List<ProductTranslation>()
                     {
                         new ProductTranslation(){ ProductId = 9, Description = "Description4", Name = "Name4", Language = lang }
@@ -109,7 +109,7 @@ namespace TradingCms.Tests.Controllers.APIs
                 {
                     Id = 3,
                     Price = 4,
-                    CreateDate = date1,
+                    CreateDate = _date1,
                     ProductTranslations = new List<ProductTranslation>()
                     {
                         new ProductTranslation(){ ProductId = 3, Description = "Description3", Name = "Name3", Language = lang }
@@ -123,7 +123,7 @@ namespace TradingCms.Tests.Controllers.APIs
                 {
                     Id = 6,
                     Price = 4,
-                    CreateDate = date1,
+                    CreateDate = _date1,
                     ProductTranslations = new List<ProductTranslation>()
                     {
                         new ProductTranslation(){ ProductId = 6, Description = "Description5", Name = "Name5", Language = lang }
@@ -137,7 +137,7 @@ namespace TradingCms.Tests.Controllers.APIs
                 {
                     Id = TopIdTwo,
                     Price = 4,
-                    CreateDate =date2,
+                    CreateDate =_date2,
                     ProductTranslations = new List<ProductTranslation>()
                     {
                         new ProductTranslation(){ ProductId = TopIdTwo, Description = "Description2", Name = "Name2", Language = lang }
