@@ -33,7 +33,7 @@ $(document).ready(function() {
 
 
 	//Carousel for main
-	var owl_2 = $(".carous");
+	var owl_2 = $(".slider-main");
 	owl_2.owlCarousel({
 	    items: 1,
 	    mouseDrag: false,
@@ -41,10 +41,10 @@ $(document).ready(function() {
 	    rewindNav: false
 	});
 
-	$(".next_but").click(function(){
+	$(".slider-main-next-button").click(function () {
 		owl_2.trigger("owl.next");
 	});
-	$(".prev_but").click(function(){
+	$(".slider-main-prev-button").click(function () {
 		owl_2.trigger("owl.prev");
 	});
 
