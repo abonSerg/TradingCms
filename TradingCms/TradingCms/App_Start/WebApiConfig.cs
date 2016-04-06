@@ -8,6 +8,7 @@ using Autofac.Integration.WebApi;
 using NHibernate;
 using TradingCms.Data.Access;
 using TradingCms.Data;
+using TradingCms.Data.Access.Helpers;
 using TradingCms.Data.Access.Repositories;
 
 namespace TradingCms
