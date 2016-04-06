@@ -6,8 +6,6 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using NHibernate;
-using TradingCms.Data.Access;
-using TradingCms.Data;
 using TradingCms.Data.Access.Helpers;
 using TradingCms.Data.Access.Repositories;
 
@@ -30,28 +28,27 @@ namespace TradingCms
 
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
-            SetupIocContainer(config);
+            SetupIocContainer();
         }
 
-        private static void SetupIocContainer(HttpConfiguration config)
+        private static void SetupIocContainer()
         {
             // Create the container builder.
             var builder = new ContainerBuilder();
-            
+
             // Register dependencies in controllers
             builder.RegisterControllers(Assembly.GetExecutingAssembly()).PropertiesAutowired();
 
             // Register the Web API controllers.
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly()).PropertiesAutowired();
 
-
             var nHelper = new NHibernateHelper("defaultConnectionString");
             builder.Register(x => nHelper.CreateSessionFactory()).SingleInstance();
-            
+
             // Register ISession as instance per web request
             //builder.Register(x => nHelper).SingleInstance(); //NHibernateHelper
             builder.Register(x => x.Resolve<ISessionFactory>().OpenSession()).InstancePerRequest();
-            
+
             builder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope().PropertiesAutowired();
             // Build the container.
             var container = builder.Build();

@@ -1,8 +1,9 @@
 using System.Web.Optimization;
+using TradingCms;
 
-[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(TradingCms.App_Start.FontAwesomeBundleConfig), "RegisterBundles")]
+[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(FontAwesomeBundleConfig), "RegisterBundles")]
 
-namespace TradingCms.App_Start
+namespace TradingCms
 {
 	public class FontAwesomeBundleConfig
 	{
