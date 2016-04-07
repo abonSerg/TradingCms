@@ -5,17 +5,17 @@ using System.Linq.Expressions;
 
 namespace TradingCms.Data.Access.Repositories
 {
-    public interface IRepository<IEntity> where IEntity : class
+    public interface IRepository<TEntity> where TEntity : IEntity
     {
-        bool Add(IEntity entity);
-        bool Add(IEnumerable<IEntity> entities);
-        bool Update(IEntity entity);
-        bool Delete(IEntity entity);
-        bool Delete(IEnumerable<IEntity> entities);
-        IQueryable<IEntity> Items { get; }
-        IEntity Find(object id);
-        IEntity FindBy(Expression<Func<IEntity, bool>> expression);
-        IQueryable<IEntity> FilterBy(Expression<Func<IEntity, bool>> expression);
+        bool Add(TEntity entity);
+        bool Add(IEnumerable<TEntity> entities);
+        bool Update(TEntity entity);
+        bool Delete(TEntity entity);
+        bool Delete(IEnumerable<TEntity> entities);
+        IQueryable<TEntity> Items { get; }
+        TEntity Find(object id);
+        TEntity FindBy(Expression<Func<TEntity, bool>> expression);
+        IQueryable<TEntity> FilterBy(Expression<Func<TEntity, bool>> expression);
         void Flush();
     }
 }
