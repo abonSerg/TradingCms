@@ -2,7 +2,7 @@
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 
-namespace TradingCms.Data.Access.Helpers
+namespace TradingCms.Data.Access
 {
     public class NHibernateHelper
     {
@@ -15,10 +15,11 @@ namespace TradingCms.Data.Access.Helpers
         public ISessionFactory CreateSessionFactory()
         {
             var factory = Fluently.Configure()
-            .Database(MsSqlConfiguration.MsSql2008.ConnectionString(c => c.FromConnectionStringWithKey(_connectionString)))
-            .CurrentSessionContext("web")
-            .Mappings(m => m.FluentMappings.AddFromAssembly(typeof(NHibernateHelper).Assembly))
-            .BuildSessionFactory();
+                .Database(MsSqlConfiguration.MsSql2008.ConnectionString(c => c.FromConnectionStringWithKey(_connectionString)))
+                .CurrentSessionContext("web")
+                // adds all ClassMap's from "TradingCms.Data.Access" Assembly
+                .Mappings(m => m.FluentMappings.AddFromAssembly(this.GetType().Assembly))
+                .BuildSessionFactory();
             return factory;
         }
     }

@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace TradingCms.Data.Access.Repositories
 {
-    public interface IRepository<TEntity> where TEntity : class
+    public interface IRepository<TEntity> where TEntity : IEntity
     {
         bool Add(TEntity entity);
         bool Add(IEnumerable<TEntity> entities);
