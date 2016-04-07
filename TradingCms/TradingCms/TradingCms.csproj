@@ -304,10 +304,12 @@
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Home\Subcategories.cshtml" />
     <Content Include="Views\Home\Registration.cshtml" />
-    <Content Include="Views\Home\Cart.cshtml" />
+    <Content Include="Views\Category\Cart.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TradingCms.Data.Access\TradingCms.Data.Access.csproj">

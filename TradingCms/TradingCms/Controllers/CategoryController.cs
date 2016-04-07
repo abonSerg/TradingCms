@@ -35,6 +35,11 @@ namespace TradingCms.Controllers
             return View(category);
         }
 
+        public ActionResult Cart()
+        {
+            return View();
+        }
+
         // GET: Category/Create
         //public ActionResult Create()
         //{
