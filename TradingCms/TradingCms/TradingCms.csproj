@@ -150,11 +150,14 @@
     <Compile Include="App_Start\FontAwesomeBundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\APIs\OrderController.cs" />
     <Compile Include="Controllers\APIs\ProductApiController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\APIs\FeedBackApiController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="DTOs\CreateOrderDTO.cs" />
     <Compile Include="DTOs\ProductDTO.cs" />
+    <Compile Include="Extensions\ConvertExtensions\OrderExtensions.cs" />
     <Compile Include="Extensions\ConvertExtensions\ProductExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
