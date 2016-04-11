@@ -17,10 +17,10 @@ namespace TradingCms.Data.Access
             HasMany(x => x.ProductTranslations).Inverse();
 
             HasManyToMany(x => x.Orders)
-            .Table("OrdersToProducts")
-            .ParentKeyColumn("ProductId")
-            .ChildKeyColumn("OrderId")
-            .Inverse();
+                .Table("OrdersToProducts")
+                .ParentKeyColumn("ProductId")
+                .ChildKeyColumn("OrderId")
+                .Inverse();
 
             Table("Products");
         }

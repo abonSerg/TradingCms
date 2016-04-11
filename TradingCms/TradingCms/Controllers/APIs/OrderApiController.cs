@@ -9,7 +9,7 @@ using TradingCms.Extensions.ConvertExtensions;
 namespace TradingCms.Controllers.APIs
 {
     [RoutePrefix("api/Order")]
-    public class OrderController : ApiController
+    public class OrderApiController : ApiController
     {
         public IRepository<Order> OrderRepository { get; set; }
         public IRepository<Product> ProductRepository { get; set; }
@@ -24,6 +24,7 @@ namespace TradingCms.Controllers.APIs
                 order.Products = ProductRepository.Items
                     .Where(product => model.ProductIdList.Contains(product.Id))
                     .ToList();
+
                 if (order.Products.Count > 0 && OrderRepository.Add(order))
                 {
                     OrderRepository.Flush();

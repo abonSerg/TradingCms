@@ -9,12 +9,16 @@ namespace TradingCms.Data.Access
             Id(x => x.Id);
 
             Map(x => x.OrderId).Not.Nullable();
-            References(x => x.Order, "OrderId").Not.Nullable();
+            References(x => x.Order, "OrderId")
+                .Not.Nullable()
+                .ReadOnly();
 
             Map(x => x.ProductId).Not.Nullable();
-            References(x => x.Product, "ProductId").Not.Nullable();
+            References(x => x.Product, "ProductId")
+                .Not.Nullable()
+                .ReadOnly();
 
-            Map(x => x.Price).Not.Nullable();
+            Map(x => x.Price).Nullable();
 
             Table("OrdersToProducts");
         }

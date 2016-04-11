@@ -150,7 +150,7 @@
     <Compile Include="App_Start\FontAwesomeBundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\APIs\OrderController.cs" />
+    <Compile Include="Controllers\APIs\OrderApiController.cs" />
     <Compile Include="Controllers\APIs\ProductApiController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\APIs\FeedBackApiController.cs" />
