@@ -1,4 +1,4 @@
-﻿ALTER TABLE [dbo].[UsersInRoles] ADD  CONSTRAINT [UQ_UsersInRoles_UserId_RoleId] UNIQUE NONCLUSTERED 
+﻿ALTER TABLE [dbo].[AspNetUserRoles] ADD  CONSTRAINT [UQ_AspNetUserRoles_UserId_RoleId] UNIQUE NONCLUSTERED 
 (
 	[UserId] ASC, 
 	[RoleId] ASC

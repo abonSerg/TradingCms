@@ -91,12 +91,12 @@
     <Build Include="Tables\Keys\UQ_ProductTranslations_ProductId_LanguageId.unique.sql" />
     <Build Include="Tables\Keys\FK_ProductTranslations_LanguagesId.fkey.sql" />
     <Build Include="Tables\Keys\FK_ProductTranslations_ProductsId.fkey.sql" />
-    <Build Include="Tables\Roles.table.sql" />
-    <Build Include="Tables\UsersInRoles.table.sql" />
-    <Build Include="Tables\Keys\PK_UsersInRoles_UserId_RoleId.pkey.sql" />
-    <Build Include="Tables\Keys\PK_Users_Id.pkey.sql" />
-    <Build Include="Tables\Keys\FK_UsersInRoles_RoleId.fkey.sql" />
-    <Build Include="Tables\Keys\PK_Roles_Id.pkey .sql" />
+    <Build Include="Tables\AspNetRoles.table.sql" />
+    <Build Include="Tables\AspNetUserRoles.table.sql" />
+    <Build Include="Tables\Keys\PK_AspNetUserRoles_UserId_RoleId.pkey.sql" />
+    <Build Include="Tables\Keys\PK_AspNetUsers_Id.pkey.sql" />
+    <Build Include="Tables\Keys\FK_AspNetUserRoles_RoleId.fkey.sql" />
+    <Build Include="Tables\Keys\PK_AspNetRoles_Id.pkey .sql" />
     <Build Include="Tables\Companies.table.sql" />
     <Build Include="Tables\CompaniesToCategories.table.sql" />
     <Build Include="Tables\Constraints\DF_Orders_IsActive.const.sql" />
@@ -120,12 +120,12 @@
     <Build Include="Tables\Keys\PK_OrdersToProducts_Id.pkey.sql" />
     <Build Include="Tables\Keys\UQ_OrdersToProducts_OrderId_ProductId.unique.sql" />
     <Build Include="Tables\Keys\FK_Orders_UserId.fkey.sql" />
-    <Build Include="Tables\UserClaims.sql" />
-    <Build Include="Tables\Keys\PK_UserClaims_Id.pkey.sql" />
-    <Build Include="Tables\Keys\FK_UserClaims_UserId.fkey.sql" />
-    <Build Include="Tables\UserLogins.sql" />
-    <Build Include="Tables\Keys\PK_UserLogins_UserId_LoginProvider_ProviderKey.pkey.sql" />
-    <Build Include="Tables\Keys\FK_UserLogins_UserId.fkey.sql" />
+    <Build Include="Tables\AspNetUserClaims.table.sql" />
+    <Build Include="Tables\Keys\PK_AspNetUserClaims_Id.pkey.sql" />
+    <Build Include="Tables\Keys\FK_AspNetUserClaims_UserId.fkey.sql" />
+    <Build Include="Tables\AspNetUserLogins.table.sql" />
+    <Build Include="Tables\Keys\PK_AspNetUserLogins_UserId_LoginProvider_ProviderKey.pkey.sql" />
+    <Build Include="Tables\Keys\FK_AspNetUserLogins_UserId.fkey.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Constraints\DF_FeedBacks_IsActive.const.sql" />
@@ -134,13 +134,13 @@
     <Build Include="Tables\Constraints\DF_Products_IsAvailable.const.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\Users.table.sql" />
-    <Build Include="Tables\Keys\FK_ UsersInRoles_UserId.fkey.sql" />
+    <Build Include="Tables\AspNetUsers.table.sql" />
+    <Build Include="Tables\Keys\FK_AspNetUserRoles_UserId.fkey.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Keys\UQ_UsersInRoles_UserId_RoleId.unique.sql" />
     <Build Include="Tables\Keys\PK_Companies_Id.pkey.sql" />
-    <Build Include="Tables\Keys\FK_Users_CompanyId.fkey.sql" />
+    <Build Include="Tables\Keys\FK_Companies_UserId.fkey.sql" />
     <Build Include="Tables\Keys\PK_CompaniesToCategories_CompanyId_CategoryId.pkey.sql" />
     <Build Include="Tables\Keys\FK_CompaniesToCategories_CompanyId.fkey.sql" />
     <Build Include="Tables\Keys\FK_CompaniesToCategories_CategoryId.fkey.sql" />

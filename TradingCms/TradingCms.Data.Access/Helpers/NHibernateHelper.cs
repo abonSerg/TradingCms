@@ -1,8 +1,9 @@
 ﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
+using NHibernate.AspNet.Identity.Helpers;
 
-namespace TradingCms.Data.Access
+namespace TradingCms.Data.Access.Helpers
 {
     public class NHibernateHelper
     {

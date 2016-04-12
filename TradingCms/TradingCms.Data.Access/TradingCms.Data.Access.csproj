@@ -40,8 +40,16 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.4.0.0.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.AspNet.Identity, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.AspNet.Identity.2.2.1.0\lib\net45\NHibernate.AspNet.Identity.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate.Linq, Version=1.1.0.1001, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.Linq.1.0\lib\NHibernate.Linq.dll</HintPath>
