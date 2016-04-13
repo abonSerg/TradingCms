@@ -151,6 +151,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\APIs\ProductApiController.cs" />
+    <Compile Include="Controllers\APIs\ImagesApiController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\APIs\FeedBackApiController.cs" />
     <Compile Include="Controllers\ProductController.cs" />

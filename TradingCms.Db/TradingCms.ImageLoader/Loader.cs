@@ -141,7 +141,7 @@ namespace TradingCms.ImageLoader
             return dataSet;
         }
 
-        private void FillProductImgs(DataTable products, List<Image> imgs)
+        private void FillProductImgs(DataTable products, IEnumerable<Image> imgs)
         {
             var rowCount = products.Rows.Count;
 

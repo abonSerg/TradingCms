@@ -15,7 +15,7 @@ namespace TradingCms.Tests.Controllers.APIs
         private FeedBackApiController _feedBackApiController;
         private Mock<IRepository<FeedBack>> _feedbackRepositoryMock;
         private IEnumerable<FeedBack> _feedBacks;
-        private const int productId = 1;
+        private const int ProductId = 1;
 
         [TestInitialize]
         public void Init()
@@ -37,17 +37,17 @@ namespace TradingCms.Tests.Controllers.APIs
         [TestMethod]
         public void Assert_ReturnProductFeedbacks()
         {
-            var _expectedfeedBacks = new List<FeedBack>
+            var expectedfeedBacks = new List<FeedBack>
             {
                 new FeedBack { Id = 1, ProductId = 1, Text = "Text1"},
                 new FeedBack { Id = 3, ProductId = 1, Text = "Text3" }
             };
 
             // Act
-            var feedBacksCount = _feedBackApiController.GetProductFeedbacks(productId).ToList();
+            var feedBacksCount = _feedBackApiController.GetProductFeedbacks(ProductId).ToList();
 
             // Assert
-            Assert.IsTrue(feedBacksCount.SequenceEqual(_expectedfeedBacks, new EntityComparer<FeedBack>()));
+            Assert.IsTrue(feedBacksCount.SequenceEqual(expectedfeedBacks, new EntityComparer<FeedBack>()));
         }
     }
 }
