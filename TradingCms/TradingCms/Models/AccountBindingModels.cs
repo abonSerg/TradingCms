@@ -18,5 +18,9 @@ namespace TradingCms.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [StringLength(128)]
+        public string RoleId { get; set; }
     }
 }

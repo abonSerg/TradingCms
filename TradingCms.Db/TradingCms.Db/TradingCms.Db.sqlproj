@@ -126,6 +126,9 @@
     <Build Include="Tables\AspNetUserLogins.table.sql" />
     <Build Include="Tables\Keys\PK_AspNetUserLogins_UserId_LoginProvider_ProviderKey.pkey.sql" />
     <Build Include="Tables\Keys\FK_AspNetUserLogins_UserId.fkey.sql" />
+    <Build Include="Tables\ApplicationUser.table.sql" />
+    <Build Include="Tables\Keys\PK_ApplicationUser_Id.pkey.sql" />
+    <Build Include="Tables\Keys\FK_ApplicationUser_UserId.fkey.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Constraints\DF_FeedBacks_IsActive.const.sql" />

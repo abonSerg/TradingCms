@@ -16,14 +16,6 @@ namespace TradingCms.Controllers.APIs
         public ISession Session { get; set; }
 
         private ApplicationUserManager _userManager;
-        public AccountApiController()
-        {
-        }
-
-        public AccountApiController(ApplicationUserManager userManager)
-        {
-            UserManager = userManager;
-        }
 
         public ApplicationUserManager UserManager
         {
@@ -44,12 +36,25 @@ namespace TradingCms.Controllers.APIs
 
             var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
             var result = await UserManager.CreateAsync(user, model.Password);
-
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
             }
 
+            var roleStore = new RoleStore<IdentityRole>(Session);
+            var role = await roleStore.FindByIdAsync(model.RoleId);
+            if (role == null)
+            {
+                ModelState.AddModelError("Role", "Bad RoleId");
+                UserManager.Delete(user);
+                return BadRequest(ModelState);
+            }
+
+            result = await UserManager.AddToRoleAsync(user.Id, role.Name);
+            if (!result.Succeeded)
+            {
+                return GetErrorResult(result);
+            }
             return Ok();
         }
 
@@ -59,7 +64,6 @@ namespace TradingCms.Controllers.APIs
             {
                 return InternalServerError();
             }
-
             if (!result.Succeeded)
             {
                 if (result.Errors != null)
@@ -69,16 +73,13 @@ namespace TradingCms.Controllers.APIs
                         ModelState.AddModelError("", error);
                     }
                 }
-
                 if (ModelState.IsValid)
                 {
                     // No ModelState errors are available to send, so just return an empty BadRequest.
                     return BadRequest();
                 }
-
                 return BadRequest(ModelState);
             }
-
             return null;
         }
     }
