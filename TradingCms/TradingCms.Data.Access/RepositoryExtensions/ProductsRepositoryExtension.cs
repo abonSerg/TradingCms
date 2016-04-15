@@ -16,7 +16,7 @@ namespace TradingCms.Data.Access.RepositoryExtensions
             return repository.Items.OrderByDescending(d => d.CreateDate).Take(count).AsQueryable();
         }
 
-        public static IQueryable<Product> GetProducts(this IRepository<Product> repository, IEnumerable<int> productIdList)
+        public static IQueryable<Product> GetProductsById(this IRepository<Product> repository, IEnumerable<int> productIdList)
         {
             return repository.Items.Where(product => productIdList.Contains(product.Id));
         }

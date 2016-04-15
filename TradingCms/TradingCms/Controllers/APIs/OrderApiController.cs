@@ -22,12 +22,12 @@ namespace TradingCms.Controllers.APIs
             if (ModelState.IsValid)
             {
                 var order = model.ToOrder();
-                order.Products = ProductRepository.GetProducts(model.ProductIdList).ToList();
+                order.Products = ProductRepository.GetProductsById(model.ProductIdList).ToList();
 
                 if (order.Products.Count > 0 && OrderRepository.Add(order))
                 {
                     OrderRepository.Flush();
-                    OrdersToProductsRepository.SetActualPrice(order.Id);
+                    OrdersToProductsRepository.SetPriceForOrderedProducts(order.Id);
                     OrdersToProductsRepository.Flush();
                     return Ok();
                 }
