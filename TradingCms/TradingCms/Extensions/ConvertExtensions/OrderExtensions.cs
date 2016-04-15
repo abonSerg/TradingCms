@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Web;
+using System.Linq;
 using TradingCms.Data;
 using TradingCms.DTOs;
 
@@ -7,7 +7,7 @@ namespace TradingCms.Extensions.ConvertExtensions
 {
     public static class OrderExtensions
     {
-        public static Order ToOrder(this CreateOrderDto dto)
+        public static Order ToOrder(this OrderCreatedDto dto)
         {
             var order = new Order()
             {
@@ -21,6 +21,20 @@ namespace TradingCms.Extensions.ConvertExtensions
             };
 
             return order;
+        }
+
+        public static OrderCreatedDto ToCreatedOrderDto(this Order order)
+        {
+            var createdOrderDto = new OrderCreatedDto()
+            {
+                Comments = order.Comments,
+                DeliveryAddressId = order.DeliveryAddressId,
+                DeliveryTypeId = order.DeliveryTypeId,
+                PaymentTypeId = order.PaymentTypeId,
+                ProductIdList = order.Products.Select(product => product.Id).ToList()
+            };
+
+            return createdOrderDto;
         }
     }
 }

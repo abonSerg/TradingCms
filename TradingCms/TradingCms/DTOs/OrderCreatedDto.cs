@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TradingCms.DTOs
 {
-    public class CreateOrderDto
+    public class OrderCreatedDto
     {
         public int? PaymentTypeId { get; set; }
         public int? DeliveryTypeId { get; set; }

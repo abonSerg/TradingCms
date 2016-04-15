@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Web.Http.Results;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using NHibernate.Util;
@@ -7,6 +8,8 @@ using TradingCms.Controllers.APIs;
 using TradingCms.Data;
 using TradingCms.Data.Access.Repositories;
 using TradingCms.DTOs;
+using TradingCms.Extensions.ConvertExtensions;
+using TradingCms.Tests.Helpers;
 
 namespace TradingCms.Tests.Controllers.APIs
 {
@@ -17,13 +20,11 @@ namespace TradingCms.Tests.Controllers.APIs
         private Mock<IRepository<Product>> _productRepositoryMock;
         private Mock<IRepository<Order>> _orderRepositoryMock;
         private Mock<IRepository<OrdersToProducts>> _ordersToProductsRepositoryMock;
-        private List<Product> _products;
         private List<Order> _orders;
         private List<OrdersToProducts> _ordersToProducts;
-        private CreateOrderDto _createdOrder;
-        private const string CreatedOrderComment = "created order comment";
-        private int _ordersCount;
-
+        private Order _createdOrder;
+        private OrderCreatedDto _orderCreatedDtoWithoutProducts;
+        
         [TestInitialize]
         public void Init()
         {
@@ -38,10 +39,28 @@ namespace TradingCms.Tests.Controllers.APIs
                 OrdersToProductsRepository = _ordersToProductsRepositoryMock.Object
             };
 
-            _createdOrder = new CreateOrderDto()
+            _createdOrder = new Order()
             {
-                Comments = CreatedOrderComment,
-                ProductIdList = new List<int>() { 2, 3 }
+                Comments = "created order comment",
+                DeliveryTypeId = 1,
+                DeliveryAddressId = 2,
+                IsActive = true,
+                PaymentTypeId = 3,
+                Products = new List<Product>()
+                {
+                    new Product() {Id = 1},
+                    new Product() {Id = 2},
+                    new Product() {Id = 3}
+                }
+            };
+
+            _orderCreatedDtoWithoutProducts = new OrderCreatedDto()
+            {
+                Comments = "created order comment",
+                DeliveryTypeId = 1,
+                DeliveryAddressId = 2,
+                PaymentTypeId = 3,
+                ProductIdList = new List<int>()
             };
 
             SetupProductRepository();
@@ -53,39 +72,46 @@ namespace TradingCms.Tests.Controllers.APIs
         public void Assert_CreateOrder()
         {
             // Act
-            var res = _orderApiController.Create(_createdOrder);
-            var createdOrder = _orders.SingleOrDefault(order => order.Comments == CreatedOrderComment);
-            var isPriceSetted = _ordersToProducts.Where(o => o.OrderId == createdOrder.Id).All(o => o.Price == o.Product.Price);
+            var orderResponse = _orderApiController.Create(_createdOrder.ToCreatedOrderDto());
+            var createdOrder = _orders.LastOrDefault();
+            if (createdOrder != null)
+            {
+                _createdOrder.Id = createdOrder.Id;
+                _createdOrder.CreateDate = createdOrder.CreateDate;
+                _createdOrder.UserId = createdOrder.UserId;
+            }
+            var isPriceSet = createdOrder != null && _ordersToProducts
+                .Where(orderToProducts => orderToProducts.OrderId == createdOrder.Id)
+                .All(orderToProducts => orderToProducts.Price == orderToProducts.Product.Price);
 
             // Assert
-            Assert.IsTrue(res);
-            Assert.IsTrue(_orders.Count() - 1 == _ordersCount);
+            Assert.IsInstanceOfType(orderResponse, typeof(OkResult));
             Assert.IsNotNull(createdOrder);
-            Assert.IsTrue(isPriceSetted);
+            Assert.IsTrue(new EntityComparer<Order>().Equals(createdOrder, _createdOrder, new[] { "Id", "CreateDate", "UserId", "Products" }));
+            Assert.AreEqual(_createdOrder.Products.Count, createdOrder.Products.Count);
+            Assert.IsTrue(isPriceSet);
+        }
+
+        [TestMethod]
+        public void Assert_CreateOrderWithoutProducts()
+        {
+            // Act
+            var orderResponse = _orderApiController.Create(_orderCreatedDtoWithoutProducts);
+
+            // Assert
+            Assert.IsInstanceOfType(orderResponse, typeof(InvalidModelStateResult));
         }
 
         private void SetupProductRepository()
         {
-            _products = new List<Product>
+            var productsList = new List<Product>()
             {
-                new Product()
-                {
-                    Id = 1,
-                    Price = 100
-                },
-                new Product()
-                {
-                    Id = 2,
-                    Price = 200
-                },
-                new Product()
-                {
-                    Id = 3,
-                    Price = 300
-                }
+                new Product() {Id = 1, Price = 100},
+                new Product() {Id = 2, Price = 200},
+                new Product() {Id = 3, Price = 300}
             };
 
-            _productRepositoryMock.Setup(repository => repository.Items).Returns(_products.AsQueryable());
+            _productRepositoryMock.Setup(repository => repository.Items).Returns(productsList.AsQueryable());
         }
 
         private void SetupOrderRepository()
@@ -109,7 +135,6 @@ namespace TradingCms.Tests.Controllers.APIs
                 }
             };
 
-            _ordersCount = _orders.Count();
             _orderRepositoryMock.Setup(repository => repository.Add(It.IsAny<Order>())).Returns((Order order) =>
             {
                 _orders.Add(order);

@@ -30,6 +30,11 @@ namespace TradingCms.Tests.Helpers
             return entity1 == entity2;
         }
 
+        public bool Equals(T x, T y, params string[] ignore)
+        {
+            return PublicInstancePropertiesEqual(x, y, ignore);
+        }
+
         public bool Equals(T x, T y)
         {
             return PublicInstancePropertiesEqual(x, y);

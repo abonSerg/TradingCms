@@ -8,11 +8,12 @@ namespace TradingCms.Data.Access.RepositoryExtensions
     {
         public static void SetActualPrice(this IRepository<OrdersToProducts> repository, int orderId)
         {
-            repository.Items.Where(o => o.OrderId == orderId)
-                .ForEach(o =>
+            repository.Items
+                .Where(orderToProducts => orderToProducts.OrderId == orderId)
+                .ForEach(orderToProducts =>
                 {
-                    o.Price = o.Product.Price;
-                    repository.Update(o);
+                    orderToProducts.Price = orderToProducts.Product.Price;
+                    repository.Update(orderToProducts);
                 });
         }
     }

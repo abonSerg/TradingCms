@@ -16,24 +16,23 @@ namespace TradingCms.Controllers.APIs
         public IRepository<OrdersToProducts> OrdersToProductsRepository { get; set; }
 
         [HttpPost]
-        public bool Create(CreateOrderDto model)
+        [Route("Create")]
+        public IHttpActionResult Create(OrderCreatedDto model)
         {
             if (ModelState.IsValid)
             {
                 var order = model.ToOrder();
-                order.Products = ProductRepository.Items
-                    .Where(product => model.ProductIdList.Contains(product.Id))
-                    .ToList();
+                order.Products = ProductRepository.GetProducts(model.ProductIdList).ToList();
 
                 if (order.Products.Count > 0 && OrderRepository.Add(order))
                 {
                     OrderRepository.Flush();
                     OrdersToProductsRepository.SetActualPrice(order.Id);
                     OrdersToProductsRepository.Flush();
-                    return true;
+                    return Ok();
                 }
             }
-            return false;
+            return BadRequest(ModelState);
         }
     }
 }
