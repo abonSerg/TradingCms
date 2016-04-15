@@ -10,10 +10,7 @@ namespace TradingCms.Data.Access.RepositoryExtensions
         {
             repository.Items
                 .Where(orderToProducts => orderToProducts.OrderId == orderId)
-                .ForEach(orderToProducts =>
-                {
-                    orderToProducts.Price = orderToProducts.Product.Price;
-                });
+                .ForEach(orderToProducts => orderToProducts.Price = orderToProducts.Product.Price);
         }
     }
 }
