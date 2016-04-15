@@ -228,6 +228,8 @@
     <Content Include="Content\Images\item1.jpg" />
     <Content Include="Content\Images\item2.jpg" />
     <Content Include="Content\Images\item3.jpg" />
+    <Content Include="Content\Images\left-sidebar-before.png" />
+    <Content Include="Content\Images\sign-img.svg" />
     <Content Include="Content\Images\slide-1.jpg" />
     <Content Include="Content\Images\slide-2.jpg" />
     <Content Include="Content\Images\slide-3.jpg" />
@@ -294,8 +296,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Categories.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
-    <Content Include="Views\Home\Subcategories.cshtml" />
-    <Content Include="Views\Home\Registration.cshtml" />
+    <Content Include="Views\Category\Subcategories.cshtml" />
+    <Content Include="Views\Category\Registration.cshtml" />
     <Content Include="Views\Category\Cart.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />

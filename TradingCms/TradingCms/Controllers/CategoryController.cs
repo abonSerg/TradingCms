@@ -40,6 +40,16 @@ namespace TradingCms.Controllers
             return View();
         }
 
+        public ActionResult Registration()
+        {
+            return View();
+        }
+
+        public ActionResult Subcategories()
+        {
+            return View();
+        }
+
         // GET: Category/Create
         //public ActionResult Create()
         //{

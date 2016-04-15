@@ -68,7 +68,9 @@ $(document).ready(function() {
 
 	$('.plus').click(function () {
 	    var $input = $(this).parent().find('input');
-	    $input.val(parseInt($input.val()) + 1);
+	    var count = parseInt($input.val()) + 1;
+	    count = count >= 99 ? 99 : count;
+	    $input.val(count);
 	    $input.change();
 	    return false;
 	});
