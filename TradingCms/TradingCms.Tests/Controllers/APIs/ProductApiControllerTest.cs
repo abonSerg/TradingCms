@@ -50,15 +50,15 @@ namespace TradingCms.Tests.Controllers.APIs
         }
 
         [TestMethod]
-        public void Assert_NewProducts()
+        public void Assert_ReturnNewProducts()
         {
             // Act
-            var resultNewProducts = _productApiController.GetNewProducts(Count).ToList();
-            int resultCount = resultNewProducts.Where(p => p.Id == NewProductIdOne || p.Id == NewProductIdTwo).ToList().Count;
+            var newProducts = _productApiController.GetNewProducts(Count).ToList();
+            int countNewProducts = newProducts.Where(p => p.Id == NewProductIdOne || p.Id == NewProductIdTwo).ToList().Count;
 
             // Assert
-            Assert.IsTrue(resultNewProducts.Count() == Count);
-            Assert.IsTrue(_topCreateDates.Count() == resultCount);
+            Assert.IsTrue(newProducts.Count() == Count);
+            Assert.IsTrue(_topCreateDates.Count() == countNewProducts);
         }
 
         private void SetupProductRepository()

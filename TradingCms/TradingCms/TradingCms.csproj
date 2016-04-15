@@ -190,6 +190,7 @@
     <Content Include="Content\Images\item1.jpg" />
     <Content Include="Content\Images\item2.jpg" />
     <Content Include="Content\Images\item3.jpg" />
+    <Content Include="Content\Images\left-sidebar-before.png" />
     <Content Include="Content\Images\sign-img.svg" />
     <Content Include="Content\Images\slide-1.jpg" />
     <Content Include="Content\Images\slide-2.jpg" />
