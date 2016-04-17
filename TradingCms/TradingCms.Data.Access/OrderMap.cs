@@ -17,10 +17,10 @@ namespace TradingCms.Data.Access
             Map(x => x.Comments).Nullable();
 
             HasManyToMany(x => x.Products)
-            .Table("OrdersToProducts")
-            .ParentKeyColumn("ProductId")
-            .ChildKeyColumn("OrderId")
-            .Cascade.SaveUpdate();
+                .Table("OrdersToProducts")
+                .ParentKeyColumn("OrderId")
+                .ChildKeyColumn("ProductId")
+                .Cascade.SaveUpdate();
 
             Table("Orders");
         }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using TradingCms.Data.Access.Repositories;
 
 namespace TradingCms.Data.Access.RepositoryExtensions
@@ -13,6 +14,11 @@ namespace TradingCms.Data.Access.RepositoryExtensions
         public static IQueryable<Product> GetNewProducts(this IRepository<Product> repository, int count)
         {
             return repository.Items.OrderByDescending(d => d.CreateDate).Take(count).AsQueryable();
+        }
+
+        public static IQueryable<Product> GetProductsById(this IRepository<Product> repository, IEnumerable<int> productIdList)
+        {
+            return repository.Items.Where(product => productIdList.Contains(product.Id));
         }
     }
 }
