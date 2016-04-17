@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Users]
+﻿CREATE TABLE [dbo].[AspNetUsers]
 (
 	[Id]                   NVARCHAR (128) NOT NULL,
     [Email]                NVARCHAR (256) NULL,
@@ -11,6 +11,5 @@
     [LockoutEndDateUtc]    DATETIME       NULL,
     [LockoutEnabled]       BIT            NOT NULL,
     [AccessFailedCount]    INT            NOT NULL,
-    [UserName]             NVARCHAR (256) NOT NULL,
-    [CompanyId]            INT            NULL
+    [UserName]             NVARCHAR (256) NOT NULL
 )

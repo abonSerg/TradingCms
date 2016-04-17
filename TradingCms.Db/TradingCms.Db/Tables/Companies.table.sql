@@ -6,4 +6,5 @@
 	[Sphere] NVARCHAR (256) NULL,
 	[Contacts] NVARCHAR (256) NOT NULL,
 	[PathToLogo] VARCHAR(512) NOT NULL,
+	[UserId] NVARCHAR(128) NOT NULL
 )
