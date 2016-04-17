@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[UserClaims]
+﻿CREATE TABLE [dbo].[AspNetUserClaims]
 (
 	[Id] INT IDENTITY(1,1) NOT NULL,
     [UserId] NVARCHAR(128) NOT NULL,

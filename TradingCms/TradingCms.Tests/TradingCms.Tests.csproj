@@ -112,6 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\APIs\OrderApiControllerTest.cs" />
+    <Compile Include="Controllers\APIs\AccountApiControllerTest.cs" />
     <Compile Include="Controllers\CategoryControllerTest.cs" />
     <Compile Include="Controllers\APIs\ProductApiControllerTest.cs" />
     <Compile Include="Controllers\ProductControllerTest.cs" />

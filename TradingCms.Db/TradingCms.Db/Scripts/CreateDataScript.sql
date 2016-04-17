@@ -1,6 +1,6 @@
 ﻿Use TradingCms
 
-INSERT INTO [dbo].[Roles]([Id],[Name])
+INSERT INTO [dbo].[AspNetRoles]([Id],[Name])
 values ('48646D11-73F7-4D8B-B948-147E6503374D','Supplier'), ('A84E2232-1532-4E1E-B05B-D2EA14AF802E','Buyer'), ('4F680AC3-9559-41CD-991E-F60C1FAE76F1','Admin')
 
 INSERT INTO [dbo].[Languages]([Code],[Name])
@@ -1324,16 +1324,16 @@ Select MAX(Id),@lang,'President Jimmy II ASC (TXMU045) ',N'Стандарт: AM 
 
 
 --USERS--
-INSERT INTO [dbo].[Users] ([Id],[Email],[EmailConfirmed],[PasswordHash],[SecurityStamp],[PhoneNumber],[PhoneNumberConfirmed],[TwoFactorEnabled],[LockoutEndDateUtc],[LockoutEnabled],[AccessFailedCount],[UserName],[CompanyId])
-     VALUES (1, 'test1@app.com', 1, 'AKMKBYBitWlt0Gm81eVp+lO/feu2TaQFfBtRWkGcD/xH3mQVvqXagxIlN03aXl6Fjg==', 'dbd3a7ee-f435-4151-8c29-b2cd2f377128', '+3897276748361', 0, 0, null, 0, 0, 'Sara Connor', NULL)
-INSERT INTO [dbo].[Users] ([Id],[Email],[EmailConfirmed],[PasswordHash],[SecurityStamp],[PhoneNumber],[PhoneNumberConfirmed],[TwoFactorEnabled],[LockoutEndDateUtc],[LockoutEnabled],[AccessFailedCount],[UserName],[CompanyId])
-     VALUES (2, 'test2@app.com', 1, 'AKMKBYBitWlt0Gm81eVp+lO/feu2TaQFfBtRWkGcD/xH3mQVvqXagxIlN03aXl6Fjg==', 'dbd3a7ee-f435-4151-8c29-b2cd2f377128', '+3897276748362', 0, 0, null, 0, 0, 'Sara Connor 2', NULL)
-INSERT INTO [dbo].[Users] ([Id],[Email],[EmailConfirmed],[PasswordHash],[SecurityStamp],[PhoneNumber],[PhoneNumberConfirmed],[TwoFactorEnabled],[LockoutEndDateUtc],[LockoutEnabled],[AccessFailedCount],[UserName],[CompanyId])
-     VALUES (3, 'test3@app.com', 1, 'AKMKBYBitWlt0Gm81eVp+lO/feu2TaQFfBtRWkGcD/xH3mQVvqXagxIlN03aXl6Fjg==', 'dbd3a7ee-f435-4151-8c29-b2cd2f377128', '+3897276748363', 0, 0, null, 0, 0, 'Sara Connor 3', NULL)
-INSERT INTO [dbo].[Users] ([Id],[Email],[EmailConfirmed],[PasswordHash],[SecurityStamp],[PhoneNumber],[PhoneNumberConfirmed],[TwoFactorEnabled],[LockoutEndDateUtc],[LockoutEnabled],[AccessFailedCount],[UserName],[CompanyId])
-     VALUES (4, 'test4@app.com', 1, 'AKMKBYBitWlt0Gm81eVp+lO/feu2TaQFfBtRWkGcD/xH3mQVvqXagxIlN03aXl6Fjg==', 'dbd3a7ee-f435-4151-8c29-b2cd2f377128', '+3897276748364', 0, 0, null, 0, 0, 'Sara Connor 4', NULL)
-INSERT INTO [dbo].[Users] ([Id],[Email],[EmailConfirmed],[PasswordHash],[SecurityStamp],[PhoneNumber],[PhoneNumberConfirmed],[TwoFactorEnabled],[LockoutEndDateUtc],[LockoutEnabled],[AccessFailedCount],[UserName],[CompanyId])
-     VALUES (5, 'test5@app.com', 1, 'AKMKBYBitWlt0Gm81eVp+lO/feu2TaQFfBtRWkGcD/xH3mQVvqXagxIlN03aXl6Fjg==', 'dbd3a7ee-f435-4151-8c29-b2cd2f377128', '+3897276748365', 0, 0, null, 0, 0, 'Sara Connor 5', NULL)
+INSERT INTO [dbo].[AspNetUsers] ([Id],[Email],[EmailConfirmed],[PasswordHash],[SecurityStamp],[PhoneNumber],[PhoneNumberConfirmed],[TwoFactorEnabled],[LockoutEndDateUtc],[LockoutEnabled],[AccessFailedCount],[UserName])
+     VALUES (1, 'test1@app.com', 1, 'AKMKBYBitWlt0Gm81eVp+lO/feu2TaQFfBtRWkGcD/xH3mQVvqXagxIlN03aXl6Fjg==', 'dbd3a7ee-f435-4151-8c29-b2cd2f377128', '+3897276748361', 0, 0, null, 0, 0, 'Sara Connor')
+INSERT INTO [dbo].[AspNetUsers] ([Id],[Email],[EmailConfirmed],[PasswordHash],[SecurityStamp],[PhoneNumber],[PhoneNumberConfirmed],[TwoFactorEnabled],[LockoutEndDateUtc],[LockoutEnabled],[AccessFailedCount],[UserName])
+     VALUES (2, 'test2@app.com', 1, 'AKMKBYBitWlt0Gm81eVp+lO/feu2TaQFfBtRWkGcD/xH3mQVvqXagxIlN03aXl6Fjg==', 'dbd3a7ee-f435-4151-8c29-b2cd2f377128', '+3897276748362', 0, 0, null, 0, 0, 'Sara Connor 2')
+INSERT INTO [dbo].[AspNetUsers] ([Id],[Email],[EmailConfirmed],[PasswordHash],[SecurityStamp],[PhoneNumber],[PhoneNumberConfirmed],[TwoFactorEnabled],[LockoutEndDateUtc],[LockoutEnabled],[AccessFailedCount],[UserName])
+     VALUES (3, 'test3@app.com', 1, 'AKMKBYBitWlt0Gm81eVp+lO/feu2TaQFfBtRWkGcD/xH3mQVvqXagxIlN03aXl6Fjg==', 'dbd3a7ee-f435-4151-8c29-b2cd2f377128', '+3897276748363', 0, 0, null, 0, 0, 'Sara Connor 3')
+INSERT INTO [dbo].[AspNetUsers] ([Id],[Email],[EmailConfirmed],[PasswordHash],[SecurityStamp],[PhoneNumber],[PhoneNumberConfirmed],[TwoFactorEnabled],[LockoutEndDateUtc],[LockoutEnabled],[AccessFailedCount],[UserName])
+     VALUES (4, 'test4@app.com', 1, 'AKMKBYBitWlt0Gm81eVp+lO/feu2TaQFfBtRWkGcD/xH3mQVvqXagxIlN03aXl6Fjg==', 'dbd3a7ee-f435-4151-8c29-b2cd2f377128', '+3897276748364', 0, 0, null, 0, 0, 'Sara Connor 4')
+INSERT INTO [dbo].[AspNetUsers] ([Id],[Email],[EmailConfirmed],[PasswordHash],[SecurityStamp],[PhoneNumber],[PhoneNumberConfirmed],[TwoFactorEnabled],[LockoutEndDateUtc],[LockoutEnabled],[AccessFailedCount],[UserName])
+     VALUES (5, 'test5@app.com', 1, 'AKMKBYBitWlt0Gm81eVp+lO/feu2TaQFfBtRWkGcD/xH3mQVvqXagxIlN03aXl6Fjg==', 'dbd3a7ee-f435-4151-8c29-b2cd2f377128', '+3897276748365', 0, 0, null, 0, 0, 'Sara Connor 5')
 
 --[PaymentTypes]--
 INSERT INTO [dbo].[PaymentTypes] ([Type]) values (N'Наличными')
