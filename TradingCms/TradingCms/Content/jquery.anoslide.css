@@ -1,0 +1,68 @@
+.carousel {
+    position: relative;
+    min-height: 20px;
+    height: auto !important;
+    height: 20px;
+    background: url(Images/loader.gif) center center no-repeat;
+}
+
+    .carousel .next,
+    .carousel .prev {
+        display: none;
+        width: 7%;
+        height: 24%;
+        position: absolute;
+        bottom: 3%;
+        margin-top: -28px;
+        z-index: 9999;
+        cursor: pointer;
+
+    }
+
+    .carousel .prev {
+        left: 1%;
+        background: url(Images/prev.png) 0 0 no-repeat;
+        background-size: cover;
+    }
+
+    .carousel .next {
+        right: 1%;
+        background: url(Images/next.png) 0 0 no-repeat;
+        background-size: cover;
+    }
+
+    .carousel li {
+        display: none;
+    }
+
+        .carousel li img {
+            width: 100%;
+            height: auto;
+        }
+
+.paging {
+    position: absolute;
+    z-index: 9998;
+}
+
+    .paging > a {
+        display: block;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        float: left;
+        background: url(Images/dots.png) 0px -40px no-repeat;
+    }
+
+        .paging > a:hover,
+        .paging > a.current {
+            background: url(Images/dots.png) 0px 0px no-repeat;
+        }
+
+img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
