@@ -24,15 +24,14 @@ namespace TradingCms
                       "~/Content/bootstrap.min.css",
                       "~/Content/fontawesome/font-awesome.min.css",
                       "~/Content/jquery.fancybox.css",
-                      "~/Content/OwlCarousel/owl.carousel.css",
-                      "~/Content/OwlCarousel/owl.theme.css",
+                      "~/Content/jquery.anoslide.css",
                       "~/Content/fonts.css",
                       "~/Content/site.css",
                       "~/Content/media.css"));
 
             bundles.Add(new StyleBundle("~/Scripts/js").Include(
                       "~/Scripts/jquery.fancybox.pack.js",
-                      "~/Scripts/owl.carousel.min.js",
+                      "~/Scripts/jquery.anoslide.js",
                       "~/Scripts/script.js"));
         }
     }

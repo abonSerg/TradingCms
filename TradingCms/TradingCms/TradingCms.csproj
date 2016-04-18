@@ -180,7 +180,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\fonts\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -220,11 +219,21 @@
     <Content Include="Content\fontawesome\font-awesome.css" />
     <Content Include="Content\fontawesome\font-awesome.min.css" />
     <Content Include="Content\fonts.css" />
+    <Content Include="Content\Images\product-slide-1.jpg" />
+    <Content Include="Content\Images\product-slide-2.jpg" />
+    <Content Include="Content\Images\product-slide-3.jpg" />
+    <Content Include="Content\Images\product-slide-4.jpg" />
+    <Content Include="Content\Images\slide-1.jpg" />
+    <Content Include="Content\Images\slide-2.jpg" />
+    <Content Include="Content\Images\slide-3.jpg" />
+    <Content Include="Content\Images\slide-5.jpg" />
+    <Content Include="Content\Images\dots.png" />
+    <Content Include="Content\Images\loader.gif" />
+    <Content Include="Content\Images\next.png" />
+    <Content Include="Content\Images\prev.png" />
+    <Content Include="Content\jquery.anoslide.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\Images\1.jpg" />
-    <Content Include="Content\Images\2.jpg" />
-    <Content Include="Content\Images\3.jpg" />
-    <Content Include="Content\Images\4.jpg" />
+    <Content Include="Content\Images\slide-4.jpg" />
     <Content Include="Content\Images\basket.png" />
     <Content Include="Content\Images\category-1.jpg" />
     <Content Include="Content\Images\category-2.jpg" />
@@ -235,9 +244,6 @@
     <Content Include="Content\Images\item3.jpg" />
     <Content Include="Content\Images\left-sidebar-before.png" />
     <Content Include="Content\Images\sign-img.svg" />
-    <Content Include="Content\Images\slide-1.jpg" />
-    <Content Include="Content\Images\slide-2.jpg" />
-    <Content Include="Content\Images\slide-3.jpg" />
     <Content Include="Content\Images\title-bg.gif" />
     <Content Include="Content\jquery.fancybox-buttons.css" />
     <Content Include="Content\jquery.fancybox-thumbs.css" />
@@ -271,6 +277,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.anoslide.js" />
     <Content Include="Scripts\jquery.fancybox-buttons.js" />
     <Content Include="Scripts\jquery.fancybox-media.js" />
     <Content Include="Scripts\jquery.fancybox-thumbs.js" />
