@@ -4,109 +4,114 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TradingCms.ImageLoader
 {
-    class Loader
+    public struct Image
     {
-        Dictionary<string, string[]> imagePathes;
-        Dictionary<string, List<byte[]>> images;
-        List<string> subSategories;
+        public byte[] ImgBytes { get; set; }
+        public string ImgMimeType { get; set; }
 
-        string conectionString;
-
-        string selectQuery = "select Products.Id, CategoryTranslations.Name" +
-                               " from Products join Categories on Products.CategoryId = Categories.Id " +
-                               "join CategoryTranslations on CategoryTranslations.CategoryId = Categories.Id  where  CategoryTranslations.Name = ";
-
-        string insertQuery = " Insert into ProductImages (Img, ProductId) values (@img, @prodId)";
-
-        public Loader(string conectionString) 
+        public Image(byte[] imgBytes, string imgMimeType) : this()
         {
-            this.conectionString = conectionString;
-            imagePathes = new Dictionary<string, string[]>();
-            images = new Dictionary<string, List<byte[]>>();
-            subSategories = new List<string>(new string[]
-                                      {"N'Ноутбуки'",
-                                       "N'Планшеты'",
-                                       "N'Электронные книги'",
-                                       "N'Смартфоны'",
-                                       "N'MP3-плееры'",
-                                       "N'Зарядные устройства'",
-                                       "N'Холодильники'",
-                                       "N'Плиты'",
-                                       "N'Стиральные машины'",
-                                       "N'Беговые дорожки'",
-                                       "N'Велотренажеры'",
-                                       "N'Гантели, диски'",
-                                       "N'Лодки'",
-                                       "N'Бинокли'",
-                                       "N'Рации'"
-                                      });
-            
+            ImgBytes = imgBytes;
+            ImgMimeType = imgMimeType;
+        }
+    }
+
+    public class Loader
+    {
+        private readonly Dictionary<string, string[]> _imagePathes;
+        private readonly Dictionary<string, List<Image>> _images;
+        private readonly List<string> _subSategories;
+
+        private readonly string _conectionString;
+        private const string SelectQuery = "select Products.Id, CategoryTranslations.Name" +
+            " from Products join Categories on Products.CategoryId = Categories.Id" +
+            " join CategoryTranslations on CategoryTranslations.CategoryId = Categories.Id  where  CategoryTranslations.Name = ";
+
+        private const string InsertQuery = " Insert into ProductImages (Img, ProductId, ImgMimeType) values (@img, @prodId, @imgMimeType)";
+
+        public Loader(string conectionString)
+        {
+            _conectionString = conectionString;
+            _imagePathes = new Dictionary<string, string[]>();
+            _images = new Dictionary<string, List<Image>>();
+            _subSategories = new List<string>(new[] {
+                "N'Ноутбуки'",
+                "N'Планшеты'",
+                "N'Электронные книги'",
+                "N'Смартфоны'",
+                "N'MP3-плееры'",
+                "N'Зарядные устройства'",
+                "N'Холодильники'",
+                "N'Плиты'",
+                "N'Стиральные машины'",
+                "N'Беговые дорожки'",
+                "N'Велотренажеры'",
+                "N'Гантели, диски'",
+                "N'Лодки'",
+                "N'Бинокли'",
+                "N'Рации'"
+            });
+
             LoadImgPathes();
         }
 
         //Do not forget to set "Copy always" value for files after adding in file properties
-        private void LoadImgPathes() 
+        private void LoadImgPathes()
         {
             try
             {
-                imagePathes.Add("Bikes", Directory.GetFiles("Content/Bikes"));
-                imagePathes.Add("Binocles", Directory.GetFiles("Content/Binocles"));
-                imagePathes.Add("Boats", Directory.GetFiles("Content/Boats"));
-                imagePathes.Add("Chargers", Directory.GetFiles("Content/Chargers"));
-                imagePathes.Add("EReaders", Directory.GetFiles("Content/Ereaders"));
-                imagePathes.Add("Fridges", Directory.GetFiles("Content/Fridges"));
-                imagePathes.Add("Gymtools", Directory.GetFiles("Content/Gymtools"));
-                imagePathes.Add("Mobiles", Directory.GetFiles("Content/Mobiles"));
-                imagePathes.Add("Notebooks", Directory.GetFiles("Content/Notebooks"));
-                imagePathes.Add("Players", Directory.GetFiles("Content/Players"));
-                imagePathes.Add("Radio", Directory.GetFiles("Content/Radio"));
-                imagePathes.Add("Runmachines", Directory.GetFiles("Content/Runmachines"));
-                imagePathes.Add("Stoves", Directory.GetFiles("Content/Stoves"));
-                imagePathes.Add("Tablets", Directory.GetFiles("Content/Tablets"));
-                imagePathes.Add("Washers", Directory.GetFiles("Content/Washers"));
+                _imagePathes.Add("Bikes", Directory.GetFiles("Content/Bikes"));
+                _imagePathes.Add("Binocles", Directory.GetFiles("Content/Binocles"));
+                _imagePathes.Add("Boats", Directory.GetFiles("Content/Boats"));
+                _imagePathes.Add("Chargers", Directory.GetFiles("Content/Chargers"));
+                _imagePathes.Add("EReaders", Directory.GetFiles("Content/Ereaders"));
+                _imagePathes.Add("Fridges", Directory.GetFiles("Content/Fridges"));
+                _imagePathes.Add("Gymtools", Directory.GetFiles("Content/Gymtools"));
+                _imagePathes.Add("Mobiles", Directory.GetFiles("Content/Mobiles"));
+                _imagePathes.Add("Notebooks", Directory.GetFiles("Content/Notebooks"));
+                _imagePathes.Add("Players", Directory.GetFiles("Content/Players"));
+                _imagePathes.Add("Radio", Directory.GetFiles("Content/Radio"));
+                _imagePathes.Add("Runmachines", Directory.GetFiles("Content/Runmachines"));
+                _imagePathes.Add("Stoves", Directory.GetFiles("Content/Stoves"));
+                _imagePathes.Add("Tablets", Directory.GetFiles("Content/Tablets"));
+                _imagePathes.Add("Washers", Directory.GetFiles("Content/Washers"));
             }
-            catch 
+            catch
             {
                 Console.WriteLine("Check file-folders");
             }
         }
 
-        public void ConvertImages() 
+        public void ConvertImages()
         {
-            foreach (var pare in imagePathes) 
+            foreach (var pare in _imagePathes)
             {
-                byte[] img = null;
-                var imageList = new List<byte[]>();
-                foreach (var path in pare.Value) 
-                {
-                    img = LoadImg(path);
+                var imageList = (from path in pare.Value
+                                 let imgBytes = LoadImg(path)
+                                 let imgMimeType = ImageMimeTypes.GetContentType(path)
+                                 where imgBytes != null
+                                 select new Image(imgBytes, imgMimeType)).ToList();
 
-                    if(img != null)
-                        imageList.Add(img);
-                }
-
-                images.Add(pare.Key, imageList);
+                _images.Add(pare.Key, imageList);
             }
         }
-    
-        private byte[] LoadImg(string filePath) 
+
+        private static byte[] LoadImg(string filePath)
         {
             try
             {
-                using (FileStream stream = new FileStream(filePath, FileMode.Open, FileAccess.Read)) 
+                using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
                 {
-                    using (BinaryReader reader = new BinaryReader(stream)) 
+                    using (var reader = new BinaryReader(stream))
                     {
                         return reader.ReadBytes((int)stream.Length);
                     }
                 }
             }
-            catch (Exception e) 
+            catch (Exception)
             {
                 Console.WriteLine("error");
                 return null;
@@ -117,16 +122,16 @@ namespace TradingCms.ImageLoader
         {
             var dataSet = new DataSet();
 
-            foreach (var subSategory in subSategories) 
+            foreach (var subSategory in _subSategories)
             {
-                DataTable table = new DataTable(subSategory);
+                var table = new DataTable(subSategory);
 
-                using (SqlConnection connection = new SqlConnection(conectionString))
+                using (var connection = new SqlConnection(_conectionString))
                 {
-                    SqlCommand cmd = new SqlCommand(selectQuery + subSategory, connection);
+                    var cmd = new SqlCommand(SelectQuery + subSategory, connection);
                     connection.Open();
 
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    var adapter = new SqlDataAdapter(cmd);
                     adapter.Fill(table);
                 }
 
@@ -136,108 +141,104 @@ namespace TradingCms.ImageLoader
             return dataSet;
         }
 
-
-        private void FillProductImgs(DataTable products, List<byte[]> imgs) 
+        private void FillProductImgs(DataTable products, IEnumerable<Image> imgs)
         {
-            int rowCount = products.Rows.Count;
+            var rowCount = products.Rows.Count;
 
-            if (rowCount == 0)
-                return;
+            if (rowCount == 0) return;
 
-            int i = 0;
+            var i = 0;
 
-            using (SqlConnection connection = new SqlConnection(conectionString))
+            using (var connection = new SqlConnection(_conectionString))
             {
                 foreach (var img in imgs)
                 {
                     i = i <= rowCount - 1 ? i : 0;
 
-                    if(TrySaveImg(img,products.Rows[i][0].ToString(), connection))
+                    if (TrySaveImg(img, products.Rows[i][0].ToString(), connection))
+                    {
                         Console.WriteLine("Image for Product Type " + products.TableName + " was added");
+                    }
                     else
+                    {
                         Console.WriteLine("WARNING : image for Product Type " + products.TableName + " was not added");
+                    }
 
                     i = ++i;
                 }
             }
         }
 
-        private bool TrySaveImg(byte[] img, string productId, SqlConnection connection) 
+        private static bool TrySaveImg(Image img, string productId, SqlConnection connection)
         {
-            bool res = false;
-            if (img != null && !string.IsNullOrEmpty(productId))
-            {
+            if (img.ImgBytes == null || string.IsNullOrEmpty(productId)) return false;
+            if (connection.State != ConnectionState.Open) connection.Open();
 
-                if (connection.State != ConnectionState.Open)
-                    connection.Open();
+            var cmd = new SqlCommand(InsertQuery, connection);
 
-                SqlCommand cmd = new SqlCommand(insertQuery, connection);
+            cmd.Parameters.Add(new SqlParameter("img", img.ImgBytes));
+            cmd.Parameters.Add(new SqlParameter("prodId", productId));
+            cmd.Parameters.Add(new SqlParameter("imgMimeType", img.ImgMimeType));
 
-                cmd.Parameters.Add(new SqlParameter("img", img));
-                cmd.Parameters.Add(new SqlParameter("prodId", productId));
- 
-                int rowsAffected = cmd.ExecuteNonQuery();
-                res = rowsAffected > 0;
-
-            }
+            var rowsAffected = cmd.ExecuteNonQuery();
+            var res = rowsAffected > 0;
             return res;
         }
 
-
-        public void Perform() 
+        public void Perform()
         {
             ConvertImages();
 
             var productDataSet = GetProductData();
 
-            foreach (var image in images) 
+            foreach (var image in _images)
             {
                 switch (image.Key)
                 {
                     case "Bikes":
-                        FillProductImgs(productDataSet.Tables["N'Велотренажеры'"],image.Value);
+                        FillProductImgs(productDataSet.Tables["N'Велотренажеры'"], image.Value);
                         break;
                     case "Binocles":
-                        FillProductImgs(productDataSet.Tables["N'Бинокли'"],image.Value);
+                        FillProductImgs(productDataSet.Tables["N'Бинокли'"], image.Value);
                         break;
                     case "Boats":
-                        FillProductImgs(productDataSet.Tables["N'Лодки'"],image.Value);
+                        FillProductImgs(productDataSet.Tables["N'Лодки'"], image.Value);
                         break;
                     case "Chargers":
-                        FillProductImgs(productDataSet.Tables["N'Зарядные устройства'"],image.Value);
+                        FillProductImgs(productDataSet.Tables["N'Зарядные устройства'"], image.Value);
                         break;
                     case "EReaders":
-                        FillProductImgs(productDataSet.Tables["N'Электронные книги'"],image.Value);
+                        FillProductImgs(productDataSet.Tables["N'Электронные книги'"], image.Value);
                         break;
                     case "Fridges":
-                        FillProductImgs(productDataSet.Tables["N'Холодильники'"],image.Value);
+                        FillProductImgs(productDataSet.Tables["N'Холодильники'"], image.Value);
                         break;
                     case "Gymtools":
-                        FillProductImgs(productDataSet.Tables["N'Гантели, диски'"],image.Value);
+                        FillProductImgs(productDataSet.Tables["N'Гантели, диски'"], image.Value);
                         break;
                     case "Mobiles":
-                        FillProductImgs(productDataSet.Tables["N'Смартфоны'"],image.Value);
+                        FillProductImgs(productDataSet.Tables["N'Смартфоны'"], image.Value);
                         break;
                     case "Notebooks":
-                        FillProductImgs(productDataSet.Tables["N'Ноутбуки'"],image.Value);
+                        FillProductImgs(productDataSet.Tables["N'Ноутбуки'"], image.Value);
                         break;
                     case "Players":
-                        FillProductImgs(productDataSet.Tables["N'MP3-плееры'"],image.Value);
+                        FillProductImgs(productDataSet.Tables["N'MP3-плееры'"], image.Value);
                         break;
                     case "Radio":
-                        FillProductImgs(productDataSet.Tables["N'Рации'"],image.Value);
+                        FillProductImgs(productDataSet.Tables["N'Рации'"], image.Value);
                         break;
                     case "Runmachines":
-                        FillProductImgs(productDataSet.Tables["N'Беговые дорожки'"],image.Value);
+                        FillProductImgs(productDataSet.Tables["N'Беговые дорожки'"], image.Value);
                         break;
                     case "Stoves":
-                        FillProductImgs(productDataSet.Tables["N'Плиты'"],image.Value);
+                        FillProductImgs(productDataSet.Tables["N'Плиты'"], image.Value);
                         break;
                     case "Tablets":
-                        FillProductImgs(productDataSet.Tables["N'Планшеты'"],image.Value);
+                        FillProductImgs(productDataSet.Tables["N'Планшеты'"], image.Value);
                         break;
                     case "Washers":
-                        FillProductImgs(productDataSet.Tables["N'Стиральные машины'"],image.Value);
+                        FillProductImgs(productDataSet.Tables["N'Стиральные машины'"], image.Value);
                         break;
                     default:
                         Console.WriteLine("Type " + image.Key + " isn't found");
@@ -245,6 +246,5 @@ namespace TradingCms.ImageLoader
                 }
             }
         }
-
     }
 }

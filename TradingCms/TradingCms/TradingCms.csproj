@@ -193,6 +193,7 @@
     <Compile Include="Controllers\APIs\OrderApiController.cs" />
     <Compile Include="Controllers\APIs\AccountApiController.cs" />
     <Compile Include="Controllers\APIs\ProductApiController.cs" />
+    <Compile Include="Controllers\APIs\ImagesApiController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\APIs\FeedBackApiController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
