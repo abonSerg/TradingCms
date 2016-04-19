@@ -2,5 +2,6 @@
 (
 	[Id] INT IDENTITY(1,1) NOT NULL, 
     [Img] image NULL, 
-    [ProductId] INT NOT NULL
+    [ProductId] INT NOT NULL, 
+    [ImgMimeType ] NVARCHAR(50) NULL
 )
