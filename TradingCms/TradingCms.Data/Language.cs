@@ -1,5 +1,4 @@
-﻿
-namespace TradingCms.Data
+﻿namespace TradingCms.Data
 {
     public class Language : IEntity
     {
