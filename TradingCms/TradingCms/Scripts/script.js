@@ -1,24 +1,17 @@
 $(document).ready(function() {
+    
+    // Carousel for product
+    $('.carousel ul').anoSlide(
+    {
+        items: 1,
+        speed: 500,
+        prev: 'a.prev[data-prev-mixed]',
+        next: 'a.next[data-next-mixed]',
+        lazy: true
+    })
 
 	// fancybox
 	$(".fancybox").fancybox();
-
-	//Carousel for product
-	var owl_1 = $(".product-carousel");
-	owl_1.owlCarousel({
-		items : 2,
-		pagination: false,
-		mouseDrag: false,
-		slideSpeed: 800,
-		rewindNav: false
-	});
-
-	$(".product-carousel-next-button").click(function () {
-		owl_1.trigger("owl.next");
-	});
-	$(".product-carousel-prev-button").click(function () {
-		owl_1.trigger("owl.prev");
-	});
 
     //Open images in big image product
 	$('.slide-item a').click(function () {
