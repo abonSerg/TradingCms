@@ -607,18 +607,18 @@ a:hover {
 }
 
 .bucket_position {
-	margin-bottom: 5px;
-	height: 100px;
-	border-bottom: 1px solid #deb887; 
+    height: 100px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 5px #ccc;
 }
-
 	.bucket_position > div {
 		float: left;
 	}
 
 .bucket_tov {
- width: 50%;
- height: 100%;
+    width: 50%;
+    height: 100%;
 }
 
 	.bucket_tov img {
@@ -627,50 +627,51 @@ a:hover {
 		height: 100px;
 	} 
 
-	.bucket_tov p {
+	.product_information {
 		text-align: center;
+        width:25%;
+        margin: 4% auto;
 	}
 
 .bucket_sum {
-	padding: 2%;
 	width: 25%;
-	height: 100%;
+    padding: 2%;
 }
 
 	.minus,.plus {
+        float:left;
 		margin-top: 5px;
 		width: 25px;
 		height: 25px;
-		background: #deb887;
-		color: #fff8dc;
+		background: #fae27f;
+		color: #000000;
 		display: block;
 		cursor: pointer;
 		text-align: center;
 		font-size: 18px;
-	}
-
-	.minus {
-		float: left;
-		margin-left: 27%
-	}
-		.minus:hover {
-			background: #333;
-		}
-
-	.plus {
-		float: right;
-		margin-right: 27%;
+        -moz-user-select: none;
+        -webkit-user-select: none;
 	}
 
 		.plus:hover {
-			background: #333;
+			background: #ccc;
 		}
+
+        .minus:hover {
+            background: #ccc;
+        }
+
 
 	.sum_form {
 		margin: 0 2%;
 		width: 20%;
 		text-align: center;
 		float: left;
+        -moz-user-select: -moz-none!important;
+        -o-user-select: none!important;
+        -khtml-user-select: none!important;
+        -webkit-user-select: none!important;
+        user-select: none!important;
 	}
 
 .bucket_price {
@@ -685,36 +686,31 @@ a:hover {
 	font-size: 18px;
 }
 
-	.price span {
-		font-size: 20px;
-	}
-
 .bucket_finish {
 	width: 20%;
-	border: 1px solid white;
+    box-shadow: 0 0 5px #ccc ;
+    background: #fff;
 	float: right!important;
 	text-align: center;
 }
 
 .buck_by {
 	width: 60%;
-	background:#deb887;
+	background:linear-gradient(0deg, #92c454 0%,#a3d664 100%);;
 	color: #fff8dc; 
 	font-size: 18px;
 }
 
 .buck_by:hover {
-	background:#333;
+	background:linear-gradient(0deg, #00a9ff 0%,#00bfff 100%);;
 	color: #fff8dc; 
 }
 
 .coast {
 	font-weight: bold;
+    font-size: 20px;
 }
 
-	.coast span {
-		font-size: 20px;
-	}
 /* END OF CART.HTML */
 
 /* REGISTRATION.HTML */
