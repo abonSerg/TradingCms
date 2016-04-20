@@ -24,23 +24,6 @@ $(document).ready(function() {
 	    return false;
 	});
 
-
-	//Carousel for main
-	var owl_2 = $(".slider-main");
-	owl_2.owlCarousel({
-	    items: 1,
-	    mouseDrag: false,
-	    slideSpeed: 600,
-	    rewindNav: false
-	});
-
-	$(".slider-main-next-button").click(function () {
-		owl_2.trigger("owl.next");
-	});
-	$(".slider-main-prev-button").click(function () {
-		owl_2.trigger("owl.prev");
-	});
-
 	//top anchor
 	$("#top").click(function () {
 		$("body, html").animate({
@@ -68,5 +51,4 @@ $(document).ready(function() {
 	    return false;
 	});
 	
-
 });
