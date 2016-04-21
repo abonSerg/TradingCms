@@ -1,4 +1,5 @@
-﻿<!-- INDEX.HTML -> MAIN -->
+﻿@model IEnumerable<TradingCms.DTOs.CategoryDTO>
+<!-- INDEX.HTML -> MAIN -->
 <section class="fluid-container">
     <div class="container">
         <div class="row">
@@ -10,16 +11,10 @@
                             Категории
                         </div>
                         <ul class="left-sidebar-nav">
-                            <li class="left-sidebar-nav-li left-sidebar-category-1"><a href="" target="_self" title="">Категория-1<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
-                            <li class="left-sidebar-nav-li left-sidebar-category-2"><a href="" target="_self" title="">Категория-2<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
-                            <li class="left-sidebar-nav-li left-sidebar-category-3"><a href="" target="_self" title="">Категория-3<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
-                            <li class="left-sidebar-nav-li left-sidebar-category-4"><a href="" target="_self" title="">Категория-4<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
-                            <li class="left-sidebar-nav-li left-sidebar-category-5"><a href="" target="_self" title="">Категория-5<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
-                            <li class="left-sidebar-nav-li left-sidebar-category-6"><a href="" target="_self" title="">Категория-6<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
-                            <li class="left-sidebar-nav-li left-sidebar-category-7"><a href="" target="_self" title="">Категория-7<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
-                            <li class="left-sidebar-nav-li left-sidebar-category-8"><a href="" target="_self" title="">Категория-8<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
-                            <li class="left-sidebar-nav-li left-sidebar-category-9"><a href="" target="_self" title="">Категория-9<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
-                            <li class="left-sidebar-nav-li left-sidebar-category-10"><a href="" target="_self" title="">Категория-10<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
+                            @foreach (var item in Model.Where(item => item.TopId == 0))
+                            {
+                                <li class="left-sidebar-nav-li left-sidebar-category-@item.Id"><a href="" target="_self" title="">@item.Name<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
+                            }
                         </ul>
                     </nav>
                     <div class="right-content-wrap">
@@ -53,15 +48,12 @@
                             <a class="badge"></a>
                         </div>
                     </div>
-                    
-
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!-- END OF INDEX.HTML -> MAIN -->
-
 <!-- INDEX.HTML -> TOP-RECENTLY-PRODUCTS -->
 <section class="fluid-container top-products-wrap">
     <div class="container">
@@ -79,7 +71,7 @@
                     <div class="top-products-item-wrap">
                         <div class="top-products-item-img-wrap">
                             <a href="#"><img class="top-products-item-img" src="~/Content/Images/уу.jpeg" /></a>
-                        </div>  
+                        </div>
                         <div class="top-products-item-text-wrap">
                             <p class="top-products-item-title">Название товара</p>
                             <div class="top-products-item-price-det-wrap">
@@ -139,7 +131,7 @@
                     </div>
                     <!-- RECENTLY-PRODUCTS -> ITEMS -->
                     <div class="recently-products-item-wrap">
-                            <a href="#"><img class="recently-products-item-img" src="~/Content/Images/уу.jpeg" /></a>
+                        <a href="#"><img class="recently-products-item-img" src="~/Content/Images/уу.jpeg" /></a>
                         <div class="recently-products-item-text-wrap">
                             <p class="recently-products-item-title">Название товара</p>
                             <div class="recently-products-item-price-det-wrap">
