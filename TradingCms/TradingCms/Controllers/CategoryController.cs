@@ -4,6 +4,7 @@ using System.Web.Mvc;
 //using NHibernate.Exceptions;
 using TradingCms.Data;
 using TradingCms.Data.Access.Repositories;
+using TradingCms.Extensions.ConvertExtensions;
 
 namespace TradingCms.Controllers
 {
@@ -14,7 +15,7 @@ namespace TradingCms.Controllers
         // GET: Category
         public ActionResult Index()
         {
-            var categories = CategoryRepository.Items.ToList();
+            var categories = CategoryRepository.Items.ToList().Select(c => c.ToCategoryDto());
             return View(categories);
         }
 

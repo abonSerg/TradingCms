@@ -196,8 +196,10 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\APIs\FeedBackApiController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="DTOs\CategoryDTO.cs" />
     <Compile Include="DTOs\OrderCreatedDto.cs" />
     <Compile Include="DTOs\ProductDTO.cs" />
+    <Compile Include="Extensions\ConvertExtensions\CategoryExtensions.cs" />
     <Compile Include="Extensions\ConvertExtensions\OrderExtensions.cs" />
     <Compile Include="Extensions\ConvertExtensions\ProductExtensions.cs" />
     <Compile Include="Global.asax.cs">
