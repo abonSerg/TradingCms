@@ -22,7 +22,7 @@ namespace TradingCms
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
-                      "~/Content/fontawesome/font-awesome.min.css",
+                      "~/fonts/fontawesome/font-awesome.min.css",
                       "~/Content/jquery.fancybox.css",
                       "~/Content/jquery.anoslide.css",
                       "~/Content/fonts.css",
