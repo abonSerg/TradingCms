@@ -826,20 +826,32 @@ a:hover {
 
 .category-row {
     overflow: hidden;
-    padding:1%;
-    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.2);
+    padding-bottom:2%;
 }
 
 .sub-category-link {
-    float:left;
-    width:18%;
-    margin: 1%;
+    width:100%;
     text-align:center;
 }
 
 .sub-category-link > img {
     width:100%;
 }
+
+.sub-category-item-title {
+    font-size: 16px;
+    color: #3f3f3f;
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+.sub-category-item {
+    float: left;
+    width: 22%;
+    margin-right: 3%;
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.2);
+}
+    
     
 
 /* END OF SUBCATEGORIES.HTML */
