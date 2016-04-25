@@ -24,13 +24,15 @@ namespace TradingCms
                       "~/Content/bootstrap.min.css",
                       "~/fonts/fontawesome/font-awesome.min.css",
                       "~/Content/jquery.fancybox.css",
+                      "~/Content/Slick/slick.css",
                       "~/Content/jquery.anoslide.css",
                       "~/Content/fonts.css",
                       "~/Content/site.css",
                       "~/Content/media.css"));
 
-            bundles.Add(new StyleBundle("~/Scripts/js").Include(
+            bundles.Add(new ScriptBundle("~/Scripts/js").Include(
                       "~/Scripts/jquery.fancybox.pack.js",
+                      "~/Scripts/Slick/slick.min.js",
                       "~/Scripts/jquery.anoslide.js",
                       "~/Scripts/script.js"));
         }
