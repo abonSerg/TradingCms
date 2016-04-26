@@ -24,7 +24,6 @@
 
                     @{
                         <div class="right-content-wrap">
-
                             @{
                                 const int rowCount = 4;
                                 var categories = Model.ToList();
@@ -38,12 +37,14 @@
                                                 var j = categories.Count > i + rowCount ? i + rowCount : categories.Count;
                                                 for (; i < j; i++)
                                                 {
-                                                    <a href="@Url.Action("Subcategories", "Category", new { id = categories[i].Id })">
-                                                        <div class="sub-category-link ">
-                                                            <img src="@Url.Action("CategoryImage", "api/Images", new { id = categories[i].Id })" alt="">
-                                                            <p>@categories[i].Name</p>
-                                                        </div>
-                                                    </a>
+                                                    <div class="sub-category-item">
+                                                        <a href="@Url.Action("Subcategories", "Category", new { id = categories[i].Id })">
+                                                            <div class="sub-category-link ">
+                                                                <img src="@Url.Action("CategoryImage", "api/Images", new { id = categories[i].Id })" alt="">
+                                                                <p>@categories[i].Name</p>
+                                                            </div>
+                                                        </a>
+                                                    </div>
                                                 }
                                             }
                                         </div>

@@ -179,7 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\fonts\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -220,8 +219,8 @@
     <Content Include="Content\fancybox\fancybox_overlay.png" />
     <Content Include="Content\fancybox\fancybox_sprite%402x.png" />
     <Content Include="Content\fancybox\fancybox_sprite.png" />
-    <Content Include="Content\fontawesome\font-awesome.css" />
-    <Content Include="Content\fontawesome\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome\font-awesome.css" />
+    <Content Include="fonts\fontawesome\font-awesome.min.css" />
     <Content Include="Content\fonts.css" />
     <Content Include="Content\Images\cartitem1.jpg" />
     <Content Include="Content\Images\cartitem2.jpg" />
@@ -239,7 +238,7 @@
     <Content Include="Content\Images\next.png" />
     <Content Include="Content\Images\prev.png" />
     <Content Include="Content\jquery.anoslide.css" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Images\slide-4.jpg" />
     <Content Include="Content\Images\basket.png" />
     <Content Include="Content\Images\category-1.jpg" />
@@ -277,10 +276,10 @@
     <Content Include="fonts\RobotoRegular\RobotoRegular.eot" />
     <Content Include="fonts\RobotoRegular\RobotoRegular.ttf" />
     <Content Include="fonts\RobotoRegular\RobotoRegular.woff" />
-    <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fonts\FontAwesome.otf" />
+    <Content Include="fonts\fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
