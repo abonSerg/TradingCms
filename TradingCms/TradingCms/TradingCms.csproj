@@ -199,6 +199,7 @@
     <Compile Include="DTOs\CategoryDTO.cs" />
     <Compile Include="DTOs\OrderCreatedDto.cs" />
     <Compile Include="DTOs\ProductDTO.cs" />
+    <Compile Include="Extensions\ApiControllerExtensions.cs" />
     <Compile Include="Extensions\ConvertExtensions\CategoryExtensions.cs" />
     <Compile Include="Extensions\ConvertExtensions\OrderExtensions.cs" />
     <Compile Include="Extensions\ConvertExtensions\ProductExtensions.cs" />

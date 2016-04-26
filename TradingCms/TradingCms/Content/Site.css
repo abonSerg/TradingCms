@@ -359,46 +359,6 @@ a:hover {
  background-color: #DCDCDC;
 }
 
-.left-sidebar-category-1 {
-
-}
-
-.left-sidebar-category-2 {
-
-}
-
-.left-sidebar-category-3 {
-
-}
-
-.left-sidebar-category-4 {
-
-}
-
-.left-sidebar-category-5 {
-
-}
-
-.left-sidebar-category-6 {
-
-}
-
-.left-sidebar-category-7 {
-
-}
-
-.left-sidebar-category-8 {
-
-}
-
-.left-sidebar-category-9 {
-
-}
-
-.left-sidebar-category-10 {
-
-}
-
 .left-sidebar-nav-li-angle {
  float: right;
  font-size: 20px;
@@ -838,6 +798,7 @@ a:hover {
 }
 
 .sub-category-link > img {
+    height: 116px;
     width:100%;
 }
     
