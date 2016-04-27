@@ -160,7 +160,8 @@ namespace TradingCms.ImageLoader
         private static bool TrySaveImg(Image img, string productId, SqlConnection connection)
         {
             if (img.ImgBytes == null || string.IsNullOrEmpty(productId)) return false;
-            if (connection.State != ConnectionState.Open) connection.Open();
+            if (connection.State != ConnectionState.Open)
+                connection.Open();
 
             var cmd = new SqlCommand(InsertQuery, connection);
 

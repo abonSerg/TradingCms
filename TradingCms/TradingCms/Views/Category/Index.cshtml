@@ -13,12 +13,7 @@
                         <ul class="left-sidebar-nav">
                             @foreach (var item in Model.Where(item => item.TopId == 0))
                             {
-                                <li class="left-sidebar-nav-li">
-                                    <a href="@Url.Action("Subcategories", "Category", new { id = item.Id })" target="_self" title="">
-                                        @item.Name
-                                        <i class="fa fa-angle-right left-sidebar-nav-li-angle"></i>
-                                    </a>
-                                </li>
+                                <li class="left-sidebar-nav-li left-sidebar-category-@item.Id"><a href="" target="_self" title="">@item.Name<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
                             }
                         </ul>
                     </nav>

@@ -1,6 +1,4 @@
-﻿@model IEnumerable<TradingCms.DTOs.CategoryDTO>
-
-<!-- SUBCATEGORIES -->
+﻿<!-- SUBCATEGORIES -->
 <section class="fluid-container content-section">
     <div class="container">
         <div class="row">
@@ -8,54 +6,136 @@
                 <div class="main-wrap">
                     <!-- LEFT-SIDEBAR -->
                     <nav class="left-sidebar-wrap">
-                        <div class="left-sidebar-title">@ViewBag.TopCategoryName</div>
+                        <div class="left-sidebar-title">
+                            Категории
+                        </div>
                         <ul class="left-sidebar-nav">
-                            @foreach (var category in Model)
-                            {
-                                <li class="left-sidebar-nav-li">
-                                    <a href="@Url.Action("Subcategories", "Category", new { id = category.Id })" target="_self" title="">
-                                        @category.Name
-                                        <i class="fa fa-angle-right left-sidebar-nav-li-angle"></i>
-                                    </a>
-                                </li>
-                            }
+                            <li class="left-sidebar-nav-li left-sidebar-category-1"><a href="" target="_self" title="">Категория-1<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
+                            <li class="left-sidebar-nav-li left-sidebar-category-2"><a href="" target="_self" title="">Категория-2<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
+                            <li class="left-sidebar-nav-li left-sidebar-category-3"><a href="" target="_self" title="">Категория-3<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
+                            <li class="left-sidebar-nav-li left-sidebar-category-4"><a href="" target="_self" title="">Категория-4<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
+                            <li class="left-sidebar-nav-li left-sidebar-category-5"><a href="" target="_self" title="">Категория-5<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
+                            <li class="left-sidebar-nav-li left-sidebar-category-6"><a href="" target="_self" title="">Категория-6<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
+                            <li class="left-sidebar-nav-li left-sidebar-category-7"><a href="" target="_self" title="">Категория-7<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
+                            <li class="left-sidebar-nav-li left-sidebar-category-8"><a href="" target="_self" title="">Категория-8<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
+                            <li class="left-sidebar-nav-li left-sidebar-category-9"><a href="" target="_self" title="">Категория-9<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
+                            <li class="left-sidebar-nav-li left-sidebar-category-10"><a href="" target="_self" title="">Категория-10<i class="fa fa-angle-right left-sidebar-nav-li-angle"></i></a></li>
                         </ul>
                     </nav>
 
-                    @{
-                        <div class="right-content-wrap">
-                            @{
-                                const int rowCount = 4;
-                                var categories = Model.ToList();
 
-                                for (int i = 0; i < categories.Count; i++)
-                                {
-                                    if (i == 0 || i % rowCount == 0)
-                                    {
-                                        <div class="category-row">
-                                            @{
-                                                var j = categories.Count > i + rowCount ? i + rowCount : categories.Count;
-                                                for (; i < j; i++)
-                                                {
-                                                    <div class="sub-category-item">
-                                                        <a href="@Url.Action("Subcategories", "Category", new { id = categories[i].Id })">
-                                                            <div class="sub-category-link ">
-                                                                <img src="@Url.Action("CategoryImage", "api/Images", new { id = categories[i].Id })" alt="">
-                                                                <p>@categories[i].Name</p>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                }
-                                            }
-                                        </div>
-                                    }
-                                }
-                            }
+                    <div class="right-content-wrap">
+
+                        <div class="category-row">
+                            <div class="sub-category-item">
+                                <a href="#">
+                                    <div class="sub-category-link ">
+                                        <img src="@Url.Content("~/Content/Images/category-1.jpg")" alt="">
+                                        <p class="sub-category-item-title">Some text</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sub-category-item">
+                                <a href="#">
+                                    <div class="sub-category-link ">
+                                        <img src="@Url.Content("~/Content/Images/category-2.jpg")" alt="">
+                                        <p class="sub-category-item-title">Subcategory</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sub-category-item">
+                                <a href="#">
+                                    <div class="sub-category-link ">
+                                        <img src="@Url.Content("~/Content/Images/category-3.jpg")" alt="">
+                                        <p class="sub-category-item-title">Some text</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sub-category-item">
+                                <a href="#">
+                                    <div class="sub-category-link ">
+                                        <img src="@Url.Content("~/Content/Images/category-4.jpg")" alt="">
+                                        <p class="sub-category-item-title">Subcategory</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    }
+
+                        <div class="category-row">
+                            <div class="sub-category-item">
+                                <a href="#">
+                                    <div class="sub-category-link ">
+                                        <img src="@Url.Content("~/Content/Images/category-1.jpg")" alt="">
+                                        <p class="sub-category-item-title">Some text</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sub-category-item">
+                                <a href="#">
+                                    <div class="sub-category-link ">
+                                        <img src="@Url.Content("~/Content/Images/category-2.jpg")" alt="">
+                                        <p class="sub-category-item-title">Subcategory</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sub-category-item">
+                                <a href="#">
+                                    <div class="sub-category-link ">
+                                        <img src="@Url.Content("~/Content/Images/category-3.jpg")" alt="">
+                                        <p class="sub-category-item-title">Some text</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sub-category-item">
+                                <a href="#">
+                                    <div class="sub-category-link ">
+                                        <img src="@Url.Content("~/Content/Images/category-4.jpg")" alt="">
+                                        <p class="sub-category-item-title">Subcategory</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="category-row">
+                            <div class="sub-category-item">
+                                <a href="#">
+                                    <div class="sub-category-link ">
+                                        <img src="@Url.Content("~/Content/Images/category-1.jpg")" alt="">
+                                        <p class="sub-category-item-title">Some text</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sub-category-item">
+                                <a href="#">
+                                    <div class="sub-category-link ">
+                                        <img src="@Url.Content("~/Content/Images/category-2.jpg")" alt="">
+                                        <p class="sub-category-item-title">Subcategory</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sub-category-item">
+                                <a href="#">
+                                    <div class="sub-category-link ">
+                                        <img src="@Url.Content("~/Content/Images/category-3.jpg")" alt="">
+                                        <p class="sub-category-item-title">Some text</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sub-category-item">
+                                <a href="#">
+                                    <div class="sub-category-link ">
+                                        <img src="@Url.Content("~/Content/Images/category-4.jpg")" alt="">
+                                        <p class="sub-category-item-title">Subcategory</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!-- END OF SUBCATEGORIES -->
+

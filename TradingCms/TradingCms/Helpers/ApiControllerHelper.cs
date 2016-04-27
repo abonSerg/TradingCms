@@ -3,13 +3,12 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Web.Http;
 
-namespace TradingCms.Extensions
+namespace TradingCms.Helpers
 {
-    public static class ApiControllerExtensions
+    public static class ApiControllerHelper
     {
-        public static HttpResponseMessage GetImageResponseMessage(this ApiController controller, string imgMimeType, byte[] img)
+        public static HttpResponseMessage GetImageResponseMessage(string imgMimeType, byte[] img)
         {
             // Check if correct mime type
             MediaTypeHeaderValue mimeTypeHeader;

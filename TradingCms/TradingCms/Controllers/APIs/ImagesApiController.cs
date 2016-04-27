@@ -5,7 +5,7 @@ using System.Web.Http;
 using TradingCms.Data;
 using TradingCms.Data.Access.Repositories;
 using TradingCms.Data.Access.RepositoryExtensions;
-using TradingCms.Extensions;
+using TradingCms.Helpers;
 
 namespace TradingCms.Controllers.APIs
 {
@@ -23,7 +23,7 @@ namespace TradingCms.Controllers.APIs
             if (productImage == null || productImage.Img == null)
                 return new HttpResponseMessage(HttpStatusCode.NotFound);
 
-            return this.GetImageResponseMessage(productImage.ImgMimeType, productImage.Img);
+            return ApiControllerHelper.GetImageResponseMessage(productImage.ImgMimeType, productImage.Img);
         }
 
         [Route("CategoryImage/{id}")]
@@ -34,7 +34,7 @@ namespace TradingCms.Controllers.APIs
             if (category == null || category.Img == null)
                 return new HttpResponseMessage(HttpStatusCode.NotFound);
 
-            return this.GetImageResponseMessage(category.ImgMimeType, category.Img);
+            return ApiControllerHelper.GetImageResponseMessage(category.ImgMimeType, category.Img);
         }
     }
 }

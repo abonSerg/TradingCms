@@ -88,7 +88,8 @@ namespace TradingCms.ImageLoader
         private static bool TrySaveImg(Image img, int categoryId, SqlConnection connection)
         {
             if (img.ImgBytes == null || categoryId < 1) return false;
-            if (connection.State != ConnectionState.Open) connection.Open();
+            if (connection.State != ConnectionState.Open)
+                connection.Open();
 
             var cmd = new SqlCommand(UpdateQuery + categoryId, connection);
 
@@ -96,8 +97,8 @@ namespace TradingCms.ImageLoader
             cmd.Parameters.Add(new SqlParameter("imgMimeType", img.ImgMimeType));
 
             var rowsAffected = cmd.ExecuteNonQuery();
-            var res = rowsAffected > 0;
-            return res;
+
+            return rowsAffected > 0;
         }
 
         private void GetCategories()
@@ -107,11 +108,12 @@ namespace TradingCms.ImageLoader
                 connection.Open();
 
                 var cmd = new SqlCommand(SelectQuery, connection);
-                var reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                using (var reader = cmd.ExecuteReader())
                 {
-                    _categories.Add((int)reader[0], reader[1].ToString());
+                    while (reader.Read())
+                    {
+                        _categories.Add((int) reader[0], reader[1].ToString());
+                    }
                 }
             }
         }

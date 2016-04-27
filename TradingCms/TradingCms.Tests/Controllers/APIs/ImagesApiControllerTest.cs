@@ -94,8 +94,8 @@ namespace TradingCms.Tests.Controllers.APIs
 
             // Assert
             Assert.IsTrue(imageResponse.IsSuccessStatusCode);
-            Assert.IsTrue(Equals(imageResponse.Content.Headers.ContentType,
-                System.Net.Http.Headers.MediaTypeHeaderValue.Parse("image/jpeg")));
+            Assert.AreEqual(System.Net.Http.Headers.MediaTypeHeaderValue.Parse("image/jpeg"),
+                imageResponse.Content.Headers.ContentType);
         }
 
         [TestMethod]
@@ -136,8 +136,8 @@ namespace TradingCms.Tests.Controllers.APIs
 
             // Assert
             Assert.IsTrue(imageResponse.IsSuccessStatusCode);
-            Assert.IsTrue(Equals(imageResponse.Content.Headers.ContentType,
-                System.Net.Http.Headers.MediaTypeHeaderValue.Parse("image/jpeg")));
+            Assert.AreEqual(System.Net.Http.Headers.MediaTypeHeaderValue.Parse("image/jpeg"),
+                imageResponse.Content.Headers.ContentType);
         }
 
         [TestMethod]
