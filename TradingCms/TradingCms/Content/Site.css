@@ -72,6 +72,7 @@ a:hover {
     position: absolute;
     width: 0;
     height: 0;
+    left: 35%;
     left: -webkit-calc(50% - 12px);
     left: -moz-calc(50% - 12px);
     left: calc(50% - 12px);
@@ -108,6 +109,7 @@ a:hover {
 	text-decoration:none;
 	border: solid 1px  #7cab54;
 	border-radius: 5px; 
+    background: -webkit-linear-gradient(0deg,#92C454 0%,#A3D664 100%);
 	background: linear-gradient(0deg, #92c454 0%,#a3d664 100%);
 } 
 
@@ -178,7 +180,8 @@ a:hover {
 	padding: 6px 12px;
 	margin-right: 2%; 
 	font-size: 14px;
-	line-height: 1.42857143;
+    -webkit-appearance: menulist-button;
+	line-height: 34px;
 	background-color: #fff;
 	border: 1px solid #ccc;
 	border-radius: 0px 4px 4px 0px; 
@@ -345,8 +348,8 @@ a:hover {
 }
 
 .left-sidebar-nav-li > a {
- padding: 4% 20%;
  display: block;
+ padding: 4% 5% 4% 20%;
  text-decoration: none;
  font-size: 16px;
  color: #0af;
@@ -405,8 +408,9 @@ a:hover {
 }
 
     /* RIGHT-CONTENT */
-.right-content-wrap{
+.right-content-wrap {
     float: right; 
+    width: 70%;
     width: calc(97.5% - 330px);
 }
     /* OVER-SLIDER-BUTTONS */
@@ -421,7 +425,6 @@ a:hover {
 	background: #fff;
 	width: 49%;
 	height: 44px;
-    height: 44px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
@@ -446,6 +449,7 @@ a:hover {
 .right-content-slider-prev,
 .right-content-slider-next {
     position: absolute;
+    top: 35%;
     top: calc((100% - 30%)/2);
     border: 0;
     height: 30%;
