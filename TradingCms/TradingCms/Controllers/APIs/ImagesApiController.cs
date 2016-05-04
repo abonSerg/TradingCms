@@ -1,12 +1,11 @@
-﻿using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Web.Http;
 using TradingCms.Data;
 using TradingCms.Data.Access.Repositories;
 using TradingCms.Data.Access.RepositoryExtensions;
+using TradingCms.Helpers;
 
 namespace TradingCms.Controllers.APIs
 {
@@ -14,6 +13,7 @@ namespace TradingCms.Controllers.APIs
     public class ImagesApiController : ApiController
     {
         public IRepository<ProductImages> ProductImagesRepository { get; set; }
+        public IRepository<Category> CategoryRepository { get; set; }
 
         [Route("ProductImage/{productId}")]
         public HttpResponseMessage GetProductImage(int productId)
@@ -21,29 +21,20 @@ namespace TradingCms.Controllers.APIs
             // Check if exist
             var productImage = ProductImagesRepository.GetByProductId(productId).FirstOrDefault();
             if (productImage == null || productImage.Img == null)
-            {
                 return new HttpResponseMessage(HttpStatusCode.NotFound);
-            }
 
-            // Check if correct mime type
-            MediaTypeHeaderValue mimeTypeHeader;
-            try
-            {
-                mimeTypeHeader = new MediaTypeHeaderValue(productImage.ImgMimeType);
-            }
-            catch (System.FormatException)
-            {
-                return new HttpResponseMessage(HttpStatusCode.InternalServerError);
-            }
+            return ApiControllerHelper.GetImageResponseMessage(productImage.ImgMimeType, productImage.Img);
+        }
 
-            // Create response
-            var result = new HttpResponseMessage(HttpStatusCode.OK)
-            {
-                Content = new StreamContent(new MemoryStream(productImage.Img))
-            };
+        [Route("CategoryImage/{id}")]
+        public HttpResponseMessage GetCategoryImage(int id)
+        {
+            // Check if exist
+            var category = CategoryRepository.Find(id);
+            if (category == null || category.Img == null)
+                return new HttpResponseMessage(HttpStatusCode.NotFound);
 
-            result.Content.Headers.ContentType = mimeTypeHeader;
-            return result;
+            return ApiControllerHelper.GetImageResponseMessage(category.ImgMimeType, category.Img);
         }
     }
 }

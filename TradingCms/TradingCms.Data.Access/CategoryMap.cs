@@ -8,6 +8,8 @@ namespace TradingCms.Data.Access
         {
             Id(x => x.Id);
             Map(x => x.TopId).Nullable();
+            Map(x => x.Img).Nullable();
+            Map(x => x.ImgMimeType).Nullable();
             HasMany(x => x.CategoryTranslations).Inverse();
 
             Table("Categories");

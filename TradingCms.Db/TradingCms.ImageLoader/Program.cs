@@ -6,10 +6,16 @@ namespace TradingCms.ImageLoader
     {
         static void Main(string[] args)
         {
-            string conectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=TradingCms;Integrated Security=True";
+            const string conectionString = @"Data Source=.;Initial Catalog=TradingCms;Integrated Security=True";
 
-            Loader imgLoader = new Loader(conectionString);
+            var imgLoader = new Loader(conectionString);
+            var categoryImgLoader = new CategoryImageLoader(conectionString);
+
+            Console.WriteLine("=== Product images loading ===");
             imgLoader.Perform();
+
+            Console.WriteLine("=== Category images loading ===");
+            categoryImgLoader.Perform();
 
             Console.ReadKey();
         }

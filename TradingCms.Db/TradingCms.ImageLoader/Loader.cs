@@ -7,18 +7,6 @@ using System.Linq;
 
 namespace TradingCms.ImageLoader
 {
-    public struct Image
-    {
-        public byte[] ImgBytes { get; set; }
-        public string ImgMimeType { get; set; }
-
-        public Image(byte[] imgBytes, string imgMimeType) : this()
-        {
-            ImgBytes = imgBytes;
-            ImgMimeType = imgMimeType;
-        }
-    }
-
     public class Loader
     {
         private readonly Dictionary<string, string[]> _imagePathes;
@@ -172,7 +160,8 @@ namespace TradingCms.ImageLoader
         private static bool TrySaveImg(Image img, string productId, SqlConnection connection)
         {
             if (img.ImgBytes == null || string.IsNullOrEmpty(productId)) return false;
-            if (connection.State != ConnectionState.Open) connection.Open();
+            if (connection.State != ConnectionState.Open)
+                connection.Open();
 
             var cmd = new SqlCommand(InsertQuery, connection);
 

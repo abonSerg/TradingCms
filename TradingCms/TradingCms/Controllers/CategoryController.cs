@@ -4,6 +4,7 @@ using System.Web.Mvc;
 //using NHibernate.Exceptions;
 using TradingCms.Data;
 using TradingCms.Data.Access.Repositories;
+using TradingCms.Data.Access.RepositoryExtensions;
 using TradingCms.Extensions.ConvertExtensions;
 
 namespace TradingCms.Controllers
@@ -46,9 +47,22 @@ namespace TradingCms.Controllers
             return View();
         }
 
-        public ActionResult Subcategories()
+        public ActionResult Subcategories(int id)
         {
-            return View();
+            var topCategory = CategoryRepository.Find(id);
+            if (topCategory == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var topCategoryDto = topCategory.ToCategoryDto();
+            if (topCategoryDto != null)
+            {
+                ViewBag.TopCategoryName = topCategoryDto.Name;
+            }
+
+            var subcategories = CategoryRepository.GetSubcategories(id).ToList()
+                .Select(category => category.ToCategoryDto());
+
+            return View(subcategories);
         }
 
         // GET: Category/Create

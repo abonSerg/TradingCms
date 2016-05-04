@@ -72,6 +72,7 @@
     <Compile Include="OrderMap.cs" />
     <Compile Include="OrdersToProductsMap.cs" />
     <Compile Include="ProductImagesMap.cs" />
+    <Compile Include="RepositoryExtensions\CategoryRepositoryExtension.cs" />
     <Compile Include="RepositoryExtensions\FeedBackRepositoryExtension.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Helpers\NHibernateHelper.cs" />

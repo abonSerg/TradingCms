@@ -6,6 +6,9 @@ namespace TradingCms.Data
     {
         public virtual int Id { get; set; }
         public virtual int TopId { get; set; }
+        public virtual byte[] Img { get; set; }
+        public virtual string ImgMimeType { get; set; }
+
         private IList<CategoryTranslation> _categoryTranslations;
         public virtual IList<CategoryTranslation> CategoryTranslations
         {
