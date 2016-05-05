@@ -116,5 +116,25 @@ $(document).ready(function() {
 	    $input.change();
 	    return false;
 	});
+
+    //Slider for product page - item
+	$('.product-main-image').slick({
+	    slidesToShow: 1,
+	    slidesToScroll: 1,
+	    arrows: false,
+	    fade: true,
+	    asNavFor: '.product-additional-images'
+	});
+
+	$('.product-additional-images').slick({
+	    slidesToShow: 3,
+	    slidesToScroll: 1,
+	    asNavFor: '.product-main-image',
+	    //dots: true,
+	    centerMode: true,
+	    focusOnSelect: true,
+	    prevArrow: '<button type="button" class="product-slider-prev"><i class="fa fa-angle-left"></i></button>',
+	    nextArrow: '<button type="button" class="product-slider-next"><i class="fa fa-angle-right"></i></button>'
+	});
 	
 });
