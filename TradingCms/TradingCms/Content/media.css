@@ -19,6 +19,20 @@
     .right-content-wrap {
         width: 100%;
         clear: both;
+        margin-top: 20px;
+    }
+
+    .bottom-header-search-field {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .bottom-header-search-category {
+        width: 68%;
+    }
+
+    .bottom-header-search-btn {
+        width: 30%;
     }
 }
 
