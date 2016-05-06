@@ -222,7 +222,19 @@
     <Content Include="Content\fancybox\fancybox_overlay.png" />
     <Content Include="Content\fancybox\fancybox_sprite%402x.png" />
     <Content Include="Content\fancybox\fancybox_sprite.png" />
-    <Content Include="Content\owl.carousel.css" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\product-item-slide-1.jpg" />
+    <Content Include="Content\Images\product-item-slide-2.jpg" />
+    <Content Include="Content\Images\product-item-slide-3.jpg" />
+    <Content Include="Content\Images\product-item-slide-4.jpg" />
+    <Content Include="Content\Images\social-buts-sprite.png" />
+    <Content Include="Content\Images\top-footer-img.svg" />
+    <Content Include="Content\Images\top-slide-1.jpeg" />
+    <Content Include="Content\Images\top-slide-2.jpeg" />
+    <Content Include="Content\Images\top-slide-3.jpeg" />
+    <Content Include="Content\Images\top-slide-4.jpeg" />
+    <Content Include="Content\Images\top-slide-5.jpeg" />
+    <Content Include="Content\Images\top-slide-6.jpeg" />
     <Content Include="Content\Slick\ajax-loader.gif" />
     <Content Include="Content\Slick\fonts\slick.svg" />
     <Content Include="Content\Slick\slick-theme.css" />
@@ -241,11 +253,7 @@
     <Content Include="Content\Images\slide-2.jpg" />
     <Content Include="Content\Images\slide-3.jpg" />
     <Content Include="Content\Images\slide-5.jpg" />
-    <Content Include="Content\Images\dots.png" />
     <Content Include="Content\Images\loader.gif" />
-    <Content Include="Content\Images\next.png" />
-    <Content Include="Content\Images\prev.png" />
-    <Content Include="Content\jquery.anoslide.css" />
     <Content Include="fonts\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Images\slide-4.jpg" />
     <Content Include="Content\Images\basket.png" />
@@ -253,9 +261,6 @@
     <Content Include="Content\Images\category-2.jpg" />
     <Content Include="Content\Images\category-3.jpg" />
     <Content Include="Content\Images\category-4.jpg" />
-    <Content Include="Content\Images\item1.jpg" />
-    <Content Include="Content\Images\item2.jpg" />
-    <Content Include="Content\Images\item3.jpg" />
     <Content Include="Content\Images\left-sidebar-before.png" />
     <Content Include="Content\Images\sign-img.svg" />
     <Content Include="Content\Images\title-bg.gif" />
@@ -335,6 +340,7 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Product\Product.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TradingCms.Data.Access\TradingCms.Data.Access.csproj">

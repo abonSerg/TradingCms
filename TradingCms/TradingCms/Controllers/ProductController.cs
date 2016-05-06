@@ -36,6 +36,11 @@ namespace TradingCms.Controllers
             return View(product);
         }
 
+        public ActionResult Product()
+        {
+            return View();
+        }
+
         // GET: Product/Create
         //public ActionResult Create()
         //{
