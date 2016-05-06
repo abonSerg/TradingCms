@@ -210,6 +210,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\App\app.js" />
+    <Content Include="Scripts\App\Controllers\ProductController.js" />
+    <Content Include="Scripts\App\Models\Product.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fancybox\blank.gif" />
@@ -262,6 +265,9 @@
     <Content Include="Content\media.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\RobotoBold\RobotoBold.eot" />
@@ -285,6 +291,7 @@
     <Content Include="Content\Slick\fonts\slick.woff" />
     <Content Include="Content\Slick\fonts\slick.ttf" />
     <Content Include="Content\Slick\fonts\slick.eot" />
+    <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

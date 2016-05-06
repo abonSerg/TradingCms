@@ -49,90 +49,34 @@
     </div>
 </section>
 <!-- END OF INDEX.HTML -> MAIN -->
+
 <!-- INDEX.HTML -> TOP-RECENTLY-PRODUCTS -->
-<section class="fluid-container top-products-wrap">
+<section class="fluid-container top-products-wrap" ng-app="productsApp">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 ">
+                
                 <!-- TOP-PRODUCTS -->
                 <div class="top-products-row">
                     <!-- TOP-PRODUCTS -> TITLE -->
                     <div class="top-products-title-wrap">
-                        <h3 class="top-products-title">
-                            Заголовок
-                        </h3>
+                        <h3 class="top-products-title">Заголовок</h3>
                     </div>
                     <!-- TOP-PRODUCTS -> ITEMS -->
-                    <div class="top-products-slider-wrap">
-                        <div class="top-products-item-wrap">
-                            <a href="#"><img class="top-products-item-img" src="~/Content/Images/top-slide-1.jpeg" /></a>
+                    <div class="top-products-slider-wrap" ng-controller="productsCtrl" ng-init="getTopProducts()">
+                        <div class="top-products-item-wrap" ng-repeat="p in topProducts">
+                            <a href="#"><img class="top-products-item-img" src="@Url.Action("ProductImage", "api/Images")/{{p.Id}}" /></a>
                             <div class="top-products-item-text-wrap">
-                                <p class="top-products-item-title">Название товара</p>
+                                <p class="top-products-item-title">{{p.Name}}</p>
                                 <div class="top-products-item-price-det-wrap">
-                                    <p class="top-products-item-price">80$</p>
-                                    <a class="top-products-item-det-link" href="#">Подробнее</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="top-products-item-wrap">
-                            <a href="#"><img class="top-products-item-img" src="~/Content/Images/top-slide-2.jpeg" /></a>
-                            <div class="top-products-item-text-wrap">
-                                <p class="top-products-item-title">Название товара</p>
-                                <div class="top-products-item-price-det-wrap">
-                                    <p class="top-products-item-price">80$</p>
-                                    <a class="top-products-item-det-link" href="#">Подробнее</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="top-products-item-wrap">
-                            <a href="#"><img class="top-products-item-img" src="~/Content/Images/top-slide-3.jpeg" /></a>
-                            <div class="top-products-item-text-wrap">
-                                <p class="top-products-item-title">Название товара</p>
-                                <div class="top-products-item-price-det-wrap">
-                                    <p class="top-products-item-price">80$</p>
-                                    <a class="top-products-item-det-link" href="#">Подробнее</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="top-products-item-wrap">
-                            <a href="#"><img class="top-products-item-img" src="~/Content/Images/top-slide-4.jpeg" /></a>
-                            <div class="top-products-item-text-wrap">
-                                <p class="top-products-item-title">Название товара</p>
-                                <div class="top-products-item-price-det-wrap">
-                                    <p class="top-products-item-price">80$</p>
-                                    <a class="top-products-item-det-link" href="#">Подробнее</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="top-products-item-wrap">
-                            <a href="#"><img class="top-products-item-img" src="~/Content/Images/top-slide-5.jpeg" /></a>
-                            <div class="top-products-item-text-wrap">
-                                <p class="top-products-item-title">Название товара</p>
-                                <div class="top-products-item-price-det-wrap">
-                                    <p class="top-products-item-price">80$</p>
-                                    <a class="top-products-item-det-link" href="#">Подробнее</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="top-products-item-wrap">
-                            <a href="#"><img class="top-products-item-img" src="~/Content/Images/top-slide-6.jpeg" /></a>
-                            <div class="top-products-item-text-wrap">
-                                <p class="top-products-item-title">Название товара</p>
-                                <div class="top-products-item-price-det-wrap">
-                                    <p class="top-products-item-price">80$</p>
+                                    <p class="top-products-item-price">{{p.Price}}грн</p>
                                     <a class="top-products-item-det-link" href="#">Подробнее</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
+                
                 <!-- RECENTLY-PRODUCTS -->
                 <div class="recently-products-row">
                     <!-- RECENTLY-PRODUCTS -> TITLE -->
@@ -216,3 +160,6 @@
     </div>
 </section>
 <!-- END OF INDEX.HTML -> TOP-RECENTLY-PRODUCTS -->
+@section scripts {
+    @Scripts.Render("~/Scripts/angular")
+}
