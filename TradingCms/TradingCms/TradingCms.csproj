@@ -211,7 +211,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\App\Controllers\ProductController.js" />
-    <Content Include="Scripts\App\Models\Product.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fancybox\blank.gif" />
@@ -272,6 +271,9 @@
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\App\Directives\TopProductsSliderDirective.js" />
+    <Content Include="Scripts\App\Services\ProductService.js" />
+    <Content Include="Scripts\App\Services\SliderConfigService.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\RobotoBold\RobotoBold.eot" />

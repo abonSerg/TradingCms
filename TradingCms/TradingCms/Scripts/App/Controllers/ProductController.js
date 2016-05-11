@@ -1,10 +1,15 @@
-﻿angular.module('productsApp', [])
-    .controller('productsCtrl', function ($scope, $http) {
-        $scope.getTopProducts = function() {
-            $http.get("/api/Product/GetTopProducts/10").success(function (data) {
+﻿(function () {
+    'use strict';
+    angular.module('productsApp', [])
+        .controller('productsCtrl', ['$scope', '$http', 'productsService', productsCtrl]);
+
+    function productsCtrl($scope, $http, productsService) {
+        $scope.getTopProducts = function () {
+            productsService.getTopProducts().success(function (data) {
                 $scope.topProducts = data;
-            }).error(function () {
+            }).error(function() {
                 alert("Oops... something went wrong");
             });
         }
-    });
+    }
+})();

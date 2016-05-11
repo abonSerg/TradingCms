@@ -63,14 +63,16 @@
                         <h3 class="top-products-title">Заголовок</h3>
                     </div>
                     <!-- TOP-PRODUCTS -> ITEMS -->
-                    <div class="top-products-slider-wrap" ng-controller="productsCtrl" ng-init="getTopProducts()">
-                        <div class="top-products-item-wrap" ng-repeat="p in topProducts">
-                            <a href="#"><img class="top-products-item-img" src="@Url.Action("ProductImage", "api/Images")/{{p.Id}}" /></a>
-                            <div class="top-products-item-text-wrap">
-                                <p class="top-products-item-title">{{p.Name}}</p>
-                                <div class="top-products-item-price-det-wrap">
-                                    <p class="top-products-item-price">{{p.Price}}грн</p>
-                                    <a class="top-products-item-det-link" href="#">Подробнее</a>
+                    <div ng-controller ="productsCtrl" ng-init="getTopProducts()">
+                        <div class="top-products-slider-wrap" slick-slider data="topProducts">
+                            <div class="top-products-item-wrap" ng-repeat="p in topProducts">
+                                <a href="#"><img class="top-products-item-img" ng-src="@Url.Action("ProductImage", "api/Images")/{{p.Id}}" /></a>
+                                <div class="top-products-item-text-wrap">
+                                    <p class="top-products-item-title">{{p.Name}}</p>
+                                    <div class="top-products-item-price-det-wrap">
+                                        <p class="top-products-item-price">{{p.Price}}грн</p>
+                                        <a class="top-products-item-det-link" href="#">Подробнее</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
