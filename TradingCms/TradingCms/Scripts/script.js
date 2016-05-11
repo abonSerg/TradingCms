@@ -16,8 +16,8 @@ $(document).ready(function() {
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
-        prevArrow: '<button type="button" class="right-content-slider-prev"><i class="fa fa-angle-left"></i></button>',
-        nextArrow: '<button type="button" class="right-content-slider-next"><i class="fa fa-angle-right"></i></button>',
+        prevArrow: '<button type="button" class="recently-products-slider-prev"><i class="fa fa-angle-left"></i></button>',
+        nextArrow: '<button type="button" class="recently-products-slider-next"><i class="fa fa-angle-right"></i></button>',
         responsive: [
           {
               breakpoint: 1024,
