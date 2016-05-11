@@ -35,6 +35,10 @@ namespace TradingCms
                       "~/Scripts/Slick/slick.min.js",
                       "~/Scripts/jquery.anoslide.js",
                       "~/Scripts/script.js"));
+
+            bundles.Add(new ScriptBundle("~/Scripts/angular").Include(
+                      "~/Scripts/angular.min.js")
+                      .IncludeDirectory("~/Scripts/App", "*.js", true));
         }
     }
 }
